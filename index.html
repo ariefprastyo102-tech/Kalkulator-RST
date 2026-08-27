@@ -16,8 +16,8 @@
 }
 
 body{
-    background:#f1f7f2;
-    color:#17251b;
+    background:#f5f7f2;
+    color:#172033;
     padding:12px;
 }
 
@@ -32,20 +32,12 @@ body{
 ===================================================== */
 
 .header{
-    background:linear-gradient(
-        135deg,
-        #14532d,
-        #166534,
-        #15803d
-    );
-
+    background:linear-gradient(135deg,#1f6b45,#2f8f5b,#7cae3d);
     color:white;
     padding:18px 22px;
     border-radius:18px;
     margin-bottom:12px;
-
-    box-shadow:
-        0 8px 25px rgba(21,101,52,.22);
+    box-shadow:0 8px 25px rgba(31,107,69,.20);
 
     display:flex;
     align-items:center;
@@ -64,11 +56,12 @@ body{
 .header h1{
     font-size:27px;
     margin-bottom:4px;
+    font-weight:900;
 }
 
 .header p{
     font-size:13px;
-    opacity:.9;
+    opacity:.95;
 }
 
 
@@ -84,32 +77,19 @@ body{
 }
 
 .mode-btn{
-    border:1px solid #cbd5ce;
+    border:1px solid #d5dfd8;
     background:white;
-    color:#52705b;
+    color:#557060;
     padding:11px;
     border-radius:10px;
     font-weight:bold;
     cursor:pointer;
-    transition:.2s;
-}
-
-.mode-btn:hover{
-    background:#f0fdf4;
 }
 
 .mode-btn.active{
-    background:linear-gradient(
-        135deg,
-        #166534,
-        #15803d
-    );
-
+    background:linear-gradient(135deg,#1f6b45,#2f8f5b);
     color:white;
-    border-color:#166534;
-
-    box-shadow:
-        0 4px 12px rgba(22,101,52,.20);
+    border-color:#1f6b45;
 }
 
 
@@ -122,18 +102,14 @@ body{
     border-radius:16px;
     padding:16px;
     margin-bottom:12px;
-
-    box-shadow:
-        0 4px 18px rgba(22,101,52,.06);
-
-    border:1px solid #e2ebe4;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
 }
 
 .card-title{
     font-size:16px;
     font-weight:bold;
     margin-bottom:12px;
-    color:#14532d;
+    color:#1f5138;
 }
 
 
@@ -151,28 +127,24 @@ body{
     display:block;
     font-size:11px;
     font-weight:bold;
-    color:#52705b;
+    color:#64756b;
     margin-bottom:5px;
 }
 
-.field input{
+.field input,
+.field select{
     width:100%;
     padding:11px;
-
-    border:1px solid #d5dfd7;
+    border:1px solid #d6ded9;
     border-radius:9px;
-
     font-size:15px;
     outline:none;
-
-    background:#fcfffc;
+    background:white;
 }
 
-.field input:focus{
-    border-color:#15803d;
-
-    box-shadow:
-        0 0 0 2px rgba(21,128,61,.10);
+.field input:focus,
+.field select:focus{
+    border-color:#2f8f5b;
 }
 
 
@@ -191,99 +163,83 @@ table{
 }
 
 th{
-    background:#ecfdf3;
-    color:#315c3e;
-
+    background:#edf5ef;
+    color:#496254;
     font-size:10px;
     padding:8px 4px;
-
-    border-bottom:1px solid #cfe3d3;
-
+    border-bottom:1px solid #dce7df;
     white-space:nowrap;
 }
 
 td{
     padding:4px 2px;
-    border-bottom:1px solid #edf2ee;
+    border-bottom:1px solid #edf1ee;
     text-align:center;
 }
 
-td input{
+td input,
+td select{
     width:100%;
     padding:8px 3px;
-
-    border:1px solid #d5dfd7;
+    border:1px solid #d9e1dc;
     border-radius:7px;
-
     text-align:center;
     font-size:13px;
     outline:none;
-
-    background:#ffffff;
+    background:white;
 }
 
-td input:focus{
-    border-color:#15803d;
-
-    box-shadow:
-        0 0 0 2px rgba(21,128,61,.08);
+td input:focus,
+td select:focus{
+    border-color:#2f8f5b;
 }
 
 
 /* =====================================================
-   NAMA PRODUK
+   NAMA
 ===================================================== */
 
 .nama{
     font-weight:900;
     font-size:13px;
-
-    min-width:110px;
-
+    min-width:105px;
     text-align:left;
     padding-left:5px;
 
     background:linear-gradient(
         90deg,
-        #15803d,
-        #ca8a04,
-        #16a34a,
-        #92400e
+        #1f6b45,
+        #7cae3d
     );
 
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-
-    background-size:200% auto;
-
-    animation:
-        warnaNama 4s linear infinite;
-
-    letter-spacing:.25px;
-}
-
-@keyframes warnaNama{
-
-    0%{
-        background-position:0% center;
-    }
-
-    100%{
-        background-position:200% center;
-    }
-
 }
 
 .nama.belum{
     color:#94a3a0;
-
     background:none;
-
     -webkit-text-fill-color:#94a3a0;
-
     font-weight:normal;
+}
 
-    animation:none;
+
+/* =====================================================
+   MUTU
+===================================================== */
+
+.mutu{
+    width:55px;
+    min-width:55px;
+    font-weight:900;
+    color:#1f6b45;
+}
+
+.mutu.tetap{
+    font-weight:900;
+    color:#7a5a00;
+    background:#fff8dc;
+    border-color:#eadb9a;
 }
 
 
@@ -293,7 +249,7 @@ td input:focus{
 
 .isi-bendel{
     font-weight:bold;
-    color:#15803d;
+    color:#2f8f5b;
     font-size:13px;
 }
 
@@ -319,7 +275,6 @@ td input:focus{
     font-weight:bold;
     font-size:12px;
     white-space:nowrap;
-    color:#14532d;
 }
 
 
@@ -330,19 +285,10 @@ td input:focus{
 .delete{
     background:#fee2e2;
     color:#dc2626;
-
     border:none;
     border-radius:7px;
-
     padding:7px 8px;
-
     cursor:pointer;
-
-    font-weight:bold;
-}
-
-.delete:hover{
-    background:#fecaca;
 }
 
 
@@ -353,36 +299,23 @@ td input:focus{
 .add-button{
     background:linear-gradient(
         135deg,
-        #166534,
-        #15803d
+        #1f6b45,
+        #2f8f5b,
+        #7cae3d
     );
 
     color:white;
-
     border:none;
-
     padding:12px;
-
     border-radius:9px;
-
     font-weight:bold;
-
     cursor:pointer;
-
     width:100%;
-
     font-size:14px;
-
-    box-shadow:
-        0 4px 10px rgba(21,128,61,.15);
 }
 
 .add-button:hover{
-    background:linear-gradient(
-        135deg,
-        #14532d,
-        #166534
-    );
+    opacity:.9;
 }
 
 
@@ -397,41 +330,31 @@ td input:focus{
 }
 
 .result{
-    background:#f6faf7;
-
+    background:#f4f8f5;
     border-radius:12px;
-
     padding:16px 7px;
-
     text-align:center;
-
-    border:1px solid #e0ebe2;
 }
 
 .result-title{
-    color:#52705b;
-
+    color:#64756b;
     font-size:9px;
-
     font-weight:bold;
-
     margin-bottom:7px;
 }
 
 .result-value{
     font-size:19px;
     font-weight:900;
-    color:#14532d;
 }
 
 .final{
-    background:#ecfdf3;
-
-    border:1px solid #bbdfc5;
+    background:#eef7ef;
+    border:1px solid #c9dfce;
 }
 
 .final .result-value{
-    color:#15803d;
+    color:#1f6b45;
 }
 
 
@@ -500,7 +423,8 @@ td input:focus{
         font-size:8px;
     }
 
-    .field input{
+    .field input,
+    .field select{
         padding:9px 6px;
         font-size:13px;
     }
@@ -514,7 +438,8 @@ td input:focus{
         padding:3px 1px;
     }
 
-    td input{
+    td input,
+    td select{
         padding:7px 2px;
         font-size:10px;
     }
@@ -523,6 +448,11 @@ td input:focus{
         min-width:90px;
         font-size:11px;
         font-weight:900;
+    }
+
+    .mutu{
+        min-width:48px;
+        width:48px;
     }
 
     .isi-bendel{
@@ -730,21 +660,13 @@ td input:focus{
                 <tr>
 
                     <th>Nama</th>
-
+                    <th>Mutu</th>
                     <th>Tebal</th>
-
                     <th>Lebar</th>
-
                     <th>Panjang</th>
-
                     <th>Bendel</th>
-
-                    <th>
-                        Isi/<br>Bendel
-                    </th>
-
+                    <th>Isi/<br>Bendel</th>
                     <th>Volume</th>
-
                     <th></th>
 
                 </tr>
@@ -981,46 +903,163 @@ const aturan = [
 
     /* ================= LONGSTRIP ================= */
 
-    {nama:"LONGSTRIP",t:[15,18],l:[75],min:900,max:1400,isi:1},
-    {nama:"LONGSTRIP",t:[15,18],l:[75],min:600,max:850,isi:10},
-    {nama:"LONGSTRIP",t:[15,18],l:[75],min:200,max:550,isi:10},
+    {
+        nama:"LONGSTRIP",
+        t:[15,18],
+        l:[75],
+        min:900,
+        max:1400,
+        isi:1
+    },
+
+    {
+        nama:"LONGSTRIP",
+        t:[15,18],
+        l:[75],
+        min:600,
+        max:850,
+        isi:10
+    },
+
+    {
+        nama:"LONGSTRIP",
+        t:[15,18],
+        l:[75],
+        min:200,
+        max:550,
+        isi:10
+    },
 
 
     /* ================= PB PANJANG ================= */
 
-    {nama:"PB PANJANG",t:[15],l:[52],min:900,up:true,isi:1},
-    {nama:"PB PANJANG",t:[15],l:[52],min:400,max:850,isi:20},
-    {nama:"PB PANJANG",t:[15],l:[52],exact:305,isi:40},
+    {
+        nama:"PB PANJANG",
+        t:[15],
+        l:[52],
+        min:900,
+        up:true,
+        isi:1
+    },
+
+    {
+        nama:"PB PANJANG",
+        t:[15],
+        l:[52],
+        min:400,
+        max:850,
+        isi:20
+    },
+
+    {
+        nama:"PB PANJANG",
+        t:[15],
+        l:[52],
+        exact:305,
+        isi:40
+    },
 
 
     /* ================= PB PENDEK ================= */
 
-    {nama:"PB PENDEK",t:[15],l:[52],exact:255,isi:40},
-    {nama:"PB PENDEK",t:[15],l:[52],exact:205,isi:40},
+    {
+        nama:"PB PENDEK",
+        t:[15],
+        l:[52],
+        exact:255,
+        isi:40
+    },
+
+    {
+        nama:"PB PENDEK",
+        t:[15],
+        l:[52],
+        exact:205,
+        isi:40
+    },
 
 
     /* ================= P STOCK ================= */
 
-    {nama:"P STOCK",t:[12,15],l:[52],max:199.999999,isi:40},
+    {
+        nama:"P STOCK",
+        t:[12,15],
+        l:[52],
+        max:199.999999,
+        isi:40
+    },
 
 
     /* ================= FJL ================= */
 
-    {nama:"FJL",t:[15,20],l:[35,40,45],min:250,up:true,isi:25},
+    {
+        nama:"FJL",
+        t:[15,20],
+        l:[35,40,45],
+        min:250,
+        up:true,
+        isi:25
+    },
 
 
     /* ================= RENG ================= */
 
-    {nama:"RENG",t:[15,20],l:[30],min:1000,up:true,isi:25},
-    {nama:"RENG",t:[15,20],l:[30],min:400,max:500,isi:25},
-    {nama:"RENG",t:[15,20],l:[30],min:200,max:300,isi:50},
-    {nama:"RENG",t:[15,20],l:[30],min:150,max:200,isi:50},
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:1000,
+        up:true,
+        isi:25
+    },
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:400,
+        max:500,
+        isi:25
+    },
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:200,
+        max:300,
+        isi:50
+    },
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:150,
+        max:200,
+        isi:50
+    },
 
 
     /* ================= LIST ================= */
 
-    {nama:"LIST",t:[15,20],l:[20],min:400,up:true,isi:25},
-    {nama:"LIST",t:[15,20],l:[20],min:200,max:300,isi:50}
+    {
+        nama:"LIST",
+        t:[15,20],
+        l:[20],
+        min:400,
+        up:true,
+        isi:25
+    },
+
+    {
+        nama:"LIST",
+        t:[15,20],
+        l:[20],
+        min:200,
+        max:300,
+        isi:50
+    }
 
 ];
 
@@ -1070,7 +1109,7 @@ function angka(nilai){
 
 
 /* =====================================================
-   CARI ATURAN
+   CEK ATURAN PANJANG
 ===================================================== */
 
 function cocokPanjang(rule,panjang){
@@ -1110,6 +1149,10 @@ function cocokPanjang(rule,panjang){
 }
 
 
+/* =====================================================
+   CARI ATURAN
+===================================================== */
+
 function cariAturan(
     tebal,
     lebar,
@@ -1136,6 +1179,38 @@ function cariAturan(
 
 
 /* =====================================================
+   TENTUKAN MUTU
+===================================================== */
+
+function mutuUntukNama(nama){
+
+    /*
+       FJL, RENG, LIST
+       MUTU SELALU T
+    */
+
+    if(
+        nama === "FJL" ||
+        nama === "RENG" ||
+        nama === "LIST"
+    ){
+
+        return "T";
+
+    }
+
+
+    /*
+       DECKING S/D P STOCK
+       PILIHAN P / D
+    */
+
+    return "";
+
+}
+
+
+/* =====================================================
    AMBIL DATA TABEL
 ===================================================== */
 
@@ -1154,19 +1229,16 @@ function ambilDataTabel(){
         data.push({
 
             tebal:
-                row.querySelector(
-                    ".tebal"
-                )?.value || "",
+                row.querySelector(".tebal")?.value || "",
 
             lebar:
-                row.querySelector(
-                    ".lebar"
-                )?.value || "",
+                row.querySelector(".lebar")?.value || "",
 
             panjang:
-                row.querySelector(
-                    ".panjang"
-                )?.value || "",
+                row.querySelector(".panjang")?.value || "",
+
+            mutu:
+                row.querySelector(".mutu")?.value || "",
 
             jumlahBendel:
                 row.querySelector(
@@ -1184,7 +1256,7 @@ function ambilDataTabel(){
 
 
 /* =====================================================
-   SIMPAN DATA MODE
+   SIMPAN MODE
 ===================================================== */
 
 function simpanDataMode(){
@@ -1227,6 +1299,40 @@ function buatBaris(data={}){
             <div class="nama belum">
                 -
             </div>
+
+        </td>
+
+
+        <td>
+
+            <select
+                class="mutu"
+                onchange="hitung()"
+            >
+
+                <option value="">
+                    -
+                </option>
+
+                <option value="P"
+                    ${data.mutu === "P" ? "selected" : ""}
+                >
+                    P
+                </option>
+
+                <option value="D"
+                    ${data.mutu === "D" ? "selected" : ""}
+                >
+                    D
+                </option>
+
+                <option value="T"
+                    ${data.mutu === "T" ? "selected" : ""}
+                >
+                    T
+                </option>
+
+            </select>
 
         </td>
 
@@ -1353,11 +1459,6 @@ function renderMode(){
 
     if(data.length === 0){
 
-        /*
-           BARIS BARU BENAR-BENAR KOSONG
-           TERMASUK BENDEL
-        */
-
         buatBaris();
 
     }else{
@@ -1454,7 +1555,6 @@ function ubahMode(mode){
 
     simpanDataMode();
 
-
     modeAktif = mode;
 
 
@@ -1528,7 +1628,9 @@ function ubahMode(mode){
         judulTabel.textContent =
             "Kayu Tambahan";
 
-    }else{
+    }
+
+    else{
 
         btnTambahan.classList.remove(
             "active"
@@ -1560,7 +1662,8 @@ function ubahMode(mode){
 
 
     /*
-       RENDER DATA MODE YANG AKTIF
+       DATA ENTRY DAN TAMBAHAN
+       TETAP TERPISAH
     */
 
     renderMode();
@@ -1630,6 +1733,12 @@ function hitung(){
             );
 
 
+        const mutuElement =
+            row.querySelector(
+                ".mutu"
+            );
+
+
         const isiElement =
             row.querySelector(
                 ".isi-bendel"
@@ -1648,9 +1757,9 @@ function hitung(){
             );
 
 
-        /* =============================================
+        /*
            UKURAN BELUM LENGKAP
-        ============================================= */
+        */
 
         if(
             tebal <= 0 ||
@@ -1663,6 +1772,19 @@ function hitung(){
 
             namaElement.className =
                 "nama belum";
+
+
+            mutuElement.value =
+                "";
+
+
+            mutuElement.disabled =
+                false;
+
+
+            mutuElement.classList.remove(
+                "tetap"
+            );
 
 
             isiElement.textContent =
@@ -1682,9 +1804,9 @@ function hitung(){
         }
 
 
-        /* =============================================
+        /*
            CARI ATURAN
-        ============================================= */
+        */
 
         const rule =
             cariAturan(
@@ -1694,9 +1816,9 @@ function hitung(){
             );
 
 
-        /* =============================================
-           TIDAK DITEMUKAN
-        ============================================= */
+        /*
+           UKURAN TIDAK DITEMUKAN
+        */
 
         if(rule === null){
 
@@ -1705,6 +1827,19 @@ function hitung(){
 
             namaElement.className =
                 "nama belum";
+
+
+            mutuElement.value =
+                "";
+
+
+            mutuElement.disabled =
+                false;
+
+
+            mutuElement.classList.remove(
+                "tetap"
+            );
 
 
             isiElement.textContent =
@@ -1728,17 +1863,69 @@ function hitung(){
         }
 
 
-        /* =============================================
-           DITEMUKAN
-        ============================================= */
+        /*
+           DATA DITEMUKAN
+        */
 
         namaElement.textContent =
             rule.nama;
 
-
         namaElement.className =
             "nama";
 
+
+        /*
+           TENTUKAN MUTU
+        */
+
+        const mutuOtomatis =
+            mutuUntukNama(
+                rule.nama
+            );
+
+
+        if(mutuOtomatis === "T"){
+
+            /*
+               FJL / RENG / LIST
+               SELALU T
+            */
+
+            mutuElement.value =
+                "T";
+
+            mutuElement.disabled =
+                true;
+
+            mutuElement.classList.add(
+                "tetap"
+            );
+
+        }else{
+
+            /*
+               DECKING S/D P STOCK
+               BOLEH P ATAU D
+            */
+
+            mutuElement.disabled =
+                false;
+
+            mutuElement.classList.remove(
+                "tetap"
+            );
+
+            /*
+               JANGAN OTOMATIS MENGISI
+               MUTU
+            */
+
+        }
+
+
+        /*
+           ISI BENDEL
+        */
 
         isiElement.textContent =
             rule.isi;
@@ -1752,18 +1939,18 @@ function hitung(){
             "status ok";
 
 
-        /* =============================================
-           BENDEL × ISI
-        ============================================= */
+        /*
+           BENDEL × ISI/BENDEL
+        */
 
         const totalBatang =
             jumlahBendel *
             rule.isi;
 
 
-        /* =============================================
+        /*
            VOLUME
-        ============================================= */
+        */
 
         const volume =
             round6(
@@ -1781,16 +1968,19 @@ function hitung(){
 
 
         volumeElement.textContent =
-            formatAngka(volume);
+            formatAngka(
+                volume
+            );
 
 
-        totalVolume += volume;
+        totalVolume +=
+            volume;
 
     });
 
 
     /* =================================================
-       MODE TAMBAHAN
+       HASIL TAMBAHAN
     ================================================= */
 
     const hasilSaatIni =
@@ -1928,10 +2118,10 @@ function hitung(){
         " m³";
 
 
-    /* ================================================
+    /*
        VOLUME LOG
        3 ANGKA DI BELAKANG KOMA
-    ================================================ */
+    */
 
     document.getElementById(
         "volumeLog"
@@ -1960,7 +2150,7 @@ function hitung(){
 
 
 /* =====================================================
-   MULAI
+   BARIS AWAL
 ===================================================== */
 
 renderMode();
