@@ -3,16 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kalkulator Tambahan RST</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
@@ -25,8 +23,6 @@ body{
     max-width:1100px;
     margin:auto;
 }
-
-/* HEADER */
 
 .header{
     background:linear-gradient(135deg,#155eef,#2563eb);
@@ -46,9 +42,6 @@ body{
     opacity:.9;
 }
 
-
-/* CARD */
-
 .card{
     background:white;
     border-radius:18px;
@@ -62,9 +55,6 @@ body{
     font-weight:bold;
     margin-bottom:18px;
 }
-
-
-/* DATA AWAL */
 
 .input-grid{
     display:grid;
@@ -93,9 +83,6 @@ body{
     border-color:#2563eb;
     box-shadow:0 0 0 3px rgba(37,99,235,.1);
 }
-
-
-/* TABEL */
 
 .table-container{
     overflow-x:auto;
@@ -141,9 +128,6 @@ td select:focus{
     white-space:nowrap;
 }
 
-
-/* TOMBOL */
-
 .add-button{
     background:#2563eb;
     color:white;
@@ -171,12 +155,9 @@ td select:focus{
     background:#fecaca;
 }
 
-
-/* HASIL */
-
 .result-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
@@ -195,7 +176,7 @@ td select:focus{
 }
 
 .result-value{
-    font-size:23px;
+    font-size:24px;
     font-weight:900;
 }
 
@@ -209,18 +190,12 @@ td select:focus{
     font-size:30px;
 }
 
-
-/* CATATAN */
-
 .note{
     margin-top:15px;
     font-size:12px;
     color:#64748b;
     line-height:1.5;
 }
-
-
-/* MOBILE */
 
 @media(max-width:750px){
 
@@ -233,34 +208,23 @@ td select:focus{
     }
 
     .result-grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:1fr;
     }
 
     .header h1{
         font-size:23px;
     }
-
 }
-
 </style>
 </head>
-
 
 <body>
 
 <div class="container">
 
-
-<!-- HEADER -->
-
 <div class="header">
-
-<h1>⚡ KALKULATOR TAMBAHAN RST</h1>
-
-<p>
-Perhitungan tambahan kayu dan rendemen secara realtime
-</p>
-
+    <h1>⚡ KALKULATOR TAMBAHAN RST</h1>
+    <p>Hitung tambahan kayu dan rendemen final secara realtime</p>
 </div>
 
 
@@ -268,150 +232,123 @@ Perhitungan tambahan kayu dan rendemen secara realtime
 
 <div class="card">
 
-<div class="card-title">
-Data Awal
-</div>
+    <div class="card-title">
+        Data Saat Ini
+    </div>
+
+    <div class="input-grid">
+
+        <div class="field">
+            <label>HASIL SAAT INI (m³)</label>
+
+            <input
+                id="hasilSaatIni"
+                type="number"
+                step="0.000001"
+                min="0"
+                placeholder="Contoh: 1,673063"
+            >
+        </div>
 
 
-<div class="input-grid">
+        <div class="field">
+            <label>RENDEMEN SAAT INI (%)</label>
 
+            <input
+                id="rendemenSaatIni"
+                type="number"
+                step="0.01"
+                min="0"
+                placeholder="Contoh: 27,93"
+            >
+        </div>
 
-<div class="field">
-
-<label>
-VOLUME LOG (m³)
-</label>
-
-<input
-id="volumeLog"
-type="number"
-step="0.000001"
-min="0"
-placeholder="Contoh: 10"
->
-
-</div>
-
-
-<div class="field">
-
-<label>
-RENDEMEN SAAT INI (%)
-</label>
-
-<input
-id="rendemen"
-type="number"
-step="0.01"
-min="0"
-placeholder="Contoh: 25"
->
-
-</div>
-
-
-</div>
+    </div>
 
 </div>
 
 
 
-<!-- TAMBAHAN -->
+<!-- KAYU TAMBAHAN -->
 
 <div class="card">
 
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:18px;
+        gap:10px;
+    ">
 
-<div style="
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:18px;
-gap:10px;
-">
+        <div class="card-title" style="margin:0;">
+            Kayu Tambahan
+        </div>
 
+        <button
+            class="add-button"
+            onclick="tambahBaris()"
+        >
+            ＋ Tambah Ukuran
+        </button>
 
-<div class="card-title" style="margin:0;">
-Kayu Tambahan
-</div>
-
-
-<button
-class="add-button"
-onclick="tambahBaris()"
->
-＋ Tambah Ukuran
-</button>
-
-
-</div>
+    </div>
 
 
+    <div class="table-container">
 
-<div class="table-container">
+        <table>
 
-<table>
+            <thead>
 
-<thead>
+                <tr>
 
-<tr>
+                    <th>Tebal<br>(mm)</th>
 
-<th>
-Tebal<br>(mm)
-</th>
+                    <th>Lebar<br>(mm)</th>
 
-<th>
-Lebar<br>(mm)
-</th>
+                    <th>Panjang<br>(cm)</th>
 
-<th>
-Panjang<br>(cm)
-</th>
+                    <th>Jumlah</th>
 
-<th>
-Jumlah
-</th>
+                    <th>Satuan</th>
 
-<th>
-Satuan
-</th>
+                    <th>Isi / Bendel</th>
 
-<th>
-Isi / Bendel
-</th>
+                    <th>Volume<br>(m³)</th>
 
-<th>
-Volume<br>(m³)
-</th>
+                    <th>Aksi</th>
 
-<th>
-Aksi
-</th>
+                </tr>
 
-</tr>
+            </thead>
 
-</thead>
+            <tbody id="tabelKayu"></tbody>
+
+        </table>
+
+    </div>
 
 
-<tbody id="tabelKayu"></tbody>
+    <div class="note">
 
-</table>
+        Volume mengikuti logika data Excel:
+        <strong>
+        ROUND((Tebal × Lebar × Panjang ÷ 1.000.000.000); 6)
+        </strong>
+        untuk satu batang, kemudian dikalikan jumlah satuan.
 
-</div>
+        <br><br>
 
+        <strong>Batang:</strong>
+        jumlah langsung dihitung sebagai batang.
 
-<div class="note">
+        <br>
 
-<strong>Perhitungan mengikuti logika data Excel.</strong><br>
+        <strong>Bendel:</strong>
+        jumlah bendel × isi batang per bendel.
 
-Volume 1 batang =
-ROUND((Tebal × Lebar × Panjang) ÷ 1.000.000.000; 6).
-
-Jika Batang: jumlah = jumlah batang.<br>
-
-Jika Bendel:
-jumlah satuan = jumlah bendel × isi batang per bendel.
-
-</div>
+    </div>
 
 </div>
 
@@ -421,85 +358,65 @@ jumlah satuan = jumlah bendel × isi batang per bendel.
 
 <div class="card">
 
-<div class="card-title">
-Hasil Perhitungan
-</div>
+    <div class="card-title">
+        Hasil Perhitungan
+    </div>
 
 
-<div class="result-grid">
+    <div class="result-grid">
 
 
-<div class="result">
+        <div class="result">
 
-<div class="result-title">
-HASIL OLAH AWAL
-</div>
+            <div class="result-title">
+                HASIL SAAT INI
+            </div>
 
-<div
-class="result-value"
-id="hasilAwal"
->
-0,000000 m³
-</div>
+            <div
+                class="result-value"
+                id="hasilAwal"
+            >
+                0,000000 m³
+            </div>
 
-</div>
-
-
-
-<div class="result">
-
-<div class="result-title">
-TOTAL TAMBAHAN
-</div>
-
-<div
-class="result-value"
-id="totalTambahan"
->
-0,000000 m³
-</div>
-
-</div>
+        </div>
 
 
+        <div class="result">
 
-<div class="result">
+            <div class="result-title">
+                TOTAL TAMBAHAN
+            </div>
 
-<div class="result-title">
-HASIL OLAH FINAL
-</div>
+            <div
+                class="result-value"
+                id="totalTambahan"
+            >
+                0,000000 m³
+            </div>
 
-<div
-class="result-value"
-id="hasilFinal"
->
-0,000000 m³
-</div>
-
-</div>
-
+        </div>
 
 
-<div class="result final">
+        <div class="result final">
 
-<div class="result-title">
-RENDEMEN FINAL
-</div>
+            <div class="result-title">
+                RENDEMEN FINAL
+            </div>
 
-<div
-class="result-value"
-id="rendemenFinal"
->
-0,00 %
-</div>
+            <div
+                class="result-value"
+                id="rendemenFinal"
+            >
+                0,00 %
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
-
-
-</div>
-
-</div>
-
 
 </div>
 
@@ -508,453 +425,492 @@ id="rendemenFinal"
 <script>
 
 
-/* ============================
+/* =================================
    TAMBAH BARIS
-============================ */
+================================= */
 
 function tambahBaris(){
 
-const tabel =
-document.getElementById("tabelKayu");
+    const tabel =
+        document.getElementById("tabelKayu");
+
+    const baris =
+        document.createElement("tr");
 
 
-const baris =
-document.createElement("tr");
+    baris.innerHTML = `
 
+        <td>
+            <input
+                type="number"
+                class="tebal"
+                min="0"
+                step="0.01"
+                oninput="hitung()"
+            >
+        </td>
 
-baris.innerHTML = `
+        <td>
+            <input
+                type="number"
+                class="lebar"
+                min="0"
+                step="0.01"
+                oninput="hitung()"
+            >
+        </td>
 
-<td>
+        <td>
+            <input
+                type="number"
+                class="panjang"
+                min="0"
+                step="0.01"
+                oninput="hitung()"
+            >
+        </td>
 
-<input
-type="number"
-class="tebal"
-min="0"
-step="0.01"
-oninput="hitung()"
->
+        <td>
+            <input
+                type="number"
+                class="jumlah"
+                min="0"
+                step="1"
+                value="1"
+                oninput="hitung()"
+            >
+        </td>
 
-</td>
+        <td>
 
+            <select
+                class="satuan"
+                onchange="ubahSatuan(this);hitung()"
+            >
 
-<td>
+                <option value="Batang">
+                    Batang
+                </option>
 
-<input
-type="number"
-class="lebar"
-min="0"
-step="0.01"
-oninput="hitung()"
->
+                <option value="Bendel">
+                    Bendel
+                </option>
 
-</td>
+            </select>
 
+        </td>
 
-<td>
+        <td>
 
-<input
-type="number"
-class="panjang"
-min="0"
-step="0.01"
-oninput="hitung()"
->
+            <input
+                type="number"
+                class="isi"
+                min="1"
+                step="1"
+                placeholder="-"
+                disabled
+                oninput="hitung()"
+            >
 
-</td>
+        </td>
 
+        <td class="volume">
+            0,000000
+        </td>
 
-<td>
+        <td>
 
-<input
-type="number"
-class="jumlah"
-min="0"
-step="1"
-value="1"
-oninput="hitung()"
->
+            <button
+                class="delete"
+                onclick="
+                    this.closest('tr').remove();
+                    hitung();
+                "
+            >
+                ✕
+            </button>
 
-</td>
+        </td>
 
+    `;
 
-<td>
+    tabel.appendChild(baris);
 
-<select
-class="satuan"
-onchange="ubahSatuan(this);hitung()"
->
-
-<option value="Batang">
-Batang
-</option>
-
-<option value="Bendel">
-Bendel
-</option>
-
-</select>
-
-</td>
-
-
-<td>
-
-<input
-type="number"
-class="isi"
-min="1"
-step="1"
-placeholder="-"
-disabled
-oninput="hitung()"
->
-
-</td>
-
-
-<td class="volume">
-0,000000
-</td>
-
-
-<td>
-
-<button
-class="delete"
-onclick="
-this.closest('tr').remove();
-hitung();
-"
->
-✕
-</button>
-
-</td>
-
-`;
-
-
-tabel.appendChild(baris);
-
-hitung();
-
+    hitung();
 }
 
 
 
-/* ============================
-   ANGKA
-============================ */
+/* =================================
+   KONVERSI ANGKA
+================================= */
 
 function angka(nilai){
 
-return parseFloat(nilai) || 0;
+    return parseFloat(nilai) || 0;
 
 }
 
 
 
-/* ============================
+/* =================================
    ROUND 6 DESIMAL
-   MENYAMAI EXCEL
-============================ */
+================================= */
 
 function round6(nilai){
 
-return Math.round(
-(nilai + Number.EPSILON) * 1000000
-) / 1000000;
+    return Math.round(
+        (nilai + Number.EPSILON) * 1000000
+    ) / 1000000;
 
 }
 
 
 
-/* ============================
-   FORMAT
-============================ */
+/* =================================
+   FORMAT ANGKA
+================================= */
 
-function formatAngka(nilai,desimal=6){
+function formatAngka(nilai, desimal = 6){
 
-return nilai.toLocaleString(
-"id-ID",
-{
-minimumFractionDigits:desimal,
-maximumFractionDigits:desimal
+    return nilai.toLocaleString(
+        "id-ID",
+        {
+            minimumFractionDigits:desimal,
+            maximumFractionDigits:desimal
+        }
+    );
+
 }
-);
-
-}
 
 
 
-/* ============================
-   SATUAN
-============================ */
+/* =================================
+   UBAH SATUAN
+================================= */
 
 function ubahSatuan(select){
 
-const baris =
-select.closest("tr");
+    const baris =
+        select.closest("tr");
+
+    const inputIsi =
+        baris.querySelector(".isi");
 
 
-const inputIsi =
-baris.querySelector(".isi");
+    if(select.value === "Bendel"){
 
+        inputIsi.disabled = false;
 
-if(select.value === "Bendel"){
+        inputIsi.placeholder = "Batang";
 
-inputIsi.disabled = false;
+    }
 
-inputIsi.placeholder = "Batang";
+    else{
+
+        inputIsi.disabled = true;
+
+        inputIsi.value = "";
+
+        inputIsi.placeholder = "-";
+
+    }
 
 }
-else{
-
-inputIsi.disabled = true;
-
-inputIsi.value = "";
-
-inputIsi.placeholder = "-";
-
-}
-
-}
 
 
 
-/* ============================
-   HITUNG
-============================ */
+/* =================================
+   HITUNG SEMUA
+================================= */
 
 function hitung(){
 
 
-/* DATA AWAL */
+    /* DATA AWAL */
 
-const volumeLog =
-angka(
-document.getElementById("volumeLog").value
-);
-
-
-const rendemen =
-angka(
-document.getElementById("rendemen").value
-);
+    const hasilSaatIni =
+        angka(
+            document.getElementById(
+                "hasilSaatIni"
+            ).value
+        );
 
 
-/* HASIL OLAH AWAL */
-
-const hasilAwal =
-volumeLog * rendemen / 100;
-
-
-/* TOTAL TAMBAHAN */
-
-let totalTambahan = 0;
-
-
-const baris =
-document.querySelectorAll(
-"#tabelKayu tr"
-);
-
-
-baris.forEach(function(tr){
-
-
-const tebal =
-angka(
-tr.querySelector(".tebal").value
-);
-
-
-const lebar =
-angka(
-tr.querySelector(".lebar").value
-);
-
-
-const panjang =
-angka(
-tr.querySelector(".panjang").value
-);
-
-
-const jumlah =
-angka(
-tr.querySelector(".jumlah").value
-);
-
-
-const satuan =
-tr.querySelector(".satuan").value;
-
-
-const isi =
-angka(
-tr.querySelector(".isi").value
-);
+    const rendemenSaatIni =
+        angka(
+            document.getElementById(
+                "rendemenSaatIni"
+            ).value
+        );
 
 
 
-/*
-Jika Batang:
-10 = 10 batang
+    /* TOTAL TAMBAHAN */
 
-Jika Bendel:
-3 bendel × 25 batang
-= 75 batang
-*/
-
-let jumlahSatuan = jumlah;
+    let totalTambahan = 0;
 
 
-if(satuan === "Bendel"){
+    const baris =
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
 
-jumlahSatuan =
-jumlah * isi;
+
+    baris.forEach(function(tr){
+
+
+        const tebal =
+            angka(
+                tr.querySelector(
+                    ".tebal"
+                ).value
+            );
+
+
+        const lebar =
+            angka(
+                tr.querySelector(
+                    ".lebar"
+                ).value
+            );
+
+
+        const panjang =
+            angka(
+                tr.querySelector(
+                    ".panjang"
+                ).value
+            );
+
+
+        const jumlah =
+            angka(
+                tr.querySelector(
+                    ".jumlah"
+                ).value
+            );
+
+
+        const satuan =
+            tr.querySelector(
+                ".satuan"
+            ).value;
+
+
+        const isi =
+            angka(
+                tr.querySelector(
+                    ".isi"
+                ).value
+            );
+
+
+
+        /*
+        BATANG
+
+        jumlah = jumlah batang
+
+
+        BENDEL
+
+        jumlah bendel × isi batang
+        */
+
+        let jumlahSatuan =
+            jumlah;
+
+
+        if(satuan === "Bendel"){
+
+            jumlahSatuan =
+                jumlah * isi;
+
+        }
+
+
+
+        /*
+        VOLUME 1 BATANG
+
+        ROUND(
+            (T × L × P)
+            /
+            1.000.000.000
+        ;6)
+        */
+
+        const volumeSatuBatang =
+            round6(
+                (
+                    tebal *
+                    lebar *
+                    panjang
+                ) /
+                1000000000
+            );
+
+
+
+        /*
+        VOLUME BARIS
+        */
+
+        const volumeBaris =
+            volumeSatuBatang *
+            jumlahSatuan;
+
+
+
+        /*
+        TAMPILKAN VOLUME
+        */
+
+        tr.querySelector(
+            ".volume"
+        ).textContent =
+            formatAngka(
+                volumeBaris
+            );
+
+
+
+        totalTambahan +=
+            volumeBaris;
+
+    });
+
+
+
+    /*
+    =================================
+    BASIS RENDAMEN
+    =================================
+
+    Basis =
+    hasil saat ini ÷ rendemen %
+
+    Contoh:
+
+    1,673063 ÷ 27,93%
+    */
+
+    let basisRendemen = 0;
+
+
+    if(rendemenSaatIni > 0){
+
+        basisRendemen =
+            hasilSaatIni /
+            (rendemenSaatIni / 100);
+
+    }
+
+
+
+    /*
+    =================================
+    HASIL FINAL
+    =================================
+    */
+
+    const hasilFinal =
+        hasilSaatIni +
+        totalTambahan;
+
+
+
+    /*
+    =================================
+    RENDEMEN FINAL
+    =================================
+    */
+
+    let rendemenFinal = 0;
+
+
+    if(basisRendemen > 0){
+
+        rendemenFinal =
+            (
+                hasilFinal /
+                basisRendemen
+            ) *
+            100;
+
+    }
+
+
+
+    /*
+    =================================
+    TAMPILKAN
+    =================================
+    */
+
+    document.getElementById(
+        "hasilAwal"
+    ).textContent =
+        formatAngka(
+            hasilSaatIni
+        )
+        +
+        " m³";
+
+
+    document.getElementById(
+        "totalTambahan"
+    ).textContent =
+        formatAngka(
+            totalTambahan
+        )
+        +
+        " m³";
+
+
+    document.getElementById(
+        "rendemenFinal"
+    ).textContent =
+        formatAngka(
+            rendemenFinal,
+            2
+        )
+        +
+        " %";
 
 }
 
 
 
-/*
-RUMUS 1 BATANG
-
-ROUND(
-(T × L × P)
-/
-1.000.000.000
-;
-6
-)
-*/
-
-const volumeSatuBatang =
-round6(
-(
-tebal *
-lebar *
-panjang
-) /
-1000000000
-);
-
-
-/*
-VOLUME BARIS
-
-Volume satu batang
-× jumlah satuan
-*/
-
-const volumeBaris =
-volumeSatuBatang *
-jumlahSatuan;
-
-
-/* TAMPILKAN */
-
-tr.querySelector(".volume")
-.textContent =
-formatAngka(volumeBaris);
-
-
-/* TOTAL */
-
-totalTambahan += volumeBaris;
-
-});
-
-
-
-/* HASIL FINAL */
-
-const hasilFinal =
-hasilAwal +
-totalTambahan;
-
-
-
-/* RENDEMEN FINAL */
-
-let rendemenFinal = 0;
-
-
-if(volumeLog > 0){
-
-rendemenFinal =
-(
-hasilFinal /
-volumeLog
-) *
-100;
-
-}
-
-
-
-/* TAMPILKAN */
-
-document.getElementById("hasilAwal")
-.textContent =
-formatAngka(hasilAwal)
-+
-" m³";
-
-
-document.getElementById("totalTambahan")
-.textContent =
-formatAngka(totalTambahan)
-+
-" m³";
-
-
-document.getElementById("hasilFinal")
-.textContent =
-formatAngka(hasilFinal)
-+
-" m³";
-
-
-document.getElementById("rendemenFinal")
-.textContent =
-formatAngka(
-rendemenFinal,
-2
-)
-+
-" %";
-
-}
-
-
-
-/* ============================
+/* =================================
    INPUT DATA AWAL
-============================ */
+================================= */
 
 document
-.getElementById("volumeLog")
-.addEventListener(
-"input",
-hitung
-);
+    .getElementById(
+        "hasilSaatIni"
+    )
+    .addEventListener(
+        "input",
+        hitung
+    );
 
 
 document
-.getElementById("rendemen")
-.addEventListener(
-"input",
-hitung
-);
+    .getElementById(
+        "rendemenSaatIni"
+    )
+    .addEventListener(
+        "input",
+        hitung
+    );
+
 
 
 /* BARIS PERTAMA */
 
 tambahBaris();
-
 
 </script>
 
