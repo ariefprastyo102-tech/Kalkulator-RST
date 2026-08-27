@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kalkulator Tambahan RST</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f3f6fb;
+    color:#172033;
+    padding:20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(135deg,#155eef,#2563eb);
+    color:white;
+    padding:28px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(37,99,235,.20);
+}
+
+.header h1{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.header p{
+    opacity:.9;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.card-title{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+/* INPUT AWAL */
+
+.input-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    color:#64748b;
+    margin-bottom:8px;
+}
+
+.field input{
+    width:100%;
+    padding:13px;
+    border:1px solid #d9dee8;
+    border-radius:10px;
+    font-size:17px;
+    outline:none;
+}
+
+.field input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.1);
+}
+
+/* TABLE */
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:850px;
+}
+
+th{
+    background:#f8fafc;
+    color:#64748b;
+    font-size:12px;
+    padding:12px 8px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+td{
+    padding:8px;
+    border-bottom:1px solid #edf0f4;
+}
+
+td input,
+td select{
+    width:100%;
+    padding:9px;
+    border:1px solid #d9dee8;
+    border-radius:8px;
+    outline:none;
+}
+
+td input:focus,
+td select:focus{
+    border-color:#2563eb;
+}
+
+.volume{
+    font-weight:bold;
+    text-align:center;
+    white-space:nowrap;
+}
+
+.delete{
+    background:#fee2e2;
+    color:#dc2626;
+    border:none;
+    border-radius:8px;
+    padding:9px 11px;
+    cursor:pointer;
+}
+
+.delete:hover{
+    background:#fecaca;
+}
+
+/* BUTTON */
+
+.add-button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:11px 16px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.add-button:hover{
+    background:#1d4ed8;
+}
+
+/* HASIL */
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.result{
+    background:#f8fafc;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+}
+
+.result-title{
+    color:#64748b;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.result-value{
+    font-size:24px;
+    font-weight:900;
+}
+
+.final{
+    background:linear-gradient(135deg,#eff6ff,#dbeafe);
+    border:2px solid #bfdbfe;
+}
+
+.final .result-value{
+    color:#155eef;
+    font-size:30px;
+}
+
+/* CATATAN */
+
+.note{
+    margin-top:15px;
+    font-size:12px;
+    color:#64748b;
+    line-height:1.5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:750px){
+
+    body{
+        padding:10px;
+    }
+
+    .input-grid{
+        grid-template-columns:1fr;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .header h1{
+        font-size:23px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>⚡ KALKULATOR TAMBAHAN RST</h1>
+
+<p>
+Hitung volume tambahan dan rendemen final secara otomatis.
+</p>
+
+</div>
+
+
+<!-- DATA AWAL -->
+
+<div class="card">
+
+<div class="card-title">
+Data Awal
+</div>
+
+<div class="input-grid">
+
+<div class="field">
+
+<label>
+VOLUME LOG (m³)
+</label>
+
+<input
+id="volumeLog"
+type="number"
+step="0.000001"
+min="0"
+placeholder="Contoh: 10"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+RENDEMEN SAAT INI (%)
+</label>
+
+<input
+id="rendemen"
+type="number"
+step="0.01"
+min="0"
+placeholder="Contoh: 25"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- TAMBAHAN KAYU -->
+
+<div class="card">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+gap:10px;
+">
+
+<div class="card-title" style="margin:0;">
+Kayu Tambahan
+</div>
+
+<button
+class="add-button"
+onclick="tambahBaris()"
+>
+＋ Tambah Ukuran
+</button>
+
+</div>
+
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Tebal<br>(mm)
+</th>
+
+<th>
+Lebar<br>(mm)
+</th>
+
+<th>
+Panjang<br>(cm)
+</th>
+
+<th>
+Jumlah
+</th>
+
+<th>
+Satuan
+</th>
+
+<th>
+Isi / Bendel
+</th>
+
+<th>
+Volume<br>(m³)
+</th>
+
+<th>
+Aksi
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tabelKayu">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<div class="note">
+
+Rumus volume:
+<strong>
+Tebal × Lebar × Panjang × jumlah batang ÷ 1.000.000.000
+</strong>.
+Jika satuan Bendel, jumlah batang otomatis dihitung dari
+<strong>jumlah bendel × isi per bendel</strong>.
+
+</div>
+
+</div>
+
+
+
+<!-- HASIL -->
+
+<div class="card">
+
+<div class="card-title">
+Hasil Perhitungan
+</div>
+
+<div class="result-grid">
+
+
+<div class="result">
+
+<div class="result-title">
+HASIL OLAH AWAL
+</div>
+
+<div
+class="result-value"
+id="hasilAwal"
+>
+0,000000 m³
+</div>
+
+</div>
+
+
+
+<div class="result">
+
+<div class="result-title">
+TOTAL TAMBAHAN
+</div>
+
+<div
+class="result-value"
+id="totalTambahan"
+>
+0,000000 m³
+</div>
+
+</div>
+
+
+
+<div class="result">
+
+<div class="result-title">
+HASIL OLAH FINAL
+</div>
+
+<div
+class="result-value"
+id="hasilFinal"
+>
+0,000000 m³
+</div>
+
+</div>
+
+
+
+<div class="result final">
+
+<div class="result-title">
+RENDEMEN FINAL
+</div>
+
+<div
+class="result-value"
+id="rendemenFinal"
+>
+0,00 %
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   TAMBAH BARIS
+========================= */
+
+function tambahBaris(){
+
+const tabel =
+document.getElementById("tabelKayu");
+
+const baris =
+document.createElement("tr");
+
+
+baris.innerHTML = `
+
+<td>
+
+<input
+type="number"
+class="tebal"
+min="0"
+step="0.01"
+oninput="hitung()"
+>
+
+</td>
+
+
+<td>
+
+<input
+type="number"
+class="lebar"
+min="0"
+step="0.01"
+oninput="hitung()"
+>
+
+</td>
+
+
+<td>
+
+<input
+type="number"
+class="panjang"
+min="0"
+step="0.01"
+oninput="hitung()"
+>
+
+</td>
+
+
+<td>
+
+<input
+type="number"
+class="jumlah"
+min="0"
+step="1"
+value="1"
+oninput="hitung()"
+>
+
+</td>
+
+
+<td>
+
+<select
+class="satuan"
+onchange="ubahSatuan(this);hitung()"
+>
+
+<option value="Batang">
+Batang
+</option>
+
+<option value="Bendel">
+Bendel
+</option>
+
+</select>
+
+</td>
+
+
+<td>
+
+<input
+type="number"
+class="isi"
+min="1"
+step="1"
+placeholder="-"
+disabled
+oninput="hitung()"
+>
+
+</td>
+
+
+<td class="volume">
+0,000000
+</td>
+
+
+<td>
+
+<button
+class="delete"
+onclick="
+this.closest('tr').remove();
+hitung();
+"
+>
+✕
+</button>
+
+</td>
+
+`;
+
+tabel.appendChild(baris);
+
+hitung();
+
+}
+
+
+
+/* =========================
+   BACA ANGKA
+========================= */
+
+function angka(nilai){
+
+return parseFloat(nilai) || 0;
+
+}
+
+
+
+/* =========================
+   FORMAT ANGKA
+========================= */
+
+function formatAngka(nilai,desimal=6){
+
+return nilai.toLocaleString(
+"id-ID",
+{
+minimumFractionDigits:desimal,
+maximumFractionDigits:desimal
+}
+);
+
+}
+
+
+
+/* =========================
+   UBAH BATANG / BENDEL
+========================= */
+
+function ubahSatuan(select){
+
+const baris =
+select.closest("tr");
+
+const inputIsi =
+baris.querySelector(".isi");
+
+
+if(select.value === "Bendel"){
+
+inputIsi.disabled = false;
+
+inputIsi.placeholder = "Batang";
+
+}
+
+else{
+
+inputIsi.disabled = true;
+
+inputIsi.value = "";
+
+inputIsi.placeholder = "-";
+
+}
+
+}
+
+
+
+/* =========================
+   HITUNG
+========================= */
+
+function hitung(){
+
+
+/* DATA AWAL */
+
+const volumeLog =
+angka(
+document.getElementById("volumeLog").value
+);
+
+
+const rendemen =
+angka(
+document.getElementById("rendemen").value
+);
+
+
+
+/* HASIL OLAH AWAL */
+
+const hasilAwal =
+volumeLog * rendemen / 100;
+
+
+
+/* TOTAL TAMBAHAN */
+
+let totalTambahan = 0;
+
+
+
+const baris =
+document.querySelectorAll(
+"#tabelKayu tr"
+);
+
+
+baris.forEach(function(tr){
+
+
+const tebal =
+angka(
+tr.querySelector(".tebal").value
+);
+
+
+const lebar =
+angka(
+tr.querySelector(".lebar").value
+);
+
+
+const panjang =
+angka(
+tr.querySelector(".panjang").value
+);
+
+
+const jumlah =
+angka(
+tr.querySelector(".jumlah").value
+);
+
+
+const satuan =
+tr.querySelector(".satuan").value
+;
+
+
+const isi =
+angka(
+tr.querySelector(".isi").value
+);
+
+
+
+let jumlahBatang =
+jumlah;
+
+
+if(satuan === "Bendel"){
+
+jumlahBatang =
+jumlah * isi;
+
+}
+
+
+
+/* VOLUME */
+
+const volume =
+(
+tebal *
+lebar *
+panjang *
+jumlahBatang
+) / 1000000000;
+
+
+
+tr.querySelector(".volume")
+.textContent =
+formatAngka(volume);
+
+
+
+totalTambahan += volume;
+
+});
+
+
+
+/* HASIL FINAL */
+
+const hasilFinal =
+hasilAwal + totalTambahan;
+
+
+
+/* RENDEMEN FINAL */
+
+let rendemenFinal = 0;
+
+
+if(volumeLog > 0){
+
+rendemenFinal =
+hasilFinal /
+volumeLog *
+100;
+
+}
+
+
+
+/* TAMPILKAN */
+
+document.getElementById("hasilAwal")
+.textContent =
+formatAngka(hasilAwal)
++
+" m³";
+
+
+document.getElementById("totalTambahan")
+.textContent =
+formatAngka(totalTambahan)
++
+" m³";
+
+
+document.getElementById("hasilFinal")
+.textContent =
+formatAngka(hasilFinal)
++
+" m³";
+
+
+document.getElementById("rendemenFinal")
+.textContent =
+formatAngka(
+rendemenFinal,
+2
+)
++
+" %";
+
+}
+
+
+
+/* =========================
+   INPUT DATA AWAL
+========================= */
+
+document
+.getElementById("volumeLog")
+.addEventListener(
+"input",
+hitung
+);
+
+
+document
+.getElementById("rendemen")
+.addEventListener(
+"input",
+hitung
+);
+
+
+
+/* =========================
+   BARIS PERTAMA
+========================= */
+
+tambahBaris();
+
+
+</script>
+
+</body>
+</html>
