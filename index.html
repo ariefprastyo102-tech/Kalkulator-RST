@@ -8,6 +8,10 @@
 
 <style>
 
+/* =====================================================
+   DASAR
+===================================================== */
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -16,8 +20,8 @@
 }
 
 body{
-    background:#f3f6fb;
-    color:#172033;
+    background:#f2f6f1;
+    color:#183326;
     padding:12px;
 }
 
@@ -26,29 +30,81 @@ body{
     margin:auto;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER PERHUTANI
+===================================================== */
 
 .header{
-    background:linear-gradient(135deg,#155eef,#2563eb);
+    background:linear-gradient(
+        135deg,
+        #075b35 0%,
+        #087a46 55%,
+        #0b914f 100%
+    );
+
     color:white;
-    padding:22px;
+    padding:16px 20px;
     border-radius:18px;
     margin-bottom:12px;
-    box-shadow:0 8px 25px rgba(37,99,235,.20);
+
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    box-shadow:
+        0 8px 25px rgba(0,91,53,.20);
+
+    border-bottom:4px solid #d5a928;
+}
+
+.logo-box{
+    width:72px;
+    height:72px;
+
+    background:white;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:6px;
+
+    flex-shrink:0;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.15);
+}
+
+.logo-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:7px;
+}
+
+.header-text{
+    flex:1;
 }
 
 .header h1{
     font-size:27px;
+    font-weight:900;
+    letter-spacing:.4px;
     margin-bottom:4px;
 }
 
 .header p{
     font-size:13px;
-    opacity:.9;
+    opacity:.92;
 }
 
 
-/* MODE */
+/* =====================================================
+   MODE
+===================================================== */
 
 .mode-box{
     display:grid;
@@ -58,40 +114,66 @@ body{
 }
 
 .mode-btn{
-    border:1px solid #d8dee9;
+    border:1px solid #cddbcf;
     background:white;
-    color:#64748b;
+    color:#527060;
+
     padding:11px;
+
     border-radius:10px;
+
     font-weight:bold;
     cursor:pointer;
+
+    transition:.2s;
+}
+
+.mode-btn:hover{
+    border-color:#087a46;
 }
 
 .mode-btn.active{
-    background:#2563eb;
+    background:#087a46;
     color:white;
-    border-color:#2563eb;
+    border-color:#087a46;
+
+    box-shadow:
+        0 4px 12px rgba(8,122,70,.20);
 }
 
 
-/* CARD */
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
     background:white;
+
     border-radius:16px;
+
     padding:16px;
+
     margin-bottom:12px;
-    box-shadow:0 4px 18px rgba(0,0,0,.05);
+
+    box-shadow:
+        0 4px 18px rgba(20,70,40,.06);
+
+    border:1px solid #e1e9e2;
 }
 
 .card-title{
     font-size:16px;
-    font-weight:bold;
+    font-weight:900;
+
     margin-bottom:12px;
+
+    color:#145c38;
 }
 
 
-/* INPUT */
+/* =====================================================
+   INPUT
+===================================================== */
 
 .input-grid{
     display:grid;
@@ -101,27 +183,44 @@ body{
 
 .field label{
     display:block;
+
     font-size:11px;
     font-weight:bold;
-    color:#64748b;
+
+    color:#61786b;
+
     margin-bottom:5px;
 }
 
 .field input{
     width:100%;
+
     padding:11px;
-    border:1px solid #d9dee8;
+
+    border:1px solid #d4dfd6;
+
     border-radius:9px;
+
     font-size:15px;
+
     outline:none;
+
+    color:#183326;
+
+    background:#fcfefc;
 }
 
 .field input:focus{
-    border-color:#2563eb;
+    border-color:#087a46;
+
+    box-shadow:
+        0 0 0 2px rgba(8,122,70,.08);
 }
 
 
-/* TABLE */
+/* =====================================================
+   TABLE
+===================================================== */
 
 .table-wrap{
     overflow-x:auto;
@@ -134,161 +233,248 @@ table{
 }
 
 th{
-    background:#f8fafc;
-    color:#64748b;
+    background:#edf6ef;
+
+    color:#38634c;
+
     font-size:10px;
+
     padding:8px 4px;
-    border-bottom:1px solid #e5e7eb;
+
+    border-bottom:2px solid #cbdcca;
+
     white-space:nowrap;
 }
 
 td{
     padding:4px 2px;
-    border-bottom:1px solid #edf0f4;
+
+    border-bottom:1px solid #edf1ee;
+
     text-align:center;
 }
 
 td input{
     width:100%;
+
     padding:8px 3px;
-    border:1px solid #d9dee8;
+
+    border:1px solid #d5dfd7;
+
     border-radius:7px;
+
     text-align:center;
+
     font-size:13px;
+
     outline:none;
+
+    color:#183326;
+
+    background:#ffffff;
 }
 
 td input:focus{
-    border-color:#2563eb;
+    border-color:#087a46;
+
+    box-shadow:
+        0 0 0 2px rgba(8,122,70,.06);
 }
 
 
-/* NAMA PRODUK */
+/* =====================================================
+   NAMA PRODUK
+===================================================== */
 
 .nama{
     font-weight:900;
+
     font-size:13px;
-    color:#2563eb;
+
+    color:#087a46;
+
     min-width:110px;
+
     text-align:left;
+
     padding-left:5px;
+
     letter-spacing:.3px;
-    text-transform:uppercase;
 }
 
 .nama.belum{
-    color:#94a3b8;
+    color:#9aaba0;
+
     font-weight:normal;
 }
 
 
-/* ISI BENDEL */
+/* =====================================================
+   ISI BENDEL
+===================================================== */
 
 .isi-bendel{
-    font-weight:bold;
-    color:#155eef;
+    font-weight:900;
+
+    color:#087a46;
+
     font-size:13px;
 }
 
 .status{
     font-size:8px;
+
     margin-top:2px;
 }
 
 .status.ok{
-    color:#16a34a;
+    color:#178343;
 }
 
 .status.error{
-    color:#dc2626;
+    color:#d02c2c;
 }
 
 
-/* VOLUME */
+/* =====================================================
+   VOLUME
+===================================================== */
 
 .volume{
     font-weight:bold;
+
     font-size:12px;
+
     white-space:nowrap;
+
+    color:#284d38;
 }
 
 
-/* DELETE */
+/* =====================================================
+   DELETE
+===================================================== */
 
 .delete{
-    background:#fee2e2;
-    color:#dc2626;
-    border:none;
+    background:#fff0f0;
+
+    color:#c92d2d;
+
+    border:1px solid #f4d0d0;
+
     border-radius:7px;
+
     padding:7px 8px;
+
     cursor:pointer;
 }
 
+.delete:hover{
+    background:#ffe1e1;
+}
 
-/* TAMBAH */
+
+/* =====================================================
+   TAMBAH
+===================================================== */
 
 .add-button{
-    background:#2563eb;
+    background:linear-gradient(
+        135deg,
+        #087a46,
+        #0a9654
+    );
+
     color:white;
+
     border:none;
+
     padding:12px;
+
     border-radius:9px;
+
     font-weight:bold;
+
     cursor:pointer;
+
     width:100%;
+
     font-size:14px;
+
+    box-shadow:
+        0 4px 12px rgba(8,122,70,.18);
 }
 
 .add-button:hover{
-    background:#1d4ed8;
+    background:#06663a;
 }
 
 
-/* HASIL */
+/* =====================================================
+   HASIL
+===================================================== */
 
 .result-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:9px;
 }
 
 .result{
-    background:#f8fafc;
+    background:#f5f8f5;
+
     border-radius:12px;
+
     padding:16px 7px;
+
     text-align:center;
+
+    border:1px solid #e0e9e1;
 }
 
 .result-title{
-    color:#64748b;
+    color:#61786b;
+
     font-size:9px;
+
     font-weight:bold;
+
     margin-bottom:7px;
 }
 
 .result-value{
     font-size:19px;
+
     font-weight:900;
+
+    color:#214c34;
 }
 
 .final{
-    background:#eff6ff;
-    border:1px solid #bfdbfe;
+    background:#eef8f1;
+
+    border:1px solid #b9dcbf;
 }
 
 .final .result-value{
-    color:#155eef;
+    color:#087a46;
 }
 
 
-/* ENTRY */
+/* =====================================================
+   ENTRY
+===================================================== */
 
 #entryLog{
     display:none;
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
@@ -297,26 +483,45 @@ td input:focus{
     }
 
     .header{
-        padding:17px 14px;
+        padding:12px;
+
         border-radius:14px;
+
+        gap:11px;
+
+        border-bottom-width:3px;
+    }
+
+    .logo-box{
+        width:55px;
+        height:55px;
+
+        border-radius:9px;
+
+        padding:4px;
     }
 
     .header h1{
-        font-size:21px;
+        font-size:20px;
+
+        letter-spacing:.2px;
     }
 
     .header p{
-        font-size:10px;
+        font-size:9px;
     }
 
     .card{
         padding:9px;
+
         border-radius:13px;
+
         margin-bottom:8px;
     }
 
     .card-title{
         font-size:14px;
+
         margin-bottom:9px;
     }
 
@@ -326,6 +531,7 @@ td input:focus{
 
     .mode-btn{
         padding:10px 5px;
+
         font-size:11px;
     }
 
@@ -339,11 +545,13 @@ td input:focus{
 
     .field input{
         padding:9px 6px;
+
         font-size:13px;
     }
 
     th{
         font-size:7px;
+
         padding:6px 2px;
     }
 
@@ -353,16 +561,20 @@ td input:focus{
 
     td input{
         padding:7px 2px;
+
         font-size:10px;
     }
 
     .nama{
         min-width:90px;
+
         font-size:11px;
+
         font-weight:900;
-        color:#2563eb;
-        letter-spacing:.2px;
-        text-transform:uppercase;
+
+        color:#087a46;
+
+        letter-spacing:.1px;
     }
 
     .isi-bendel{
@@ -375,6 +587,7 @@ td input:focus{
 
     .delete{
         padding:6px;
+
         font-size:9px;
     }
 
@@ -400,6 +613,28 @@ td input:focus{
 
 }
 
+
+/* =====================================================
+   MOBILE SANGAT KECIL
+===================================================== */
+
+@media(max-width:400px){
+
+    .logo-box{
+        width:48px;
+        height:48px;
+    }
+
+    .header h1{
+        font-size:17px;
+    }
+
+    .header p{
+        font-size:8px;
+    }
+
+}
+
 </style>
 </head>
 
@@ -409,20 +644,38 @@ td input:focus{
 <div class="container">
 
 
-<!-- HEADER -->
+<!-- ===================================================
+     HEADER
+=================================================== -->
 
 <div class="header">
 
-    <h1>⚡ KALKULATOR RENDEMEN</h1>
+    <div class="logo-box">
 
-    <p>
-        Perhitungan tambahan RST dan rendemen
-    </p>
+        <img
+            src="logo-perhutani.jpg"
+            alt="Logo Perhutani"
+        >
+
+    </div>
+
+
+    <div class="header-text">
+
+        <h1>KALKULATOR RENDEMEN</h1>
+
+        <p>
+            Perhitungan tambahan RST dan rendemen
+        </p>
+
+    </div>
 
 </div>
 
 
-<!-- MODE -->
+<!-- ===================================================
+     MODE
+=================================================== -->
 
 <div class="mode-box">
 
@@ -431,21 +684,24 @@ td input:focus{
         class="mode-btn active"
         onclick="ubahMode('tambahan')"
     >
-        🔵 TAMBAHAN
+        🟢 TAMBAHAN
     </button>
+
 
     <button
         id="btnEntry"
         class="mode-btn"
         onclick="ubahMode('entry')"
     >
-        🟢 ENTRY
+        🟡 ENTRY
     </button>
 
 </div>
 
 
-<!-- DATA SAAT INI -->
+<!-- ===================================================
+     DATA SAAT INI
+=================================================== -->
 
 <div
     class="card"
@@ -455,6 +711,7 @@ td input:focus{
     <div class="card-title">
         Data Saat Ini
     </div>
+
 
     <div class="input-grid">
 
@@ -498,7 +755,9 @@ td input:focus{
 </div>
 
 
-<!-- DATA LOG -->
+<!-- ===================================================
+     DATA LOG
+=================================================== -->
 
 <div
     class="card"
@@ -509,16 +768,18 @@ td input:focus{
         Data Log
     </div>
 
+
     <div class="field">
 
         <label>
             JUMLAH LOG (m³)
         </label>
 
+
         <input
             id="jumlahLog"
             type="number"
-            step="0.001"
+            step="0.000001"
             min="0"
             placeholder="Contoh: 7"
             oninput="hitung()"
@@ -529,7 +790,9 @@ td input:focus{
 </div>
 
 
-<!-- DATA RST -->
+<!-- ===================================================
+     DATA RST
+=================================================== -->
 
 <div class="card">
 
@@ -549,36 +812,23 @@ td input:focus{
 
                 <tr>
 
-                    <th>
-                        Nama
-                    </th>
+                    <th>Nama</th>
 
-                    <th>
-                        Tebal
-                    </th>
+                    <th>Tebal</th>
 
-                    <th>
-                        Lebar
-                    </th>
+                    <th>Lebar</th>
 
-                    <th>
-                        Panjang
-                    </th>
+                    <th>Panjang</th>
 
-                    <th>
-                        Bendel
-                    </th>
+                    <th>Bendel</th>
 
                     <th>
                         Isi/<br>Bendel
                     </th>
 
-                    <th>
-                        Volume
-                    </th>
+                    <th>Volume</th>
 
-                    <th>
-                    </th>
+                    <th></th>
 
                 </tr>
 
@@ -608,7 +858,9 @@ td input:focus{
 </div>
 
 
-<!-- HASIL TAMBAHAN -->
+<!-- ===================================================
+     HASIL TAMBAHAN
+=================================================== -->
 
 <div
     class="card"
@@ -674,7 +926,9 @@ td input:focus{
 </div>
 
 
-<!-- HASIL ENTRY -->
+<!-- ===================================================
+     HASIL ENTRY
+=================================================== -->
 
 <div
     class="card"
@@ -1819,8 +2073,10 @@ function hitung(){
         namaElement.className =
             "nama";
 
+
         isiElement.textContent =
             rule.isi;
+
 
         statusElement.textContent =
             "Otomatis";
