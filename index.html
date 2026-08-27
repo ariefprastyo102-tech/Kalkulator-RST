@@ -8,10 +8,6 @@
 
 <style>
 
-/* =====================================================
-   DASAR
-===================================================== */
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -20,8 +16,8 @@
 }
 
 body{
-    background:#f2f6f1;
-    color:#183326;
+    background:#f3f7f4;
+    color:#172033;
     padding:12px;
 }
 
@@ -30,70 +26,37 @@ body{
     margin:auto;
 }
 
-
-/* =====================================================
-   HEADER PERHUTANI
-===================================================== */
+/* ================= HEADER ================= */
 
 .header{
-    background:linear-gradient(
-        135deg,
-        #075b35 0%,
-        #087a46 55%,
-        #0b914f 100%
-    );
-
+    background:linear-gradient(135deg,#006b3c,#008f52);
     color:white;
     padding:16px 20px;
     border-radius:18px;
     margin-bottom:12px;
-
-    display:flex;
-    align-items:center;
-    gap:16px;
-
-    box-shadow:
-        0 8px 25px rgba(0,91,53,.20);
-
-    border-bottom:4px solid #d5a928;
+    box-shadow:0 8px 25px rgba(0,107,60,.20);
 }
 
-.logo-box{
-    width:72px;
-    height:72px;
-
-    background:white;
-
-    border-radius:12px;
-
+.header-brand{
     display:flex;
     align-items:center;
-    justify-content:center;
-
-    padding:6px;
-
-    flex-shrink:0;
-
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.15);
+    gap:15px;
 }
 
-.logo-box img{
-    width:100%;
-    height:100%;
+.logo-perhutani{
+    width:68px;
+    height:68px;
     object-fit:contain;
-    border-radius:7px;
-}
-
-.header-text{
-    flex:1;
+    background:white;
+    border-radius:10px;
+    padding:5px;
+    flex-shrink:0;
 }
 
 .header h1{
     font-size:27px;
-    font-weight:900;
-    letter-spacing:.4px;
     margin-bottom:4px;
+    font-weight:900;
 }
 
 .header p{
@@ -101,10 +64,7 @@ body{
     opacity:.92;
 }
 
-
-/* =====================================================
-   MODE
-===================================================== */
+/* ================= MODE ================= */
 
 .mode-box{
     display:grid;
@@ -114,66 +74,39 @@ body{
 }
 
 .mode-btn{
-    border:1px solid #cddbcf;
+    border:1px solid #cbd5d0;
     background:white;
-    color:#527060;
-
+    color:#64748b;
     padding:11px;
-
     border-radius:10px;
-
     font-weight:bold;
     cursor:pointer;
-
-    transition:.2s;
-}
-
-.mode-btn:hover{
-    border-color:#087a46;
 }
 
 .mode-btn.active{
-    background:#087a46;
+    background:#008f52;
     color:white;
-    border-color:#087a46;
-
-    box-shadow:
-        0 4px 12px rgba(8,122,70,.20);
+    border-color:#008f52;
 }
 
-
-/* =====================================================
-   CARD
-===================================================== */
+/* ================= CARD ================= */
 
 .card{
     background:white;
-
     border-radius:16px;
-
     padding:16px;
-
     margin-bottom:12px;
-
-    box-shadow:
-        0 4px 18px rgba(20,70,40,.06);
-
-    border:1px solid #e1e9e2;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
 }
 
 .card-title{
     font-size:16px;
-    font-weight:900;
-
+    font-weight:bold;
     margin-bottom:12px;
-
-    color:#145c38;
+    color:#006b3c;
 }
 
-
-/* =====================================================
-   INPUT
-===================================================== */
+/* ================= INPUT ================= */
 
 .input-grid{
     display:grid;
@@ -183,44 +116,26 @@ body{
 
 .field label{
     display:block;
-
     font-size:11px;
     font-weight:bold;
-
-    color:#61786b;
-
+    color:#64748b;
     margin-bottom:5px;
 }
 
 .field input{
     width:100%;
-
     padding:11px;
-
-    border:1px solid #d4dfd6;
-
+    border:1px solid #d9dee8;
     border-radius:9px;
-
     font-size:15px;
-
     outline:none;
-
-    color:#183326;
-
-    background:#fcfefc;
 }
 
 .field input:focus{
-    border-color:#087a46;
-
-    box-shadow:
-        0 0 0 2px rgba(8,122,70,.08);
+    border-color:#008f52;
 }
 
-
-/* =====================================================
-   TABLE
-===================================================== */
+/* ================= TABLE ================= */
 
 .table-wrap{
     overflow-x:auto;
@@ -233,248 +148,191 @@ table{
 }
 
 th{
-    background:#edf6ef;
-
-    color:#38634c;
-
+    background:#f0f7f3;
+    color:#356b52;
     font-size:10px;
-
     padding:8px 4px;
-
-    border-bottom:2px solid #cbdcca;
-
+    border-bottom:1px solid #dce9e1;
     white-space:nowrap;
 }
 
 td{
     padding:4px 2px;
-
-    border-bottom:1px solid #edf1ee;
-
+    border-bottom:1px solid #edf0f4;
     text-align:center;
 }
 
 td input{
     width:100%;
-
     padding:8px 3px;
-
-    border:1px solid #d5dfd7;
-
+    border:1px solid #d9dee8;
     border-radius:7px;
-
     text-align:center;
-
     font-size:13px;
-
     outline:none;
-
-    color:#183326;
-
-    background:#ffffff;
 }
 
 td input:focus{
-    border-color:#087a46;
-
-    box-shadow:
-        0 0 0 2px rgba(8,122,70,.06);
+    border-color:#008f52;
 }
 
-
-/* =====================================================
-   NAMA PRODUK
-===================================================== */
+/* ================= NAMA PRODUK ================= */
 
 .nama{
     font-weight:900;
-
     font-size:13px;
-
-    color:#087a46;
-
     min-width:110px;
-
     text-align:left;
-
     padding-left:5px;
-
     letter-spacing:.3px;
+
+    color:#006b3c;
 }
 
 .nama.belum{
-    color:#9aaba0;
-
+    color:#94a3b8;
     font-weight:normal;
 }
 
+/* warna nama berdasarkan produk */
 
-/* =====================================================
-   ISI BENDEL
-===================================================== */
+.nama.decking{
+    color:#007f45;
+}
+
+.nama.flooring{
+    color:#008f52;
+}
+
+.nama.longstrip{
+    color:#b7791f;
+}
+
+.nama.pb-panjang{
+    color:#2563eb;
+}
+
+.nama.pb-pendek{
+    color:#7c3aed;
+}
+
+.nama.p-stock{
+    color:#0891b2;
+}
+
+.nama.fjl{
+    color:#c2410c;
+}
+
+.nama.reng{
+    color:#be123c;
+}
+
+.nama.list{
+    color:#6d28d9;
+}
+
+/* ================= ISI BENDEL ================= */
 
 .isi-bendel{
-    font-weight:900;
-
-    color:#087a46;
-
+    font-weight:bold;
+    color:#008f52;
     font-size:13px;
 }
 
 .status{
     font-size:8px;
-
     margin-top:2px;
 }
 
 .status.ok{
-    color:#178343;
+    color:#16a34a;
 }
 
 .status.error{
-    color:#d02c2c;
+    color:#dc2626;
 }
 
-
-/* =====================================================
-   VOLUME
-===================================================== */
+/* ================= VOLUME ================= */
 
 .volume{
     font-weight:bold;
-
     font-size:12px;
-
     white-space:nowrap;
-
-    color:#284d38;
 }
 
-
-/* =====================================================
-   DELETE
-===================================================== */
+/* ================= DELETE ================= */
 
 .delete{
-    background:#fff0f0;
-
-    color:#c92d2d;
-
-    border:1px solid #f4d0d0;
-
+    background:#fee2e2;
+    color:#dc2626;
+    border:none;
     border-radius:7px;
-
     padding:7px 8px;
-
     cursor:pointer;
 }
 
-.delete:hover{
-    background:#ffe1e1;
-}
-
-
-/* =====================================================
-   TAMBAH
-===================================================== */
+/* ================= TAMBAH ================= */
 
 .add-button{
-    background:linear-gradient(
-        135deg,
-        #087a46,
-        #0a9654
-    );
-
+    background:#008f52;
     color:white;
-
     border:none;
-
     padding:12px;
-
     border-radius:9px;
-
     font-weight:bold;
-
     cursor:pointer;
-
     width:100%;
-
     font-size:14px;
-
-    box-shadow:
-        0 4px 12px rgba(8,122,70,.18);
 }
 
 .add-button:hover{
-    background:#06663a;
+    background:#006b3c;
 }
 
-
-/* =====================================================
-   HASIL
-===================================================== */
+/* ================= HASIL ================= */
 
 .result-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:9px;
 }
 
 .result{
-    background:#f5f8f5;
-
+    background:#f4f8f6;
     border-radius:12px;
-
     padding:16px 7px;
-
     text-align:center;
-
-    border:1px solid #e0e9e1;
 }
 
 .result-title{
-    color:#61786b;
-
+    color:#64748b;
     font-size:9px;
-
     font-weight:bold;
-
     margin-bottom:7px;
 }
 
 .result-value{
     font-size:19px;
-
     font-weight:900;
-
-    color:#214c34;
 }
 
 .final{
-    background:#eef8f1;
-
-    border:1px solid #b9dcbf;
+    background:#ecfdf5;
+    border:1px solid #a7f3d0;
 }
 
 .final .result-value{
-    color:#087a46;
+    color:#008f52;
 }
 
-
-/* =====================================================
-   ENTRY
-===================================================== */
+/* ================= ENTRY ================= */
 
 #entryLog{
     display:none;
 }
 
-
-/* =====================================================
-   MOBILE
-===================================================== */
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -483,28 +341,21 @@ td input:focus{
     }
 
     .header{
-        padding:12px;
-
+        padding:13px 12px;
         border-radius:14px;
-
-        gap:11px;
-
-        border-bottom-width:3px;
     }
 
-    .logo-box{
-        width:55px;
-        height:55px;
+    .header-brand{
+        gap:10px;
+    }
 
-        border-radius:9px;
-
-        padding:4px;
+    .logo-perhutani{
+        width:52px;
+        height:52px;
     }
 
     .header h1{
-        font-size:20px;
-
-        letter-spacing:.2px;
+        font-size:19px;
     }
 
     .header p{
@@ -513,15 +364,12 @@ td input:focus{
 
     .card{
         padding:9px;
-
         border-radius:13px;
-
         margin-bottom:8px;
     }
 
     .card-title{
         font-size:14px;
-
         margin-bottom:9px;
     }
 
@@ -531,7 +379,6 @@ td input:focus{
 
     .mode-btn{
         padding:10px 5px;
-
         font-size:11px;
     }
 
@@ -545,13 +392,11 @@ td input:focus{
 
     .field input{
         padding:9px 6px;
-
         font-size:13px;
     }
 
     th{
         font-size:7px;
-
         padding:6px 2px;
     }
 
@@ -561,20 +406,13 @@ td input:focus{
 
     td input{
         padding:7px 2px;
-
         font-size:10px;
     }
 
     .nama{
         min-width:90px;
-
         font-size:11px;
-
         font-weight:900;
-
-        color:#087a46;
-
-        letter-spacing:.1px;
     }
 
     .isi-bendel{
@@ -587,7 +425,6 @@ td input:focus{
 
     .delete{
         padding:6px;
-
         font-size:9px;
     }
 
@@ -613,69 +450,40 @@ td input:focus{
 
 }
 
-
-/* =====================================================
-   MOBILE SANGAT KECIL
-===================================================== */
-
-@media(max-width:400px){
-
-    .logo-box{
-        width:48px;
-        height:48px;
-    }
-
-    .header h1{
-        font-size:17px;
-    }
-
-    .header p{
-        font-size:8px;
-    }
-
-}
-
 </style>
 </head>
-
 
 <body>
 
 <div class="container">
 
-
-<!-- ===================================================
-     HEADER
-=================================================== -->
+<!-- ================= HEADER ================= -->
 
 <div class="header">
 
-    <div class="logo-box">
+    <div class="header-brand">
 
         <img
-            src="logo-perhutani.jpg"
+            src="https://raw.githubusercontent.com/ariefprastyo102-tech/scan-kayu/main/logo-perhutani.jpg"
             alt="Logo Perhutani"
+            class="logo-perhutani"
         >
 
-    </div>
+        <div>
 
+            <h1>⚡ KALKULATOR RENDEMEN</h1>
 
-    <div class="header-text">
+            <p>
+                Perhitungan tambahan RST dan rendemen
+            </p>
 
-        <h1>KALKULATOR RENDEMEN</h1>
-
-        <p>
-            Perhitungan tambahan RST dan rendemen
-        </p>
+        </div>
 
     </div>
 
 </div>
 
-
-<!-- ===================================================
-     MODE
-=================================================== -->
+<!-- ================= MODE ================= -->
 
 <div class="mode-box">
 
@@ -684,24 +492,20 @@ td input:focus{
         class="mode-btn active"
         onclick="ubahMode('tambahan')"
     >
-        🟢 TAMBAHAN
+        🔵 TAMBAHAN
     </button>
-
 
     <button
         id="btnEntry"
         class="mode-btn"
         onclick="ubahMode('entry')"
     >
-        🟡 ENTRY
+        🟢 ENTRY
     </button>
 
 </div>
 
-
-<!-- ===================================================
-     DATA SAAT INI
-=================================================== -->
+<!-- ================= DATA SAAT INI ================= -->
 
 <div
     class="card"
@@ -711,7 +515,6 @@ td input:focus{
     <div class="card-title">
         Data Saat Ini
     </div>
-
 
     <div class="input-grid">
 
@@ -731,7 +534,6 @@ td input:focus{
             >
 
         </div>
-
 
         <div class="field">
 
@@ -754,10 +556,7 @@ td input:focus{
 
 </div>
 
-
-<!-- ===================================================
-     DATA LOG
-=================================================== -->
+<!-- ================= DATA LOG ================= -->
 
 <div
     class="card"
@@ -768,18 +567,16 @@ td input:focus{
         Data Log
     </div>
 
-
     <div class="field">
 
         <label>
             JUMLAH LOG (m³)
         </label>
 
-
         <input
             id="jumlahLog"
             type="number"
-            step="0.000001"
+            step="0.001"
             min="0"
             placeholder="Contoh: 7"
             oninput="hitung()"
@@ -789,10 +586,7 @@ td input:focus{
 
 </div>
 
-
-<!-- ===================================================
-     DATA RST
-=================================================== -->
+<!-- ================= DATA RST ================= -->
 
 <div class="card">
 
@@ -802,7 +596,6 @@ td input:focus{
     >
         Kayu Tambahan
     </div>
-
 
     <div class="table-wrap">
 
@@ -822,9 +615,7 @@ td input:focus{
 
                     <th>Bendel</th>
 
-                    <th>
-                        Isi/<br>Bendel
-                    </th>
+                    <th>Isi/<br>Bendel</th>
 
                     <th>Volume</th>
 
@@ -834,15 +625,11 @@ td input:focus{
 
             </thead>
 
-
             <tbody id="tabelKayu"></tbody>
 
         </table>
 
     </div>
-
-
-    <!-- TOMBOL TAMBAH DI BAWAH -->
 
     <div style="margin-top:12px;">
 
@@ -857,10 +644,7 @@ td input:focus{
 
 </div>
 
-
-<!-- ===================================================
-     HASIL TAMBAHAN
-=================================================== -->
+<!-- ================= HASIL TAMBAHAN ================= -->
 
 <div
     class="card"
@@ -870,7 +654,6 @@ td input:focus{
     <div class="card-title">
         Hasil Final
     </div>
-
 
     <div class="result-grid">
 
@@ -889,7 +672,6 @@ td input:focus{
 
         </div>
 
-
         <div class="result final">
 
             <div class="result-title">
@@ -904,7 +686,6 @@ td input:focus{
             </div>
 
         </div>
-
 
         <div class="result final">
 
@@ -925,10 +706,7 @@ td input:focus{
 
 </div>
 
-
-<!-- ===================================================
-     HASIL ENTRY
-=================================================== -->
+<!-- ================= HASIL ENTRY ================= -->
 
 <div
     class="card"
@@ -939,7 +717,6 @@ td input:focus{
     <div class="card-title">
         Hasil Rendemen
     </div>
-
 
     <div class="result-grid">
 
@@ -958,7 +735,6 @@ td input:focus{
 
         </div>
 
-
         <div class="result">
 
             <div class="result-title">
@@ -973,7 +749,6 @@ td input:focus{
             </div>
 
         </div>
-
 
         <div class="result final">
 
@@ -994,12 +769,9 @@ td input:focus{
 
 </div>
 
-
 </div>
 
-
 <script>
-
 
 /* =====================================================
    ATURAN UKURAN + NAMA
@@ -1009,369 +781,58 @@ const aturan = [
 
     /* ================= DECKING ================= */
 
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[160],
-        min:2500,
-        max:2900,
-        isi:1
-    },
+    {nama:"DECKING",t:[19],l:[160],min:2500,max:2900,isi:1},
+    {nama:"DECKING",t:[19],l:[160],min:2000,max:2400,isi:1},
+    {nama:"DECKING",t:[19],l:[160],min:1500,max:1900,isi:1},
 
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[160],
-        min:2000,
-        max:2400,
-        isi:1
-    },
+    {nama:"DECKING",t:[19],l:[130],min:2500,max:2900,isi:1},
+    {nama:"DECKING",t:[19],l:[130],min:2000,max:2400,isi:1},
+    {nama:"DECKING",t:[19],l:[130],min:1500,max:1900,isi:1},
+    {nama:"DECKING",t:[19],l:[130],min:1000,max:1400,isi:1},
 
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[160],
-        min:1500,
-        max:1900,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[130],
-        min:2500,
-        max:2900,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[130],
-        min:2000,
-        max:2400,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[130],
-        min:1500,
-        max:1900,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[130],
-        min:1000,
-        max:1400,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[100],
-        min:2500,
-        max:2900,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[100],
-        min:2000,
-        max:2400,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[100],
-        min:1500,
-        max:1900,
-        isi:1
-    },
-
-    {
-        nama:"DECKING",
-        t:[19],
-        l:[100],
-        min:900,
-        max:1400,
-        isi:1
-    },
-
+    {nama:"DECKING",t:[19],l:[100],min:2500,max:2900,isi:1},
+    {nama:"DECKING",t:[19],l:[100],min:2000,max:2400,isi:1},
+    {nama:"DECKING",t:[19],l:[100],min:1500,max:1900,isi:1},
+    {nama:"DECKING",t:[19],l:[100],min:900,max:1400,isi:1},
 
     /* ================= FLOORING ================= */
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[160],
-        min:900,
-        max:1400,
-        isi:1
-    },
+    {nama:"FLOORING",t:[18],l:[160],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[18],l:[160],min:600,max:850,isi:1},
+    {nama:"FLOORING",t:[18],l:[160],min:300,max:550,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[160],
-        min:600,
-        max:850,
-        isi:1
-    },
+    {nama:"FLOORING",t:[18],l:[130],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[18],l:[130],min:600,max:850,isi:1},
+    {nama:"FLOORING",t:[18],l:[130],min:450,max:550,isi:10},
+    {nama:"FLOORING",t:[18],l:[130],min:300,max:400,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[160],
-        min:300,
-        max:550,
-        isi:10
-    },
+    {nama:"FLOORING",t:[18],l:[100],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[18],l:[100],min:600,max:850,isi:1},
+    {nama:"FLOORING",t:[18],l:[100],min:450,max:550,isi:10},
+    {nama:"FLOORING",t:[18],l:[100],min:300,max:400,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[130],
-        min:900,
-        max:1400,
-        isi:1
-    },
+    {nama:"FLOORING",t:[15],l:[130],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[15],l:[130],min:600,max:850,isi:1},
+    {nama:"FLOORING",t:[15],l:[130],min:450,max:550,isi:10},
+    {nama:"FLOORING",t:[15],l:[130],min:300,max:400,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[130],
-        min:600,
-        max:850,
-        isi:1
-    },
+    {nama:"FLOORING",t:[15],l:[100],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[15],l:[100],min:600,max:850,isi:1},
+    {nama:"FLOORING",t:[15],l:[100],min:450,max:550,isi:10},
+    {nama:"FLOORING",t:[15],l:[100],min:300,max:400,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[130],
-        min:450,
-        max:550,
-        isi:10
-    },
+    {nama:"FLOORING",t:[15],l:[81],min:500,max:550,isi:10},
+    {nama:"FLOORING",t:[18],l:[81],min:500,max:550,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[130],
-        min:300,
-        max:400,
-        isi:10
-    },
+    {nama:"FLOORING",t:[15],l:[60],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[15],l:[60],min:600,max:850,isi:10},
+    {nama:"FLOORING",t:[15],l:[60],min:450,max:550,isi:10},
+    {nama:"FLOORING",t:[15],l:[60],min:300,max:400,isi:10},
 
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[100],
-        min:900,
-        max:1400,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[100],
-        min:600,
-        max:850,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[100],
-        min:450,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[100],
-        min:300,
-        max:400,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[130],
-        min:900,
-        max:1400,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[130],
-        min:600,
-        max:850,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[130],
-        min:450,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[130],
-        min:300,
-        max:400,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[100],
-        min:900,
-        max:1400,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[100],
-        min:600,
-        max:850,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[100],
-        min:450,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[100],
-        min:300,
-        max:400,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[81],
-        min:500,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[81],
-        min:500,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[60],
-        min:900,
-        max:1400,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[60],
-        min:600,
-        max:850,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[60],
-        min:450,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[15],
-        l:[60],
-        min:300,
-        max:400,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[60],
-        min:900,
-        max:1400,
-        isi:1
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[60],
-        min:600,
-        max:850,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[60],
-        min:450,
-        max:550,
-        isi:10
-    },
-
-    {
-        nama:"FLOORING",
-        t:[18],
-        l:[60],
-        min:300,
-        max:400,
-        isi:10
-    },
-
+    {nama:"FLOORING",t:[18],l:[60],min:900,max:1400,isi:1},
+    {nama:"FLOORING",t:[18],l:[60],min:600,max:850,isi:10},
+    {nama:"FLOORING",t:[18],l:[60],min:450,max:550,isi:10},
+    {nama:"FLOORING",t:[18],l:[60],min:300,max:400,isi:10},
 
     /* ================= LONGSTRIP ================= */
 
@@ -1402,7 +863,6 @@ const aturan = [
         isi:10
     },
 
-
     /* ================= PB PANJANG ================= */
 
     {
@@ -1431,7 +891,6 @@ const aturan = [
         isi:40
     },
 
-
     /* ================= PB PENDEK ================= */
 
     {
@@ -1450,7 +909,6 @@ const aturan = [
         isi:40
     },
 
-
     /* ================= P STOCK ================= */
 
     {
@@ -1460,7 +918,6 @@ const aturan = [
         max:199.999999,
         isi:40
     },
-
 
     /* ================= FJL ================= */
 
@@ -1472,7 +929,6 @@ const aturan = [
         up:true,
         isi:25
     },
-
 
     /* ================= RENG ================= */
 
@@ -1511,7 +967,6 @@ const aturan = [
         max:200,
         isi:50
     },
-
 
     /* ================= LIST ================= */
 
@@ -1654,6 +1109,19 @@ function cariAturan(
 
 
 /* =====================================================
+   CLASS NAMA
+===================================================== */
+
+function classNama(nama){
+
+    return nama
+        .toLowerCase()
+        .replace(/\s+/g,"-");
+
+}
+
+
+/* =====================================================
    TAMBAH BARIS
 ===================================================== */
 
@@ -1664,10 +1132,8 @@ function tambahBaris(){
             "tabelKayu"
         );
 
-
     const tr =
         document.createElement("tr");
-
 
     tr.innerHTML = `
 
@@ -1678,7 +1144,6 @@ function tambahBaris(){
             </div>
 
         </td>
-
 
         <td>
 
@@ -1692,7 +1157,6 @@ function tambahBaris(){
 
         </td>
 
-
         <td>
 
             <input
@@ -1705,7 +1169,6 @@ function tambahBaris(){
 
         </td>
 
-
         <td>
 
             <input
@@ -1717,7 +1180,6 @@ function tambahBaris(){
             >
 
         </td>
-
 
         <td>
 
@@ -1732,7 +1194,6 @@ function tambahBaris(){
 
         </td>
 
-
         <td>
 
             <div class="isi-bendel">
@@ -1743,7 +1204,6 @@ function tambahBaris(){
 
         </td>
 
-
         <td>
 
             <div class="volume">
@@ -1751,7 +1211,6 @@ function tambahBaris(){
             </div>
 
         </td>
-
 
         <td>
 
@@ -1769,7 +1228,6 @@ function tambahBaris(){
 
     `;
 
-
     tbody.appendChild(tr);
 
     hitung();
@@ -1785,30 +1243,25 @@ function tambahBarisDanScroll(){
 
     tambahBaris();
 
-
     const rows =
         document.querySelectorAll(
             "#tabelKayu tr"
         );
-
 
     if(rows.length > 0){
 
         const barisBaru =
             rows[rows.length - 1];
 
-
         barisBaru.scrollIntoView({
             behavior:"smooth",
             block:"center"
         });
 
-
         const input =
             barisBaru.querySelector(
                 ".tebal"
             );
-
 
         if(input){
 
@@ -1866,16 +1319,11 @@ function ubahMode(mode){
             "judulTabel"
         );
 
-
     if(mode === "tambahan"){
 
-        btnTambahan.classList.add(
-            "active"
-        );
+        btnTambahan.classList.add("active");
 
-        btnEntry.classList.remove(
-            "active"
-        );
+        btnEntry.classList.remove("active");
 
         dataSaatIni.style.display =
             "block";
@@ -1896,13 +1344,9 @@ function ubahMode(mode){
 
     else{
 
-        btnTambahan.classList.remove(
-            "active"
-        );
+        btnTambahan.classList.remove("active");
 
-        btnEntry.classList.add(
-            "active"
-        );
+        btnEntry.classList.add("active");
 
         dataSaatIni.style.display =
             "none";
@@ -1921,7 +1365,6 @@ function ubahMode(mode){
 
     }
 
-
     hitung();
 
 }
@@ -1935,69 +1378,44 @@ function hitung(){
 
     let totalVolume = 0;
 
-
     const rows =
         document.querySelectorAll(
             "#tabelKayu tr"
         );
 
-
     rows.forEach(function(row){
 
         const tebal =
             angka(
-                row.querySelector(
-                    ".tebal"
-                ).value
+                row.querySelector(".tebal").value
             );
-
 
         const lebar =
             angka(
-                row.querySelector(
-                    ".lebar"
-                ).value
+                row.querySelector(".lebar").value
             );
-
 
         const panjang =
             angka(
-                row.querySelector(
-                    ".panjang"
-                ).value
+                row.querySelector(".panjang").value
             );
-
 
         const jumlahBendel =
             angka(
-                row.querySelector(
-                    ".jumlahBendel"
-                ).value
+                row.querySelector(".jumlahBendel").value
             );
-
 
         const namaElement =
-            row.querySelector(
-                ".nama"
-            );
-
+            row.querySelector(".nama");
 
         const isiElement =
-            row.querySelector(
-                ".isi-bendel"
-            );
-
+            row.querySelector(".isi-bendel");
 
         const statusElement =
-            row.querySelector(
-                ".status"
-            );
-
+            row.querySelector(".status");
 
         const volumeElement =
-            row.querySelector(
-                ".volume"
-            );
+            row.querySelector(".volume");
 
 
         /* BELUM LENGKAP */
@@ -2071,12 +1489,10 @@ function hitung(){
             rule.nama;
 
         namaElement.className =
-            "nama";
-
+            "nama " + classNama(rule.nama);
 
         isiElement.textContent =
             rule.isi;
-
 
         statusElement.textContent =
             "Otomatis";
@@ -2086,8 +1502,6 @@ function hitung(){
 
 
         /*
-            JUMLAH BATANG:
-
             BENDEL × ISI/BENDEL
         */
 
@@ -2123,7 +1537,6 @@ function hitung(){
         volumeElement.textContent =
             formatAngka(volume);
 
-
         totalVolume += volume;
 
     });
@@ -2140,7 +1553,6 @@ function hitung(){
             ).value
         );
 
-
     const rendemenSaatIni =
         angka(
             document.getElementById(
@@ -2148,17 +1560,14 @@ function hitung(){
             ).value
         );
 
-
     const hasilFinal =
         round6(
             hasilSaatIni +
             totalVolume
         );
 
-
     let volumeLogDariRendemen =
         0;
-
 
     if(
         hasilSaatIni > 0 &&
@@ -2174,10 +1583,8 @@ function hitung(){
 
     }
 
-
     let rendemenFinal =
         0;
-
 
     if(
         volumeLogDariRendemen > 0
@@ -2193,7 +1600,6 @@ function hitung(){
 
     }
 
-
     document.getElementById(
         "totalTambahan"
     ).textContent =
@@ -2201,14 +1607,12 @@ function hitung(){
         +
         " m³";
 
-
     document.getElementById(
         "hasilFinal"
     ).textContent =
         formatAngka(hasilFinal)
         +
         " m³";
-
 
     document.getElementById(
         "rendemenFinal"
@@ -2232,10 +1636,8 @@ function hitung(){
             ).value
         );
 
-
     let rendemenEntry =
         0;
-
 
     if(jumlahLog > 0){
 
@@ -2248,7 +1650,6 @@ function hitung(){
             100;
 
     }
-
 
     document.getElementById(
         "volumeRST"
@@ -2273,7 +1674,6 @@ function hitung(){
         +
         " m³";
 
-
     document.getElementById(
         "rendemenEntry"
     ).textContent =
@@ -2292,7 +1692,6 @@ function hitung(){
 ===================================================== */
 
 tambahBaris();
-
 
 </script>
 
