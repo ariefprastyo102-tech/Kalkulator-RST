@@ -103,7 +103,7 @@ body{
 
 
 /* =========================
-   AREA TABEL
+   TABEL
 ========================= */
 
 .table-container{
@@ -218,6 +218,10 @@ th:nth-child(8){
     border-radius:7px;
     padding:8px 9px;
     cursor:pointer;
+}
+
+.delete:hover{
+    background:#fecaca;
 }
 
 
@@ -349,9 +353,18 @@ th:nth-child(8){
     }
 
 
-    /*
-       SINGKATAN HEADER HP
-    */
+    /* SINGKATAN HEADER HP */
+
+    th:nth-child(1),
+    th:nth-child(2),
+    th:nth-child(3),
+    th:nth-child(4),
+    th:nth-child(5),
+    th:nth-child(6),
+    th:nth-child(7),
+    th:nth-child(8){
+        font-size:0;
+    }
 
     th:nth-child(1)::after{
         content:"T";
@@ -383,17 +396,6 @@ th:nth-child(8){
 
     th:nth-child(8)::after{
         content:"";
-    }
-
-    th:nth-child(1),
-    th:nth-child(2),
-    th:nth-child(3),
-    th:nth-child(4),
-    th:nth-child(5),
-    th:nth-child(6),
-    th:nth-child(7),
-    th:nth-child(8){
-        font-size:0;
     }
 
     th:nth-child(1)::after,
@@ -485,9 +487,7 @@ th:nth-child(8){
 }
 
 
-/* =========================
-   HP SANGAT KECIL
-========================= */
+/* HP SANGAT KECIL */
 
 @media(max-width:380px){
 
@@ -510,9 +510,7 @@ th:nth-child(8){
 <div class="container">
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <div class="header">
 
@@ -526,9 +524,7 @@ th:nth-child(8){
 
 
 
-<!-- =========================
-     DATA SAAT INI
-========================= -->
+<!-- DATA SAAT INI -->
 
 <div class="card">
 
@@ -581,9 +577,7 @@ th:nth-child(8){
 
 
 
-<!-- =========================
-     KAYU TAMBAHAN
-========================= -->
+<!-- KAYU TAMBAHAN -->
 
 <div class="card">
 
@@ -622,21 +616,37 @@ th:nth-child(8){
 
                 <tr>
 
-                    <th>Tebal<br>(mm)</th>
+                    <th>
+                        Tebal<br>(mm)
+                    </th>
 
-                    <th>Lebar<br>(mm)</th>
+                    <th>
+                        Lebar<br>(mm)
+                    </th>
 
-                    <th>Panjang<br>(cm)</th>
+                    <th>
+                        Panjang<br>(cm)
+                    </th>
 
-                    <th>Jumlah</th>
+                    <th>
+                        Jumlah
+                    </th>
 
-                    <th>Satuan</th>
+                    <th>
+                        Satuan
+                    </th>
 
-                    <th>Isi / Bendel</th>
+                    <th>
+                        Isi / Bendel
+                    </th>
 
-                    <th>Volume<br>(m³)</th>
+                    <th>
+                        Volume<br>(m³)
+                    </th>
 
-                    <th>Aksi</th>
+                    <th>
+                        Aksi
+                    </th>
 
                 </tr>
 
@@ -653,9 +663,7 @@ th:nth-child(8){
 
 
 
-<!-- =========================
-     HASIL
-========================= -->
+<!-- HASIL -->
 
 <div class="card">
 
@@ -666,6 +674,8 @@ th:nth-child(8){
 
     <div class="result-grid">
 
+
+        <!-- TOTAL TAMBAHAN -->
 
         <div class="result">
 
@@ -684,6 +694,8 @@ th:nth-child(8){
 
 
 
+        <!-- HASIL FINAL -->
+
         <div class="result final">
 
             <div class="result-title">
@@ -700,6 +712,8 @@ th:nth-child(8){
         </div>
 
 
+
+        <!-- RENDEMEN FINAL -->
 
         <div class="result final">
 
@@ -746,6 +760,7 @@ function tambahBaris(){
     baris.innerHTML = `
 
         <td>
+
             <input
                 type="number"
                 class="tebal"
@@ -753,10 +768,12 @@ function tambahBaris(){
                 step="0.01"
                 oninput="hitung()"
             >
+
         </td>
 
 
         <td>
+
             <input
                 type="number"
                 class="lebar"
@@ -764,10 +781,12 @@ function tambahBaris(){
                 step="0.01"
                 oninput="hitung()"
             >
+
         </td>
 
 
         <td>
+
             <input
                 type="number"
                 class="panjang"
@@ -775,10 +794,12 @@ function tambahBaris(){
                 step="0.01"
                 oninput="hitung()"
             >
+
         </td>
 
 
         <td>
+
             <input
                 type="number"
                 class="jumlah"
@@ -787,6 +808,7 @@ function tambahBaris(){
                 value="1"
                 oninput="hitung()"
             >
+
         </td>
 
 
@@ -903,7 +925,7 @@ function formatAngka(
 
 
 /* =========================
-   BATANG / BENDEL
+   UBAH SATUAN
 ========================= */
 
 function ubahSatuan(select){
@@ -1046,26 +1068,32 @@ function hitung(){
 
 
 
-        /* VOLUME 1 BATANG */
+        /*
+        =====================================
+        VOLUME SESUAI RUMUS EXCEL
 
-        const volumeSatuBatang =
+        =ROUND(
+            (Tebal × Lebar × Panjang × Jumlah)
+            / 1000000000;
+            6
+        )
+
+        JUMLAH DIKALIKAN DULU,
+        BARU DIBULATKAN 6 DESIMAL.
+        =====================================
+        */
+
+        const volumeBaris =
             round6(
                 (
                     tebal *
                     lebar *
-                    panjang
+                    panjang *
+                    jumlahSatuan
                 )
                 /
                 1000000000
             );
-
-
-
-        /* VOLUME BARIS */
-
-        const volumeBaris =
-            volumeSatuBatang *
-            jumlahSatuan;
 
 
 
@@ -1080,6 +1108,8 @@ function hitung(){
 
 
 
+        /* TOTAL */
+
         totalTambahan +=
             volumeBaris;
 
@@ -1087,7 +1117,9 @@ function hitung(){
 
 
 
-    /* HASIL VOLUME FINAL */
+    /* =========================
+       HASIL VOLUME FINAL
+    ========================= */
 
     const hasilFinal =
         hasilSaatIni +
@@ -1095,7 +1127,9 @@ function hitung(){
 
 
 
-    /* BASIS RENDEMEN */
+    /* =========================
+       BASIS RENDEMEN
+    ========================= */
 
     let basisRendemen = 0;
 
@@ -1115,7 +1149,9 @@ function hitung(){
 
 
 
-    /* RENDEMEN FINAL */
+    /* =========================
+       RENDEMEN FINAL
+    ========================= */
 
     let rendemenFinal = 0;
 
@@ -1136,7 +1172,9 @@ function hitung(){
 
 
 
-    /* HASIL TAMBAHAN */
+    /* =========================
+       TAMPILKAN HASIL
+    ========================= */
 
     document.getElementById(
         "totalTambahan"
@@ -1149,8 +1187,6 @@ function hitung(){
 
 
 
-    /* HASIL FINAL */
-
     document.getElementById(
         "hasilFinal"
     ).textContent =
@@ -1161,8 +1197,6 @@ function hitung(){
         " m³";
 
 
-
-    /* RENDEMEN FINAL */
 
     document.getElementById(
         "rendemenFinal"
@@ -1203,7 +1237,9 @@ document
 
 
 
-/* BARIS PERTAMA */
+/* =========================
+   BARIS PERTAMA
+========================= */
 
 tambahBaris();
 
