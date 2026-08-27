@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,7 +6,6 @@
 
 <title>KALKULATOR RENDEMEN</title>
 
-<!-- SHEETJS UNTUK EXPORT EXCEL -->
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 
 <style>
@@ -29,8 +27,6 @@ body{
     max-width:1100px;
     margin:auto;
 }
-
-/* ================= HEADER ================= */
 
 .header{
     background:linear-gradient(135deg,#315d2b,#6d8f3a);
@@ -64,8 +60,6 @@ body{
     opacity:.92;
 }
 
-/* ================= MODE ================= */
-
 .mode-box{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -89,8 +83,6 @@ body{
     border-color:#526f32;
 }
 
-/* ================= CARD ================= */
-
 .card{
     background:white;
     border-radius:16px;
@@ -105,8 +97,6 @@ body{
     margin-bottom:12px;
     color:#33452b;
 }
-
-/* ================= INPUT ================= */
 
 .input-grid{
     display:grid;
@@ -137,8 +127,6 @@ body{
 .field select:focus{
     border-color:#6d8f3a;
 }
-
-/* ================= TABLE ================= */
 
 .table-wrap{
     overflow-x:auto;
@@ -182,8 +170,6 @@ td select:focus{
     border-color:#6d8f3a;
 }
 
-/* ================= NAMA ================= */
-
 .nama{
     font-weight:900;
     font-size:13px;
@@ -198,8 +184,6 @@ td select:focus{
     font-weight:normal;
 }
 
-/* ================= MUTU ================= */
-
 .mutu{
     font-weight:900;
     font-size:13px;
@@ -210,8 +194,6 @@ td select:focus{
     font-weight:900;
     color:#7b3f00;
 }
-
-/* ================= ISI ================= */
 
 .isi-bendel{
     font-weight:bold;
@@ -232,15 +214,11 @@ td select:focus{
     color:#c62828;
 }
 
-/* ================= VOLUME ================= */
-
 .volume{
     font-weight:bold;
     font-size:12px;
     white-space:nowrap;
 }
-
-/* ================= DELETE ================= */
 
 .delete{
     background:#fce8e6;
@@ -250,8 +228,6 @@ td select:focus{
     padding:7px 8px;
     cursor:pointer;
 }
-
-/* ================= BUTTON ================= */
 
 .add-button{
     background:#526f32;
@@ -285,8 +261,6 @@ td select:focus{
 .download-button:hover{
     background:#185c37;
 }
-
-/* ================= HASIL ================= */
 
 .result-grid{
     display:grid;
@@ -322,8 +296,6 @@ td select:focus{
     color:#526f32;
 }
 
-/* ================= ENTRY ================= */
-
 #entryLog{
     display:none;
 }
@@ -354,8 +326,6 @@ td select:focus{
     font-size:11px;
     color:#687261;
 }
-
-/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -477,12 +447,9 @@ td select:focus{
 </style>
 </head>
 
-
 <body>
 
 <div class="container">
-
-<!-- ================= HEADER ================= -->
 
 <div class="header">
 
@@ -504,9 +471,6 @@ td select:focus{
 
 </div>
 
-
-<!-- ================= MODE ================= -->
-
 <div class="mode-box">
 
     <button
@@ -526,9 +490,6 @@ td select:focus{
     </button>
 
 </div>
-
-
-<!-- ================= DATA SAAT INI ================= -->
 
 <div
     class="card"
@@ -558,7 +519,6 @@ td select:focus{
 
         </div>
 
-
         <div class="field">
 
             <label>
@@ -579,9 +539,6 @@ td select:focus{
     </div>
 
 </div>
-
-
-<!-- ================= DATA LOG ================= -->
 
 <div
     class="card"
@@ -611,9 +568,6 @@ td select:focus{
 
 </div>
 
-
-<!-- ================= DATA RST ================= -->
-
 <div class="card">
 
     <div
@@ -622,7 +576,6 @@ td select:focus{
     >
         Kayu Tambahan
     </div>
-
 
     <div class="table-wrap">
 
@@ -646,13 +599,11 @@ td select:focus{
 
             </thead>
 
-
             <tbody id="tabelKayu"></tbody>
 
         </table>
 
     </div>
-
 
     <div style="margin-top:12px;">
 
@@ -665,9 +616,6 @@ td select:focus{
 
     </div>
 
-
-    <!-- DOWNLOAD KHUSUS ENTRY -->
-
     <button
         id="downloadExcel"
         class="download-button"
@@ -679,9 +627,6 @@ td select:focus{
 
 </div>
 
-
-<!-- ================= HASIL TAMBAHAN ================= -->
-
 <div
     class="card"
     id="hasilTambahan"
@@ -690,7 +635,6 @@ td select:focus{
     <div class="card-title">
         Hasil Final
     </div>
-
 
     <div class="result-grid">
 
@@ -709,7 +653,6 @@ td select:focus{
 
         </div>
 
-
         <div class="result final">
 
             <div class="result-title">
@@ -724,7 +667,6 @@ td select:focus{
             </div>
 
         </div>
-
 
         <div class="result final">
 
@@ -745,9 +687,6 @@ td select:focus{
 
 </div>
 
-
-<!-- ================= HASIL ENTRY ================= -->
-
 <div
     class="card"
     id="hasilEntry"
@@ -756,7 +695,6 @@ td select:focus{
     <div class="card-title">
         Hasil Rendemen
     </div>
-
 
     <div class="result-grid">
 
@@ -775,7 +713,6 @@ td select:focus{
 
         </div>
 
-
         <div class="result">
 
             <div class="result-title">
@@ -790,7 +727,6 @@ td select:focus{
             </div>
 
         </div>
-
 
         <div class="result final">
 
@@ -811,9 +747,6 @@ td select:focus{
 
 </div>
 
-
-<!-- ================= HISTORY ENTRY ================= -->
-
 <div
     class="card"
     id="historyEntry"
@@ -827,9 +760,7 @@ td select:focus{
 
 </div>
 
-
 </div>
-
 
 <script>
 
@@ -860,7 +791,8 @@ const aturan = [
 
     {nama:"FLOORING",t:[18],l:[160],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[160],min:600,max:850,isi:1},
-    {nama:"FLOORING",t:[18],l:[160],min:300,max:550,isi:10},
+    {nama:"FLOORING",t:[18],l:[160],exact:500,isi:1},
+    {nama:"FLOORING",t:[18],l:[160],exact:550,isi:1},
 
     {nama:"FLOORING",t:[18],l:[130],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[130],min:600,max:850,isi:1},
@@ -900,7 +832,7 @@ const aturan = [
 
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:900,max:1400,isi:1},
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:600,max:850,isi:10},
-    {nama:"LONGSTRIP",t:[15,18],l:[75],min:200,max:550,isi:10},
+    {nama:"LONGSTRIP",t:[15,18],l:[200,550],min:200,max:550,isi:10},
 
 
     /* ================= PB PANJANG ================= */
@@ -1654,8 +1586,6 @@ function hitung(){
             );
 
 
-        /* ================= BELUM LENGKAP ================= */
-
         if(
             tebal <= 0 ||
             lebar <= 0 ||
@@ -1686,8 +1616,6 @@ function hitung(){
         }
 
 
-        /* ================= CARI ATURAN ================= */
-
         const rule =
             cariAturan(
                 tebal,
@@ -1695,8 +1623,6 @@ function hitung(){
                 panjang
             );
 
-
-        /* ================= TIDAK DITEMUKAN ================= */
 
         if(rule === null){
 
@@ -1727,16 +1653,12 @@ function hitung(){
         }
 
 
-        /* ================= NAMA ================= */
-
         namaElement.textContent =
             rule.nama;
 
         namaElement.className =
             "nama";
 
-
-        /* ================= MUTU ================= */
 
         if(
             rule.nama === "FJL" ||
@@ -1766,8 +1688,6 @@ function hitung(){
         }
 
 
-        /* ================= ISI ================= */
-
         isiElement.textContent =
             rule.isi;
 
@@ -1778,8 +1698,6 @@ function hitung(){
         statusElement.className =
             "status ok";
 
-
-        /* ================= VOLUME ================= */
 
         const totalBatang =
             jumlahBendel *
@@ -1810,10 +1728,6 @@ function hitung(){
 
     });
 
-
-    /* =================================================
-       MODE TAMBAHAN
-    ================================================= */
 
     const hasilSaatIni =
         angka(
@@ -1906,10 +1820,6 @@ function hitung(){
         +
         " %";
 
-
-    /* =================================================
-       MODE ENTRY
-    ================================================= */
 
     const jumlahLog =
         angka(
@@ -2168,8 +2078,6 @@ function sortirDataExport(data){
     return data.sort((a,b) => {
 
 
-        /* URUTAN NAMA */
-
         const namaA =
             urutanNama.indexOf(
                 a.Nama
@@ -2189,8 +2097,6 @@ function sortirDataExport(data){
         }
 
 
-        /* MUTU P D T */
-
         const mutuA =
             urutanMutu[a.Mutu] || 99;
 
@@ -2206,8 +2112,6 @@ function sortirDataExport(data){
         }
 
 
-        /* TEBAL TERBESAR */
-
         if(a.Tebal !== b.Tebal){
 
             return b.Tebal - a.Tebal;
@@ -2215,16 +2119,12 @@ function sortirDataExport(data){
         }
 
 
-        /* LEBAR TERBESAR */
-
         if(a.Lebar !== b.Lebar){
 
             return b.Lebar - a.Lebar;
 
         }
 
-
-        /* PANJANG TERKECIL */
 
         return a.Panjang - b.Panjang;
 
@@ -2277,19 +2177,6 @@ function downloadExcelEntry(){
         );
 
 
-    /*
-       SUSUN KOLOM SESUAI PERMINTAAN:
-
-       A = Nama
-       B = Kosong
-       C = Mutu
-       D = Panjang
-       E = Lebar
-       F = Tebal
-       G = Batang/Bendel
-       H = Volume
-    */
-
     const rows = [
 
         [
@@ -2324,10 +2211,6 @@ function downloadExcelEntry(){
     });
 
 
-    /*
-       BUAT WORKBOOK
-    */
-
     const workbook =
         XLSX.utils.book_new();
 
@@ -2337,10 +2220,6 @@ function downloadExcelEntry(){
             rows
         );
 
-
-    /*
-       LEBAR KOLOM
-    */
 
     worksheet["!cols"] = [
 
@@ -2355,10 +2234,6 @@ function downloadExcelEntry(){
 
     ];
 
-
-    /*
-       FORMAT VOLUME 6 DESIMAL
-    */
 
     for(
         let r = 1;
@@ -2392,10 +2267,6 @@ function downloadExcelEntry(){
 
     );
 
-
-    /*
-       NAMA FILE
-    */
 
     const tanggal =
         new Date();
@@ -2435,10 +2306,6 @@ function downloadExcelEntry(){
 
     );
 
-
-    /*
-       SIMPAN HISTORY
-    */
 
     simpanHistoryEntry(
         data
@@ -2509,10 +2376,6 @@ function simpanHistoryEntry(data){
         historyBaru
     );
 
-
-    /*
-       Simpan maksimal 100 history
-    */
 
     historyEntry =
         historyEntry.slice(
@@ -2613,4 +2476,3 @@ renderMode();
 
 </body>
 </html>
-
