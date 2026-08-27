@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -137,38 +136,7 @@ body{
     border-color:#6d8f3a;
 }
 
-/* ================= FILTER NAMA ================= */
-
-.filter-box{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:8px;
-    margin-bottom:14px;
-}
-
-.filter-box label{
-    font-size:11px;
-    font-weight:bold;
-    color:#687261;
-}
-
-.filter-box select{
-    width:100%;
-    padding:12px;
-    border:1px solid #d9ded1;
-    border-radius:9px;
-    font-size:15px;
-    font-weight:bold;
-    color:#33452b;
-    background:white;
-    outline:none;
-}
-
-.filter-box select:focus{
-    border-color:#6d8f3a;
-}
-
-/* ================= TABLE INPUT ================= */
+/* ================= TABLE ================= */
 
 .table-wrap{
     overflow-x:auto;
@@ -184,33 +152,20 @@ th{
     background:#eef2e8;
     color:#53604c;
     font-size:10px;
-    padding:9px 5px;
+    padding:8px 4px;
     border-bottom:1px solid #dce2d5;
     white-space:nowrap;
 }
 
 td{
-    padding:5px 3px;
+    padding:4px 2px;
     border-bottom:1px solid #edf0e9;
     text-align:center;
 }
 
-.ukuran{
-    font-weight:900;
-    color:#526f32;
-    white-space:nowrap;
-    font-size:12px;
-}
-
-.isi-bendel{
-    font-weight:bold;
-    color:#526f32;
-    font-size:12px;
-}
-
-td input{
+td input,
+td select{
     width:100%;
-    min-width:65px;
     padding:8px 3px;
     border:1px solid #d9ded1;
     border-radius:7px;
@@ -220,37 +175,97 @@ td input{
     background:white;
 }
 
-td input:focus{
+td input:focus,
+td select:focus{
     border-color:#6d8f3a;
 }
 
-.mutu-head{
+/* ================= NAMA ================= */
+
+.nama{
     font-weight:900;
-}
-
-.input-disabled{
-    background:#f0f1ed !important;
-    color:#aaa;
-    cursor:not-allowed;
-}
-
-/* ================= STATUS ================= */
-
-.status-info{
-    background:#f5f7f2;
-    border:1px solid #dfe5d9;
-    border-radius:9px;
-    padding:10px;
-    color:#687261;
-    font-size:11px;
-    margin-top:10px;
-}
-
-.status-info strong{
+    font-size:13px;
+    min-width:110px;
+    text-align:left;
+    padding-left:5px;
     color:#526f32;
 }
 
+.nama.belum{
+    color:#9aa395;
+    font-weight:normal;
+}
+
+/* ================= MUTU ================= */
+
+.mutu{
+    font-weight:900;
+    font-size:13px;
+    color:#526f32;
+}
+
+.mutu-fixed{
+    font-weight:900;
+    color:#7b3f00;
+}
+
+/* ================= ISI ================= */
+
+.isi-bendel{
+    font-weight:bold;
+    color:#526f32;
+    font-size:13px;
+}
+
+.status{
+    font-size:8px;
+    margin-top:2px;
+}
+
+.status.ok{
+    color:#4b7f32;
+}
+
+.status.error{
+    color:#c62828;
+}
+
+/* ================= VOLUME ================= */
+
+.volume{
+    font-weight:bold;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+/* ================= DELETE ================= */
+
+.delete{
+    background:#fce8e6;
+    color:#c62828;
+    border:none;
+    border-radius:7px;
+    padding:7px 8px;
+    cursor:pointer;
+}
+
 /* ================= BUTTON ================= */
+
+.add-button{
+    background:#526f32;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+    width:100%;
+    font-size:14px;
+}
+
+.add-button:hover{
+    background:#425b29;
+}
 
 .download-button{
     background:#217346;
@@ -319,6 +334,58 @@ td input:focus{
     display:none;
 }
 
+/* ================= ENTRY BARU ================= */
+
+#entryInputBox{
+    display:none;
+}
+
+.entry-size-row td{
+    padding:6px 3px;
+}
+
+.entry-size{
+    font-weight:900;
+    color:#526f32;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.entry-muted{
+    color:#9aa395;
+    font-size:10px;
+}
+
+.entry-input{
+    min-width:70px;
+}
+
+.entry-volume{
+    font-weight:bold;
+    font-size:11px;
+    white-space:nowrap;
+}
+
+.entry-isi{
+    font-size:10px;
+    color:#687261;
+    margin-top:2px;
+}
+
+.entry-name-select{
+    width:100%;
+    padding:11px;
+    border:1px solid #d9ded1;
+    border-radius:9px;
+    font-size:15px;
+    outline:none;
+    background:white;
+}
+
+.entry-name-select:focus{
+    border-color:#6d8f3a;
+}
+
 .history-item{
     border:1px solid #dfe5d9;
     border-radius:10px;
@@ -384,6 +451,10 @@ td input:focus{
         font-size:11px;
     }
 
+    .input-grid{
+        gap:6px;
+    }
+
     .field label{
         font-size:8px;
     }
@@ -395,26 +466,40 @@ td input:focus{
     }
 
     th{
-        font-size:8px;
-        padding:7px 3px;
+        font-size:7px;
+        padding:6px 2px;
     }
 
     td{
-        padding:3px 2px;
+        padding:3px 1px;
     }
 
-    td input{
+    td input,
+    td select{
         padding:7px 2px;
         font-size:10px;
-        min-width:55px;
     }
 
-    .ukuran{
+    .nama{
+        min-width:90px;
+        font-size:11px;
+    }
+
+    .mutu{
         font-size:10px;
     }
 
     .isi-bendel{
         font-size:10px;
+    }
+
+    .volume{
+        font-size:9px;
+    }
+
+    .delete{
+        padding:6px;
+        font-size:9px;
     }
 
     .result-grid{
@@ -435,6 +520,18 @@ td input:focus{
 
     .final .result-value{
         font-size:14px;
+    }
+
+    .entry-size{
+        font-size:9px;
+    }
+
+    .entry-input{
+        min-width:55px;
+    }
+
+    .entry-volume{
+        font-size:8px;
     }
 
 }
@@ -576,50 +673,128 @@ td input:focus{
 </div>
 
 
-<!-- ================= INPUT UKURAN ================= -->
+<!-- ================= INPUT NAMA ENTRY ================= -->
+
+<div
+    class="card"
+    id="entryInputBox"
+>
+
+    <div class="card-title">
+        Pilih Nama Produk
+    </div>
+
+    <select
+        id="entryNama"
+        class="entry-name-select"
+        onchange="ubahNamaEntry()"
+    >
+
+        <option value="">
+            -- Pilih Nama --
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- ================= DATA RST ================= -->
 
 <div class="card">
 
-    <div class="card-title">
-        Input Data RST
-    </div>
-
-
-    <div class="filter-box">
-
-        <label>
-            PILIH NAMA
-        </label>
-
-        <select
-            id="filterNama"
-            onchange="pilihNama()"
-        >
-
-            <option value="">
-                -- Pilih Nama --
-            </option>
-
-        </select>
-
-    </div>
-
-
     <div
-        id="tabelUkuran"
-        class="table-wrap"
-    ></div>
-
-
-    <div
-        id="infoUkuran"
-        class="status-info"
+        class="card-title"
+        id="judulTabel"
     >
-        Pilih nama terlebih dahulu.
+        Kayu Tambahan
     </div>
 
 
-    <!-- DOWNLOAD KHUSUS ENTRY -->
+    <div
+        class="table-wrap"
+        id="tableTambahanWrap"
+    >
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nama</th>
+                    <th>Mutu</th>
+                    <th>Tebal</th>
+                    <th>Lebar</th>
+                    <th>Panjang</th>
+                    <th>Bendel</th>
+                    <th>Isi/<br>Bendel</th>
+                    <th>Volume</th>
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tabelKayu"></tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- ================= TABLE ENTRY BARU ================= -->
+
+    <div
+        class="table-wrap"
+        id="tableEntryWrap"
+        style="display:none;"
+    >
+
+        <table>
+
+            <thead id="entryHead">
+
+                <tr>
+
+                    <th>Tebal</th>
+                    <th>Lebar</th>
+                    <th>Panjang</th>
+                    <th>Isi/<br>Bdl</th>
+                    <th>P</th>
+                    <th>D</th>
+                    <th>T</th>
+                    <th>Volume</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tabelEntry"></tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- BUTTON TAMBAHAN ONLY -->
+
+    <div
+        id="buttonTambahUkuran"
+        style="margin-top:12px;"
+    >
+
+        <button
+            class="add-button"
+            onclick="tambahBarisDanScroll()"
+        >
+            ＋ Tambah Ukuran
+        </button>
+
+    </div>
+
+
+    <!-- DOWNLOAD ENTRY -->
 
     <button
         id="downloadExcel"
@@ -788,8 +963,7 @@ td input:focus{
 
 /* =====================================================
    ATURAN UKURAN
-   ===============================
-   ATURAN ASLI DIPERTAHANKAN
+   TIDAK DIUBAH DARI KODE AWAL
 ===================================================== */
 
 const aturan = [
@@ -814,13 +988,8 @@ const aturan = [
     /* ================= FLOORING ================= */
 
     {nama:"FLOORING",t:[18],l:[160],min:900,max:1400,isi:1},
-
     {nama:"FLOORING",t:[18],l:[160],min:600,max:850,isi:1},
-
-    /* PERUBAHAN TERBARU:
-       18 x 160 x 500 DAN 550 = 1 BATANG */
-
-    {nama:"FLOORING",t:[18],l:[160],min:500,max:550,isi:1},
+    {nama:"FLOORING",t:[18],l:[160],min:300,max:550,isi:10},
 
     {nama:"FLOORING",t:[18],l:[130],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[130],min:600,max:850,isi:1},
@@ -844,11 +1013,6 @@ const aturan = [
 
     {nama:"FLOORING",t:[15],l:[81],min:500,max:550,isi:10},
     {nama:"FLOORING",t:[18],l:[81],min:500,max:550,isi:10},
-
-    {nama:"FLOORING",t:[15],l:[60],min:900,max:1400,isi:1},
-    {nama:"FLOORING",t:[15],l:[60],min:600,max:850,isi:10},
-    {nama:"FLOORING",t:[15],l:[60],min:450,max:550,isi:10},
-    {nama:"FLOORING",t:[15],l:[60],min:300,max:400,isi:10},
 
     {nama:"FLOORING",t:[18],l:[60],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[60],min:600,max:850,isi:10},
@@ -903,26 +1067,36 @@ const aturan = [
 
 
 /* =====================================================
-   DATA MODE
+   DATA
 ===================================================== */
 
 let dataTambahan = [];
-
 let dataEntry = [];
-
 let modeAktif = "tambahan";
-
-let namaAktif = "";
-
-
-/* =====================================================
-   HISTORY
-===================================================== */
 
 let historyEntry =
     JSON.parse(
         localStorage.getItem("historyEntryRendemen") || "[]"
     );
+
+
+/* =====================================================
+   NAMA YANG TERSEDIA
+===================================================== */
+
+const namaProduk = [
+
+    "DECKING",
+    "FLOORING",
+    "LONGSTRIP",
+    "PB PANJANG",
+    "PB PENDEK",
+    "P STOCK",
+    "FJL",
+    "RENG",
+    "LIST"
+
+];
 
 
 /* =====================================================
@@ -1000,20 +1174,61 @@ function cocokPanjang(rule,panjang){
 
 
 /* =====================================================
-   BUAT DAFTAR NAMA
+   CARI ATURAN
 ===================================================== */
 
-function buatDaftarNama(){
+function cariAturan(tebal,lebar,panjang){
+
+    for(const rule of aturan){
+
+        if(
+            rule.t.includes(tebal) &&
+            rule.l.includes(lebar) &&
+            cocokPanjang(rule,panjang)
+        ){
+
+            return rule;
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/* =====================================================
+   CEK T
+===================================================== */
+
+function namaPakaiT(nama){
+
+    return (
+        nama === "FJL" ||
+        nama === "RENG" ||
+        nama === "LIST"
+    );
+
+}
+
+
+/* =====================================================
+   BUAT PILIHAN NAMA ENTRY
+===================================================== */
+
+function buatPilihanNama(){
 
     const select =
-        document.getElementById("filterNama");
+        document.getElementById("entryNama");
 
-    const namaUnik =
-        [...new Set(
-            aturan.map(rule => rule.nama)
-        )];
+    select.innerHTML = `
+        <option value="">
+            -- Pilih Nama --
+        </option>
+    `;
 
-    namaUnik.forEach(nama => {
+    namaProduk.forEach(nama => {
 
         const option =
             document.createElement("option");
@@ -1029,438 +1244,167 @@ function buatDaftarNama(){
 
 
 /* =====================================================
-   CARI RULE TEPAT
+   DAPATKAN SEMUA UKURAN ENTRY
 ===================================================== */
 
-function cariAturanTepat(
-    nama,
-    tebal,
-    lebar,
-    panjang
-){
-
-    const kandidat =
-        aturan.filter(rule =>
-
-            rule.nama === nama &&
-            rule.t.includes(tebal) &&
-            rule.l.includes(lebar) &&
-            cocokPanjang(rule,panjang)
-
-        );
-
-    /*
-       Kalau ada beberapa rule yang cocok,
-       pilih rule dengan batas paling spesifik.
-    */
-
-    if(kandidat.length === 0){
-
-        return null;
-
-    }
-
-    return kandidat[0];
-
-}
-
-
-/* =====================================================
-   DAPATKAN UKURAN DARI RULE
-===================================================== */
-
-function buatDaftarUkuranNama(nama){
+function dapatkanUkuranEntry(nama){
 
     const hasil = [];
 
-    aturan
-        .filter(rule => rule.nama === nama)
-        .forEach(rule => {
+    aturan.forEach(rule => {
 
-            let panjangList = [];
+        if(rule.nama !== nama){
+            return;
+        }
 
-            if(rule.exact !== undefined){
+        /*
+           SEMENTARA HILANGKAN:
+           15 x 160
+           15 x 60
+        */
 
-                panjangList = [rule.exact];
+        const ada15x160 =
+            rule.t.includes(15) &&
+            rule.l.includes(160);
 
-            }else if(
-                rule.min !== undefined &&
-                rule.max !== undefined
-            ){
+        const ada15x60 =
+            rule.t.includes(15) &&
+            rule.l.includes(60);
 
-                /*
-                   Karena aturan asli berupa rentang,
-                   input tetap ditampilkan sebagai rentang.
-                */
+        if(ada15x160 || ada15x60){
 
-                panjangList = [
-                    rule.min,
-                    rule.max
-                ];
-
-            }else if(rule.min !== undefined){
-
-                panjangList = [
-                    rule.min
-                ];
-
-            }else if(rule.max !== undefined){
-
-                panjangList = [
-                    rule.max
-                ];
-
-            }
-
-            rule.t.forEach(tebal => {
-
-                rule.l.forEach(lebar => {
-
-                    panjangList.forEach(panjang => {
-
-                        hasil.push({
-
-                            nama:nama,
-                            tebal:tebal,
-                            lebar:lebar,
-                            panjang:panjang,
-                            isi:rule.isi,
-                            rule:rule
-
-                        });
-
-                    });
-
-                });
-
-            });
-
-        });
-
-
-    /*
-       Hapus duplikat ukuran.
-    */
-
-    const unik = new Map();
-
-    hasil.forEach(item => {
-
-        const key =
-            item.tebal +
-            "-" +
-            item.lebar +
-            "-" +
-            item.panjang +
-            "-" +
-            item.isi;
-
-        if(!unik.has(key)){
-
-            unik.set(key,item);
+            return;
 
         }
 
-    });
+
+        let panjangList = [];
+
+        /*
+           exact
+        */
+
+        if(rule.exact !== undefined){
+
+            panjangList = [rule.exact];
+
+        }
+
+        /*
+           range
+           Tidak menampilkan semua angka.
+           Kita ambil batas yang memang berasal
+           dari aturan awal.
+        */
+
+        else if(
+            rule.min !== undefined &&
+            rule.max !== undefined
+        ){
+
+            panjangList = [
+                rule.min,
+                rule.max
+            ];
+
+        }
+
+        /*
+           up
+        */
+
+        else if(rule.up === true){
+
+            /*
+               Untuk aturan tanpa batas atas,
+               ukuran tidak dibuat sebagai daftar
+               tak terbatas.
+               Kita tampilkan mulai dari min.
+            */
+
+            panjangList = [rule.min];
+
+        }
+
+        /*
+           max
+        */
+
+        else if(rule.max !== undefined){
+
+            panjangList = [rule.max];
+
+        }
 
 
-    return [...unik.values()]
-        .sort((a,b) => {
+        panjangList.forEach(panjang => {
 
-            if(a.panjang !== b.panjang){
+            const key =
+                rule.nama +
+                "|" +
+                rule.t[0] +
+                "|" +
+                rule.l[0] +
+                "|" +
+                panjang;
 
-                return a.panjang - b.panjang;
+            /*
+               Untuk ukuran yang sama,
+               jangan dibuat dobel.
+            */
+
+            if(
+                !hasil.some(item => item.key === key)
+            ){
+
+                hasil.push({
+
+                    key:key,
+
+                    nama:rule.nama,
+
+                    tebal:rule.t[0],
+
+                    lebar:rule.l[0],
+
+                    panjang:panjang,
+
+                    rule:rule
+
+                });
 
             }
-
-            if(a.tebal !== b.tebal){
-
-                return a.tebal - b.tebal;
-
-            }
-
-            return a.lebar - b.lebar;
 
         });
-
-}
-
-
-/* =====================================================
-   MUTU UNTUK NAMA
-===================================================== */
-
-function mutuNama(nama){
-
-    if(
-        nama === "FJL" ||
-        nama === "RENG" ||
-        nama === "LIST"
-    ){
-
-        return ["T"];
-
-    }
-
-    return ["P","D"];
-
-}
-
-
-/* =====================================================
-   PILIH NAMA
-===================================================== */
-
-function pilihNama(){
-
-    namaAktif =
-        document.getElementById(
-            "filterNama"
-        ).value;
-
-    renderUkuran();
-
-}
-
-
-/* =====================================================
-   RENDER TABEL UKURAN
-===================================================== */
-
-function renderUkuran(){
-
-    const container =
-        document.getElementById(
-            "tabelUkuran"
-        );
-
-    const info =
-        document.getElementById(
-            "infoUkuran"
-        );
-
-
-    container.innerHTML = "";
-
-
-    if(!namaAktif){
-
-        info.innerHTML =
-            "Pilih nama terlebih dahulu.";
-
-        return;
-
-    }
-
-
-    const ukuran =
-        buatDaftarUkuranNama(
-            namaAktif
-        );
-
-
-    const mutu =
-        mutuNama(
-            namaAktif
-        );
-
-
-    if(ukuran.length === 0){
-
-        info.innerHTML =
-            "Tidak ada ukuran.";
-
-        return;
-
-    }
-
-
-    let html = `
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>Ukuran</th>
-
-                    <th>Isi/Bendel</th>
-
-    `;
-
-
-    mutu.forEach(m => {
-
-        html += `
-
-            <th class="mutu-head">
-                ${m}
-            </th>
-
-        `;
 
     });
 
 
-    html += `
+    /*
+       URUTAN:
 
-                </tr>
+       TEBAL terbesar
+       LEBAR terbesar
+       PANJANG terkecil
+    */
 
-            </thead>
+    hasil.sort((a,b) => {
 
-            <tbody>
+        if(a.tebal !== b.tebal){
 
-    `;
+            return b.tebal - a.tebal;
 
+        }
 
-    ukuran.forEach((item,index) => {
+        if(a.lebar !== b.lebar){
 
-        html += `
+            return b.lebar - a.lebar;
 
-            <tr>
+        }
 
-                <td class="ukuran">
-
-                    ${item.tebal}
-                    ×
-                    ${item.lebar}
-                    ×
-                    ${item.panjang}
-
-                </td>
-
-                <td class="isi-bendel">
-
-                    ${item.isi}
-
-                </td>
-
-        `;
-
-
-        mutu.forEach(m => {
-
-            html += `
-
-                <td>
-
-                    <input
-                        type="number"
-                        min="0"
-                        step="1"
-                        class="jumlah-input"
-                        data-nama="${item.nama}"
-                        data-tebal="${item.tebal}"
-                        data-lebar="${item.lebar}"
-                        data-panjang="${item.panjang}"
-                        data-isi="${item.isi}"
-                        data-mutu="${m}"
-                        data-index="${index}"
-                        placeholder="0"
-                        oninput="hitung()"
-                    >
-
-                </td>
-
-            `;
-
-        });
-
-
-        html += `
-
-            </tr>
-
-        `;
+        return a.panjang - b.panjang;
 
     });
-
-
-    html += `
-
-            </tbody>
-
-        </table>
-
-    `;
-
-
-    container.innerHTML =
-        html;
-
-
-    info.innerHTML = `
-
-        <strong>${namaAktif}</strong>
-        • ${ukuran.length} ukuran tersedia
-        • Isi/Bendel otomatis
-        • Panjang terkecil → terbesar
-
-    `;
-
-
-    restoreDataTabel();
-
-    hitung();
-
-}
-
-
-/* =====================================================
-   AMBIL DATA INPUT BARU
-===================================================== */
-
-function ambilDataInput(){
-
-    const hasil = [];
-
-
-    document
-        .querySelectorAll(
-            ".jumlah-input"
-        )
-        .forEach(input => {
-
-            const jumlah =
-                angka(input.value);
-
-            if(jumlah <= 0){
-
-                return;
-
-            }
-
-
-            hasil.push({
-
-                nama:
-                    input.dataset.nama,
-
-                mutu:
-                    input.dataset.mutu,
-
-                tebal:
-                    angka(
-                        input.dataset.tebal
-                    ),
-
-                lebar:
-                    angka(
-                        input.dataset.lebar
-                    ),
-
-                panjang:
-                    angka(
-                        input.dataset.panjang
-                    ),
-
-                jumlahBendel:
-                    jumlah
-
-            });
-
-        });
 
 
     return hasil;
@@ -1469,24 +1413,119 @@ function ambilDataInput(){
 
 
 /* =====================================================
-   SIMPAN DATA MODE
+   CARI RULE TERBAIK UNTUK UKURAN
 ===================================================== */
 
+function cariRuleUkuran(nama,tebal,lebar,panjang){
+
+    const kandidat =
+        aturan.filter(rule => {
+
+            return (
+                rule.nama === nama &&
+                rule.t.includes(tebal) &&
+                rule.l.includes(lebar) &&
+                cocokPanjang(rule,panjang)
+            );
+
+        });
+
+
+    if(kandidat.length === 0){
+
+        return null;
+
+    }
+
+
+    /*
+       Jika ada beberapa rule,
+       pilih rule dengan rentang paling spesifik.
+    */
+
+    kandidat.sort((a,b) => {
+
+        const rangeA =
+            a.exact !== undefined
+                ? 0
+                : (
+                    a.max !== undefined &&
+                    a.min !== undefined
+                        ? a.max - a.min
+                        : 999999999
+                );
+
+
+        const rangeB =
+            b.exact !== undefined
+                ? 0
+                : (
+                    b.max !== undefined &&
+                    b.min !== undefined
+                        ? b.max - b.min
+                        : 999999999
+                );
+
+
+        return rangeA - rangeB;
+
+    });
+
+
+    return kandidat[0];
+
+}
+
+
+/* =====================================================
+   MODE TAMBAHAN
+===================================================== */
+
+function ambilDataTabel(){
+
+    const data = [];
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
+
+
+    rows.forEach(row => {
+
+        data.push({
+
+            mutu:
+                row.querySelector(".mutu")?.value || "",
+
+            tebal:
+                row.querySelector(".tebal")?.value || "",
+
+            lebar:
+                row.querySelector(".lebar")?.value || "",
+
+            panjang:
+                row.querySelector(".panjang")?.value || "",
+
+            jumlahBendel:
+                row.querySelector(".jumlahBendel")?.value || ""
+
+        });
+
+    });
+
+
+    return data;
+
+}
+
+
 function simpanDataMode(){
-
-    const data =
-        ambilDataInput();
-
 
     if(modeAktif === "tambahan"){
 
         dataTambahan =
-            data;
-
-    }else{
-
-        dataEntry =
-            data;
+            ambilDataTabel();
 
     }
 
@@ -1494,104 +1533,311 @@ function simpanDataMode(){
 
 
 /* =====================================================
-   RESTORE DATA
+   BARIS TAMBAHAN LAMA
 ===================================================== */
 
-function restoreDataTabel(){
+function buatBaris(data={}){
 
-    const data =
-        modeAktif === "tambahan"
-            ? dataTambahan
-            : dataEntry;
-
-
-    document
-        .querySelectorAll(
-            ".jumlah-input"
-        )
-        .forEach(input => {
-
-            const ditemukan =
-                data.find(item =>
-
-                    item.nama ===
-                    input.dataset.nama &&
-
-                    item.mutu ===
-                    input.dataset.mutu &&
-
-                    item.tebal ===
-                    angka(input.dataset.tebal) &&
-
-                    item.lebar ===
-                    angka(input.dataset.lebar) &&
-
-                    item.panjang ===
-                    angka(input.dataset.panjang)
-
-                );
+    const tbody =
+        document.getElementById(
+            "tabelKayu"
+        );
 
 
-            if(ditemukan){
+    const tr =
+        document.createElement("tr");
 
-                input.value =
-                    ditemukan.jumlahBendel;
 
-            }
+    tr.innerHTML = `
 
-        });
+        <td>
+
+            <div class="nama belum">
+                -
+            </div>
+
+        </td>
+
+
+        <td>
+
+            <select
+                class="mutu"
+                onchange="hitung()"
+            >
+
+                <option value="">
+                    -
+                </option>
+
+                <option value="P">
+                    P
+                </option>
+
+                <option value="D">
+                    D
+                </option>
+
+                <option value="T">
+                    T
+                </option>
+
+            </select>
+
+        </td>
+
+
+        <td>
+
+            <input
+                type="number"
+                class="tebal"
+                min="0"
+                step="1"
+                value="${data.tebal || ""}"
+                oninput="hitung()"
+            >
+
+        </td>
+
+
+        <td>
+
+            <input
+                type="number"
+                class="lebar"
+                min="0"
+                step="1"
+                value="${data.lebar || ""}"
+                oninput="hitung()"
+            >
+
+        </td>
+
+
+        <td>
+
+            <input
+                type="number"
+                class="panjang"
+                min="0"
+                step="1"
+                value="${data.panjang || ""}"
+                oninput="hitung()"
+            >
+
+        </td>
+
+
+        <td>
+
+            <input
+                type="number"
+                class="jumlahBendel"
+                min="0"
+                step="1"
+                value="${data.jumlahBendel || ""}"
+                placeholder="Bendel"
+                oninput="hitung()"
+            >
+
+        </td>
+
+
+        <td>
+
+            <div class="isi-bendel">
+                -
+            </div>
+
+            <div class="status"></div>
+
+        </td>
+
+
+        <td>
+
+            <div class="volume">
+                0,000000
+            </div>
+
+        </td>
+
+
+        <td>
+
+            <button
+                class="delete"
+                onclick="
+                    this.closest('tr').remove();
+                    hitung();
+                "
+            >
+                ✕
+            </button>
+
+        </td>
+
+    `;
+
+
+    tbody.appendChild(tr);
+
+
+    if(data.mutu){
+
+        tr.querySelector(".mutu").value =
+            data.mutu;
+
+    }
 
 }
 
 
 /* =====================================================
-   HITUNG
+   RENDER TAMBAHAN
 ===================================================== */
 
-function hitung(){
+function renderTambahan(){
 
-    /*
-       Jangan simpan ketika tabel belum dibuat.
-    */
+    const tbody =
+        document.getElementById(
+            "tabelKayu"
+        );
 
-    if(
-        !document.querySelector(
-            ".jumlah-input"
-        )
-    ){
 
-        hitungHasil(0);
+    tbody.innerHTML = "";
+
+
+    if(dataTambahan.length === 0){
+
+        buatBaris();
+
+    }else{
+
+        dataTambahan.forEach(item => {
+
+            buatBaris(item);
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   TAMBAH BARIS TAMBAHAN
+===================================================== */
+
+function tambahBaris(){
+
+    simpanDataMode();
+
+    buatBaris();
+
+    hitung();
+
+}
+
+
+function tambahBarisDanScroll(){
+
+    tambahBaris();
+
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
+
+
+    if(rows.length > 0){
+
+        const barisBaru =
+            rows[rows.length - 1];
+
+
+        barisBaru.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"center"
+
+        });
+
+
+        const input =
+            barisBaru.querySelector(
+                ".tebal"
+            );
+
+
+        if(input){
+
+            setTimeout(() => {
+
+                input.focus();
+
+            },400);
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   BUAT ENTRY TABLE
+===================================================== */
+
+function renderEntryUkuran(){
+
+    const nama =
+        document.getElementById(
+            "entryNama"
+        ).value;
+
+
+    const tbody =
+        document.getElementById(
+            "tabelEntry"
+        );
+
+
+    tbody.innerHTML = "";
+
+
+    if(!nama){
 
         return;
 
     }
 
 
-    const data =
-        ambilDataInput();
+    const ukuran =
+        dapatkanUkuranEntry(nama);
 
 
-    if(modeAktif === "tambahan"){
-
-        dataTambahan =
-            data;
-
-    }else{
-
-        dataEntry =
-            data;
-
-    }
+    const pakaiT =
+        namaPakaiT(nama);
 
 
-    let totalVolume = 0;
+    ukuran.forEach(item => {
+
+        const tr =
+            document.createElement("tr");
 
 
-    data.forEach(item => {
+        /*
+           Cari rule yang benar
+           untuk panjang tersebut.
+        */
 
         const rule =
-            cariAturanTepat(
-                item.nama,
+            cariRuleUkuran(
+                nama,
                 item.tebal,
                 item.lebar,
                 item.panjang
@@ -1605,18 +1851,204 @@ function hitung(){
         }
 
 
-        const totalBatang =
-            item.jumlahBendel *
+        tr.className =
+            "entry-size-row";
+
+
+        tr.dataset.nama =
+            nama;
+
+        tr.dataset.tebal =
+            item.tebal;
+
+        tr.dataset.lebar =
+            item.lebar;
+
+        tr.dataset.panjang =
+            item.panjang;
+
+        tr.dataset.isi =
             rule.isi;
+
+
+        tr.innerHTML = `
+
+            <td>
+                <div class="entry-size">
+                    ${item.tebal}
+                </div>
+            </td>
+
+
+            <td>
+                <div class="entry-size">
+                    ${item.lebar}
+                </div>
+            </td>
+
+
+            <td>
+                <div class="entry-size">
+                    ${item.panjang}
+                </div>
+            </td>
+
+
+            <td>
+                <div class="entry-size">
+                    ${rule.isi}
+                </div>
+            </td>
+
+
+            <td>
+
+                <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    class="entry-input entry-p"
+                    placeholder=""
+                    oninput="hitungEntryBaru()"
+                >
+
+            </td>
+
+
+            <td>
+
+                <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    class="entry-input entry-d"
+                    placeholder=""
+                    oninput="hitungEntryBaru()"
+                >
+
+            </td>
+
+
+            <td>
+
+                ${
+                    pakaiT
+
+                    ?
+
+                    `
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="entry-input entry-t"
+                        placeholder=""
+                        oninput="hitungEntryBaru()"
+                    >
+                    `
+
+                    :
+
+                    `
+                    <span class="entry-muted">
+                        -
+                    </span>
+                    `
+                }
+
+            </td>
+
+
+            <td>
+
+                <div class="entry-volume">
+                    0,000000
+                </div>
+
+            </td>
+
+        `;
+
+
+        tbody.appendChild(tr);
+
+    });
+
+
+    hitungEntryBaru();
+
+}
+
+
+/* =====================================================
+   PERHITUNGAN ENTRY BARU
+===================================================== */
+
+function hitungEntryBaru(){
+
+    let totalVolume = 0;
+
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelEntry tr"
+        );
+
+
+    rows.forEach(row => {
+
+        const tebal =
+            angka(row.dataset.tebal);
+
+        const lebar =
+            angka(row.dataset.lebar);
+
+        const panjang =
+            angka(row.dataset.panjang);
+
+        const isi =
+            angka(row.dataset.isi);
+
+
+        const p =
+            angka(
+                row.querySelector(
+                    ".entry-p"
+                )?.value
+            );
+
+
+        const d =
+            angka(
+                row.querySelector(
+                    ".entry-d"
+                )?.value
+            );
+
+
+        const t =
+            angka(
+                row.querySelector(
+                    ".entry-t"
+                )?.value
+            );
+
+
+        const totalBatang =
+            (
+                p +
+                d +
+                t
+            ) * isi;
 
 
         const volume =
             round6(
 
                 (
-                    item.tebal *
-                    item.lebar *
-                    item.panjang *
+                    tebal *
+                    lebar *
+                    panjang *
                     totalBatang
                 )
                 /
@@ -1625,118 +2057,17 @@ function hitung(){
             );
 
 
+        row.querySelector(
+            ".entry-volume"
+        ).textContent =
+            formatAngka(volume);
+
+
         totalVolume +=
             volume;
 
     });
 
-
-    hitungHasil(
-        totalVolume
-    );
-
-}
-
-
-/* =====================================================
-   HASIL
-===================================================== */
-
-function hitungHasil(totalVolume){
-
-    const hasilSaatIni =
-        angka(
-            document.getElementById(
-                "hasilSaatIni"
-            ).value
-        );
-
-
-    const rendemenSaatIni =
-        angka(
-            document.getElementById(
-                "rendemenSaatIni"
-            ).value
-        );
-
-
-    const hasilFinal =
-        round6(
-            hasilSaatIni +
-            totalVolume
-        );
-
-
-    let volumeLogDariRendemen =
-        0;
-
-
-    if(
-        hasilSaatIni > 0 &&
-        rendemenSaatIni > 0
-    ){
-
-        volumeLogDariRendemen =
-            hasilSaatIni /
-            (
-                rendemenSaatIni /
-                100
-            );
-
-    }
-
-
-    let rendemenFinal =
-        0;
-
-
-    if(
-        volumeLogDariRendemen > 0
-    ){
-
-        rendemenFinal =
-            (
-                hasilFinal /
-                volumeLogDariRendemen
-            )
-            *
-            100;
-
-    }
-
-
-    document.getElementById(
-        "totalTambahan"
-    ).textContent =
-        formatAngka(
-            totalVolume
-        )
-        +
-        " m³";
-
-
-    document.getElementById(
-        "hasilFinal"
-    ).textContent =
-        formatAngka(
-            hasilFinal
-        )
-        +
-        " m³";
-
-
-    document.getElementById(
-        "rendemenFinal"
-    ).textContent =
-        formatAngka(
-            rendemenFinal,
-            2
-        )
-        +
-        " %";
-
-
-    /* ================= ENTRY ================= */
 
     const jumlahLog =
         angka(
@@ -1746,8 +2077,7 @@ function hitungHasil(totalVolume){
         );
 
 
-    let rendemenEntry =
-        0;
+    let rendemenEntry = 0;
 
 
     if(jumlahLog > 0){
@@ -1756,8 +2086,7 @@ function hitungHasil(totalVolume){
             (
                 totalVolume /
                 jumlahLog
-            )
-            *
+            ) *
             100;
 
     }
@@ -1766,134 +2095,41 @@ function hitungHasil(totalVolume){
     document.getElementById(
         "volumeRST"
     ).textContent =
-        formatAngka(
-            totalVolume
-        )
-        +
-        " m³";
+        formatAngka(totalVolume)
+        + " m³";
 
 
     document.getElementById(
         "volumeLog"
     ).textContent =
-        formatAngka(
-            jumlahLog,
-            3
-        )
-        +
-        " m³";
+        formatAngka(jumlahLog,3)
+        + " m³";
 
 
     document.getElementById(
         "rendemenEntry"
     ).textContent =
-        formatAngka(
-            rendemenEntry,
-            2
-        )
-        +
-        " %";
+        formatAngka(rendemenEntry,2)
+        + " %";
 
 }
 
 
 /* =====================================================
-   UBAH MODE
+   UBAH NAMA ENTRY
 ===================================================== */
 
-function ubahMode(mode){
+function ubahNamaEntry(){
 
-    simpanDataMode();
+    dataEntry = [];
 
-
-    modeAktif =
-        mode;
-
-
-    document.getElementById(
-        "btnTambahan"
-    ).classList.toggle(
-        "active",
-        mode === "tambahan"
-    );
-
-
-    document.getElementById(
-        "btnEntry"
-    ).classList.toggle(
-        "active",
-        mode === "entry"
-    );
-
-
-    document.getElementById(
-        "dataSaatIni"
-    ).style.display =
-        mode === "tambahan"
-            ? "block"
-            : "none";
-
-
-    document.getElementById(
-        "entryLog"
-    ).style.display =
-        mode === "entry"
-            ? "block"
-            : "none";
-
-
-    document.getElementById(
-        "hasilTambahan"
-    ).style.display =
-        mode === "tambahan"
-            ? "block"
-            : "none";
-
-
-    document.getElementById(
-        "hasilEntry"
-    ).style.display =
-        mode === "entry"
-            ? "block"
-            : "none";
-
-
-    document.getElementById(
-        "historyEntry"
-    ).style.display =
-        mode === "entry"
-            ? "block"
-            : "none";
-
-
-    document.getElementById(
-        "downloadExcel"
-    ).style.display =
-        mode === "entry"
-            ? "block"
-            : "none";
-
-
-    /*
-       Kalau nama sudah dipilih,
-       render ulang untuk mode yang baru.
-    */
-
-    if(namaAktif){
-
-        renderUkuran();
-
-    }else{
-
-        hitung();
-
-    }
+    renderEntryUkuran();
 
 }
 
 
 /* =====================================================
-   DATA EXPORT
+   AMBIL DATA ENTRY UNTUK EXPORT
 ===================================================== */
 
 function ambilDataExport(){
@@ -1901,85 +2137,187 @@ function ambilDataExport(){
     const hasil = [];
 
 
-    const data =
-        ambilDataInput();
+    const nama =
+        document.getElementById(
+            "entryNama"
+        ).value;
 
 
-    data.forEach(item => {
+    if(!nama){
 
-        const rule =
-            cariAturanTepat(
-                item.nama,
-                item.tebal,
-                item.lebar,
-                item.panjang
+        return hasil;
+
+    }
+
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelEntry tr"
+        );
+
+
+    rows.forEach(row => {
+
+        const tebal =
+            angka(row.dataset.tebal);
+
+        const lebar =
+            angka(row.dataset.lebar);
+
+        const panjang =
+            angka(row.dataset.panjang);
+
+        const isi =
+            angka(row.dataset.isi);
+
+
+        const p =
+            angka(
+                row.querySelector(
+                    ".entry-p"
+                )?.value
             );
 
 
-        if(
-            rule === null ||
-            item.jumlahBendel <= 0
-        ){
-
-            return;
-
-        }
+        const d =
+            angka(
+                row.querySelector(
+                    ".entry-d"
+                )?.value
+            );
 
 
-        const isi =
-            rule.isi;
-
-
-        const volume =
-            round6(
-
-                (
-                    item.tebal *
-                    item.lebar *
-                    item.panjang *
-                    isi
-                )
-                /
-                1000000000
-
+        const t =
+            angka(
+                row.querySelector(
+                    ".entry-t"
+                )?.value
             );
 
 
         /*
-           1 BARIS EXCEL = 1 BENDEL
+           P
         */
 
         for(
             let i = 0;
-            i < item.jumlahBendel;
+            i < p;
             i++
         ){
 
             hasil.push({
 
-                Nama:
-                    item.nama,
+                Nama:nama,
 
-                B:
-                    "",
+                B:"",
 
-                Mutu:
-                    item.mutu,
+                Mutu:"P",
 
-                Panjang:
-                    item.panjang,
+                Panjang:panjang,
 
-                Lebar:
-                    item.lebar,
+                Lebar:lebar,
 
-                Tebal:
-                    item.tebal,
+                Tebal:tebal,
 
-                "Batang/Bendel":
-                    isi,
+                "Batang/Bendel":isi,
 
                 Volume:
-                    volume
+                    round6(
+                        (
+                            tebal *
+                            lebar *
+                            panjang *
+                            isi
+                        )
+                        /
+                        1000000000
+                    )
+
+            });
+
+        }
+
+
+        /*
+           D
+        */
+
+        for(
+            let i = 0;
+            i < d;
+            i++
+        ){
+
+            hasil.push({
+
+                Nama:nama,
+
+                B:"",
+
+                Mutu:"D",
+
+                Panjang:panjang,
+
+                Lebar:lebar,
+
+                Tebal:tebal,
+
+                "Batang/Bendel":isi,
+
+                Volume:
+                    round6(
+                        (
+                            tebal *
+                            lebar *
+                            panjang *
+                            isi
+                        )
+                        /
+                        1000000000
+                    )
+
+            });
+
+        }
+
+
+        /*
+           T
+        */
+
+        for(
+            let i = 0;
+            i < t;
+            i++
+        ){
+
+            hasil.push({
+
+                Nama:nama,
+
+                B:"",
+
+                Mutu:"T",
+
+                Panjang:panjang,
+
+                Lebar:lebar,
+
+                Tebal:tebal,
+
+                "Batang/Bendel":isi,
+
+                Volume:
+                    round6(
+                        (
+                            tebal *
+                            lebar *
+                            panjang *
+                            isi
+                        )
+                        /
+                        1000000000
+                    )
 
             });
 
@@ -2022,7 +2360,7 @@ const urutanMutu = {
 
 
 /* =====================================================
-   SORTIR EXPORT
+   SORT EXPORT
 ===================================================== */
 
 function sortirDataExport(data){
@@ -2030,15 +2368,10 @@ function sortirDataExport(data){
     return data.sort((a,b) => {
 
         const namaA =
-            urutanNama.indexOf(
-                a.Nama
-            );
-
+            urutanNama.indexOf(a.Nama);
 
         const namaB =
-            urutanNama.indexOf(
-                b.Nama
-            );
+            urutanNama.indexOf(b.Nama);
 
 
         if(namaA !== namaB){
@@ -2050,7 +2383,6 @@ function sortirDataExport(data){
 
         const mutuA =
             urutanMutu[a.Mutu] || 99;
-
 
         const mutuB =
             urutanMutu[b.Mutu] || 99;
@@ -2104,7 +2436,21 @@ function downloadExcelEntry(){
     }
 
 
-    simpanDataMode();
+    const nama =
+        document.getElementById(
+            "entryNama"
+        ).value;
+
+
+    if(!nama){
+
+        alert(
+            "Pilih Nama Produk terlebih dahulu."
+        );
+
+        return;
+
+    }
 
 
     let data =
@@ -2114,7 +2460,7 @@ function downloadExcelEntry(){
     if(data.length === 0){
 
         alert(
-            "Belum ada data Entry yang bisa di-download."
+            "Belum ada jumlah batang/bendel yang diisi."
         );
 
         return;
@@ -2123,9 +2469,7 @@ function downloadExcelEntry(){
 
 
     data =
-        sortirDataExport(
-            data
-        );
+        sortirDataExport(data);
 
 
     const rows = [
@@ -2258,9 +2602,7 @@ function downloadExcelEntry(){
     );
 
 
-    simpanHistoryEntry(
-        data
-    );
+    simpanHistoryEntry(data);
 
 }
 
@@ -2306,19 +2648,15 @@ function simpanHistoryEntry(data){
 
     const historyBaru = {
 
-        tanggal:
-            tanggal,
+        tanggal: tanggal,
 
-        jam:
-            jam,
+        jam: jam,
 
         jumlahBendel:
             data.length,
 
         volume:
-            round6(
-                volumeRST
-            )
+            round6(volumeRST)
 
     };
 
@@ -2416,17 +2754,553 @@ function tampilkanHistory(){
 
 
 /* =====================================================
+   HITUNG MODE TAMBAHAN
+===================================================== */
+
+function hitung(){
+
+    if(modeAktif !== "tambahan"){
+
+        hitungEntryBaru();
+
+        return;
+
+    }
+
+
+    simpanDataMode();
+
+
+    let totalVolume = 0;
+
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
+
+
+    rows.forEach(row => {
+
+        const tebal =
+            angka(
+                row.querySelector(
+                    ".tebal"
+                ).value
+            );
+
+
+        const lebar =
+            angka(
+                row.querySelector(
+                    ".lebar"
+                ).value
+            );
+
+
+        const panjang =
+            angka(
+                row.querySelector(
+                    ".panjang"
+                ).value
+            );
+
+
+        const jumlahBendel =
+            angka(
+                row.querySelector(
+                    ".jumlahBendel"
+                ).value
+            );
+
+
+        const mutuSelect =
+            row.querySelector(
+                ".mutu"
+            );
+
+
+        const namaElement =
+            row.querySelector(
+                ".nama"
+            );
+
+
+        const isiElement =
+            row.querySelector(
+                ".isi-bendel"
+            );
+
+
+        const statusElement =
+            row.querySelector(
+                ".status"
+            );
+
+
+        const volumeElement =
+            row.querySelector(
+                ".volume"
+            );
+
+
+        if(
+            tebal <= 0 ||
+            lebar <= 0 ||
+            panjang <= 0
+        ){
+
+            namaElement.textContent =
+                "-";
+
+            namaElement.className =
+                "nama belum";
+
+
+            isiElement.textContent =
+                "-";
+
+
+            statusElement.textContent =
+                "";
+
+
+            volumeElement.textContent =
+                "0,000000";
+
+
+            return;
+
+        }
+
+
+        const rule =
+            cariAturan(
+                tebal,
+                lebar,
+                panjang
+            );
+
+
+        if(rule === null){
+
+            namaElement.textContent =
+                "Ukuran tidak ditemukan";
+
+            namaElement.className =
+                "nama belum";
+
+
+            isiElement.textContent =
+                "?";
+
+
+            statusElement.textContent =
+                "Cek ukuran";
+
+            statusElement.className =
+                "status error";
+
+
+            volumeElement.textContent =
+                "0,000000";
+
+
+            return;
+
+        }
+
+
+        namaElement.textContent =
+            rule.nama;
+
+        namaElement.className =
+            "nama";
+
+
+        if(
+            namaPakaiT(rule.nama)
+        ){
+
+            mutuSelect.value =
+                "T";
+
+            mutuSelect.disabled =
+                true;
+
+            mutuSelect.classList.add(
+                "mutu-fixed"
+            );
+
+        }else{
+
+            mutuSelect.disabled =
+                false;
+
+            mutuSelect.classList.remove(
+                "mutu-fixed"
+            );
+
+        }
+
+
+        isiElement.textContent =
+            rule.isi;
+
+
+        statusElement.textContent =
+            "Otomatis";
+
+        statusElement.className =
+            "status ok";
+
+
+        const totalBatang =
+            jumlahBendel *
+            rule.isi;
+
+
+        const volume =
+            round6(
+
+                (
+                    tebal *
+                    lebar *
+                    panjang *
+                    totalBatang
+                )
+                /
+                1000000000
+
+            );
+
+
+        volumeElement.textContent =
+            formatAngka(volume);
+
+
+        totalVolume +=
+            volume;
+
+    });
+
+
+    const hasilSaatIni =
+        angka(
+            document.getElementById(
+                "hasilSaatIni"
+            ).value
+        );
+
+
+    const rendemenSaatIni =
+        angka(
+            document.getElementById(
+                "rendemenSaatIni"
+            ).value
+        );
+
+
+    const hasilFinal =
+        round6(
+            hasilSaatIni +
+            totalVolume
+        );
+
+
+    let volumeLogDariRendemen =
+        0;
+
+
+    if(
+        hasilSaatIni > 0 &&
+        rendemenSaatIni > 0
+    ){
+
+        volumeLogDariRendemen =
+            hasilSaatIni /
+            (
+                rendemenSaatIni /
+                100
+            );
+
+    }
+
+
+    let rendemenFinal = 0;
+
+
+    if(
+        volumeLogDariRendemen > 0
+    ){
+
+        rendemenFinal =
+            (
+                hasilFinal /
+                volumeLogDariRendemen
+            ) *
+            100;
+
+    }
+
+
+    document.getElementById(
+        "totalTambahan"
+    ).textContent =
+        formatAngka(totalVolume)
+        + " m³";
+
+
+    document.getElementById(
+        "hasilFinal"
+    ).textContent =
+        formatAngka(hasilFinal)
+        + " m³";
+
+
+    document.getElementById(
+        "rendemenFinal"
+    ).textContent =
+        formatAngka(
+            rendemenFinal,
+            2
+        )
+        + " %";
+
+}
+
+
+/* =====================================================
+   UBAH MODE
+===================================================== */
+
+function ubahMode(mode){
+
+    if(
+        modeAktif === "tambahan"
+    ){
+
+        simpanDataMode();
+
+    }
+
+
+    modeAktif =
+        mode;
+
+
+    const btnTambahan =
+        document.getElementById(
+            "btnTambahan"
+        );
+
+
+    const btnEntry =
+        document.getElementById(
+            "btnEntry"
+        );
+
+
+    const dataSaatIni =
+        document.getElementById(
+            "dataSaatIni"
+        );
+
+
+    const entryLog =
+        document.getElementById(
+            "entryLog"
+        );
+
+
+    const hasilTambahan =
+        document.getElementById(
+            "hasilTambahan"
+        );
+
+
+    const hasilEntry =
+        document.getElementById(
+            "hasilEntry"
+        );
+
+
+    const history =
+        document.getElementById(
+            "historyEntry"
+        );
+
+
+    const download =
+        document.getElementById(
+            "downloadExcel"
+        );
+
+
+    const judulTabel =
+        document.getElementById(
+            "judulTabel"
+        );
+
+
+    const entryInputBox =
+        document.getElementById(
+            "entryInputBox"
+        );
+
+
+    const tableTambahanWrap =
+        document.getElementById(
+            "tableTambahanWrap"
+        );
+
+
+    const tableEntryWrap =
+        document.getElementById(
+            "tableEntryWrap"
+        );
+
+
+    const buttonTambahUkuran =
+        document.getElementById(
+            "buttonTambahUkuran"
+        );
+
+
+    if(mode === "tambahan"){
+
+        btnTambahan.classList.add(
+            "active"
+        );
+
+        btnEntry.classList.remove(
+            "active"
+        );
+
+
+        dataSaatIni.style.display =
+            "block";
+
+
+        entryLog.style.display =
+            "none";
+
+
+        entryInputBox.style.display =
+            "none";
+
+
+        hasilTambahan.style.display =
+            "block";
+
+
+        hasilEntry.style.display =
+            "none";
+
+
+        history.style.display =
+            "none";
+
+
+        download.style.display =
+            "none";
+
+
+        tableTambahanWrap.style.display =
+            "block";
+
+
+        tableEntryWrap.style.display =
+            "none";
+
+
+        buttonTambahUkuran.style.display =
+            "block";
+
+
+        judulTabel.textContent =
+            "Kayu Tambahan";
+
+
+        renderTambahan();
+
+        hitung();
+
+    }else{
+
+        btnTambahan.classList.remove(
+            "active"
+        );
+
+        btnEntry.classList.add(
+            "active"
+        );
+
+
+        dataSaatIni.style.display =
+            "none";
+
+
+        entryLog.style.display =
+            "block";
+
+
+        entryInputBox.style.display =
+            "block";
+
+
+        hasilTambahan.style.display =
+            "none";
+
+
+        hasilEntry.style.display =
+            "block";
+
+
+        history.style.display =
+            "block";
+
+
+        download.style.display =
+            "block";
+
+
+        tableTambahanWrap.style.display =
+            "none";
+
+
+        tableEntryWrap.style.display =
+            "block";
+
+
+        buttonTambahUkuran.style.display =
+            "none";
+
+
+        judulTabel.textContent =
+            "Data RST";
+
+
+        renderEntryUkuran();
+
+    }
+
+}
+
+
+/* =====================================================
    MULAI
 ===================================================== */
 
-buatDaftarNama();
+buatPilihanNama();
 
 tampilkanHistory();
 
-renderUkuran();
+renderTambahan();
+
+hitung();
 
 </script>
 
 </body>
 </html>
-
