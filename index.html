@@ -7,6 +7,7 @@
 <title>KALKULATOR RENDEMEN</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -17,7 +18,7 @@
 body{
     background:#f3f6fb;
     color:#172033;
-    padding:15px;
+    padding:12px;
 }
 
 .container{
@@ -25,59 +26,90 @@ body{
     margin:auto;
 }
 
+/* HEADER */
+
 .header{
     background:linear-gradient(135deg,#155eef,#2563eb);
     color:white;
-    padding:24px;
+    padding:22px;
     border-radius:18px;
-    margin-bottom:15px;
+    margin-bottom:12px;
     box-shadow:0 8px 25px rgba(37,99,235,.20);
 }
 
 .header h1{
-    font-size:28px;
-    margin-bottom:5px;
+    font-size:27px;
+    margin-bottom:4px;
 }
 
 .header p{
-    font-size:14px;
+    font-size:13px;
     opacity:.9;
 }
+
+/* MODE */
+
+.mode-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-bottom:12px;
+}
+
+.mode-btn{
+    border:1px solid #d8dee9;
+    background:white;
+    color:#64748b;
+    padding:11px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.mode-btn.active{
+    background:#2563eb;
+    color:white;
+    border-color:#2563eb;
+}
+
+/* CARD */
 
 .card{
     background:white;
     border-radius:16px;
-    padding:18px;
-    margin-bottom:15px;
+    padding:16px;
+    margin-bottom:12px;
     box-shadow:0 4px 18px rgba(0,0,0,.05);
 }
 
 .card-title{
-    font-size:17px;
+    font-size:16px;
     font-weight:bold;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
+
+/* INPUT */
 
 .input-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:12px;
+    gap:10px;
 }
 
 .field label{
     display:block;
-    font-size:12px;
+    font-size:11px;
     font-weight:bold;
     color:#64748b;
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .field input{
     width:100%;
-    padding:12px;
+    padding:11px;
     border:1px solid #d9dee8;
     border-radius:9px;
-    font-size:16px;
+    font-size:15px;
     outline:none;
 }
 
@@ -85,20 +117,7 @@ body{
     border-color:#2563eb;
 }
 
-.add-button{
-    background:#2563eb;
-    color:white;
-    border:none;
-    padding:12px 15px;
-    border-radius:9px;
-    font-weight:bold;
-    cursor:pointer;
-    width:100%;
-}
-
-.add-button:hover{
-    background:#1d4ed8;
-}
+/* TABLE */
 
 .table-wrap{
     overflow-x:auto;
@@ -113,24 +132,24 @@ table{
 th{
     background:#f8fafc;
     color:#64748b;
-    font-size:11px;
-    padding:9px 4px;
+    font-size:10px;
+    padding:8px 3px;
     border-bottom:1px solid #e5e7eb;
 }
 
 td{
-    padding:5px 3px;
+    padding:4px 2px;
     border-bottom:1px solid #edf0f4;
     text-align:center;
 }
 
 td input{
     width:100%;
-    padding:9px 4px;
+    padding:8px 3px;
     border:1px solid #d9dee8;
     border-radius:7px;
     text-align:center;
-    font-size:14px;
+    font-size:13px;
     outline:none;
 }
 
@@ -141,20 +160,17 @@ td input:focus{
 .isi-bendel{
     font-weight:bold;
     color:#155eef;
-}
-
-.total-batang{
-    font-weight:bold;
+    font-size:13px;
 }
 
 .volume{
     font-weight:bold;
-    font-size:13px;
+    font-size:12px;
 }
 
 .status{
-    font-size:10px;
-    margin-top:3px;
+    font-size:8px;
+    margin-top:2px;
 }
 
 .status.ok{
@@ -165,6 +181,8 @@ td input:focus{
     color:#dc2626;
 }
 
+/* DELETE */
+
 .delete{
     background:#fee2e2;
     color:#dc2626;
@@ -174,28 +192,48 @@ td input:focus{
     cursor:pointer;
 }
 
+/* ADD */
+
+.add-button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+    width:100%;
+    font-size:14px;
+}
+
+.add-button:hover{
+    background:#1d4ed8;
+}
+
+/* RESULT */
+
 .result-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    gap:9px;
 }
 
 .result{
     background:#f8fafc;
     border-radius:12px;
-    padding:18px 8px;
+    padding:16px 7px;
     text-align:center;
 }
 
 .result-title{
     color:#64748b;
-    font-size:10px;
+    font-size:9px;
     font-weight:bold;
     margin-bottom:7px;
 }
 
 .result-value{
-    font-size:21px;
+    font-size:19px;
     font-weight:900;
 }
 
@@ -208,57 +246,69 @@ td input:focus{
     color:#155eef;
 }
 
+/* ENTRY */
+
+#entryLog{
+    display:none;
+}
+
+/* MOBILE */
+
 @media(max-width:700px){
 
     body{
-        padding:7px;
+        padding:6px;
     }
 
     .header{
-        padding:18px 15px;
+        padding:17px 14px;
         border-radius:14px;
     }
 
     .header h1{
-        font-size:22px;
+        font-size:21px;
     }
 
     .header p{
-        font-size:11px;
+        font-size:10px;
     }
 
     .card{
-        padding:11px;
+        padding:10px;
         border-radius:13px;
-        margin-bottom:10px;
+        margin-bottom:9px;
     }
 
     .card-title{
-        font-size:15px;
-        margin-bottom:10px;
+        font-size:14px;
+        margin-bottom:9px;
+    }
+
+    .mode-box{
+        gap:5px;
+    }
+
+    .mode-btn{
+        padding:10px 5px;
+        font-size:11px;
     }
 
     .input-grid{
-        gap:7px;
+        gap:6px;
     }
 
     .field label{
-        font-size:9px;
+        font-size:8px;
     }
 
     .field input{
-        padding:10px 7px;
-        font-size:14px;
-    }
-
-    table{
-        min-width:0;
+        padding:9px 6px;
+        font-size:13px;
     }
 
     th{
-        font-size:8px;
+        font-size:7px;
         padding:6px 1px;
-        line-height:1.1;
     }
 
     td{
@@ -266,30 +316,21 @@ td input:focus{
     }
 
     td input{
-        padding:8px 2px;
-        font-size:11px;
-        border-radius:6px;
-    }
-
-    .isi-bendel{
-        font-size:11px;
-    }
-
-    .total-batang{
-        font-size:11px;
-    }
-
-    .volume{
+        padding:7px 2px;
         font-size:10px;
     }
 
-    .status{
-        font-size:8px;
+    .isi-bendel{
+        font-size:10px;
+    }
+
+    .volume{
+        font-size:9px;
     }
 
     .delete{
         padding:6px;
-        font-size:10px;
+        font-size:9px;
     }
 
     .result-grid{
@@ -297,47 +338,88 @@ td input:focus{
     }
 
     .result{
-        padding:13px 3px;
+        padding:12px 2px;
     }
 
     .result-title{
-        font-size:8px;
+        font-size:7px;
     }
 
     .result-value{
-        font-size:13px;
+        font-size:12px;
     }
 
     .final .result-value{
-        font-size:15px;
+        font-size:14px;
     }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+
+<!-- HEADER -->
+
 <div class="header">
+
     <h1>⚡ KALKULATOR RENDEMEN</h1>
-    <p>Perhitungan tambahan kayu dan rendemen final</p>
+
+    <p>
+        Perhitungan tambahan RST dan rendemen
+    </p>
+
+</div>
+
+
+<!-- MODE -->
+
+<div class="mode-box">
+
+    <button
+        id="btnTambahan"
+        class="mode-btn active"
+        onclick="ubahMode('tambahan')"
+    >
+        🔵 TAMBAHAN
+    </button>
+
+
+    <button
+        id="btnEntry"
+        class="mode-btn"
+        onclick="ubahMode('entry')"
+    >
+        🟢 ENTRY
+    </button>
+
 </div>
 
 
 <!-- DATA SAAT INI -->
 
-<div class="card">
+<div
+    class="card"
+    id="dataSaatIni"
+>
 
     <div class="card-title">
         Data Saat Ini
     </div>
 
+
     <div class="input-grid">
 
         <div class="field">
 
-            <label>HASIL SAAT INI (m³)</label>
+            <label>
+                HASIL SAAT INI (m³)
+            </label>
 
             <input
                 id="hasilSaatIni"
@@ -353,7 +435,9 @@ td input:focus{
 
         <div class="field">
 
-            <label>RENDEMEN SAAT INI (%)</label>
+            <label>
+                RENDEMEN SAAT INI (%)
+            </label>
 
             <input
                 id="rendemenSaatIni"
@@ -371,11 +455,43 @@ td input:focus{
 </div>
 
 
-<!-- KAYU TAMBAHAN -->
+<!-- DATA LOG MODE ENTRY -->
+
+<div
+    class="card"
+    id="entryLog"
+>
+
+    <div class="card-title">
+        Data Log
+    </div>
+
+
+    <div class="field">
+
+        <label>
+            JUMLAH LOG (m³)
+        </label>
+
+        <input
+            id="jumlahLog"
+            type="number"
+            step="0.000001"
+            min="0"
+            placeholder="Contoh: 7"
+            oninput="hitung()"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- KAYU TAMBAHAN / RST -->
 
 <div class="card">
 
-    <div class="card-title">
+    <div class="card-title" id="judulTabel">
         Kayu Tambahan
     </div>
 
@@ -387,14 +503,34 @@ td input:focus{
             <thead>
 
                 <tr>
-                    <th>Tebal<br>(mm)</th>
-                    <th>Lebar<br>(mm)</th>
-                    <th>Panjang<br>(mm)</th>
-                    <th>Bendel</th>
-                    <th>Isi/<br>Bendel</th>
-                    <th>Total<br>Batang</th>
-                    <th>Volume<br>(m³)</th>
-                    <th></th>
+
+                    <th>
+                        Tebal
+                    </th>
+
+                    <th>
+                        Lebar
+                    </th>
+
+                    <th>
+                        Panjang
+                    </th>
+
+                    <th>
+                        Bendel
+                    </th>
+
+                    <th>
+                        Isi/<br>Bendel
+                    </th>
+
+                    <th>
+                        Volume
+                    </th>
+
+                    <th>
+                    </th>
+
                 </tr>
 
             </thead>
@@ -423,9 +559,12 @@ td input:focus{
 </div>
 
 
-<!-- HASIL -->
+<!-- HASIL TAMBAHAN -->
 
-<div class="card">
+<div
+    class="card"
+    id="hasilTambahan"
+>
 
     <div class="card-title">
         Hasil Final
@@ -485,6 +624,74 @@ td input:focus{
 
 </div>
 
+
+<!-- HASIL ENTRY -->
+
+<div
+    class="card"
+    id="hasilEntry"
+    style="display:none;"
+>
+
+    <div class="card-title">
+        Hasil Rendemen
+    </div>
+
+
+    <div class="result-grid">
+
+        <div class="result">
+
+            <div class="result-title">
+                VOLUME RST
+            </div>
+
+            <div
+                class="result-value"
+                id="volumeRST"
+            >
+                0,000000 m³
+            </div>
+
+        </div>
+
+
+        <div class="result">
+
+            <div class="result-title">
+                VOLUME LOG
+            </div>
+
+            <div
+                class="result-value"
+                id="volumeLog"
+            >
+                0,000000 m³
+            </div>
+
+        </div>
+
+
+        <div class="result final">
+
+            <div class="result-title">
+                RENDEMEN
+            </div>
+
+            <div
+                class="result-value"
+                id="rendemenEntry"
+            >
+                0,00 %
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 </div>
 
 
@@ -492,19 +699,19 @@ td input:focus{
 
 
 /* =====================================================
-   DATABASE ATURAN ISI PER BENDEL
+   ATURAN UKURAN
 ===================================================== */
 
 const aturan = [
 
-    // 19 x 160
+    /* 19 x 160 */
 
     {t:[19],l:[160],min:2500,max:2900,isi:1},
     {t:[19],l:[160],min:2000,max:2400,isi:1},
     {t:[19],l:[160],min:1500,max:1900,isi:1},
 
 
-    // 19 x 130
+    /* 19 x 130 */
 
     {t:[19],l:[130],min:2500,max:2900,isi:1},
     {t:[19],l:[130],min:2000,max:2400,isi:1},
@@ -512,7 +719,7 @@ const aturan = [
     {t:[19],l:[130],min:1000,max:1400,isi:1},
 
 
-    // 19 x 100
+    /* 19 x 100 */
 
     {t:[19],l:[100],min:2500,max:2900,isi:1},
     {t:[19],l:[100],min:2000,max:2400,isi:1},
@@ -520,14 +727,14 @@ const aturan = [
     {t:[19],l:[100],min:900,max:1400,isi:1},
 
 
-    // 18 x 160
+    /* 18 x 160 */
 
     {t:[18],l:[160],min:900,max:1400,isi:1},
     {t:[18],l:[160],min:600,max:850,isi:1},
     {t:[18],l:[160],min:300,max:550,isi:10},
 
 
-    // 18 x 130
+    /* 18 x 130 */
 
     {t:[18],l:[130],min:900,max:1400,isi:1},
     {t:[18],l:[130],min:600,max:850,isi:1},
@@ -535,7 +742,7 @@ const aturan = [
     {t:[18],l:[130],min:300,max:400,isi:10},
 
 
-    // 18 x 100
+    /* 18 x 100 */
 
     {t:[18],l:[100],min:900,max:1400,isi:1},
     {t:[18],l:[100],min:600,max:850,isi:1},
@@ -543,7 +750,7 @@ const aturan = [
     {t:[18],l:[100],min:300,max:400,isi:10},
 
 
-    // 15 x 130
+    /* 15 x 130 */
 
     {t:[15],l:[130],min:900,max:1400,isi:1},
     {t:[15],l:[130],min:600,max:850,isi:1},
@@ -551,7 +758,7 @@ const aturan = [
     {t:[15],l:[130],min:300,max:400,isi:10},
 
 
-    // 15 x 100
+    /* 15 x 100 */
 
     {t:[15],l:[100],min:900,max:1400,isi:1},
     {t:[15],l:[100],min:600,max:850,isi:1},
@@ -559,17 +766,17 @@ const aturan = [
     {t:[15],l:[100],min:300,max:400,isi:10},
 
 
-    // 15 x 81
+    /* 15 x 81 */
 
     {t:[15],l:[81],min:500,max:550,isi:10},
 
 
-    // 18 x 81
+    /* 18 x 81 */
 
     {t:[18],l:[81],min:500,max:550,isi:10},
 
 
-    // 15 x 60
+    /* 15 x 60 */
 
     {t:[15],l:[60],min:900,max:1400,isi:1},
     {t:[15],l:[60],min:600,max:850,isi:10},
@@ -577,7 +784,7 @@ const aturan = [
     {t:[15],l:[60],min:300,max:400,isi:10},
 
 
-    // 18 x 60
+    /* 18 x 60 */
 
     {t:[18],l:[60],min:900,max:1400,isi:1},
     {t:[18],l:[60],min:600,max:850,isi:10},
@@ -585,21 +792,21 @@ const aturan = [
     {t:[18],l:[60],min:300,max:400,isi:10},
 
 
-    // 15/18 x 72/75/80
+    /* 15/18 x 72/75/80 */
 
     {t:[15,18],l:[72,75,80],min:900,max:1400,isi:1},
     {t:[15,18],l:[72,75,80],min:600,max:850,isi:10},
     {t:[15,18],l:[72,75,80],min:200,max:550,isi:10},
 
 
-    // 12/15 x 65/60
+    /* 12/15 x 65/60 */
 
     {t:[12,15],l:[65,60],min:900,max:1400,isi:1},
     {t:[12,15],l:[65,60],min:600,max:850,isi:10},
     {t:[12,15],l:[65,60],min:200,max:550,isi:10},
 
 
-    // 15 x 52
+    /* 15 x 52 */
 
     {t:[15],l:[52],min:900,up:true,isi:1},
     {t:[15],l:[52],min:400,max:850,isi:20},
@@ -608,7 +815,7 @@ const aturan = [
     {t:[15],l:[52],exact:205,isi:40},
 
 
-    // 12 x 52
+    /* 12 x 52 */
 
     {t:[12],l:[52],min:900,up:true,isi:1},
     {t:[12],l:[52],min:400,max:850,isi:20},
@@ -617,17 +824,17 @@ const aturan = [
     {t:[12],l:[52],exact:205,isi:40},
 
 
-    // 12/15 x 52 < 200
+    /* 12/15 x 52 < 200 */
 
     {t:[12,15],l:[52],max:199.999999,isi:40},
 
 
-    // 15/20 x 35/40/45
+    /* 15/20 x 35/40/45 */
 
     {t:[15,20],l:[35,40,45],min:250,up:true,isi:25},
 
 
-    // 15/20 x 30
+    /* 15/20 x 30 */
 
     {t:[15,20],l:[30],min:1000,up:true,isi:25},
     {t:[15,20],l:[30],min:400,max:500,isi:25},
@@ -635,7 +842,7 @@ const aturan = [
     {t:[15,20],l:[30],min:150,max:200,isi:50},
 
 
-    // 15/20 x 20
+    /* 15/20 x 20 */
 
     {t:[15,20],l:[20],min:400,up:true,isi:25},
     {t:[15,20],l:[20],min:200,max:300,isi:50}
@@ -674,7 +881,7 @@ function formatAngka(nilai,desimal=6){
 
 
 /* =====================================================
-   KONVERSI ANGKA
+   ANGKA
 ===================================================== */
 
 function angka(nilai){
@@ -785,6 +992,7 @@ function tambahBaris(){
     tr.innerHTML = `
 
         <td>
+
             <input
                 type="number"
                 class="tebal"
@@ -792,9 +1000,12 @@ function tambahBaris(){
                 step="1"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="lebar"
@@ -802,9 +1013,12 @@ function tambahBaris(){
                 step="1"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="panjang"
@@ -812,9 +1026,12 @@ function tambahBaris(){
                 step="1"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="jumlahBendel"
@@ -823,22 +1040,32 @@ function tambahBaris(){
                 value="1"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
-            <div class="isi-bendel">-</div>
+
+            <div class="isi-bendel">
+                -
+            </div>
+
             <div class="status"></div>
+
         </td>
 
-        <td>
-            <div class="total-batang">0</div>
-        </td>
 
         <td>
-            <div class="volume">0,000000</div>
+
+            <div class="volume">
+                0,000000
+            </div>
+
         </td>
 
+
         <td>
+
             <button
                 class="delete"
                 onclick="
@@ -848,6 +1075,7 @@ function tambahBaris(){
             >
                 ✕
             </button>
+
         </td>
 
     `;
@@ -861,7 +1089,7 @@ function tambahBaris(){
 
 
 /* =====================================================
-   TAMBAH BARIS + SCROLL KE BARIS BARU
+   TAMBAH BARIS DAN SCROLL
 ===================================================== */
 
 function tambahBarisDanScroll(){
@@ -909,28 +1137,139 @@ function tambahBarisDanScroll(){
 
 
 /* =====================================================
-   HITUNG SEMUA
+   UBAH MODE
+===================================================== */
+
+function ubahMode(mode){
+
+    const btnTambahan =
+        document.getElementById(
+            "btnTambahan"
+        );
+
+
+    const btnEntry =
+        document.getElementById(
+            "btnEntry"
+        );
+
+
+    const dataSaatIni =
+        document.getElementById(
+            "dataSaatIni"
+        );
+
+
+    const entryLog =
+        document.getElementById(
+            "entryLog"
+        );
+
+
+    const hasilTambahan =
+        document.getElementById(
+            "hasilTambahan"
+        );
+
+
+    const hasilEntry =
+        document.getElementById(
+            "hasilEntry"
+        );
+
+
+    const judulTabel =
+        document.getElementById(
+            "judulTabel"
+        );
+
+
+    if(mode === "tambahan"){
+
+        btnTambahan.classList.add(
+            "active"
+        );
+
+        btnEntry.classList.remove(
+            "active"
+        );
+
+
+        dataSaatIni.style.display =
+            "block";
+
+
+        entryLog.style.display =
+            "none";
+
+
+        hasilTambahan.style.display =
+            "block";
+
+
+        hasilEntry.style.display =
+            "none";
+
+
+        judulTabel.textContent =
+            "Kayu Tambahan";
+
+
+        document.title =
+            "KALKULATOR RENDEMEN";
+
+    }
+
+
+    else{
+
+        btnTambahan.classList.remove(
+            "active"
+        );
+
+        btnEntry.classList.add(
+            "active"
+        );
+
+
+        dataSaatIni.style.display =
+            "none";
+
+
+        entryLog.style.display =
+            "block";
+
+
+        hasilTambahan.style.display =
+            "none";
+
+
+        hasilEntry.style.display =
+            "block";
+
+
+        judulTabel.textContent =
+            "Data RST";
+
+
+        document.title =
+            "KALKULATOR RENDEMEN - ENTRY";
+
+    }
+
+
+    hitung();
+
+}
+
+
+/* =====================================================
+   HITUNG
 ===================================================== */
 
 function hitung(){
 
-    const hasilSaatIni =
-        angka(
-            document.getElementById(
-                "hasilSaatIni"
-            ).value
-        );
-
-
-    const rendemenSaatIni =
-        angka(
-            document.getElementById(
-                "rendemenSaatIni"
-            ).value
-        );
-
-
-    let totalTambahan = 0;
+    let totalVolume = 0;
 
 
     const rows =
@@ -985,12 +1324,6 @@ function hitung(){
             );
 
 
-        const totalBatangElement =
-            row.querySelector(
-                ".total-batang"
-            );
-
-
         const volumeElement =
             row.querySelector(
                 ".volume"
@@ -1004,14 +1337,17 @@ function hitung(){
             jumlahBendel <= 0
         ){
 
-            isiElement.textContent = "-";
+            isiElement.textContent =
+                "-";
 
-            statusElement.textContent = "";
 
-            totalBatangElement.textContent = "0";
+            statusElement.textContent =
+                "";
+
 
             volumeElement.textContent =
                 "0,000000";
+
 
             return;
 
@@ -1028,52 +1364,51 @@ function hitung(){
 
         if(isi === null){
 
-            isiElement.textContent = "?";
+            isiElement.textContent =
+                "?";
+
 
             statusElement.textContent =
                 "Ukuran tidak ditemukan";
 
+
             statusElement.className =
                 "status error";
 
-            totalBatangElement.textContent =
-                "0";
 
             volumeElement.textContent =
                 "0,000000";
+
 
             return;
 
         }
 
 
+        isiElement.textContent =
+            isi;
+
+
         statusElement.textContent =
             "Otomatis";
 
+
         statusElement.className =
             "status ok";
-
-
-        isiElement.textContent =
-            isi;
 
 
         const totalBatang =
             jumlahBendel * isi;
 
 
-        totalBatangElement.textContent =
-            totalBatang;
-
-
         /*
-        RUMUS:
+            RUMUS VOLUME:
 
-        ROUND(
-            Tebal × Lebar × Panjang × Total Batang
-            / 1.000.000.000;
-            6
-        )
+            ROUND(
+                Tebal × Lebar × Panjang × Total Batang
+                ÷ 1.000.000.000;
+                6
+            )
         */
 
 
@@ -1094,26 +1429,43 @@ function hitung(){
             formatAngka(volume);
 
 
-        totalTambahan += volume;
+        totalVolume += volume;
 
     });
 
 
-    /* HASIL FINAL */
+    /* =================================================
+       MODE TAMBAHAN
+    ================================================= */
+
+    const hasilSaatIni =
+        angka(
+            document.getElementById(
+                "hasilSaatIni"
+            ).value
+        );
+
+
+    const rendemenSaatIni =
+        angka(
+            document.getElementById(
+                "rendemenSaatIni"
+            ).value
+        );
+
 
     const hasilFinal =
         hasilSaatIni +
-        totalTambahan;
+        totalVolume;
 
 
-    /* HITUNG VOLUME LOG */
-
-    let volumeLog = 0;
+    let volumeLog =
+        0;
 
 
     if(
-        rendemenSaatIni > 0 &&
-        hasilSaatIni > 0
+        hasilSaatIni > 0 &&
+        rendemenSaatIni > 0
     ){
 
         volumeLog =
@@ -1126,9 +1478,8 @@ function hitung(){
     }
 
 
-    /* RENDEMEN FINAL */
-
-    let rendemenFinal = 0;
+    let rendemenFinal =
+        0;
 
 
     if(volumeLog > 0){
@@ -1144,14 +1495,10 @@ function hitung(){
     }
 
 
-    /* TAMPILKAN */
-
     document.getElementById(
         "totalTambahan"
     ).textContent =
-        formatAngka(
-            totalTambahan
-        )
+        formatAngka(totalVolume)
         +
         " m³";
 
@@ -1159,9 +1506,7 @@ function hitung(){
     document.getElementById(
         "hasilFinal"
     ).textContent =
-        formatAngka(
-            hasilFinal
-        )
+        formatAngka(hasilFinal)
         +
         " m³";
 
@@ -1176,14 +1521,71 @@ function hitung(){
         +
         " %";
 
+
+    /* =================================================
+       MODE ENTRY
+    ================================================= */
+
+    const jumlahLog =
+        angka(
+            document.getElementById(
+                "jumlahLog"
+            ).value
+        );
+
+
+    let rendemenEntry =
+        0;
+
+
+    if(jumlahLog > 0){
+
+        rendemenEntry =
+            (
+                totalVolume /
+                jumlahLog
+            )
+            *
+            100;
+
+    }
+
+
+    document.getElementById(
+        "volumeRST"
+    ).textContent =
+        formatAngka(totalVolume)
+        +
+        " m³";
+
+
+    document.getElementById(
+        "volumeLog"
+    ).textContent =
+        formatAngka(jumlahLog)
+        +
+        " m³";
+
+
+    document.getElementById(
+        "rendemenEntry"
+    ).textContent =
+        formatAngka(
+            rendemenEntry,
+            2
+        )
+        +
+        " %";
+
 }
 
 
 /* =====================================================
-   BARIS PERTAMA OTOMATIS
+   BARIS PERTAMA
 ===================================================== */
 
 tambahBaris();
+
 
 </script>
 
