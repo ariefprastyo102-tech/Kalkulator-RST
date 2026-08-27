@@ -176,8 +176,9 @@ td{
     text-align:center;
 }
 
+
 /* =====================================================
-   ENTRY BARU
+   ENTRY
 ===================================================== */
 
 .entry-table{
@@ -212,6 +213,11 @@ td{
     text-align:center;
 }
 
+.entry-input:focus{
+    border-color:#526f32;
+    outline:2px solid rgba(82,111,50,.15);
+}
+
 .entry-group{
     background:#edf4e6;
     font-weight:900;
@@ -228,6 +234,11 @@ td{
 
 .entry-subgroup td{
     border-top:1px solid #cbdcbb;
+    background:#f8faf5;
+    color:#526f32;
+    font-weight:bold;
+    text-align:left;
+    padding-left:10px;
 }
 
 .entry-date-box{
@@ -263,6 +274,51 @@ td{
     color:#7d8577;
     font-size:13px;
 }
+
+
+/* =====================================================
+   TAMPILAN NAMA AKTIF
+===================================================== */
+
+.entry-selected-bar{
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    background:#edf4e6;
+    border:1px solid #cbdcbb;
+    border-radius:10px;
+    padding:9px 10px;
+    margin-bottom:10px;
+}
+
+.entry-selected-name{
+    font-size:14px;
+    font-weight:900;
+    color:#526f32;
+}
+
+.back-name-button{
+    border:none;
+    background:white;
+    color:#526f32;
+    border:1px solid #b9cda9;
+    border-radius:8px;
+    padding:8px 10px;
+    font-size:11px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.back-name-button:hover{
+    background:#526f32;
+    color:white;
+}
+
+
+/* =====================================================
+   TAMBAHAN
+===================================================== */
 
 .nama{
     font-weight:900;
@@ -340,6 +396,11 @@ td{
     background:#425b29;
 }
 
+
+/* =====================================================
+   ACTION
+===================================================== */
+
 .action-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -380,6 +441,11 @@ td{
     opacity:.88;
 }
 
+
+/* =====================================================
+   HASIL
+===================================================== */
+
 .result-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -414,6 +480,11 @@ td{
     color:#526f32;
 }
 
+
+/* =====================================================
+   RANGKUMAN
+===================================================== */
+
 .summary-table{
     width:100%;
     border-collapse:collapse;
@@ -423,18 +494,23 @@ td{
 .summary-table th{
     background:#526f32;
     color:white;
-    padding:9px 5px;
-    font-size:10px;
+    padding:10px 7px;
+    font-size:12px;
 }
 
 .summary-table td{
-    padding:8px 5px;
+    padding:10px 7px;
     border-bottom:1px solid #e5e9df;
-    font-size:11px;
+    font-size:13px;
 }
 
 .summary-total{
     background:#edf4e6;
+    font-weight:900;
+}
+
+.summary-total td{
+    font-size:13px;
     font-weight:900;
 }
 
@@ -446,6 +522,11 @@ td{
     text-align:center;
     font-size:12px;
 }
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
 
 #entryLog,
 #hasilEntry,
@@ -530,6 +611,23 @@ td{
     padding:4px 0;
     border-bottom:1px solid #e2e6de;
 }
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+#entryLog,
+#hasilEntry,
+#historyEntry,
+#rangkumanEntry{
+    display:none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
@@ -685,10 +783,22 @@ td{
         font-size:14px;
     }
 
-    .summary-table th,
+    .summary-table th{
+        font-size:10px;
+        padding:8px 4px;
+    }
+
     .summary-table td{
-        font-size:8px;
-        padding:6px 2px;
+        font-size:10px;
+        padding:8px 4px;
+    }
+
+    .summary-total td{
+        font-size:10px;
+    }
+
+    .entry-selected-name{
+        font-size:13px;
     }
 
 }
@@ -699,6 +809,10 @@ td{
 <body>
 
 <div class="container">
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <div class="header">
 
@@ -720,6 +834,10 @@ td{
 
 </div>
 
+
+<!-- =====================================================
+     MODE
+===================================================== -->
 
 <div class="mode-box">
 
@@ -743,7 +861,7 @@ td{
 
 
 <!-- =====================================================
-     DATA SAAT INI TAMBAHAN
+     DATA SAAT INI
 ===================================================== -->
 
 <div
@@ -858,7 +976,9 @@ td{
     </div>
 
 
-    <!-- FILTER NAMA ENTRY -->
+    <!-- =================================================
+         PILIH NAMA
+    ================================================= -->
 
     <div
         id="filterNamaEntry"
@@ -920,6 +1040,37 @@ td{
     </div>
 
 
+    <!-- =================================================
+         NAMA AKTIF / TAMPILAN RINGKAS
+    ================================================= -->
+
+    <div
+        id="entrySelectedBar"
+        class="entry-selected-bar"
+    >
+
+        <div
+            id="entrySelectedName"
+            class="entry-selected-name"
+        >
+            -
+        </div>
+
+        <button
+            type="button"
+            class="back-name-button"
+            onclick="kembaliPilihNama()"
+        >
+            ← KEMBALI
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         NOTICE
+    ================================================= -->
+
     <div
         id="noticeEntry"
         class="notice"
@@ -934,7 +1085,7 @@ td{
 
 
     <!-- =================================================
-         TABEL ENTRY OTOMATIS
+         TABEL ENTRY
     ================================================= -->
 
     <div
@@ -973,7 +1124,7 @@ td{
 
 
     <!-- =================================================
-         TABEL TAMBAHAN LAMA
+         TABEL TAMBAHAN
     ================================================= -->
 
     <div
@@ -1022,7 +1173,9 @@ td{
     </div>
 
 
-    <!-- ACTION ENTRY -->
+    <!-- =================================================
+         ACTION ENTRY
+    ================================================= -->
 
     <div
         class="action-grid"
@@ -1061,7 +1214,9 @@ td{
     </div>
 
 
-    <!-- DOWNLOAD TAMBAHAN -->
+    <!-- =================================================
+         DOWNLOAD TAMBAHAN
+    ================================================= -->
 
     <button
         id="downloadTambahan"
@@ -1529,7 +1684,7 @@ function formatTanggalIndonesia(tanggal){
 
 
 /* =====================================================
-   BUAT LIST PANJANG
+   LIST PANJANG
 ===================================================== */
 
 function buatPanjang(rule){
@@ -1584,7 +1739,7 @@ function buatPanjang(rule){
 
 
 /* =====================================================
-   GENERATE UKURAN VALID
+   GENERATE UKURAN
 ===================================================== */
 
 function generateUkuranNama(nama){
@@ -1633,10 +1788,6 @@ function generateUkuranNama(nama){
     });
 
 
-    /*
-       HAPUS DUPLIKAT
-    */
-
     const unik = {};
 
 
@@ -1659,10 +1810,6 @@ function generateUkuranNama(nama){
     return Object.values(unik)
         .sort((a,b) => {
 
-            /*
-               TEBAL TERBESAR
-            */
-
             if(a.tebal !== b.tebal){
 
                 return b.tebal - a.tebal;
@@ -1670,20 +1817,12 @@ function generateUkuranNama(nama){
             }
 
 
-            /*
-               LEBAR TERBESAR
-            */
-
             if(a.lebar !== b.lebar){
 
                 return b.lebar - a.lebar;
 
             }
 
-
-            /*
-               PANJANG TERKECIL
-            */
 
             return a.panjang - b.panjang;
 
@@ -1746,7 +1885,7 @@ function cariAturan(
 
 
 /* =====================================================
-   JUMLAH YANG SUDAH DIINPUT PER UKURAN
+   AMBIL DATA ENTRY BERDASARKAN NAMA AKTIF
 ===================================================== */
 
 function ambilJumlahEntry(
@@ -1758,6 +1897,8 @@ function ambilJumlahEntry(
 
     const item =
         dataEntry.find(x =>
+
+            x.nama === namaEntryAktif &&
 
             angka(x.tebal) === tebal &&
             angka(x.lebar) === lebar &&
@@ -1779,12 +1920,17 @@ function ambilJumlahEntry(
 
 
 /* =====================================================
-   SIMPAN DATA ENTRY DARI TABEL
+   SIMPAN DATA NAMA AKTIF
 ===================================================== */
 
 function simpanDataEntryDariTabel(){
 
     if(modeAktif !== "entry"){
+        return;
+    }
+
+
+    if(!namaEntryAktif){
         return;
     }
 
@@ -1795,40 +1941,42 @@ function simpanDataEntryDariTabel(){
         );
 
 
-    const hasil = [];
+    const dataNamaAktif = [];
 
 
     rows.forEach(row => {
 
         const tebal =
-            angka(
-                row.dataset.tebal
-            );
+            angka(row.dataset.tebal);
 
         const lebar =
-            angka(
-                row.dataset.lebar
-            );
+            angka(row.dataset.lebar);
 
         const panjang =
-            angka(
-                row.dataset.panjang
-            );
+            angka(row.dataset.panjang);
 
 
         const P =
             angka(
-                row.querySelector(".input-P")?.value
+                row.querySelector(
+                    ".input-P"
+                )?.value
             );
+
 
         const D =
             angka(
-                row.querySelector(".input-D")?.value
+                row.querySelector(
+                    ".input-D"
+                )?.value
             );
+
 
         const T =
             angka(
-                row.querySelector(".input-T")?.value
+                row.querySelector(
+                    ".input-T"
+                )?.value
             );
 
 
@@ -1838,7 +1986,7 @@ function simpanDataEntryDariTabel(){
             T > 0
         ){
 
-            hasil.push({
+            dataNamaAktif.push({
 
                 nama:
                     namaEntryAktif,
@@ -1868,8 +2016,25 @@ function simpanDataEntryDariTabel(){
     });
 
 
+    /*
+       Hapus data nama aktif lama.
+       Data nama lainnya tetap.
+    */
+
     dataEntry =
-        hasil;
+        dataEntry.filter(
+            item =>
+                item.nama !== namaEntryAktif
+        );
+
+
+    /*
+       Masukkan data nama aktif terbaru.
+    */
+
+    dataEntry.push(
+        ...dataNamaAktif
+    );
 
 
     simpanDraftEntry();
@@ -1924,7 +2089,7 @@ function simpanDraftEntry(){
 
 
 /* =====================================================
-   RENDER ENTRY OTOMATIS
+   RENDER ENTRY
 ===================================================== */
 
 function renderEntryOtomatis(){
@@ -2001,7 +2166,7 @@ function renderEntryOtomatis(){
 
 
         /*
-           PEMBATAS TEBAL
+           GROUP TEBAL
         */
 
         if(
@@ -2039,7 +2204,7 @@ function renderEntryOtomatis(){
 
 
         /*
-           PEMBATAS LEBAR
+           GROUP LEBAR
         */
 
         if(
@@ -2099,6 +2264,7 @@ function renderEntryOtomatis(){
                 "P"
             );
 
+
         const D =
             ambilJumlahEntry(
                 item.tebal,
@@ -2106,6 +2272,7 @@ function renderEntryOtomatis(){
                 item.panjang,
                 "D"
             );
+
 
         const T =
             ambilJumlahEntry(
@@ -2187,12 +2354,18 @@ function renderEntryOtomatis(){
 
 
         /*
-           HITUNG SAAT INPUT
+           INPUT LISTENER
         */
 
-        tr.querySelectorAll(
-            "input"
-        ).forEach(input => {
+        const inputs =
+            Array.from(
+                tr.querySelectorAll(
+                    "input"
+                )
+            );
+
+
+        inputs.forEach(input => {
 
             input.addEventListener(
                 "input",
@@ -2201,6 +2374,150 @@ function renderEntryOtomatis(){
                     hitungEntryOtomatis();
 
                 }
+            );
+
+
+            /*
+               ENTER = INPUT DI BARIS BAWAH
+            */
+
+            input.addEventListener(
+                "keydown",
+                event => {
+
+                    if(
+                        event.key !== "Enter"
+                    ){
+
+                        return;
+
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const currentRow =
+                        input.closest(
+                            "tr.entry-data-row"
+                        );
+
+
+                    const semuaRows =
+                        Array.from(
+                            document.querySelectorAll(
+                                "#tabelEntry tr.entry-data-row"
+                            )
+                        );
+
+
+                    const rowIndex =
+                        semuaRows.indexOf(
+                            currentRow
+                        );
+
+
+                    const inputDalamBaris =
+                        Array.from(
+                            currentRow.querySelectorAll(
+                                ".entry-input"
+                            )
+                        );
+
+
+                    const kolom =
+                        inputDalamBaris.indexOf(
+                            input
+                        );
+
+
+                    /*
+                       CARI BARIS BAWAH
+                    */
+
+                    if(
+                        rowIndex >= 0 &&
+                        rowIndex + 1 <
+                        semuaRows.length
+                    ){
+
+                        const barisBawah =
+                            semuaRows[
+                                rowIndex + 1
+                            ];
+
+
+                        const inputBawah =
+                            Array.from(
+                                barisBawah.querySelectorAll(
+                                    ".entry-input"
+                                )
+                            );
+
+
+                        const target =
+                            inputBawah[kolom] ||
+                            inputBawah[0];
+
+
+                        if(target){
+
+                            target.focus();
+
+                            target.select();
+
+                            target.scrollIntoView({
+                                behavior:"smooth",
+                                block:"center"
+                            });
+
+                            return;
+
+                        }
+
+                    }
+
+
+                    /*
+                       Kalau sudah baris terakhir,
+                       lanjut ke input berikutnya.
+                    */
+
+                    const semuaInput =
+                        Array.from(
+                            document.querySelectorAll(
+                                "#tabelEntry .entry-input"
+                            )
+                        );
+
+
+                    const posisi =
+                        semuaInput.indexOf(
+                            input
+                        );
+
+
+                    const next =
+                        semuaInput[
+                            posisi + 1
+                        ];
+
+
+                    if(next){
+
+                        next.focus();
+
+                        next.select();
+
+                        next.scrollIntoView({
+                            behavior:"smooth",
+                            block:"center"
+                        });
+
+                    }
+
+                }
+
             );
 
         });
@@ -2217,7 +2534,7 @@ function renderEntryOtomatis(){
 
 
 /* =====================================================
-   HITUNG ENTRY OTOMATIS
+   HITUNG ENTRY
 ===================================================== */
 
 function hitungEntryOtomatis(){
@@ -2267,17 +2584,25 @@ function hitungEntryOtomatis(){
 
         const P =
             angka(
-                row.querySelector(".input-P")?.value
+                row.querySelector(
+                    ".input-P"
+                )?.value
             );
+
 
         const D =
             angka(
-                row.querySelector(".input-D")?.value
+                row.querySelector(
+                    ".input-D"
+                )?.value
             );
+
 
         const T =
             angka(
-                row.querySelector(".input-T")?.value
+                row.querySelector(
+                    ".input-T"
+                )?.value
             );
 
 
@@ -2347,13 +2672,26 @@ function hitungEntryOtomatis(){
     });
 
 
-    dataEntry =
-        dataSementara;
-
-
     /*
-       VOLUME ENTRY
+       PENTING:
+       Jangan timpa data nama lain.
     */
+
+    if(namaEntryAktif){
+
+        dataEntry =
+            dataEntry.filter(
+                item =>
+                    item.nama !== namaEntryAktif
+            );
+
+
+        dataEntry.push(
+            ...dataSementara
+        );
+
+    }
+
 
     const jumlahLog =
         angka(
@@ -2431,31 +2769,155 @@ function namaEntryBerubah(){
 
 
     /*
-       Simpan data nama sebelumnya
+       Simpan nama sebelumnya.
     */
 
-    simpanDataEntryDariTabel();
+    if(namaEntryAktif){
+
+        simpanDataEntryDariTabel();
+
+    }
 
 
-    namaEntryAktif =
+    const namaBaru =
         document.getElementById(
             "pilihNamaEntry"
         ).value;
 
 
+    namaEntryAktif =
+        namaBaru;
+
+
+    if(!namaEntryAktif){
+
+        tampilkanPilihanNama();
+
+        renderEntryOtomatis();
+
+        tampilkanRangkuman();
+
+        return;
+
+    }
+
+
     /*
-       Jangan hapus data nama lain.
-       Semua data tetap ada di dataEntry.
-       Yang ditampilkan hanya nama aktif.
+       Sembunyikan pilihan nama.
     */
 
+    document.getElementById(
+        "filterNamaEntry"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "noticeEntry"
+    ).style.display =
+        "none";
+
+
+    /*
+       Tampilkan nama aktif.
+    */
+
+    const bar =
+        document.getElementById(
+            "entrySelectedBar"
+        );
+
+
+    const nama =
+        document.getElementById(
+            "entrySelectedName"
+        );
+
+
+    bar.style.display =
+        "flex";
+
+
+    nama.textContent =
+        namaEntryAktif;
+
+
     renderEntryOtomatis();
+
+    tampilkanRangkuman();
 
 }
 
 
 /* =====================================================
-   TANGGAL BERUBAH
+   TAMPILKAN PILIHAN NAMA
+===================================================== */
+
+function tampilkanPilihanNama(){
+
+    document.getElementById(
+        "filterNamaEntry"
+    ).style.display =
+        "grid";
+
+
+    document.getElementById(
+        "noticeEntry"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "entrySelectedBar"
+    ).style.display =
+        "none";
+
+}
+
+
+/* =====================================================
+   KEMBALI PILIH NAMA
+===================================================== */
+
+function kembaliPilihNama(){
+
+    if(modeAktif !== "entry"){
+        return;
+    }
+
+
+    /*
+       Simpan nama aktif sebelum kembali.
+    */
+
+    if(namaEntryAktif){
+
+        simpanDataEntryDariTabel();
+
+    }
+
+
+    namaEntryAktif = "";
+
+
+    document.getElementById(
+        "pilihNamaEntry"
+    ).value =
+        "";
+
+
+    tampilkanPilihanNama();
+
+
+    renderEntryOtomatis();
+
+    tampilkanRangkuman();
+
+}
+
+
+/* =====================================================
+   TANGGAL
 ===================================================== */
 
 function tanggalEntryBerubah(){
@@ -2481,7 +2943,7 @@ function tanggalEntryBerubah(){
 
 
 /* =====================================================
-   TABEL TAMBAHAN LAMA
+   TABEL TAMBAHAN
 ===================================================== */
 
 function ambilDataTabelTambahan(){
@@ -2500,19 +2962,29 @@ function ambilDataTabelTambahan(){
         data.push({
 
             mutu:
-                row.querySelector(".mutu")?.value || "",
+                row.querySelector(
+                    ".mutu"
+                )?.value || "",
 
             tebal:
-                row.querySelector(".tebal")?.value || "",
+                row.querySelector(
+                    ".tebal"
+                )?.value || "",
 
             lebar:
-                row.querySelector(".lebar")?.value || "",
+                row.querySelector(
+                    ".lebar"
+                )?.value || "",
 
             panjang:
-                row.querySelector(".panjang")?.value || "",
+                row.querySelector(
+                    ".panjang"
+                )?.value || "",
 
             jumlahBendel:
-                row.querySelector(".jumlahBendel")?.value || ""
+                row.querySelector(
+                    ".jumlahBendel"
+                )?.value || ""
 
         });
 
@@ -2537,7 +3009,11 @@ function simpanDataMode(){
 
     }else{
 
-        simpanDataEntryDariTabel();
+        if(namaEntryAktif){
+
+            simpanDataEntryDariTabel();
+
+        }
 
     }
 
@@ -2698,7 +3174,9 @@ function buatBaris(data={}){
 
     if(data.mutu){
 
-        tr.querySelector(".mutu").value =
+        tr.querySelector(
+            ".mutu"
+        ).value =
             data.mutu;
 
     }
@@ -2751,7 +3229,7 @@ function renderMode(){
 
 
 /* =====================================================
-   TAMBAH BARIS TAMBAHAN
+   TAMBAH BARIS
 ===================================================== */
 
 function tambahBaris(){
@@ -2876,6 +3354,8 @@ function inputDataBaru(){
         "draftEntryRendemen"
     );
 
+
+    tampilkanPilihanNama();
 
     renderEntryOtomatis();
 
@@ -3039,6 +3519,12 @@ function ubahMode(mode){
             "none";
 
 
+        document.getElementById(
+            "entrySelectedBar"
+        ).style.display =
+            "none";
+
+
         tabelEntryOtomatis.style.display =
             "none";
 
@@ -3095,14 +3581,6 @@ function ubahMode(mode){
             "grid";
 
 
-        notice.style.display =
-            "block";
-
-
-        filterNama.style.display =
-            "grid";
-
-
         tabelEntryOtomatis.style.display =
             "block";
 
@@ -3137,6 +3615,34 @@ function ubahMode(mode){
             "pilihNamaEntry"
         ).value =
             namaEntryAktif;
+
+
+        if(namaEntryAktif){
+
+            filterNama.style.display =
+                "none";
+
+
+            notice.style.display =
+                "none";
+
+
+            document.getElementById(
+                "entrySelectedBar"
+            ).style.display =
+                "flex";
+
+
+            document.getElementById(
+                "entrySelectedName"
+            ).textContent =
+                namaEntryAktif;
+
+        }else{
+
+            tampilkanPilihanNama();
+
+        }
 
 
         renderEntryOtomatis();
@@ -3176,7 +3682,6 @@ function hitung(){
 
 
     rows.forEach(row => {
-
 
         const tebal =
             angka(
@@ -3492,7 +3997,7 @@ function hitung(){
 
 
 /* =====================================================
-   EXPORT DATA ENTRY
+   EXPORT ENTRY
 ===================================================== */
 
 function ambilDataExportEntry(){
@@ -3843,7 +4348,11 @@ function downloadExcelEntry(){
     }
 
 
-    simpanDataEntryDariTabel();
+    if(namaEntryAktif){
+
+        simpanDataEntryDariTabel();
+
+    }
 
 
     let data =
@@ -4126,12 +4635,19 @@ function simpanEntry(){
     }
 
 
-    simpanDataEntryDariTabel();
+    /*
+       Pastikan nama aktif sudah masuk
+       ke dataEntry sebelum disimpan.
+    */
+
+    if(namaEntryAktif){
+
+        simpanDataEntryDariTabel();
+
+    }
 
 
-    if(
-        !entryTanggalAktif
-    ){
+    if(!entryTanggalAktif){
 
         alert(
             "Tanggal Entry belum dipilih."
@@ -4143,12 +4659,12 @@ function simpanEntry(){
 
 
     if(
-        !namaEntryAktif &&
+        !dataEntry ||
         dataEntry.length === 0
     ){
 
         alert(
-            "Pilih nama dan masukkan data terlebih dahulu."
+            "Belum ada data Entry yang diinput."
         );
 
         return;
@@ -4160,7 +4676,10 @@ function simpanEntry(){
         ambilDataExportEntry();
 
 
-    if(dataExport.length === 0){
+    if(
+        !dataExport ||
+        dataExport.length === 0
+    ){
 
         alert(
             "Belum ada jumlah P/D/T yang diinput."
@@ -4173,11 +4692,18 @@ function simpanEntry(){
 
     const volumeRST =
         round6(
+
             dataExport.reduce(
-                (total,item) =>
-                    total + item.Volume,
+                (
+                    total,
+                    item
+                ) =>
+                    total +
+                    angka(item.Volume),
+
                 0
             )
+
         );
 
 
@@ -4189,24 +4715,32 @@ function simpanEntry(){
         );
 
 
-    let rendemen = 0;
+    if(jumlahLog <= 0){
 
+        alert(
+            "Jumlah LOG belum diisi."
+        );
 
-    if(jumlahLog > 0){
+        document.getElementById(
+            "jumlahLog"
+        ).focus();
 
-        rendemen =
-            (
-                volumeRST /
-                jumlahLog
-            )
-            *
-            100;
+        return;
 
     }
 
 
+    const rendemen =
+        (
+            volumeRST /
+            jumlahLog
+        )
+        *
+        100;
+
+
     /*
-       SIMPAN SEMUA DATA MENTAH
+       COPY DATA AGAR HISTORY TIDAK BERUBAH
     */
 
     const record = {
@@ -4228,7 +4762,8 @@ function simpanEntry(){
             ),
 
         nama:
-            namaEntryAktif,
+            namaEntryAktif ||
+            "Beberapa Produk",
 
         data:
             JSON.parse(
@@ -4279,18 +4814,40 @@ function simpanEntry(){
     );
 
 
+    tampilkanHistory();
+
+
     alert(
 
-        "Entry tanggal " +
+        "✅ ENTRY BERHASIL DISIMPAN\n\n" +
+
+        "Tanggal : " +
         formatTanggalIndonesia(
             entryTanggalAktif
         ) +
-        " berhasil disimpan ke History."
+        "\n" +
+
+        "Volume RST : " +
+        formatAngka(
+            volumeRST
+        ) +
+        " m³\n" +
+
+        "Volume LOG : " +
+        formatAngka(
+            jumlahLog,
+            3
+        ) +
+        " m³\n" +
+
+        "Rendemen : " +
+        formatAngka(
+            rendemen,
+            2
+        ) +
+        " %"
 
     );
-
-
-    tampilkanHistory();
 
 }
 
@@ -4618,7 +5175,7 @@ function tampilkanRangkuman(){
 
 
 /* =====================================================
-   HITUNG HISTORY
+   HISTORY - JUMLAH INPUT
 ===================================================== */
 
 function hitungJumlahBendelHistory(data){
@@ -4644,6 +5201,10 @@ function hitungJumlahBendelHistory(data){
 
 }
 
+
+/* =====================================================
+   HISTORY - JUMLAH BATANG
+===================================================== */
 
 function hitungJumlahBatangHistory(data){
 
@@ -4845,11 +5406,13 @@ function bukaHistory(index){
 
 
     namaEntryAktif =
-        item.nama ||
-        (
-            dataEntry[0]?.nama ||
-            ""
-        );
+        item.nama &&
+        item.nama !== "Beberapa Produk"
+            ? item.nama
+            : (
+                dataEntry[0]?.nama ||
+                ""
+            );
 
 
     document.getElementById(
@@ -4898,6 +5461,10 @@ function bukaHistory(index){
 
     );
 
+
+    /*
+       Aktifkan mode ENTRY.
+    */
 
     ubahMode("entry");
 
@@ -5022,6 +5589,8 @@ function hapusSeluruhData(){
             "draftEntryRendemen"
         );
 
+
+        tampilkanPilihanNama();
 
         renderEntryOtomatis();
 
