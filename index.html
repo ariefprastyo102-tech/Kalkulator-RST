@@ -27,7 +27,9 @@ body{
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header{
     background:linear-gradient(135deg,#155eef,#2563eb);
@@ -48,7 +50,9 @@ body{
 }
 
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .card{
     background:white;
@@ -65,7 +69,9 @@ body{
 }
 
 
-/* INPUT */
+/* =========================
+   INPUT DATA AWAL
+========================= */
 
 .input-grid{
     display:grid;
@@ -96,39 +102,46 @@ body{
 }
 
 
-/* TABLE */
+/* =========================
+   AREA TABEL
+========================= */
 
 .table-container{
-    overflow-x:auto;
+    width:100%;
+    overflow:hidden;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:900px;
+    table-layout:fixed;
 }
 
 th{
     background:#f8fafc;
     color:#64748b;
     font-size:12px;
-    padding:12px 8px;
+    padding:12px 5px;
     text-align:center;
     border-bottom:1px solid #e5e7eb;
 }
 
 td{
-    padding:8px;
+    padding:6px 4px;
     border-bottom:1px solid #edf0f4;
+    text-align:center;
 }
 
 td input,
 td select{
     width:100%;
-    padding:9px;
+    padding:9px 5px;
     border:1px solid #d9dee8;
     border-radius:8px;
     outline:none;
+    text-align:center;
+    font-size:14px;
+    background:white;
 }
 
 td input:focus,
@@ -138,12 +151,51 @@ td select:focus{
 
 .volume{
     font-weight:bold;
-    text-align:center;
+    font-size:13px;
     white-space:nowrap;
 }
 
 
-/* BUTTON */
+/* =========================
+   LEBAR KOLOM DESKTOP
+========================= */
+
+th:nth-child(1){
+    width:11%;
+}
+
+th:nth-child(2){
+    width:11%;
+}
+
+th:nth-child(3){
+    width:14%;
+}
+
+th:nth-child(4){
+    width:10%;
+}
+
+th:nth-child(5){
+    width:15%;
+}
+
+th:nth-child(6){
+    width:14%;
+}
+
+th:nth-child(7){
+    width:17%;
+}
+
+th:nth-child(8){
+    width:8%;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
 
 .add-button{
     background:#2563eb;
@@ -163,17 +215,15 @@ td select:focus{
     background:#fee2e2;
     color:#dc2626;
     border:none;
-    border-radius:8px;
-    padding:9px 11px;
+    border-radius:7px;
+    padding:8px 9px;
     cursor:pointer;
 }
 
-.delete:hover{
-    background:#fecaca;
-}
 
-
-/* HASIL */
+/* =========================
+   HASIL
+========================= */
 
 .result-grid{
     display:grid;
@@ -211,24 +261,242 @@ td select:focus{
 }
 
 
-/* MOBILE */
+/* =========================
+   HP
+========================= */
 
 @media(max-width:750px){
 
     body{
-        padding:10px;
+        padding:8px;
     }
 
-    .input-grid{
-        grid-template-columns:1fr;
+    .header{
+        padding:20px 16px;
+        border-radius:15px;
     }
+
+    .header h1{
+        font-size:23px;
+    }
+
+    .header p{
+        font-size:12px;
+    }
+
+    .card{
+        padding:12px;
+        border-radius:14px;
+        margin-bottom:12px;
+    }
+
+    .card-title{
+        font-size:16px;
+        margin-bottom:12px;
+    }
+
+
+    /* DATA AWAL */
+
+    .input-grid{
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+    }
+
+    .field label{
+        font-size:10px;
+        margin-bottom:5px;
+    }
+
+    .field input{
+        padding:11px 7px;
+        font-size:15px;
+    }
+
+
+    /* TABEL */
+
+    .table-container{
+        overflow:hidden;
+    }
+
+    table{
+        width:100%;
+        table-layout:fixed;
+    }
+
+    th{
+        padding:7px 2px;
+        font-size:9px;
+        line-height:1.1;
+    }
+
+    td{
+        padding:4px 2px;
+    }
+
+    td input,
+    td select{
+        padding:8px 2px;
+        font-size:11px;
+        border-radius:6px;
+    }
+
+    .volume{
+        font-size:10px;
+        white-space:normal;
+        line-height:1.1;
+    }
+
+
+    /*
+       SINGKATAN HEADER HP
+    */
+
+    th:nth-child(1)::after{
+        content:"T";
+    }
+
+    th:nth-child(2)::after{
+        content:"L";
+    }
+
+    th:nth-child(3)::after{
+        content:"P";
+    }
+
+    th:nth-child(4)::after{
+        content:"Jml";
+    }
+
+    th:nth-child(5)::after{
+        content:"Sat";
+    }
+
+    th:nth-child(6)::after{
+        content:"Isi";
+    }
+
+    th:nth-child(7)::after{
+        content:"Vol";
+    }
+
+    th:nth-child(8)::after{
+        content:"";
+    }
+
+    th:nth-child(1),
+    th:nth-child(2),
+    th:nth-child(3),
+    th:nth-child(4),
+    th:nth-child(5),
+    th:nth-child(6),
+    th:nth-child(7),
+    th:nth-child(8){
+        font-size:0;
+    }
+
+    th:nth-child(1)::after,
+    th:nth-child(2)::after,
+    th:nth-child(3)::after,
+    th:nth-child(4)::after,
+    th:nth-child(5)::after,
+    th:nth-child(6)::after,
+    th:nth-child(7)::after,
+    th:nth-child(8)::after{
+        font-size:9px;
+    }
+
+
+    /* LEBAR KOLOM HP */
+
+    th:nth-child(1){
+        width:11%;
+    }
+
+    th:nth-child(2){
+        width:11%;
+    }
+
+    th:nth-child(3){
+        width:14%;
+    }
+
+    th:nth-child(4){
+        width:10%;
+    }
+
+    th:nth-child(5){
+        width:15%;
+    }
+
+    th:nth-child(6){
+        width:13%;
+    }
+
+    th:nth-child(7){
+        width:17%;
+    }
+
+    th:nth-child(8){
+        width:9%;
+    }
+
+
+    /* BUTTON */
+
+    .add-button{
+        padding:9px 11px;
+        font-size:11px;
+        border-radius:8px;
+    }
+
+    .delete{
+        padding:6px 7px;
+        font-size:11px;
+    }
+
+
+    /* HASIL */
+
+    .result-grid{
+        grid-template-columns:1fr 1fr 1fr;
+        gap:6px;
+    }
+
+    .result{
+        padding:14px 5px;
+        border-radius:10px;
+    }
+
+    .result-title{
+        font-size:8px;
+        margin-bottom:6px;
+    }
+
+    .result-value{
+        font-size:14px;
+    }
+
+    .final .result-value{
+        font-size:16px;
+    }
+
+}
+
+
+/* =========================
+   HP SANGAT KECIL
+========================= */
+
+@media(max-width:380px){
 
     .result-grid{
         grid-template-columns:1fr;
     }
 
-    .header h1{
-        font-size:24px;
+    .result{
+        padding:12px;
     }
 
 }
@@ -242,7 +510,9 @@ td select:focus{
 <div class="container">
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <div class="header">
 
@@ -256,7 +526,9 @@ td select:focus{
 
 
 
-<!-- DATA SAAT INI -->
+<!-- =========================
+     DATA SAAT INI
+========================= -->
 
 <div class="card">
 
@@ -279,7 +551,7 @@ td select:focus{
                 type="number"
                 step="0.000001"
                 min="0"
-                placeholder="Contoh: 1,673063"
+                placeholder="1,673063"
             >
 
         </div>
@@ -297,7 +569,7 @@ td select:focus{
                 type="number"
                 step="0.01"
                 min="0"
-                placeholder="Contoh: 27,93"
+                placeholder="27,93"
             >
 
         </div>
@@ -309,7 +581,9 @@ td select:focus{
 
 
 
-<!-- KAYU TAMBAHAN -->
+<!-- =========================
+     KAYU TAMBAHAN
+========================= -->
 
 <div class="card">
 
@@ -318,8 +592,8 @@ td select:focus{
         display:flex;
         justify-content:space-between;
         align-items:center;
-        margin-bottom:18px;
-        gap:10px;
+        margin-bottom:14px;
+        gap:8px;
     ">
 
 
@@ -348,37 +622,21 @@ td select:focus{
 
                 <tr>
 
-                    <th>
-                        Tebal<br>(mm)
-                    </th>
+                    <th>Tebal<br>(mm)</th>
 
-                    <th>
-                        Lebar<br>(mm)
-                    </th>
+                    <th>Lebar<br>(mm)</th>
 
-                    <th>
-                        Panjang<br>(cm)
-                    </th>
+                    <th>Panjang<br>(cm)</th>
 
-                    <th>
-                        Jumlah
-                    </th>
+                    <th>Jumlah</th>
 
-                    <th>
-                        Satuan
-                    </th>
+                    <th>Satuan</th>
 
-                    <th>
-                        Isi / Bendel
-                    </th>
+                    <th>Isi / Bendel</th>
 
-                    <th>
-                        Volume<br>(m³)
-                    </th>
+                    <th>Volume<br>(m³)</th>
 
-                    <th>
-                        Aksi
-                    </th>
+                    <th>Aksi</th>
 
                 </tr>
 
@@ -395,7 +653,9 @@ td select:focus{
 
 
 
-<!-- HASIL -->
+<!-- =========================
+     HASIL
+========================= -->
 
 <div class="card">
 
@@ -406,8 +666,6 @@ td select:focus{
 
     <div class="result-grid">
 
-
-        <!-- TOTAL TAMBAHAN -->
 
         <div class="result">
 
@@ -426,8 +684,6 @@ td select:focus{
 
 
 
-        <!-- HASIL FINAL -->
-
         <div class="result final">
 
             <div class="result-title">
@@ -444,8 +700,6 @@ td select:focus{
         </div>
 
 
-
-        <!-- RENDEMEN FINAL -->
 
         <div class="result final">
 
@@ -475,9 +729,9 @@ td select:focus{
 <script>
 
 
-/* =========================================
+/* =========================
    TAMBAH BARIS
-========================================= */
+========================= */
 
 function tambahBaris(){
 
@@ -492,7 +746,6 @@ function tambahBaris(){
     baris.innerHTML = `
 
         <td>
-
             <input
                 type="number"
                 class="tebal"
@@ -500,12 +753,10 @@ function tambahBaris(){
                 step="0.01"
                 oninput="hitung()"
             >
-
         </td>
 
 
         <td>
-
             <input
                 type="number"
                 class="lebar"
@@ -513,12 +764,10 @@ function tambahBaris(){
                 step="0.01"
                 oninput="hitung()"
             >
-
         </td>
 
 
         <td>
-
             <input
                 type="number"
                 class="panjang"
@@ -526,12 +775,10 @@ function tambahBaris(){
                 step="0.01"
                 oninput="hitung()"
             >
-
         </td>
 
 
         <td>
-
             <input
                 type="number"
                 class="jumlah"
@@ -540,7 +787,6 @@ function tambahBaris(){
                 value="1"
                 oninput="hitung()"
             >
-
         </td>
 
 
@@ -609,9 +855,9 @@ function tambahBaris(){
 
 
 
-/* =========================================
+/* =========================
    ANGKA
-========================================= */
+========================= */
 
 function angka(nilai){
 
@@ -621,9 +867,9 @@ function angka(nilai){
 
 
 
-/* =========================================
+/* =========================
    ROUND 6 DESIMAL
-========================================= */
+========================= */
 
 function round6(nilai){
 
@@ -635,9 +881,9 @@ function round6(nilai){
 
 
 
-/* =========================================
+/* =========================
    FORMAT ANGKA
-========================================= */
+========================= */
 
 function formatAngka(
     nilai,
@@ -656,9 +902,9 @@ function formatAngka(
 
 
 
-/* =========================================
-   UBAH SATUAN
-========================================= */
+/* =========================
+   BATANG / BENDEL
+========================= */
 
 function ubahSatuan(select){
 
@@ -670,7 +916,9 @@ function ubahSatuan(select){
         baris.querySelector(".isi");
 
 
-    if(select.value === "Bendel"){
+    if(
+        select.value === "Bendel"
+    ){
 
         inputIsi.disabled = false;
 
@@ -694,9 +942,9 @@ function ubahSatuan(select){
 
 
 
-/* =========================================
+/* =========================
    HITUNG
-========================================= */
+========================= */
 
 function hitung(){
 
@@ -781,7 +1029,7 @@ function hitung(){
 
 
 
-        /* JUMLAH SATUAN */
+        /* JUMLAH AKTUAL */
 
         let jumlahSatuan =
             jumlah;
@@ -821,7 +1069,7 @@ function hitung(){
 
 
 
-        /* TAMPILKAN */
+        /* TAMPILKAN VOLUME */
 
         tr.querySelector(
             ".volume"
@@ -888,7 +1136,7 @@ function hitung(){
 
 
 
-    /* TAMPILKAN TOTAL TAMBAHAN */
+    /* HASIL TAMBAHAN */
 
     document.getElementById(
         "totalTambahan"
@@ -901,7 +1149,7 @@ function hitung(){
 
 
 
-    /* TAMPILKAN HASIL FINAL */
+    /* HASIL FINAL */
 
     document.getElementById(
         "hasilFinal"
@@ -914,7 +1162,7 @@ function hitung(){
 
 
 
-    /* TAMPILKAN RENDEMEN FINAL */
+    /* RENDEMEN FINAL */
 
     document.getElementById(
         "rendemenFinal"
@@ -930,9 +1178,9 @@ function hitung(){
 
 
 
-/* =========================================
+/* =========================
    INPUT DATA
-========================================= */
+========================= */
 
 document
     .getElementById(
