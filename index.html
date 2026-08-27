@@ -16,8 +16,8 @@
 }
 
 body{
-    background:#f3f6fb;
-    color:#172033;
+    background:#f1f7f2;
+    color:#17251b;
     padding:12px;
 }
 
@@ -26,15 +26,27 @@ body{
     margin:auto;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header{
-    background:linear-gradient(135deg,#155eef,#2563eb);
+    background:linear-gradient(
+        135deg,
+        #14532d,
+        #166534,
+        #15803d
+    );
+
     color:white;
     padding:18px 22px;
     border-radius:18px;
     margin-bottom:12px;
-    box-shadow:0 8px 25px rgba(37,99,235,.20);
+
+    box-shadow:
+        0 8px 25px rgba(21,101,52,.22);
+
     display:flex;
     align-items:center;
     gap:15px;
@@ -60,7 +72,9 @@ body{
 }
 
 
-/* MODE */
+/* =====================================================
+   MODE
+===================================================== */
 
 .mode-box{
     display:grid;
@@ -70,40 +84,62 @@ body{
 }
 
 .mode-btn{
-    border:1px solid #d8dee9;
+    border:1px solid #cbd5ce;
     background:white;
-    color:#64748b;
+    color:#52705b;
     padding:11px;
     border-radius:10px;
     font-weight:bold;
     cursor:pointer;
+    transition:.2s;
+}
+
+.mode-btn:hover{
+    background:#f0fdf4;
 }
 
 .mode-btn.active{
-    background:#2563eb;
+    background:linear-gradient(
+        135deg,
+        #166534,
+        #15803d
+    );
+
     color:white;
-    border-color:#2563eb;
+    border-color:#166534;
+
+    box-shadow:
+        0 4px 12px rgba(22,101,52,.20);
 }
 
 
-/* CARD */
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
     background:white;
     border-radius:16px;
     padding:16px;
     margin-bottom:12px;
-    box-shadow:0 4px 18px rgba(0,0,0,.05);
+
+    box-shadow:
+        0 4px 18px rgba(22,101,52,.06);
+
+    border:1px solid #e2ebe4;
 }
 
 .card-title{
     font-size:16px;
     font-weight:bold;
     margin-bottom:12px;
+    color:#14532d;
 }
 
 
-/* INPUT */
+/* =====================================================
+   INPUT
+===================================================== */
 
 .input-grid{
     display:grid;
@@ -115,25 +151,34 @@ body{
     display:block;
     font-size:11px;
     font-weight:bold;
-    color:#64748b;
+    color:#52705b;
     margin-bottom:5px;
 }
 
 .field input{
     width:100%;
     padding:11px;
-    border:1px solid #d9dee8;
+
+    border:1px solid #d5dfd7;
     border-radius:9px;
+
     font-size:15px;
     outline:none;
+
+    background:#fcfffc;
 }
 
 .field input:focus{
-    border-color:#2563eb;
+    border-color:#15803d;
+
+    box-shadow:
+        0 0 0 2px rgba(21,128,61,.10);
 }
 
 
-/* TABLE */
+/* =====================================================
+   TABLE
+===================================================== */
 
 .table-wrap{
     overflow-x:auto;
@@ -146,67 +191,109 @@ table{
 }
 
 th{
-    background:#f8fafc;
-    color:#64748b;
+    background:#ecfdf3;
+    color:#315c3e;
+
     font-size:10px;
     padding:8px 4px;
-    border-bottom:1px solid #e5e7eb;
+
+    border-bottom:1px solid #cfe3d3;
+
     white-space:nowrap;
 }
 
 td{
     padding:4px 2px;
-    border-bottom:1px solid #edf0f4;
+    border-bottom:1px solid #edf2ee;
     text-align:center;
 }
 
 td input{
     width:100%;
     padding:8px 3px;
-    border:1px solid #d9dee8;
+
+    border:1px solid #d5dfd7;
     border-radius:7px;
+
     text-align:center;
     font-size:13px;
     outline:none;
+
+    background:#ffffff;
 }
 
 td input:focus{
-    border-color:#2563eb;
+    border-color:#15803d;
+
+    box-shadow:
+        0 0 0 2px rgba(21,128,61,.08);
 }
 
 
-/* NAMA */
+/* =====================================================
+   NAMA PRODUK
+===================================================== */
 
 .nama{
     font-weight:900;
     font-size:13px;
+
     min-width:110px;
+
     text-align:left;
     padding-left:5px;
 
     background:linear-gradient(
         90deg,
-        #155eef,
-        #7c3aed
+        #15803d,
+        #ca8a04,
+        #16a34a,
+        #92400e
     );
 
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+
+    background-size:200% auto;
+
+    animation:
+        warnaNama 4s linear infinite;
+
+    letter-spacing:.25px;
+}
+
+@keyframes warnaNama{
+
+    0%{
+        background-position:0% center;
+    }
+
+    100%{
+        background-position:200% center;
+    }
+
 }
 
 .nama.belum{
-    color:#94a3b8;
+    color:#94a3a0;
+
     background:none;
-    -webkit-text-fill-color:#94a3b8;
+
+    -webkit-text-fill-color:#94a3a0;
+
     font-weight:normal;
+
+    animation:none;
 }
 
 
-/* ISI */
+/* =====================================================
+   ISI BENDEL
+===================================================== */
 
 .isi-bendel{
     font-weight:bold;
-    color:#155eef;
+    color:#15803d;
     font-size:13px;
 }
 
@@ -224,47 +311,84 @@ td input:focus{
 }
 
 
-/* VOLUME */
+/* =====================================================
+   VOLUME
+===================================================== */
 
 .volume{
     font-weight:bold;
     font-size:12px;
     white-space:nowrap;
+    color:#14532d;
 }
 
 
-/* DELETE */
+/* =====================================================
+   DELETE
+===================================================== */
 
 .delete{
     background:#fee2e2;
     color:#dc2626;
+
     border:none;
     border-radius:7px;
+
     padding:7px 8px;
+
     cursor:pointer;
+
+    font-weight:bold;
+}
+
+.delete:hover{
+    background:#fecaca;
 }
 
 
-/* TAMBAH */
+/* =====================================================
+   TAMBAH
+===================================================== */
 
 .add-button{
-    background:#2563eb;
+    background:linear-gradient(
+        135deg,
+        #166534,
+        #15803d
+    );
+
     color:white;
+
     border:none;
+
     padding:12px;
+
     border-radius:9px;
+
     font-weight:bold;
+
     cursor:pointer;
+
     width:100%;
+
     font-size:14px;
+
+    box-shadow:
+        0 4px 10px rgba(21,128,61,.15);
 }
 
 .add-button:hover{
-    background:#1d4ed8;
+    background:linear-gradient(
+        135deg,
+        #14532d,
+        #166534
+    );
 }
 
 
-/* HASIL */
+/* =====================================================
+   HASIL
+===================================================== */
 
 .result-grid{
     display:grid;
@@ -273,42 +397,56 @@ td input:focus{
 }
 
 .result{
-    background:#f8fafc;
+    background:#f6faf7;
+
     border-radius:12px;
+
     padding:16px 7px;
+
     text-align:center;
+
+    border:1px solid #e0ebe2;
 }
 
 .result-title{
-    color:#64748b;
+    color:#52705b;
+
     font-size:9px;
+
     font-weight:bold;
+
     margin-bottom:7px;
 }
 
 .result-value{
     font-size:19px;
     font-weight:900;
+    color:#14532d;
 }
 
 .final{
-    background:#eff6ff;
-    border:1px solid #bfdbfe;
+    background:#ecfdf3;
+
+    border:1px solid #bbdfc5;
 }
 
 .final .result-value{
-    color:#155eef;
+    color:#15803d;
 }
 
 
-/* ENTRY */
+/* =====================================================
+   ENTRY
+===================================================== */
 
 #entryLog{
     display:none;
 }
 
 
-/* MOBILE */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:700px){
 
@@ -431,7 +569,9 @@ td input:focus{
 <div class="container">
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <div class="header">
 
@@ -454,7 +594,9 @@ td input:focus{
 </div>
 
 
-<!-- MODE -->
+<!-- =====================================================
+     MODE
+===================================================== -->
 
 <div class="mode-box">
 
@@ -477,7 +619,9 @@ td input:focus{
 </div>
 
 
-<!-- DATA SAAT INI -->
+<!-- =====================================================
+     DATA SAAT INI
+===================================================== -->
 
 <div
     class="card"
@@ -530,7 +674,9 @@ td input:focus{
 </div>
 
 
-<!-- DATA LOG -->
+<!-- =====================================================
+     DATA LOG
+===================================================== -->
 
 <div
     class="card"
@@ -561,7 +707,9 @@ td input:focus{
 </div>
 
 
-<!-- DATA RST -->
+<!-- =====================================================
+     DATA RST
+===================================================== -->
 
 <div class="card">
 
@@ -582,12 +730,21 @@ td input:focus{
                 <tr>
 
                     <th>Nama</th>
+
                     <th>Tebal</th>
+
                     <th>Lebar</th>
+
                     <th>Panjang</th>
+
                     <th>Bendel</th>
-                    <th>Isi/<br>Bendel</th>
+
+                    <th>
+                        Isi/<br>Bendel
+                    </th>
+
                     <th>Volume</th>
+
                     <th></th>
 
                 </tr>
@@ -616,7 +773,9 @@ td input:focus{
 </div>
 
 
-<!-- HASIL TAMBAHAN -->
+<!-- =====================================================
+     HASIL TAMBAHAN
+===================================================== -->
 
 <div
     class="card"
@@ -626,6 +785,7 @@ td input:focus{
     <div class="card-title">
         Hasil Final
     </div>
+
 
     <div class="result-grid">
 
@@ -681,7 +841,9 @@ td input:focus{
 </div>
 
 
-<!-- HASIL ENTRY -->
+<!-- =====================================================
+     HASIL ENTRY
+===================================================== -->
 
 <div
     class="card"
@@ -692,6 +854,7 @@ td input:focus{
     <div class="card-title">
         Hasil Rendemen
     </div>
+
 
     <div class="result-grid">
 
@@ -759,7 +922,7 @@ td input:focus{
 
 const aturan = [
 
-    /* DECKING */
+    /* ================= DECKING ================= */
 
     {nama:"DECKING",t:[19],l:[160],min:2500,max:2900,isi:1},
     {nama:"DECKING",t:[19],l:[160],min:2000,max:2400,isi:1},
@@ -776,7 +939,7 @@ const aturan = [
     {nama:"DECKING",t:[19],l:[100],min:900,max:1400,isi:1},
 
 
-    /* FLOORING */
+    /* ================= FLOORING ================= */
 
     {nama:"FLOORING",t:[18],l:[160],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[160],min:600,max:850,isi:1},
@@ -816,37 +979,37 @@ const aturan = [
     {nama:"FLOORING",t:[18],l:[60],min:300,max:400,isi:10},
 
 
-    /* LONGSTRIP */
+    /* ================= LONGSTRIP ================= */
 
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:900,max:1400,isi:1},
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:600,max:850,isi:10},
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:200,max:550,isi:10},
 
 
-    /* PB PANJANG */
+    /* ================= PB PANJANG ================= */
 
     {nama:"PB PANJANG",t:[15],l:[52],min:900,up:true,isi:1},
     {nama:"PB PANJANG",t:[15],l:[52],min:400,max:850,isi:20},
     {nama:"PB PANJANG",t:[15],l:[52],exact:305,isi:40},
 
 
-    /* PB PENDEK */
+    /* ================= PB PENDEK ================= */
 
     {nama:"PB PENDEK",t:[15],l:[52],exact:255,isi:40},
     {nama:"PB PENDEK",t:[15],l:[52],exact:205,isi:40},
 
 
-    /* P STOCK */
+    /* ================= P STOCK ================= */
 
     {nama:"P STOCK",t:[12,15],l:[52],max:199.999999,isi:40},
 
 
-    /* FJL */
+    /* ================= FJL ================= */
 
     {nama:"FJL",t:[15,20],l:[35,40,45],min:250,up:true,isi:25},
 
 
-    /* RENG */
+    /* ================= RENG ================= */
 
     {nama:"RENG",t:[15,20],l:[30],min:1000,up:true,isi:25},
     {nama:"RENG",t:[15,20],l:[30],min:400,max:500,isi:25},
@@ -854,7 +1017,7 @@ const aturan = [
     {nama:"RENG",t:[15,20],l:[30],min:150,max:200,isi:50},
 
 
-    /* LIST */
+    /* ================= LIST ================= */
 
     {nama:"LIST",t:[15,20],l:[20],min:400,up:true,isi:25},
     {nama:"LIST",t:[15,20],l:[20],min:200,max:300,isi:50}
@@ -913,30 +1076,45 @@ function angka(nilai){
 function cocokPanjang(rule,panjang){
 
     if(rule.exact !== undefined){
+
         return panjang === rule.exact;
+
     }
 
     if(rule.up === true){
+
         return panjang >= rule.min;
+
     }
 
     if(
         rule.min !== undefined &&
         rule.max !== undefined
     ){
-        return panjang >= rule.min &&
-               panjang <= rule.max;
+
+        return (
+            panjang >= rule.min &&
+            panjang <= rule.max
+        );
+
     }
 
     if(rule.max !== undefined){
+
         return panjang <= rule.max;
+
     }
 
     return false;
+
 }
 
 
-function cariAturan(tebal,lebar,panjang){
+function cariAturan(
+    tebal,
+    lebar,
+    panjang
+){
 
     for(const rule of aturan){
 
@@ -945,17 +1123,20 @@ function cariAturan(tebal,lebar,panjang){
             rule.l.includes(lebar) &&
             cocokPanjang(rule,panjang)
         ){
+
             return rule;
+
         }
 
     }
 
     return null;
+
 }
 
 
 /* =====================================================
-   AMBIL DATA DARI TABEL
+   AMBIL DATA TABEL
 ===================================================== */
 
 function ambilDataTabel(){
@@ -963,27 +1144,39 @@ function ambilDataTabel(){
     const data = [];
 
     const rows =
-        document.querySelectorAll("#tabelKayu tr");
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
+
 
     rows.forEach(row => {
 
         data.push({
 
             tebal:
-                row.querySelector(".tebal")?.value || "",
+                row.querySelector(
+                    ".tebal"
+                )?.value || "",
 
             lebar:
-                row.querySelector(".lebar")?.value || "",
+                row.querySelector(
+                    ".lebar"
+                )?.value || "",
 
             panjang:
-                row.querySelector(".panjang")?.value || "",
+                row.querySelector(
+                    ".panjang"
+                )?.value || "",
 
             jumlahBendel:
-                row.querySelector(".jumlahBendel")?.value || ""
+                row.querySelector(
+                    ".jumlahBendel"
+                )?.value || ""
 
         });
 
     });
+
 
     return data;
 
@@ -991,7 +1184,7 @@ function ambilDataTabel(){
 
 
 /* =====================================================
-   SIMPAN DATA MODE AKTIF
+   SIMPAN DATA MODE
 ===================================================== */
 
 function simpanDataMode(){
@@ -1018,18 +1211,28 @@ function simpanDataMode(){
 function buatBaris(data={}){
 
     const tbody =
-        document.getElementById("tabelKayu");
+        document.getElementById(
+            "tabelKayu"
+        );
+
 
     const tr =
         document.createElement("tr");
 
+
     tr.innerHTML = `
 
         <td>
-            <div class="nama belum">-</div>
+
+            <div class="nama belum">
+                -
+            </div>
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="tebal"
@@ -1038,9 +1241,12 @@ function buatBaris(data={}){
                 value="${data.tebal || ""}"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="lebar"
@@ -1049,9 +1255,12 @@ function buatBaris(data={}){
                 value="${data.lebar || ""}"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="panjang"
@@ -1060,9 +1269,12 @@ function buatBaris(data={}){
                 value="${data.panjang || ""}"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
+
             <input
                 type="number"
                 class="jumlahBendel"
@@ -1072,18 +1284,32 @@ function buatBaris(data={}){
                 placeholder="Bendel"
                 oninput="hitung()"
             >
+
         </td>
 
+
         <td>
-            <div class="isi-bendel">-</div>
+
+            <div class="isi-bendel">
+                -
+            </div>
+
             <div class="status"></div>
+
         </td>
 
-        <td>
-            <div class="volume">0,000000</div>
-        </td>
 
         <td>
+
+            <div class="volume">
+                0,000000
+            </div>
+
+        </td>
+
+
+        <td>
+
             <button
                 class="delete"
                 onclick="
@@ -1093,9 +1319,11 @@ function buatBaris(data={}){
             >
                 ✕
             </button>
+
         </td>
 
     `;
+
 
     tbody.appendChild(tr);
 
@@ -1103,22 +1331,32 @@ function buatBaris(data={}){
 
 
 /* =====================================================
-   RENDER DATA MODE
+   RENDER MODE
 ===================================================== */
 
 function renderMode(){
 
     const tbody =
-        document.getElementById("tabelKayu");
+        document.getElementById(
+            "tabelKayu"
+        );
+
 
     tbody.innerHTML = "";
+
 
     const data =
         modeAktif === "tambahan"
             ? dataTambahan
             : dataEntry;
 
+
     if(data.length === 0){
+
+        /*
+           BARIS BARU BENAR-BENAR KOSONG
+           TERMASUK BENDEL
+        */
 
         buatBaris();
 
@@ -1131,6 +1369,7 @@ function renderMode(){
         });
 
     }
+
 
     hitung();
 
@@ -1160,28 +1399,40 @@ function tambahBarisDanScroll(){
 
     tambahBaris();
 
+
     const rows =
         document.querySelectorAll(
             "#tabelKayu tr"
         );
+
 
     if(rows.length > 0){
 
         const barisBaru =
             rows[rows.length - 1];
 
+
         barisBaru.scrollIntoView({
+
             behavior:"smooth",
+
             block:"center"
+
         });
 
+
         const input =
-            barisBaru.querySelector(".tebal");
+            barisBaru.querySelector(
+                ".tebal"
+            );
+
 
         if(input){
 
             setTimeout(() => {
+
                 input.focus();
+
             },400);
 
         }
@@ -1198,61 +1449,109 @@ function tambahBarisDanScroll(){
 function ubahMode(mode){
 
     /*
-       SIMPAN DATA MODE LAMA
-       SEBELUM PINDAH
+       SIMPAN DATA MODE SEBELUM PINDAH
     */
 
     simpanDataMode();
+
 
     modeAktif = mode;
 
 
     const btnTambahan =
-        document.getElementById("btnTambahan");
+        document.getElementById(
+            "btnTambahan"
+        );
+
 
     const btnEntry =
-        document.getElementById("btnEntry");
+        document.getElementById(
+            "btnEntry"
+        );
+
 
     const dataSaatIni =
-        document.getElementById("dataSaatIni");
+        document.getElementById(
+            "dataSaatIni"
+        );
+
 
     const entryLog =
-        document.getElementById("entryLog");
+        document.getElementById(
+            "entryLog"
+        );
+
 
     const hasilTambahan =
-        document.getElementById("hasilTambahan");
+        document.getElementById(
+            "hasilTambahan"
+        );
+
 
     const hasilEntry =
-        document.getElementById("hasilEntry");
+        document.getElementById(
+            "hasilEntry"
+        );
+
 
     const judulTabel =
-        document.getElementById("judulTabel");
+        document.getElementById(
+            "judulTabel"
+        );
 
 
     if(mode === "tambahan"){
 
-        btnTambahan.classList.add("active");
-        btnEntry.classList.remove("active");
+        btnTambahan.classList.add(
+            "active"
+        );
 
-        dataSaatIni.style.display = "block";
-        entryLog.style.display = "none";
+        btnEntry.classList.remove(
+            "active"
+        );
 
-        hasilTambahan.style.display = "block";
-        hasilEntry.style.display = "none";
+
+        dataSaatIni.style.display =
+            "block";
+
+        entryLog.style.display =
+            "none";
+
+
+        hasilTambahan.style.display =
+            "block";
+
+        hasilEntry.style.display =
+            "none";
+
 
         judulTabel.textContent =
             "Kayu Tambahan";
 
     }else{
 
-        btnTambahan.classList.remove("active");
-        btnEntry.classList.add("active");
+        btnTambahan.classList.remove(
+            "active"
+        );
 
-        dataSaatIni.style.display = "none";
-        entryLog.style.display = "block";
+        btnEntry.classList.add(
+            "active"
+        );
 
-        hasilTambahan.style.display = "none";
-        hasilEntry.style.display = "block";
+
+        dataSaatIni.style.display =
+            "none";
+
+        entryLog.style.display =
+            "block";
+
+
+        hasilTambahan.style.display =
+            "none";
+
+        hasilEntry.style.display =
+            "block";
+
 
         judulTabel.textContent =
             "Data RST";
@@ -1261,7 +1560,7 @@ function ubahMode(mode){
 
 
     /*
-       TAMPILKAN DATA KHUSUS MODE YANG DIPILIH
+       RENDER DATA MODE YANG AKTIF
     */
 
     renderMode();
@@ -1276,13 +1575,14 @@ function ubahMode(mode){
 function hitung(){
 
     /*
-       SIMPAN DATA TERLEBIH DAHULU
+       SIMPAN DATA MODE AKTIF
     */
 
     simpanDataMode();
 
 
     let totalVolume = 0;
+
 
     const rows =
         document.querySelectorAll(
@@ -1294,41 +1594,63 @@ function hitung(){
 
         const tebal =
             angka(
-                row.querySelector(".tebal").value
+                row.querySelector(
+                    ".tebal"
+                ).value
             );
+
 
         const lebar =
             angka(
-                row.querySelector(".lebar").value
+                row.querySelector(
+                    ".lebar"
+                ).value
             );
+
 
         const panjang =
             angka(
-                row.querySelector(".panjang").value
+                row.querySelector(
+                    ".panjang"
+                ).value
             );
+
 
         const jumlahBendel =
             angka(
-                row.querySelector(".jumlahBendel").value
+                row.querySelector(
+                    ".jumlahBendel"
+                ).value
             );
 
 
         const namaElement =
-            row.querySelector(".nama");
+            row.querySelector(
+                ".nama"
+            );
+
 
         const isiElement =
-            row.querySelector(".isi-bendel");
+            row.querySelector(
+                ".isi-bendel"
+            );
+
 
         const statusElement =
-            row.querySelector(".status");
+            row.querySelector(
+                ".status"
+            );
+
 
         const volumeElement =
-            row.querySelector(".volume");
+            row.querySelector(
+                ".volume"
+            );
 
 
-        /*
+        /* =============================================
            UKURAN BELUM LENGKAP
-        */
+        ============================================= */
 
         if(
             tebal <= 0 ||
@@ -1336,24 +1658,33 @@ function hitung(){
             panjang <= 0
         ){
 
-            namaElement.textContent = "-";
-            namaElement.className = "nama belum";
+            namaElement.textContent =
+                "-";
 
-            isiElement.textContent = "-";
+            namaElement.className =
+                "nama belum";
 
-            statusElement.textContent = "";
+
+            isiElement.textContent =
+                "-";
+
+
+            statusElement.textContent =
+                "";
+
 
             volumeElement.textContent =
                 "0,000000";
+
 
             return;
 
         }
 
 
-        /*
+        /* =============================================
            CARI ATURAN
-        */
+        ============================================= */
 
         const rule =
             cariAturan(
@@ -1363,6 +1694,10 @@ function hitung(){
             );
 
 
+        /* =============================================
+           TIDAK DITEMUKAN
+        ============================================= */
+
         if(rule === null){
 
             namaElement.textContent =
@@ -1371,63 +1706,68 @@ function hitung(){
             namaElement.className =
                 "nama belum";
 
-            isiElement.textContent = "?";
+
+            isiElement.textContent =
+                "?";
+
 
             statusElement.textContent =
                 "Cek ukuran";
 
+
             statusElement.className =
                 "status error";
 
+
             volumeElement.textContent =
                 "0,000000";
+
 
             return;
 
         }
 
 
-        /*
-           DATA DITEMUKAN
-        */
+        /* =============================================
+           DITEMUKAN
+        ============================================= */
 
         namaElement.textContent =
             rule.nama;
 
+
         namaElement.className =
             "nama";
+
 
         isiElement.textContent =
             rule.isi;
 
+
         statusElement.textContent =
             "Otomatis";
+
 
         statusElement.className =
             "status ok";
 
 
-        /*
+        /* =============================================
            BENDEL × ISI
-        */
+        ============================================= */
 
         const totalBatang =
             jumlahBendel *
             rule.isi;
 
 
-        /*
+        /* =============================================
            VOLUME
-
-           ROUND(
-             Tebal × Lebar × Panjang ×
-             Total Batang ÷ 1.000.000.000;
-             6
-           )
-        */
+        ============================================= */
 
         const volume =
             round6(
+
                 (
                     tebal *
                     lebar *
@@ -1436,6 +1776,7 @@ function hitung(){
                 )
                 /
                 1000000000
+
             );
 
 
@@ -1459,6 +1800,7 @@ function hitung(){
             ).value
         );
 
+
     const rendemenSaatIni =
         angka(
             document.getElementById(
@@ -1474,7 +1816,8 @@ function hitung(){
         );
 
 
-    let volumeLogDariRendemen = 0;
+    let volumeLogDariRendemen =
+        0;
 
 
     if(
@@ -1484,21 +1827,29 @@ function hitung(){
 
         volumeLogDariRendemen =
             hasilSaatIni /
-            (rendemenSaatIni / 100);
+            (
+                rendemenSaatIni /
+                100
+            );
 
     }
 
 
-    let rendemenFinal = 0;
+    let rendemenFinal =
+        0;
 
 
-    if(volumeLogDariRendemen > 0){
+    if(
+        volumeLogDariRendemen > 0
+    ){
 
         rendemenFinal =
             (
                 hasilFinal /
                 volumeLogDariRendemen
-            ) * 100;
+            )
+            *
+            100;
 
     }
 
@@ -1506,25 +1857,35 @@ function hitung(){
     document.getElementById(
         "totalTambahan"
     ).textContent =
-        formatAngka(totalVolume)
-        + " m³";
+
+        formatAngka(
+            totalVolume
+        )
+        +
+        " m³";
 
 
     document.getElementById(
         "hasilFinal"
     ).textContent =
-        formatAngka(hasilFinal)
-        + " m³";
+
+        formatAngka(
+            hasilFinal
+        )
+        +
+        " m³";
 
 
     document.getElementById(
         "rendemenFinal"
     ).textContent =
+
         formatAngka(
             rendemenFinal,
             2
         )
-        + " %";
+        +
+        " %";
 
 
     /* =================================================
@@ -1539,7 +1900,8 @@ function hitung(){
         );
 
 
-    let rendemenEntry = 0;
+    let rendemenEntry =
+        0;
 
 
     if(jumlahLog > 0){
@@ -1548,7 +1910,9 @@ function hitung(){
             (
                 totalVolume /
                 jumlahLog
-            ) * 100;
+            )
+            *
+            100;
 
     }
 
@@ -1556,39 +1920,47 @@ function hitung(){
     document.getElementById(
         "volumeRST"
     ).textContent =
-        formatAngka(totalVolume)
-        + " m³";
+
+        formatAngka(
+            totalVolume
+        )
+        +
+        " m³";
 
 
-    /*
+    /* ================================================
        VOLUME LOG
        3 ANGKA DI BELAKANG KOMA
-    */
+    ================================================ */
 
     document.getElementById(
         "volumeLog"
     ).textContent =
+
         formatAngka(
             jumlahLog,
             3
         )
-        + " m³";
+        +
+        " m³";
 
 
     document.getElementById(
         "rendemenEntry"
     ).textContent =
+
         formatAngka(
             rendemenEntry,
             2
         )
-        + " %";
+        +
+        " %";
 
 }
 
 
 /* =====================================================
-   BARIS AWAL
+   MULAI
 ===================================================== */
 
 renderMode();
