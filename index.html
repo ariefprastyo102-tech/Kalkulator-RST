@@ -47,6 +47,7 @@ body{
     opacity:.9;
 }
 
+
 /* MODE */
 
 .mode-box{
@@ -72,6 +73,7 @@ body{
     border-color:#2563eb;
 }
 
+
 /* CARD */
 
 .card{
@@ -87,6 +89,7 @@ body{
     font-weight:bold;
     margin-bottom:12px;
 }
+
 
 /* INPUT */
 
@@ -116,6 +119,7 @@ body{
 .field input:focus{
     border-color:#2563eb;
 }
+
 
 /* TABLE */
 
@@ -158,15 +162,17 @@ td input:focus{
     border-color:#2563eb;
 }
 
-/* NAMA */
+
+/* NAMA PRODUK */
 
 .nama{
-    font-weight:bold;
-    font-size:12px;
-    color:#155eef;
-    min-width:105px;
+    font-weight:900;
+    font-size:13px;
+    color:#111827;
+    min-width:110px;
     text-align:left;
     padding-left:5px;
+    letter-spacing:.2px;
 }
 
 .nama.belum{
@@ -174,7 +180,8 @@ td input:focus{
     font-weight:normal;
 }
 
-/* ISI */
+
+/* ISI BENDEL */
 
 .isi-bendel{
     font-weight:bold;
@@ -195,6 +202,7 @@ td input:focus{
     color:#dc2626;
 }
 
+
 /* VOLUME */
 
 .volume{
@@ -202,6 +210,7 @@ td input:focus{
     font-size:12px;
     white-space:nowrap;
 }
+
 
 /* DELETE */
 
@@ -214,7 +223,8 @@ td input:focus{
     cursor:pointer;
 }
 
-/* ADD */
+
+/* TAMBAH */
 
 .add-button{
     background:#2563eb;
@@ -232,7 +242,8 @@ td input:focus{
     background:#1d4ed8;
 }
 
-/* RESULT */
+
+/* HASIL */
 
 .result-grid{
     display:grid;
@@ -268,11 +279,13 @@ td input:focus{
     color:#155eef;
 }
 
+
 /* ENTRY */
 
 #entryLog{
     display:none;
 }
+
 
 /* MOBILE */
 
@@ -343,8 +356,11 @@ td input:focus{
     }
 
     .nama{
-        min-width:82px;
-        font-size:9px;
+        min-width:90px;
+        font-size:11px;
+        font-weight:900;
+        color:#111827;
+        letter-spacing:.1px;
     }
 
     .isi-bendel{
@@ -416,7 +432,6 @@ td input:focus{
         🔵 TAMBAHAN
     </button>
 
-
     <button
         id="btnEntry"
         class="mode-btn"
@@ -438,7 +453,6 @@ td input:focus{
     <div class="card-title">
         Data Saat Ini
     </div>
-
 
     <div class="input-grid">
 
@@ -492,7 +506,6 @@ td input:focus{
     <div class="card-title">
         Data Log
     </div>
-
 
     <div class="field">
 
@@ -577,7 +590,7 @@ td input:focus{
     </div>
 
 
-    <!-- TOMBOL DI BAWAH -->
+    <!-- TOMBOL TAMBAH DI BAWAH -->
 
     <div style="margin-top:12px;">
 
@@ -767,7 +780,6 @@ const aturan = [
         isi:1
     },
 
-
     {
         nama:"DECKING",
         t:[19],
@@ -803,7 +815,6 @@ const aturan = [
         max:1400,
         isi:1
     },
-
 
     {
         nama:"DECKING",
@@ -871,7 +882,6 @@ const aturan = [
         isi:10
     },
 
-
     {
         nama:"FLOORING",
         t:[18],
@@ -908,7 +918,6 @@ const aturan = [
         isi:10
     },
 
-
     {
         nama:"FLOORING",
         t:[18],
@@ -945,7 +954,6 @@ const aturan = [
         isi:10
     },
 
-
     {
         nama:"FLOORING",
         t:[15],
@@ -982,7 +990,6 @@ const aturan = [
         isi:10
     },
 
-
     {
         nama:"FLOORING",
         t:[15],
@@ -1018,7 +1025,6 @@ const aturan = [
         max:400,
         isi:10
     },
-
 
     {
         nama:"FLOORING",
@@ -1038,7 +1044,6 @@ const aturan = [
         isi:10
     },
 
-
     {
         nama:"FLOORING",
         t:[15],
@@ -1074,7 +1079,6 @@ const aturan = [
         max:400,
         isi:10
     },
-
 
     {
         nama:"FLOORING",
@@ -1329,13 +1333,11 @@ function cocokPanjang(rule,panjang){
 
     }
 
-
     if(rule.up === true){
 
         return panjang >= rule.min;
 
     }
-
 
     if(
         rule.min !== undefined &&
@@ -1349,13 +1351,11 @@ function cocokPanjang(rule,panjang){
 
     }
 
-
     if(rule.max !== undefined){
 
         return panjang <= rule.max;
 
     }
-
 
     return false;
 
@@ -1380,7 +1380,6 @@ function cariAturan(
         const cocokLebar =
             rule.l.includes(lebar);
 
-
         if(
             cocokTebal &&
             cocokLebar &&
@@ -1392,7 +1391,6 @@ function cariAturan(
         }
 
     }
-
 
     return null;
 
@@ -1472,7 +1470,7 @@ function tambahBaris(){
                 class="jumlahBendel"
                 min="0"
                 step="1"
-                value="1"
+                placeholder="Bendel"
                 oninput="hitung()"
             >
 
@@ -1582,36 +1580,30 @@ function ubahMode(mode){
             "btnTambahan"
         );
 
-
     const btnEntry =
         document.getElementById(
             "btnEntry"
         );
-
 
     const dataSaatIni =
         document.getElementById(
             "dataSaatIni"
         );
 
-
     const entryLog =
         document.getElementById(
             "entryLog"
         );
-
 
     const hasilTambahan =
         document.getElementById(
             "hasilTambahan"
         );
 
-
     const hasilEntry =
         document.getElementById(
             "hasilEntry"
         );
-
 
     const judulTabel =
         document.getElementById(
@@ -1629,28 +1621,22 @@ function ubahMode(mode){
             "active"
         );
 
-
         dataSaatIni.style.display =
             "block";
-
 
         entryLog.style.display =
             "none";
 
-
         hasilTambahan.style.display =
             "block";
 
-
         hasilEntry.style.display =
             "none";
-
 
         judulTabel.textContent =
             "Kayu Tambahan";
 
     }
-
 
     else{
 
@@ -1662,22 +1648,17 @@ function ubahMode(mode){
             "active"
         );
 
-
         dataSaatIni.style.display =
             "none";
-
 
         entryLog.style.display =
             "block";
 
-
         hasilTambahan.style.display =
             "none";
 
-
         hasilEntry.style.display =
             "block";
-
 
         judulTabel.textContent =
             "Data RST";
@@ -1768,29 +1749,23 @@ function hitung(){
         if(
             tebal <= 0 ||
             lebar <= 0 ||
-            panjang <= 0 ||
-            jumlahBendel <= 0
+            panjang <= 0
         ){
 
             namaElement.textContent =
                 "-";
 
-
             namaElement.className =
                 "nama belum";
-
 
             isiElement.textContent =
                 "-";
 
-
             statusElement.textContent =
                 "";
 
-
             volumeElement.textContent =
                 "0,000000";
-
 
             return;
 
@@ -1814,26 +1789,20 @@ function hitung(){
             namaElement.textContent =
                 "Ukuran tidak ditemukan";
 
-
             namaElement.className =
                 "nama belum";
-
 
             isiElement.textContent =
                 "?";
 
-
             statusElement.textContent =
                 "Cek ukuran";
-
 
             statusElement.className =
                 "status error";
 
-
             volumeElement.textContent =
                 "0,000000";
-
 
             return;
 
@@ -1845,18 +1814,14 @@ function hitung(){
         namaElement.textContent =
             rule.nama;
 
-
         namaElement.className =
             "nama";
-
 
         isiElement.textContent =
             rule.isi;
 
-
         statusElement.textContent =
             "Otomatis";
-
 
         statusElement.className =
             "status ok";
@@ -1874,7 +1839,7 @@ function hitung(){
 
 
         /*
-            VOLUME SATU BARIS:
+            VOLUME:
 
             ROUND(
                 Tebal × Lebar × Panjang ×
@@ -1907,7 +1872,7 @@ function hitung(){
 
 
     /* =================================================
-       MODE TAMBAHAN
+       HASIL TAMBAHAN
     ================================================= */
 
     const hasilSaatIni =
@@ -2037,13 +2002,16 @@ function hitung(){
 
     /*
        VOLUME LOG:
-       KHUSUS TAMPILAN 3 DESIMAL
+       3 ANGKA DI BELAKANG KOMA
     */
 
     document.getElementById(
         "volumeLog"
     ).textContent =
-        formatAngka(jumlahLog,3)
+        formatAngka(
+            jumlahLog,
+            3
+        )
         +
         " m³";
 
