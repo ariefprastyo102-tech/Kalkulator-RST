@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -194,6 +193,7 @@ td select:focus{
 .mutu-fixed{
     font-weight:900;
     color:#7b3f00;
+    background:#fff6e8;
 }
 
 .isi-bendel{
@@ -246,38 +246,44 @@ td select:focus{
     background:#425b29;
 }
 
-.download-button{
-    background:#217346;
-    color:white;
-    border:none;
-    padding:13px;
-    border-radius:9px;
-    font-weight:bold;
-    cursor:pointer;
-    width:100%;
-    font-size:14px;
+.action-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
     margin-top:10px;
 }
 
-.download-button:hover{
-    background:#185c37;
+.action-button{
+    border:none;
+    padding:12px 8px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.new-button{
+    background:#315d2b;
+    color:white;
+}
+
+.save-button{
+    background:#6d8f3a;
+    color:white;
+}
+
+.download-button{
+    background:#217346;
+    color:white;
 }
 
 .clear-button{
     background:#c62828;
     color:white;
-    border:none;
-    padding:12px;
-    border-radius:9px;
-    font-weight:bold;
-    cursor:pointer;
-    width:100%;
-    font-size:14px;
-    margin-top:8px;
 }
 
-.clear-button:hover{
-    background:#a91f1f;
+.action-button:hover{
+    opacity:.88;
 }
 
 .result-grid{
@@ -314,68 +320,50 @@ td select:focus{
     color:#526f32;
 }
 
-#entryLog{
-    display:none;
-}
-
-#hasilEntry{
-    display:none;
-}
-
-#historyEntry{
-    display:none;
-}
-
-/* =====================================================
-   RANGKUMAN
-===================================================== */
-
-#ringkasanEntry{
-    display:none;
-}
-
-.ringkasan-wrap{
-    overflow-x:auto;
-}
-
-.ringkasan-table{
+.summary-table{
     width:100%;
     border-collapse:collapse;
-    min-width:650px;
+    margin-top:5px;
 }
 
-.ringkasan-table th{
+.summary-table th{
     background:#526f32;
     color:white;
-    font-size:10px;
     padding:9px 5px;
+    font-size:10px;
 }
 
-.ringkasan-table td{
+.summary-table td{
     padding:8px 5px;
-    border-bottom:1px solid #e3e7df;
+    border-bottom:1px solid #e5e9df;
     font-size:11px;
 }
 
-.ringkasan-total{
+.summary-total{
     background:#edf4e6;
     font-weight:900;
 }
 
-.ringkasan-kosong{
+.empty-summary{
+    padding:12px;
+    background:#f8f9f6;
+    border-radius:9px;
+    color:#7d8577;
     text-align:center;
-    color:#899182;
-    padding:15px !important;
+    font-size:12px;
 }
 
-/* =====================================================
-   HISTORY
-===================================================== */
+#entryLog,
+#hasilEntry,
+#historyEntry,
+#rangkumanEntry{
+    display:none;
+}
 
 .history-item{
     border:1px solid #dfe5d9;
     border-radius:10px;
-    padding:11px;
+    padding:10px;
     margin-bottom:7px;
     background:#fafbf8;
 }
@@ -383,118 +371,68 @@ td select:focus{
 .history-date{
     font-weight:900;
     color:#526f32;
-    margin-bottom:4px;
+    margin-bottom:3px;
 }
 
 .history-info{
     font-size:11px;
     color:#687261;
-    line-height:1.6;
+    margin-bottom:8px;
 }
 
-.history-actions{
+.history-buttons{
     display:flex;
     gap:6px;
-    margin-top:8px;
 }
 
 .history-open{
-    flex:1;
-    border:none;
     background:#526f32;
     color:white;
+    border:none;
     border-radius:7px;
-    padding:8px;
-    font-size:11px;
-    font-weight:bold;
+    padding:7px 10px;
     cursor:pointer;
+    font-size:10px;
+    font-weight:bold;
 }
 
 .history-delete{
-    border:none;
     background:#fce8e6;
     color:#c62828;
-    border-radius:7px;
-    padding:8px 11px;
-    font-size:11px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.history-empty{
-    text-align:center;
-    color:#899182;
-    font-size:12px;
-    padding:10px;
-}
-
-/* =====================================================
-   MODAL HISTORY
-===================================================== */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    z-index:9999;
-    padding:15px;
-    overflow:auto;
-}
-
-.modal-box{
-    background:white;
-    max-width:900px;
-    margin:30px auto;
-    border-radius:16px;
-    padding:16px;
-}
-
-.modal-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    margin-bottom:12px;
-}
-
-.modal-title{
-    font-size:16px;
-    font-weight:900;
-    color:#33452b;
-}
-
-.close-modal{
     border:none;
-    background:#fce8e6;
-    color:#c62828;
     border-radius:7px;
     padding:7px 10px;
-    font-weight:bold;
     cursor:pointer;
+    font-size:10px;
+    font-weight:bold;
 }
 
-.history-detail{
-    overflow-x:auto;
+.no-history{
+    color:#7d8577;
+    font-size:12px;
+    padding:5px;
 }
 
-.history-detail table{
-    min-width:700px;
+.entry-date{
+    font-weight:bold;
+    color:#526f32;
+    background:#edf4e6;
+    padding:9px;
+    border-radius:8px;
+    margin-bottom:10px;
+    font-size:12px;
 }
 
-.history-detail th{
-    background:#eef2e8;
-    color:#53604c;
-}
-
-.history-detail td{
+.notice{
+    background:#fff8e7;
+    border:1px solid #ead8a0;
+    color:#765f1d;
+    padding:10px;
+    border-radius:9px;
     font-size:11px;
-    padding:7px 4px;
+    line-height:1.5;
+    margin-bottom:10px;
 }
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
 
 @media(max-width:700px){
 
@@ -591,6 +529,15 @@ td select:focus{
         font-size:9px;
     }
 
+    .action-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .action-button{
+        font-size:10px;
+        padding:11px 5px;
+    }
+
     .result-grid{
         gap:5px;
     }
@@ -611,6 +558,12 @@ td select:focus{
         font-size:14px;
     }
 
+    .summary-table th,
+    .summary-table td{
+        font-size:8px;
+        padding:6px 2px;
+    }
+
 }
 
 </style>
@@ -619,10 +572,6 @@ td select:focus{
 <body>
 
 <div class="container">
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <div class="header">
 
@@ -644,10 +593,6 @@ td select:focus{
 
 </div>
 
-
-<!-- =====================================================
-     MODE
-===================================================== -->
 
 <div class="mode-box">
 
@@ -758,16 +703,28 @@ td select:focus{
 
 
 <!-- =====================================================
-     TABEL
+     TABEL INPUT
 ===================================================== -->
 
 <div class="card">
 
-    <div
-        class="card-title"
-        id="judulTabel"
-    >
+    <div class="card-title" id="judulTabel">
         Kayu Tambahan
+    </div>
+
+    <div
+        id="tanggalEntry"
+        class="entry-date"
+        style="display:none;"
+    ></div>
+
+    <div class="notice" id="noticeEntry" style="display:none;">
+
+        Data boleh dimasukkan secara selang-seling.
+        Contoh:
+        <b>DECKING → FLOORING → DECKING</b>.
+        Setiap baris akan tetap tersimpan sebagai data sendiri.
+
     </div>
 
     <div class="table-wrap">
@@ -798,6 +755,7 @@ td select:focus{
 
     </div>
 
+
     <div style="margin-top:12px;">
 
         <button
@@ -809,60 +767,56 @@ td select:focus{
 
     </div>
 
-    <!-- DOWNLOAD TETAP ADA -->
 
-    <button
-        id="downloadExcel"
-        class="download-button"
-        onclick="downloadExcelEntry()"
+    <!-- ACTION ENTRY -->
+
+    <div
+        class="action-grid"
+        id="actionEntry"
         style="display:none;"
     >
-        📥 DOWNLOAD EXCEL ENTRY
+
+        <button
+            class="action-button new-button"
+            onclick="inputDataBaru()"
+        >
+            🆕 INPUT DATA BARU
+        </button>
+
+        <button
+            class="action-button save-button"
+            onclick="simpanEntry()"
+        >
+            💾 SIMPAN ENTRY
+        </button>
+
+        <button
+            class="action-button download-button"
+            onclick="downloadExcelEntry()"
+        >
+            📥 DOWNLOAD EXCEL
+        </button>
+
+        <button
+            class="action-button clear-button"
+            onclick="hapusSeluruhData()"
+        >
+            🗑️ HAPUS DATA SAAT INI
+        </button>
+
+    </div>
+
+
+    <!-- DOWNLOAD TAMBAHAN -->
+
+    <button
+        id="downloadTambahan"
+        class="download-button"
+        onclick="downloadExcelTambahan()"
+        style="display:none;"
+    >
+        📥 DOWNLOAD EXCEL TAMBAHAN
     </button>
-
-</div>
-
-
-<!-- =====================================================
-     RANGKUMAN ENTRY
-===================================================== -->
-
-<div
-    class="card"
-    id="ringkasanEntry"
->
-
-    <div class="card-title">
-        Rangkuman Ukuran Entry
-    </div>
-
-    <div class="ringkasan-wrap">
-
-        <table class="ringkasan-table">
-
-            <thead>
-
-                <tr>
-
-                    <th>Nama</th>
-                    <th>Mutu</th>
-                    <th>Tebal</th>
-                    <th>Lebar</th>
-                    <th>Panjang</th>
-                    <th>Jumlah Bendel</th>
-                    <th>Isi/Bendel</th>
-                    <th>Total Batang</th>
-                    <th>Volume</th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="ringkasanList"></tbody>
-
-        </table>
-
-    </div>
 
 </div>
 
@@ -897,6 +851,7 @@ td select:focus{
 
         </div>
 
+
         <div class="result final">
 
             <div class="result-title">
@@ -911,6 +866,7 @@ td select:focus{
             </div>
 
         </div>
+
 
         <div class="result final">
 
@@ -962,6 +918,7 @@ td select:focus{
 
         </div>
 
+
         <div class="result">
 
             <div class="result-title">
@@ -976,6 +933,7 @@ td select:focus{
             </div>
 
         </div>
+
 
         <div class="result final">
 
@@ -998,6 +956,24 @@ td select:focus{
 
 
 <!-- =====================================================
+     RANGKUMAN
+===================================================== -->
+
+<div
+    class="card"
+    id="rangkumanEntry"
+>
+
+    <div class="card-title">
+        📋 Rangkuman Ukuran
+    </div>
+
+    <div id="rangkumanList"></div>
+
+</div>
+
+
+<!-- =====================================================
      HISTORY
 ===================================================== -->
 
@@ -1007,59 +983,12 @@ td select:focus{
 >
 
     <div class="card-title">
-        History Entry
+        📅 History Entry
     </div>
 
     <div id="historyList"></div>
 
-    <button
-        class="clear-button"
-        onclick="hapusSeluruhHistory()"
-    >
-        🗑 HAPUS SELURUH DATA
-    </button>
-
 </div>
-
-
-</div>
-
-
-<!-- =====================================================
-     MODAL DETAIL HISTORY
-===================================================== -->
-
-<div
-    class="modal"
-    id="historyModal"
->
-
-    <div class="modal-box">
-
-        <div class="modal-header">
-
-            <div
-                class="modal-title"
-                id="modalTitle"
-            >
-                Detail Entry
-            </div>
-
-            <button
-                class="close-modal"
-                onclick="tutupHistory()"
-            >
-                ✕ Tutup
-            </button>
-
-        </div>
-
-        <div
-            class="history-detail"
-            id="historyDetail"
-        ></div>
-
-    </div>
 
 </div>
 
@@ -1072,7 +1001,7 @@ td select:focus{
 
 const aturan = [
 
-    /* ================= DECKING ================= */
+    /* DECKING */
 
     {nama:"DECKING",t:[19],l:[160],min:2500,max:2900,isi:1},
     {nama:"DECKING",t:[19],l:[160],min:2000,max:2400,isi:1},
@@ -1089,7 +1018,7 @@ const aturan = [
     {nama:"DECKING",t:[19],l:[100],min:900,max:1400,isi:1},
 
 
-    /* ================= FLOORING ================= */
+    /* FLOORING */
 
     {nama:"FLOORING",t:[18],l:[160],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[160],min:600,max:850,isi:1},
@@ -1130,37 +1059,37 @@ const aturan = [
     {nama:"FLOORING",t:[18],l:[60],min:300,max:400,isi:10},
 
 
-    /* ================= LONGSTRIP ================= */
+    /* LONGSTRIP */
 
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:900,max:1400,isi:1},
     {nama:"LONGSTRIP",t:[15,18],l:[75],min:600,max:850,isi:10},
     {nama:"LONGSTRIP",t:[15,18],l:[200,550],min:200,max:550,isi:10},
 
 
-    /* ================= PB PANJANG ================= */
+    /* PB PANJANG */
 
     {nama:"PB PANJANG",t:[15],l:[52],min:900,up:true,isi:1},
     {nama:"PB PANJANG",t:[15],l:[52],min:400,max:850,isi:20},
     {nama:"PB PANJANG",t:[15],l:[52],exact:305,isi:40},
 
 
-    /* ================= PB PENDEK ================= */
+    /* PB PENDEK */
 
     {nama:"PB PENDEK",t:[15],l:[52],exact:255,isi:40},
     {nama:"PB PENDEK",t:[15],l:[52],exact:205,isi:40},
 
 
-    /* ================= P STOCK ================= */
+    /* P STOCK */
 
     {nama:"P STOCK",t:[12,15],l:[52],max:199.999999,isi:40},
 
 
-    /* ================= FJL ================= */
+    /* FJL */
 
     {nama:"FJL",t:[15,20],l:[35,40,45],min:250,up:true,isi:25},
 
 
-    /* ================= RENG ================= */
+    /* RENG */
 
     {nama:"RENG",t:[15,20],l:[30],min:1000,up:true,isi:25},
     {nama:"RENG",t:[15,20],l:[30],min:400,max:500,isi:25},
@@ -1168,7 +1097,7 @@ const aturan = [
     {nama:"RENG",t:[15,20],l:[30],min:150,max:200,isi:50},
 
 
-    /* ================= LIST ================= */
+    /* LIST */
 
     {nama:"LIST",t:[15,20],l:[20],min:400,up:true,isi:25},
     {nama:"LIST",t:[15,20],l:[20],min:200,max:300,isi:50}
@@ -1177,7 +1106,7 @@ const aturan = [
 
 
 /* =====================================================
-   DATA MODE
+   DATA
 ===================================================== */
 
 let dataTambahan = [];
@@ -1186,6 +1115,8 @@ let dataEntry = [];
 
 let modeAktif = "tambahan";
 
+let entryTanggalAktif = null;
+
 
 /* =====================================================
    HISTORY
@@ -1193,113 +1124,10 @@ let modeAktif = "tambahan";
 
 let historyEntry =
     JSON.parse(
-        localStorage.getItem("historyEntryRendemen") || "[]"
-    );
-
-
-/* =====================================================
-   STORAGE DATA SEMENTARA
-===================================================== */
-
-function simpanDataOtomatis(){
-
-    localStorage.setItem(
-        "dataTambahanRendemen",
-        JSON.stringify(dataTambahan)
-    );
-
-    localStorage.setItem(
-        "dataEntryRendemen",
-        JSON.stringify(dataEntry)
-    );
-
-    localStorage.setItem(
-        "hasilSaatIniRendemen",
-        document.getElementById("hasilSaatIni")?.value || ""
-    );
-
-    localStorage.setItem(
-        "rendemenSaatIniRendemen",
-        document.getElementById("rendemenSaatIni")?.value || ""
-    );
-
-    localStorage.setItem(
-        "jumlahLogRendemen",
-        document.getElementById("jumlahLog")?.value || ""
-    );
-
-}
-
-
-function muatDataOtomatis(){
-
-    try{
-
-        dataTambahan =
-            JSON.parse(
-                localStorage.getItem(
-                    "dataTambahanRendemen"
-                ) || "[]"
-            );
-
-        dataEntry =
-            JSON.parse(
-                localStorage.getItem(
-                    "dataEntryRendemen"
-                ) || "[]"
-            );
-
-    }catch(e){
-
-        dataTambahan = [];
-        dataEntry = [];
-
-    }
-
-
-    const hasil =
         localStorage.getItem(
-            "hasilSaatIniRendemen"
-        );
-
-    const rendemen =
-        localStorage.getItem(
-            "rendemenSaatIniRendemen"
-        );
-
-    const log =
-        localStorage.getItem(
-            "jumlahLogRendemen"
-        );
-
-
-    if(hasil !== null){
-
-        document.getElementById(
-            "hasilSaatIni"
-        ).value = hasil;
-
-    }
-
-
-    if(rendemen !== null){
-
-        document.getElementById(
-            "rendemenSaatIni"
-        ).value = rendemen;
-
-    }
-
-
-    if(log !== null){
-
-        document.getElementById(
-            "jumlahLog"
-        ).value = log;
-
-    }
-
-}
+            "historyEntryRendemenV2"
+        ) || "[]"
+    );
 
 
 /* =====================================================
@@ -1331,6 +1159,21 @@ function formatAngka(nilai,desimal=6){
 function angka(nilai){
 
     return parseFloat(nilai) || 0;
+
+}
+
+
+function tanggalHariIni(){
+
+    const d = new Date();
+
+    return (
+        String(d.getDate()).padStart(2,"0")
+        + "-"
+        + String(d.getMonth()+1).padStart(2,"0")
+        + "-"
+        + d.getFullYear()
+    );
 
 }
 
@@ -1449,7 +1292,7 @@ function ambilDataTabel(){
 
 
 /* =====================================================
-   SIMPAN MODE
+   SIMPAN DATA MODE
 ===================================================== */
 
 function simpanDataMode(){
@@ -1464,9 +1307,51 @@ function simpanDataMode(){
         dataEntry =
             ambilDataTabel();
 
+        simpanDraftEntry();
+
     }
 
-    simpanDataOtomatis();
+}
+
+
+/* =====================================================
+   SIMPAN DRAFT
+===================================================== */
+
+function simpanDraftEntry(){
+
+    const draft = {
+
+        tanggal:
+            entryTanggalAktif,
+
+        data:
+            dataEntry,
+
+        jumlahLog:
+            document.getElementById(
+                "jumlahLog"
+            )?.value || "",
+
+        hasilSaatIni:
+            document.getElementById(
+                "hasilSaatIni"
+            )?.value || "",
+
+        rendemenSaatIni:
+            document.getElementById(
+                "rendemenSaatIni"
+            )?.value || ""
+
+    };
+
+    localStorage.setItem(
+
+        "draftEntryRendemen",
+
+        JSON.stringify(draft)
+
+    );
 
 }
 
@@ -1623,13 +1508,9 @@ function buatBaris(data={}){
     tbody.appendChild(tr);
 
 
-    const mutuSelect =
-        tr.querySelector(".mutu");
-
-
     if(data.mutu){
 
-        mutuSelect.value =
+        tr.querySelector(".mutu").value =
             data.mutu;
 
     }
@@ -1745,6 +1626,124 @@ function tambahBarisDanScroll(){
 
 
 /* =====================================================
+   INPUT DATA BARU
+===================================================== */
+
+function inputDataBaru(){
+
+    if(modeAktif !== "entry"){
+
+        alert(
+            "Tombol INPUT DATA BARU digunakan pada mode ENTRY."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        dataEntry.some(item =>
+            item.tebal ||
+            item.lebar ||
+            item.panjang ||
+            item.jumlahBendel
+        )
+    ){
+
+        const yakin =
+            confirm(
+                "Data Entry saat ini akan dikosongkan dan dimulai sebagai DATA BARU.\n\nHistory yang sudah disimpan tetap aman.\n\nLanjut?"
+            );
+
+        if(!yakin){
+
+            return;
+
+        }
+
+    }
+
+
+    dataEntry = [];
+
+    entryTanggalAktif =
+        tanggalHariIni();
+
+
+    localStorage.removeItem(
+        "draftEntryRendemen"
+    );
+
+
+    document.getElementById(
+        "jumlahLog"
+    ).value = "";
+
+
+    document.getElementById(
+        "hasilSaatIni"
+    ).value = "";
+
+
+    document.getElementById(
+        "rendemenSaatIni"
+    ).value = "";
+
+
+    renderMode();
+
+
+    tampilkanTanggalEntry();
+
+
+    alert(
+        "Data baru siap diinput."
+    );
+
+}
+
+
+/* =====================================================
+   TANGGAL ENTRY
+===================================================== */
+
+function tampilkanTanggalEntry(){
+
+    const el =
+        document.getElementById(
+            "tanggalEntry"
+        );
+
+
+    if(modeAktif !== "entry"){
+
+        el.style.display = "none";
+
+        return;
+
+    }
+
+
+    if(!entryTanggalAktif){
+
+        entryTanggalAktif =
+            tanggalHariIni();
+
+    }
+
+
+    el.style.display = "block";
+
+
+    el.textContent =
+        "📅 Tanggal Entry: " +
+        entryTanggalAktif;
+
+}
+
+
+/* =====================================================
    UBAH MODE
 ===================================================== */
 
@@ -1799,15 +1798,27 @@ function ubahMode(mode){
         );
 
 
-    const ringkasan =
+    const rangkuman =
         document.getElementById(
-            "ringkasanEntry"
+            "rangkumanEntry"
         );
 
 
-    const download =
+    const actionEntry =
         document.getElementById(
-            "downloadExcel"
+            "actionEntry"
+        );
+
+
+    const notice =
+        document.getElementById(
+            "noticeEntry"
+        );
+
+
+    const downloadTambahan =
+        document.getElementById(
+            "downloadTambahan"
         );
 
 
@@ -1846,12 +1857,20 @@ function ubahMode(mode){
             "none";
 
 
-        ringkasan.style.display =
+        rangkuman.style.display =
             "none";
 
 
-        download.style.display =
+        actionEntry.style.display =
             "none";
+
+
+        notice.style.display =
+            "none";
+
+
+        downloadTambahan.style.display =
+            "block";
 
 
         judulTabel.textContent =
@@ -1886,21 +1905,34 @@ function ubahMode(mode){
             "block";
 
 
-        ringkasan.style.display =
+        rangkuman.style.display =
             "block";
 
 
-        download.style.display =
+        actionEntry.style.display =
+            "grid";
+
+
+        notice.style.display =
             "block";
+
+
+        downloadTambahan.style.display =
+            "none";
 
 
         judulTabel.textContent =
             "Data RST";
 
+
+        tampilkanTanggalEntry();
+
     }
 
 
     renderMode();
+
+    tampilkanHistory();
 
 }
 
@@ -1921,6 +1953,7 @@ function hitung(){
 
 
     rows.forEach(row => {
+
 
         const tebal =
             angka(
@@ -2009,6 +2042,13 @@ function hitung(){
                 "0,000000";
 
 
+            mutuSelect.disabled =
+                false;
+
+            mutuSelect.classList.remove(
+                "mutu-fixed"
+            );
+
             return;
 
         }
@@ -2046,6 +2086,13 @@ function hitung(){
                 "0,000000";
 
 
+            mutuSelect.disabled =
+                false;
+
+            mutuSelect.classList.remove(
+                "mutu-fixed"
+            );
+
             return;
 
         }
@@ -2058,7 +2105,9 @@ function hitung(){
             "nama";
 
 
-        /* MUTU T OTOMATIS */
+        /*
+           MUTU OTOMATIS T
+        */
 
         if(
             rule.nama === "FJL" ||
@@ -2129,9 +2178,9 @@ function hitung(){
     });
 
 
-    /* =================================================
+    /*
        TAMBAHAN
-    ================================================= */
+    */
 
     const hasilSaatIni =
         angka(
@@ -2225,9 +2274,9 @@ function hitung(){
         " %";
 
 
-    /* =================================================
+    /*
        ENTRY
-    ================================================= */
+    */
 
     const jumlahLog =
         angka(
@@ -2286,328 +2335,29 @@ function hitung(){
         " %";
 
 
-    /* SIMPAN */
+    /*
+       SIMPAN DRAFT
+    */
 
-    simpanDataMode();
+    if(modeAktif === "entry"){
 
-    tampilkanRingkasan();
+        dataEntry =
+            ambilDataTabel();
 
-}
-
-
-/* =====================================================
-   RANGKUMAN UKURAN
-=====================================================
-
-   DATA DISATUKAN BERDASARKAN:
-   Nama + Mutu + Tebal + Lebar + Panjang
-
-   Jadi contoh:
-
-   DECKING
-   FLOORING
-   DECKING
-
-   tetap akan digabung berdasarkan ukuran yang sama.
-===================================================== */
-
-function tampilkanRingkasan(){
-
-    if(modeAktif !== "entry"){
-
-        return;
+        simpanDraftEntry();
 
     }
 
 
-    const tbody =
-        document.getElementById(
-            "ringkasanList"
-        );
+    /*
+       RANGKUMAN
+    */
 
+    if(modeAktif === "entry"){
 
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
-
-
-    const ringkasan = {};
-
-
-    rows.forEach(row => {
-
-        const tebal =
-            angka(
-                row.querySelector(
-                    ".tebal"
-                ).value
-            );
-
-
-        const lebar =
-            angka(
-                row.querySelector(
-                    ".lebar"
-                ).value
-            );
-
-
-        const panjang =
-            angka(
-                row.querySelector(
-                    ".panjang"
-                ).value
-            );
-
-
-        const jumlahBendel =
-            angka(
-                row.querySelector(
-                    ".jumlahBendel"
-                ).value
-            );
-
-
-        const mutu =
-            row.querySelector(
-                ".mutu"
-            ).value;
-
-
-        if(
-            tebal <= 0 ||
-            lebar <= 0 ||
-            panjang <= 0 ||
-            jumlahBendel <= 0
-        ){
-
-            return;
-
-        }
-
-
-        const rule =
-            cariAturan(
-                tebal,
-                lebar,
-                panjang
-            );
-
-
-        if(!rule){
-
-            return;
-
-        }
-
-
-        let mutuFinal =
-            mutu;
-
-
-        if(
-            rule.nama === "FJL" ||
-            rule.nama === "RENG" ||
-            rule.nama === "LIST"
-        ){
-
-            mutuFinal = "T";
-
-        }
-
-
-        const key =
-            [
-                rule.nama,
-                mutuFinal,
-                tebal,
-                lebar,
-                panjang,
-                rule.isi
-            ].join("|");
-
-
-        if(!ringkasan[key]){
-
-            ringkasan[key] = {
-
-                nama:rule.nama,
-
-                mutu:mutuFinal,
-
-                tebal:tebal,
-
-                lebar:lebar,
-
-                panjang:panjang,
-
-                isi:rule.isi,
-
-                bendel:0,
-
-                batang:0,
-
-                volume:0
-
-            };
-
-        }
-
-
-        ringkasan[key].bendel +=
-            jumlahBendel;
-
-
-        ringkasan[key].batang +=
-            jumlahBendel * rule.isi;
-
-
-        ringkasan[key].volume +=
-            round6(
-
-                (
-                    tebal *
-                    lebar *
-                    panjang *
-                    (
-                        jumlahBendel *
-                        rule.isi
-                    )
-                )
-                /
-                1000000000
-
-            );
-
-    });
-
-
-    const hasil =
-        Object.values(ringkasan);
-
-
-    if(hasil.length === 0){
-
-        tbody.innerHTML = `
-
-            <tr>
-
-                <td
-                    colspan="9"
-                    class="ringkasan-kosong"
-                >
-                    Belum ada ukuran yang di-entry.
-                </td>
-
-            </tr>
-
-        `;
-
-        return;
+        tampilkanRangkuman();
 
     }
-
-
-    tbody.innerHTML =
-        hasil
-        .map(item => `
-
-            <tr>
-
-                <td>
-                    <strong>${item.nama}</strong>
-                </td>
-
-                <td>
-                    <strong>${item.mutu}</strong>
-                </td>
-
-                <td>
-                    ${item.tebal}
-                </td>
-
-                <td>
-                    ${item.lebar}
-                </td>
-
-                <td>
-                    ${item.panjang}
-                </td>
-
-                <td>
-                    ${item.bendel}
-                </td>
-
-                <td>
-                    ${item.isi}
-                </td>
-
-                <td>
-                    ${item.batang}
-                </td>
-
-                <td>
-                    ${formatAngka(item.volume)} m³
-                </td>
-
-            </tr>
-
-        `)
-        .join("");
-
-
-    const totalBendel =
-        hasil.reduce(
-            (a,b) =>
-                a + b.bendel,
-            0
-        );
-
-
-    const totalBatang =
-        hasil.reduce(
-            (a,b) =>
-                a + b.batang,
-            0
-        );
-
-
-    const totalVolume =
-        hasil.reduce(
-            (a,b) =>
-                a + b.volume,
-            0
-        );
-
-
-    tbody.innerHTML += `
-
-        <tr class="ringkasan-total">
-
-            <td colspan="5">
-                TOTAL
-            </td>
-
-            <td>
-                ${totalBendel}
-            </td>
-
-            <td>
-                -
-            </td>
-
-            <td>
-                ${totalBatang}
-            </td>
-
-            <td>
-                ${formatAngka(totalVolume)} m³
-            </td>
-
-        </tr>
-
-    `;
 
 }
 
@@ -2667,13 +2417,6 @@ function ambilDataExport(){
             ).value;
 
 
-        const nama =
-            row.querySelector(
-                ".nama"
-            ).textContent
-            .trim();
-
-
         const rule =
             cariAturan(
                 tebal,
@@ -2708,35 +2451,27 @@ function ambilDataExport(){
         }
 
 
-        const isi =
-            rule.isi;
-
+        /*
+           VOLUME 1 BENDEL
+        */
 
         const volume =
             round6(
+
                 (
                     tebal *
                     lebar *
                     panjang *
-                    isi
+                    rule.isi
                 )
                 /
                 1000000000
+
             );
 
 
         /*
-           1 BARIS EXCEL = 1 BENDEL
-
-           Contoh:
-           Bendel = 3
-           Isi = 10
-
-           Maka Excel:
-           3 BARIS
-
-           Masing-masing:
-           Batang/Bendel = 10
+           SATU BARIS EXCEL = SATU BENDEL
         */
 
         for(
@@ -2748,10 +2483,7 @@ function ambilDataExport(){
             hasil.push({
 
                 Nama:
-                    nama,
-
-                B:
-                    "",
+                    rule.nama,
 
                 Mutu:
                     mutuFinal,
@@ -2766,7 +2498,7 @@ function ambilDataExport(){
                     tebal,
 
                 "Batang/Bendel":
-                    isi,
+                    rule.isi,
 
                 Volume:
                     volume
@@ -2784,7 +2516,7 @@ function ambilDataExport(){
 
 
 /* =====================================================
-   URUTAN EXPORT
+   URUTAN
 ===================================================== */
 
 const urutanNama = [
@@ -2812,7 +2544,7 @@ const urutanMutu = {
 
 
 /* =====================================================
-   SORTIR EXPORT
+   SORT
 ===================================================== */
 
 function sortirDataExport(data){
@@ -2922,7 +2654,6 @@ function downloadExcelEntry(){
 
         [
             "Nama",
-            "",
             "Mutu",
             "Panjang",
             "Lebar",
@@ -2939,7 +2670,6 @@ function downloadExcelEntry(){
         rows.push([
 
             item.Nama,
-            "",
             item.Mutu,
             item.Panjang,
             item.Lebar,
@@ -2950,39 +2680,6 @@ function downloadExcelEntry(){
         ]);
 
     });
-
-
-    /* TOTAL */
-
-    const totalVolume =
-        data.reduce(
-            (total,item) =>
-                total + item.Volume,
-            0
-        );
-
-
-    rows.push([]);
-
-    rows.push([
-
-        "TOTAL",
-
-        "",
-
-        "",
-
-        "",
-
-        "",
-
-        "",
-
-        "",
-
-        round6(totalVolume)
-
-    ]);
 
 
     const workbook =
@@ -2998,7 +2695,6 @@ function downloadExcelEntry(){
     worksheet["!cols"] = [
 
         {wch:18},
-        {wch:4},
         {wch:8},
         {wch:12},
         {wch:10},
@@ -3017,7 +2713,7 @@ function downloadExcelEntry(){
 
         const cell =
             worksheet[
-                "H" + (r + 1)
+                "G" + (r + 1)
             ];
 
 
@@ -3080,22 +2776,155 @@ function downloadExcelEntry(){
 
     );
 
+}
 
-    /*
-       SIMPAN HISTORY SETELAH
-       DOWNLOAD BERHASIL
-    */
 
-    simpanHistoryEntry();
+/* =====================================================
+   DOWNLOAD TAMBAHAN
+===================================================== */
+
+function downloadExcelTambahan(){
+
+    if(
+        typeof XLSX ===
+        "undefined"
+    ){
+
+        alert(
+            "Library Excel belum termuat."
+        );
+
+        return;
+
+    }
+
+
+    simpanDataMode();
+
+
+    let data =
+        ambilDataExport();
+
+
+    if(data.length === 0){
+
+        alert(
+            "Belum ada data yang bisa di-download."
+        );
+
+        return;
+
+    }
+
+
+    data =
+        sortirDataExport(
+            data
+        );
+
+
+    const rows = [
+
+        [
+            "Nama",
+            "Mutu",
+            "Panjang",
+            "Lebar",
+            "Tebal",
+            "Batang/Bendel",
+            "Volume"
+        ]
+
+    ];
+
+
+    data.forEach(item => {
+
+        rows.push([
+
+            item.Nama,
+            item.Mutu,
+            item.Panjang,
+            item.Lebar,
+            item.Tebal,
+            item["Batang/Bendel"],
+            item.Volume
+
+        ]);
+
+    });
+
+
+    const workbook =
+        XLSX.utils.book_new();
+
+
+    const worksheet =
+        XLSX.utils.aoa_to_sheet(
+            rows
+        );
+
+
+    worksheet["!cols"] = [
+
+        {wch:18},
+        {wch:8},
+        {wch:12},
+        {wch:10},
+        {wch:10},
+        {wch:16},
+        {wch:16}
+
+    ];
+
+
+    XLSX.utils.book_append_sheet(
+
+        workbook,
+
+        worksheet,
+
+        "TAMBAHAN"
+
+    );
+
+
+    const d = new Date();
+
+
+    const namaFile =
+        "TAMBAHAN_RENDEMEN_" +
+        String(d.getDate()).padStart(2,"0") +
+        "-" +
+        String(d.getMonth()+1).padStart(2,"0") +
+        "-" +
+        d.getFullYear() +
+        ".xlsx";
+
+
+    XLSX.writeFile(
+
+        workbook,
+
+        namaFile
+
+    );
 
 }
 
 
 /* =====================================================
-   SIMPAN HISTORY
+   SIMPAN ENTRY
 ===================================================== */
 
-function simpanHistoryEntry(){
+function simpanEntry(){
+
+    if(modeAktif !== "entry"){
+
+        return;
+
+    }
+
 
     simpanDataMode();
 
@@ -3106,76 +2935,77 @@ function simpanHistoryEntry(){
 
     if(data.length === 0){
 
+        alert(
+            "Belum ada data Entry yang bisa disimpan."
+        );
+
         return;
 
     }
 
 
-    const sekarang =
-        new Date();
+    if(!entryTanggalAktif){
 
+        entryTanggalAktif =
+            tanggalHariIni();
 
-    const tanggal =
-        sekarang.toLocaleDateString(
-            "id-ID",
-            {
-                day:"2-digit",
-                month:"2-digit",
-                year:"numeric"
-            }
-        );
-
-
-    const jam =
-        sekarang.toLocaleTimeString(
-            "id-ID",
-            {
-                hour:"2-digit",
-                minute:"2-digit"
-            }
-        );
+    }
 
 
     const volumeRST =
-        data.reduce(
-            (total,item) =>
-                total + item.Volume,
-            0
+        round6(
+            data.reduce(
+                (total,item) =>
+                    total + item.Volume,
+                0
+            )
         );
 
 
-    /*
-       SATU HISTORY = SATU TANGGAL ENTRY
+    const jumlahLog =
+        angka(
+            document.getElementById(
+                "jumlahLog"
+            ).value
+        );
 
-       Kalau tanggal yang sama disimpan lagi,
-       data tanggal tersebut diperbarui,
-       bukan dibuat ratusan history baru.
+
+    let rendemen = 0;
+
+
+    if(jumlahLog > 0){
+
+        rendemen =
+            (
+                volumeRST /
+                jumlahLog
+            )
+            *
+            100;
+
+    }
+
+
+    /*
+       SIMPAN DATA MENTAH AGAR
+       HISTORY BISA DIBUKA KEMBALI
     */
 
-    const historyBaru = {
+    const record = {
 
         id:
             Date.now(),
 
         tanggal:
-            tanggal,
+            entryTanggalAktif,
 
         jam:
-            jam,
-
-        jumlahBendel:
-            data.length,
-
-        volume:
-            round6(
-                volumeRST
-            ),
-
-        jumlahLog:
-            angka(
-                document.getElementById(
-                    "jumlahLog"
-                ).value
+            new Date().toLocaleTimeString(
+                "id-ID",
+                {
+                    hour:"2-digit",
+                    minute:"2-digit"
+                }
             ),
 
         data:
@@ -3183,39 +3013,33 @@ function simpanHistoryEntry(){
                 JSON.stringify(
                     dataEntry
                 )
+            ),
+
+        jumlahLog:
+            jumlahLog,
+
+        volumeRST:
+            volumeRST,
+
+        rendemen:
+            round6(
+                rendemen
             )
 
     };
 
 
-    const index =
-        historyEntry.findIndex(
-            item =>
-                item.tanggal === tanggal
-        );
+    historyEntry.unshift(
+        record
+    );
 
 
-    if(index >= 0){
-
-        historyEntry[index] =
-            historyBaru;
-
-    }else{
-
-        historyEntry.unshift(
-            historyBaru
-        );
-
-    }
-
+    /*
+       BATASI 100 HISTORY
+    */
 
     historyEntry =
-        historyEntry
-        .sort(
-            (a,b) =>
-                b.id - a.id
-        )
-        .slice(
+        historyEntry.slice(
             0,
             100
         );
@@ -3223,7 +3047,7 @@ function simpanHistoryEntry(){
 
     localStorage.setItem(
 
-        "historyEntryRendemen",
+        "historyEntryRendemenV2",
 
         JSON.stringify(
             historyEntry
@@ -3232,13 +3056,358 @@ function simpanHistoryEntry(){
     );
 
 
+    localStorage.removeItem(
+        "draftEntryRendemen"
+    );
+
+
     tampilkanHistory();
+
+
+    alert(
+        "Entry tanggal " +
+        entryTanggalAktif +
+        " berhasil disimpan ke History."
+    );
 
 }
 
 
 /* =====================================================
-   TAMPILKAN HISTORY
+   RANGKUMAN
+===================================================== */
+
+function tampilkanRangkuman(){
+
+    const container =
+        document.getElementById(
+            "rangkumanList"
+        );
+
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
+
+
+    const groups = {};
+
+
+    rows.forEach(row => {
+
+        const tebal =
+            angka(
+                row.querySelector(
+                    ".tebal"
+                ).value
+            );
+
+
+        const lebar =
+            angka(
+                row.querySelector(
+                    ".lebar"
+                ).value
+            );
+
+
+        const panjang =
+            angka(
+                row.querySelector(
+                    ".panjang"
+                ).value
+            );
+
+
+        const jumlahBendel =
+            angka(
+                row.querySelector(
+                    ".jumlahBendel"
+                ).value
+            );
+
+
+        const rule =
+            cariAturan(
+                tebal,
+                lebar,
+                panjang
+            );
+
+
+        if(
+            !rule ||
+            jumlahBendel <= 0
+        ){
+
+            return;
+
+        }
+
+
+        let mutu =
+            row.querySelector(
+                ".mutu"
+            ).value;
+
+
+        if(
+            rule.nama === "FJL" ||
+            rule.nama === "RENG" ||
+            rule.nama === "LIST"
+        ){
+
+            mutu = "T";
+
+        }
+
+
+        const key =
+            [
+                rule.nama,
+                mutu,
+                tebal,
+                lebar,
+                panjang,
+                rule.isi
+            ].join("|");
+
+
+        if(!groups[key]){
+
+            groups[key] = {
+
+                nama:
+                    rule.nama,
+
+                mutu:
+                    mutu,
+
+                tebal:
+                    tebal,
+
+                lebar:
+                    lebar,
+
+                panjang:
+                    panjang,
+
+                isi:
+                    rule.isi,
+
+                bendel:
+                    0,
+
+                batang:
+                    0,
+
+                volume:
+                    0
+
+            };
+
+        }
+
+
+        groups[key].bendel +=
+            jumlahBendel;
+
+
+        groups[key].batang +=
+            jumlahBendel *
+            rule.isi;
+
+
+        groups[key].volume +=
+            round6(
+
+                (
+                    tebal *
+                    lebar *
+                    panjang *
+                    rule.isi *
+                    jumlahBendel
+                )
+                /
+                1000000000
+
+            );
+
+    });
+
+
+    const hasil =
+        Object.values(groups);
+
+
+    if(hasil.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty-summary">
+
+                Belum ada ukuran yang bisa dirangkum.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    hasil.sort((a,b) => {
+
+        const na =
+            urutanNama.indexOf(
+                a.nama
+            );
+
+        const nb =
+            urutanNama.indexOf(
+                b.nama
+            );
+
+        if(na !== nb){
+
+            return na - nb;
+
+        }
+
+        if(a.tebal !== b.tebal){
+
+            return b.tebal - a.tebal;
+
+        }
+
+        if(a.lebar !== b.lebar){
+
+            return b.lebar - a.lebar;
+
+        }
+
+        return a.panjang - b.panjang;
+
+    });
+
+
+    let totalBendel = 0;
+
+    let totalBatang = 0;
+
+    let totalVolume = 0;
+
+
+    let html = `
+
+        <div class="table-wrap">
+
+        <table class="summary-table">
+
+        <thead>
+
+        <tr>
+
+            <th>Nama</th>
+            <th>Mutu</th>
+            <th>T</th>
+            <th>L</th>
+            <th>P</th>
+            <th>Bendel</th>
+            <th>Batang</th>
+            <th>Volume</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+    `;
+
+
+    hasil.forEach(item => {
+
+        totalBendel +=
+            item.bendel;
+
+        totalBatang +=
+            item.batang;
+
+        totalVolume +=
+            item.volume;
+
+
+        html += `
+
+            <tr>
+
+                <td>${item.nama}</td>
+
+                <td>${item.mutu || "-"}</td>
+
+                <td>${item.tebal}</td>
+
+                <td>${item.lebar}</td>
+
+                <td>${item.panjang}</td>
+
+                <td>${item.bendel}</td>
+
+                <td>${item.batang}</td>
+
+                <td>${formatAngka(item.volume)}</td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    html += `
+
+        <tr class="summary-total">
+
+            <td colspan="5">
+                TOTAL
+            </td>
+
+            <td>
+                ${totalBendel}
+            </td>
+
+            <td>
+                ${totalBatang}
+            </td>
+
+            <td>
+                ${formatAngka(
+                    totalVolume
+                )}
+            </td>
+
+        </tr>
+
+        </tbody>
+
+        </table>
+
+        </div>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+/* =====================================================
+   HISTORY TAMPIL
 ===================================================== */
 
 function tampilkanHistory(){
@@ -3256,9 +3425,9 @@ function tampilkanHistory(){
 
         list.innerHTML = `
 
-            <div class="history-empty">
+            <div class="no-history">
 
-                Belum ada history Entry.
+                Belum ada History Entry.
 
             </div>
 
@@ -3271,8 +3440,7 @@ function tampilkanHistory(){
 
     list.innerHTML =
         historyEntry
-        .map(
-            (item,index) => `
+        .map((item,index) => `
 
             <div class="history-item">
 
@@ -3284,23 +3452,29 @@ function tampilkanHistory(){
 
                 <div class="history-info">
 
-                    Jam:
-                    ${item.jam}
+                    Jam: ${item.jam || "-"}
                     <br>
 
                     Bendel:
-                    ${item.jumlahBendel}
+                    ${hitungJumlahBendelHistory(item.data)}
+
+                    • Batang:
+                    ${hitungJumlahBatangHistory(item.data)}
 
                     <br>
 
                     Volume RST:
-                    ${formatAngka(item.volume)}
+                    ${formatAngka(item.volumeRST)}
                     m³
+
+                    • Rendemen:
+                    ${formatAngka(item.rendemen,2)}
+                    %
 
                 </div>
 
 
-                <div class="history-actions">
+                <div class="history-buttons">
 
                     <button
                         class="history-open"
@@ -3313,16 +3487,66 @@ function tampilkanHistory(){
                         class="history-delete"
                         onclick="hapusHistory(${index})"
                     >
-                        🗑
+                        🗑️ HAPUS HISTORY
                     </button>
 
                 </div>
 
             </div>
 
-        `
-        )
+        `)
         .join("");
+
+}
+
+
+/* =====================================================
+   HITUNG HISTORY
+===================================================== */
+
+function hitungJumlahBendelHistory(data){
+
+    return (
+        data || []
+    ).reduce(
+        (total,item) =>
+            total +
+            angka(item.jumlahBendel),
+        0
+    );
+
+}
+
+
+function hitungJumlahBatangHistory(data){
+
+    return (
+        data || []
+    ).reduce(
+        (total,item) => {
+
+            const rule =
+                cariAturan(
+                    angka(item.tebal),
+                    angka(item.lebar),
+                    angka(item.panjang)
+                );
+
+            if(!rule){
+
+                return total;
+
+            }
+
+            return (
+                total +
+                angka(item.jumlahBendel) *
+                rule.isi
+            );
+
+        },
+        0
+    );
 
 }
 
@@ -3344,188 +3568,30 @@ function bukaHistory(index){
     }
 
 
-    const data =
-        item.data || [];
+    const yakin =
+        confirm(
 
+            "Buka data Entry tanggal " +
+            item.tanggal +
+            "?\n\n" +
+            "Data Entry saat ini akan digantikan oleh data History tersebut."
 
-    const detail =
-        document.getElementById(
-            "historyDetail"
         );
 
 
-    if(data.length === 0){
-
-        detail.innerHTML = `
-
-            <div class="history-empty">
-                Data detail tidak tersedia.
-            </div>
-
-        `;
-
-    }else{
-
-        detail.innerHTML = `
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Mutu</th>
-                        <th>Tebal</th>
-                        <th>Lebar</th>
-                        <th>Panjang</th>
-                        <th>Bendel</th>
-                        <th>Isi/Bendel</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    ${
-                        data
-                        .map(
-                            (row,i) => {
-
-                                const rule =
-                                    cariAturan(
-                                        angka(row.tebal),
-                                        angka(row.lebar),
-                                        angka(row.panjang)
-                                    );
-
-
-                                let nama =
-                                    rule
-                                        ? rule.nama
-                                        : "-";
-
-
-                                let mutu =
-                                    row.mutu || "-";
-
-
-                                if(
-                                    nama === "FJL" ||
-                                    nama === "RENG" ||
-                                    nama === "LIST"
-                                ){
-
-                                    mutu = "T";
-
-                                }
-
-
-                                const isi =
-                                    rule
-                                        ? rule.isi
-                                        : "-";
-
-
-                                return `
-
-                                    <tr>
-
-                                        <td>
-                                            ${i+1}
-                                        </td>
-
-                                        <td>
-                                            ${nama}
-                                        </td>
-
-                                        <td>
-                                            ${mutu}
-                                        </td>
-
-                                        <td>
-                                            ${row.tebal}
-                                        </td>
-
-                                        <td>
-                                            ${row.lebar}
-                                        </td>
-
-                                        <td>
-                                            ${row.panjang}
-                                        </td>
-
-                                        <td>
-                                            ${row.jumlahBendel}
-                                        </td>
-
-                                        <td>
-                                            ${isi}
-                                        </td>
-
-                                    </tr>
-
-                                `;
-
-                            }
-                        )
-                        .join("")
-                    }
-
-                </tbody>
-
-            </table>
-
-        `;
-
-    }
-
-
-    document.getElementById(
-        "modalTitle"
-    ).textContent =
-        "History Entry — " +
-        item.tanggal;
-
-
-    document.getElementById(
-        "historyModal"
-    ).style.display =
-        "block";
-
-}
-
-
-/* =====================================================
-   TUTUP HISTORY
-===================================================== */
-
-function tutupHistory(){
-
-    document.getElementById(
-        "historyModal"
-    ).style.display =
-        "none";
-
-}
-
-
-/* =====================================================
-   MUAT HISTORY KE ENTRY
-===================================================== */
-
-function muatHistoryKeEntry(index){
-
-    const item =
-        historyEntry[index];
-
-
-    if(!item){
+    if(!yakin){
 
         return;
 
     }
+
+
+    modeAktif =
+        "entry";
+
+
+    entryTanggalAktif =
+        item.tanggal;
 
 
     dataEntry =
@@ -3536,214 +3602,62 @@ function muatHistoryKeEntry(index){
         );
 
 
-    if(item.jumlahLog !== undefined){
+    document.getElementById(
+        "jumlahLog"
+    ).value =
+        item.jumlahLog || "";
 
-        document.getElementById(
-            "jumlahLog"
-        ).value =
-            item.jumlahLog;
 
-    }
+    document.getElementById(
+        "hasilSaatIni"
+    ).value = "";
+
+
+    document.getElementById(
+        "rendemenSaatIni"
+    ).value = "";
 
 
     localStorage.setItem(
 
-        "dataEntryRendemen",
+        "draftEntryRendemen",
 
-        JSON.stringify(
-            dataEntry
-        )
+        JSON.stringify({
+
+            tanggal:
+                entryTanggalAktif,
+
+            data:
+                dataEntry,
+
+            jumlahLog:
+                item.jumlahLog || "",
+
+            hasilSaatIni:
+                "",
+
+            rendemenSaatIni:
+                ""
+
+        })
 
     );
-
-
-    modeAktif =
-        "entry";
 
 
     ubahMode("entry");
 
 
     alert(
-        "Data tanggal " +
+        "Data History tanggal " +
         item.tanggal +
-        " berhasil dimuat kembali."
+        " berhasil dibuka."
     );
 
 }
 
 
 /* =====================================================
-   BUKA HISTORY
-===================================================== */
-
-function bukaHistory(index){
-
-    const item =
-        historyEntry[index];
-
-
-    if(!item){
-
-        return;
-
-    }
-
-
-    const data =
-        item.data || [];
-
-
-    const detail =
-        document.getElementById(
-            "historyDetail"
-        );
-
-
-    let html = "";
-
-
-    if(data.length === 0){
-
-        html = `
-
-            <div class="history-empty">
-                Data detail tidak tersedia.
-            </div>
-
-        `;
-
-    }else{
-
-        html = `
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Mutu</th>
-                        <th>Tebal</th>
-                        <th>Lebar</th>
-                        <th>Panjang</th>
-                        <th>Bendel</th>
-                        <th>Isi/Bendel</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-        `;
-
-
-        data.forEach((row,i) => {
-
-            const rule =
-                cariAturan(
-                    angka(row.tebal),
-                    angka(row.lebar),
-                    angka(row.panjang)
-                );
-
-
-            let nama =
-                rule
-                    ? rule.nama
-                    : "-";
-
-
-            let mutu =
-                row.mutu || "-";
-
-
-            if(
-                nama === "FJL" ||
-                nama === "RENG" ||
-                nama === "LIST"
-            ){
-
-                mutu = "T";
-
-            }
-
-
-            const isi =
-                rule
-                    ? rule.isi
-                    : "-";
-
-
-            html += `
-
-                <tr>
-
-                    <td>${i+1}</td>
-
-                    <td>${nama}</td>
-
-                    <td>${mutu}</td>
-
-                    <td>${row.tebal}</td>
-
-                    <td>${row.lebar}</td>
-
-                    <td>${row.panjang}</td>
-
-                    <td>${row.jumlahBendel}</td>
-
-                    <td>${isi}</td>
-
-                </tr>
-
-            `;
-
-        });
-
-
-        html += `
-
-                </tbody>
-
-            </table>
-
-            <button
-                class="add-button"
-                style="margin-top:10px;"
-                onclick="muatHistoryKeEntry(${index});tutupHistory();"
-            >
-                📂 MUAT DATA INI KE ENTRY
-            </button>
-
-        `;
-
-    }
-
-
-    detail.innerHTML =
-        html;
-
-
-    document.getElementById(
-        "modalTitle"
-    ).textContent =
-        "History Entry — " +
-        item.tanggal;
-
-
-    document.getElementById(
-        "historyModal"
-    ).style.display =
-        "block";
-
-}
-
-
-/* =====================================================
-   HAPUS SATU HISTORY
+   HAPUS HISTORY
 ===================================================== */
 
 function hapusHistory(index){
@@ -3761,9 +3675,11 @@ function hapusHistory(index){
 
     const yakin =
         confirm(
-            "Hapus history tanggal " +
+
+            "Hapus History tanggal " +
             item.tanggal +
-            "?\n\nData tanggal ini akan hilang dari history."
+            "?\n\nData history ini tidak bisa dikembalikan."
+
         );
 
 
@@ -3782,7 +3698,7 @@ function hapusHistory(index){
 
     localStorage.setItem(
 
-        "historyEntryRendemen",
+        "historyEntryRendemenV2",
 
         JSON.stringify(
             historyEntry
@@ -3797,17 +3713,18 @@ function hapusHistory(index){
 
 
 /* =====================================================
-   HAPUS SELURUH DATA
+   HAPUS SELURUH DATA SAAT INI
 ===================================================== */
 
-function hapusSeluruhHistory(){
+function hapusSeluruhData(){
 
     const yakin =
         confirm(
-            "PERINGATAN!\n\n" +
-            "Semua HISTORY dan DATA ENTRY tersimpan akan dihapus.\n\n" +
-            "Data yang sudah dihapus tidak bisa dikembalikan.\n\n" +
-            "Yakin ingin menghapus seluruh data?"
+
+            "HAPUS SELURUH DATA ENTRY SAAT INI?\n\n" +
+            "Data yang sedang diinput akan dihapus.\n" +
+            "History yang sudah disimpan TIDAK akan ikut terhapus."
+
         );
 
 
@@ -3818,127 +3735,106 @@ function hapusSeluruhHistory(){
     }
 
 
-    const yakin2 =
-        confirm(
-            "Konfirmasi terakhir:\n\n" +
-            "HAPUS SELURUH DATA?"
+    if(modeAktif === "entry"){
+
+        dataEntry = [];
+
+        entryTanggalAktif =
+            tanggalHariIni();
+
+
+        document.getElementById(
+            "jumlahLog"
+        ).value = "";
+
+
+        localStorage.removeItem(
+            "draftEntryRendemen"
         );
 
+    }else{
 
-    if(!yakin2){
-
-        return;
+        dataTambahan = [];
 
     }
 
 
-    historyEntry = [];
-
-    dataEntry = [];
-
-    dataTambahan = [];
-
-
-    localStorage.removeItem(
-        "historyEntryRendemen"
-    );
-
-    localStorage.removeItem(
-        "dataEntryRendemen"
-    );
-
-    localStorage.removeItem(
-        "dataTambahanRendemen"
-    );
-
-    localStorage.removeItem(
-        "hasilSaatIniRendemen"
-    );
-
-    localStorage.removeItem(
-        "rendemenSaatIniRendemen"
-    );
-
-    localStorage.removeItem(
-        "jumlahLogRendemen"
-    );
-
-
-    document.getElementById(
-        "hasilSaatIni"
-    ).value = "";
-
-
-    document.getElementById(
-        "rendemenSaatIni"
-    ).value = "";
-
-
-    document.getElementById(
-        "jumlahLog"
-    ).value = "";
-
-
     renderMode();
 
-    tampilkanHistory();
 
     alert(
-        "Seluruh data berhasil dihapus."
+        "Data saat ini sudah dihapus. History tetap aman."
     );
 
 }
 
 
 /* =====================================================
-   SIMPAN SAAT HALAMAN DITUTUP / REFRESH
+   LOAD DRAFT
 ===================================================== */
 
-window.addEventListener(
-    "beforeunload",
-    function(){
+function loadDraft(){
 
-        try{
+    const raw =
+        localStorage.getItem(
+            "draftEntryRendemen"
+        );
 
-            simpanDataMode();
 
-        }catch(e){
+    if(!raw){
 
-        }
+        return;
 
     }
-);
 
 
-/* =====================================================
-   KLIK DI LUAR MODAL
-===================================================== */
+    try{
 
-window.addEventListener(
-    "click",
-    function(event){
+        const draft =
+            JSON.parse(raw);
 
-        const modal =
+
+        if(
+            draft &&
+            Array.isArray(draft.data)
+        ){
+
+            dataEntry =
+                draft.data;
+
+            entryTanggalAktif =
+                draft.tanggal ||
+                tanggalHariIni();
+
+
             document.getElementById(
-                "historyModal"
-            );
-
-
-        if(event.target === modal){
-
-            tutupHistory();
+                "jumlahLog"
+            ).value =
+                draft.jumlahLog || "";
 
         }
 
+    }catch(error){
+
+        console.error(
+            "Gagal membaca draft:",
+            error
+        );
+
+        localStorage.removeItem(
+            "draftEntryRendemen"
+        );
+
     }
-);
+
+}
 
 
 /* =====================================================
    MULAI
 ===================================================== */
 
-muatDataOtomatis();
+loadDraft();
 
 tampilkanHistory();
 
@@ -3948,4 +3844,3 @@ renderMode();
 
 </body>
 </html>
-
