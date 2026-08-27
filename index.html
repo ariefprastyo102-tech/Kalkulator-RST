@@ -25,7 +25,6 @@ body{
     margin:auto;
 }
 
-/* HEADER */
 .header{
     background:linear-gradient(135deg,#155eef,#2563eb);
     color:white;
@@ -45,7 +44,6 @@ body{
     opacity:.9;
 }
 
-/* CARD */
 .card{
     background:white;
     border-radius:16px;
@@ -60,7 +58,6 @@ body{
     margin-bottom:15px;
 }
 
-/* DATA AWAL */
 .input-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -88,15 +85,15 @@ body{
     border-color:#2563eb;
 }
 
-/* TAMBAHAN */
 .add-button{
     background:#2563eb;
     color:white;
     border:none;
-    padding:10px 15px;
+    padding:12px 15px;
     border-radius:9px;
     font-weight:bold;
     cursor:pointer;
+    width:100%;
 }
 
 .add-button:hover{
@@ -177,7 +174,6 @@ td input:focus{
     cursor:pointer;
 }
 
-/* HASIL */
 .result-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -212,7 +208,6 @@ td input:focus{
     color:#155eef;
 }
 
-/* MOBILE */
 @media(max-width:700px){
 
     body{
@@ -254,11 +249,6 @@ td input:focus{
     .field input{
         padding:10px 7px;
         font-size:14px;
-    }
-
-    .add-button{
-        padding:8px 10px;
-        font-size:10px;
     }
 
     table{
@@ -329,7 +319,6 @@ td input:focus{
 
 <div class="container">
 
-<!-- HEADER -->
 <div class="header">
     <h1>⚡ KALKULATOR RENDEMEN</h1>
     <p>Perhitungan tambahan kayu dan rendemen final</p>
@@ -337,6 +326,7 @@ td input:focus{
 
 
 <!-- DATA SAAT INI -->
+
 <div class="card">
 
     <div class="card-title">
@@ -346,7 +336,9 @@ td input:focus{
     <div class="input-grid">
 
         <div class="field">
+
             <label>HASIL SAAT INI (m³)</label>
+
             <input
                 id="hasilSaatIni"
                 type="number"
@@ -355,10 +347,14 @@ td input:focus{
                 placeholder="Contoh: 1.673063"
                 oninput="hitung()"
             >
+
         </div>
 
+
         <div class="field">
+
             <label>RENDEMEN SAAT INI (%)</label>
+
             <input
                 id="rendemenSaatIni"
                 type="number"
@@ -367,34 +363,20 @@ td input:focus{
                 placeholder="Contoh: 25"
                 oninput="hitung()"
             >
+
         </div>
 
     </div>
+
 </div>
 
 
 <!-- KAYU TAMBAHAN -->
+
 <div class="card">
 
-    <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:8px;
-        margin-bottom:12px;
-    ">
-
-        <div class="card-title" style="margin:0;">
-            Kayu Tambahan
-        </div>
-
-        <button
-            class="add-button"
-            onclick="tambahBaris()"
-        >
-            ＋ Tambah
-        </button>
-
+    <div class="card-title">
+        Kayu Tambahan
     </div>
 
 
@@ -403,6 +385,7 @@ td input:focus{
         <table>
 
             <thead>
+
                 <tr>
                     <th>Tebal<br>(mm)</th>
                     <th>Lebar<br>(mm)</th>
@@ -413,7 +396,9 @@ td input:focus{
                     <th>Volume<br>(m³)</th>
                     <th></th>
                 </tr>
+
             </thead>
+
 
             <tbody id="tabelKayu"></tbody>
 
@@ -421,19 +406,36 @@ td input:focus{
 
     </div>
 
+
+    <!-- TOMBOL DI BAWAH -->
+
+    <div style="margin-top:12px;">
+
+        <button
+            class="add-button"
+            onclick="tambahBarisDanScroll()"
+        >
+            ＋ Tambah Ukuran
+        </button>
+
+    </div>
+
 </div>
 
 
 <!-- HASIL -->
+
 <div class="card">
 
     <div class="card-title">
         Hasil Final
     </div>
 
+
     <div class="result-grid">
 
         <div class="result">
+
             <div class="result-title">
                 TAMBAHAN
             </div>
@@ -444,6 +446,7 @@ td input:focus{
             >
                 0,000000 m³
             </div>
+
         </div>
 
 
@@ -487,128 +490,161 @@ td input:focus{
 
 <script>
 
-/*
-=========================================================
-DATABASE ATURAN ISI PER BENDEL
-=========================================================
-Format:
 
-tebal : [angka yang diperbolehkan]
-lebar : [angka yang diperbolehkan]
-panjang : aturan panjang
-isi : jumlah batang per bendel
-=========================================================
-*/
+/* =====================================================
+   DATABASE ATURAN ISI PER BENDEL
+===================================================== */
 
 const aturan = [
 
-    /* 19 x 160 */
-    {t:[19], l:[160], min:2500, max:2900, isi:1},
-    {t:[19], l:[160], min:2000, max:2400, isi:1},
-    {t:[19], l:[160], min:1500, max:1900, isi:1},
+    // 19 x 160
 
-    /* 19 x 130 */
-    {t:[19], l:[130], min:2500, max:2900, isi:1},
-    {t:[19], l:[130], min:2000, max:2400, isi:1},
-    {t:[19], l:[130], min:1500, max:1900, isi:1},
-    {t:[19], l:[130], min:1000, max:1400, isi:1},
+    {t:[19],l:[160],min:2500,max:2900,isi:1},
+    {t:[19],l:[160],min:2000,max:2400,isi:1},
+    {t:[19],l:[160],min:1500,max:1900,isi:1},
 
-    /* 19 x 100 */
-    {t:[19], l:[100], min:2500, max:2900, isi:1},
-    {t:[19], l:[100], min:2000, max:2400, isi:1},
-    {t:[19], l:[100], min:1500, max:1900, isi:1},
-    {t:[19], l:[100], min:900, max:1400, isi:1},
 
-    /* 18 x 160 */
-    {t:[18], l:[160], min:900, max:1400, isi:1},
-    {t:[18], l:[160], min:600, max:850, isi:1},
-    {t:[18], l:[160], min:300, max:550, isi:10},
+    // 19 x 130
 
-    /* 18 x 130 */
-    {t:[18], l:[130], min:900, max:1400, isi:1},
-    {t:[18], l:[130], min:600, max:850, isi:1},
-    {t:[18], l:[130], min:450, max:550, isi:10},
-    {t:[18], l:[130], min:300, max:400, isi:10},
+    {t:[19],l:[130],min:2500,max:2900,isi:1},
+    {t:[19],l:[130],min:2000,max:2400,isi:1},
+    {t:[19],l:[130],min:1500,max:1900,isi:1},
+    {t:[19],l:[130],min:1000,max:1400,isi:1},
 
-    /* 18 x 100 */
-    {t:[18], l:[100], min:900, max:1400, isi:1},
-    {t:[18], l:[100], min:600, max:850, isi:1},
-    {t:[18], l:[100], min:450, max:550, isi:10},
-    {t:[18], l:[100], min:300, max:400, isi:10},
 
-    /* 15 x 130 */
-    {t:[15], l:[130], min:900, max:1400, isi:1},
-    {t:[15], l:[130], min:600, max:850, isi:1},
-    {t:[15], l:[130], min:450, max:550, isi:10},
-    {t:[15], l:[130], min:300, max:400, isi:10},
+    // 19 x 100
 
-    /* 15 x 100 */
-    {t:[15], l:[100], min:900, max:1400, isi:1},
-    {t:[15], l:[100], min:600, max:850, isi:1},
-    {t:[15], l:[100], min:450, max:550, isi:10},
-    {t:[15], l:[100], min:300, max:400, isi:10},
+    {t:[19],l:[100],min:2500,max:2900,isi:1},
+    {t:[19],l:[100],min:2000,max:2400,isi:1},
+    {t:[19],l:[100],min:1500,max:1900,isi:1},
+    {t:[19],l:[100],min:900,max:1400,isi:1},
 
-    /* 15 x 81 */
-    {t:[15], l:[81], min:500, max:550, isi:10},
 
-    /* 18 x 81 */
-    {t:[18], l:[81], min:500, max:550, isi:10},
+    // 18 x 160
 
-    /* 15 x 60 */
-    {t:[15], l:[60], min:900, max:1400, isi:1},
-    {t:[15], l:[60], min:600, max:850, isi:10},
-    {t:[15], l:[60], min:450, max:550, isi:10},
-    {t:[15], l:[60], min:300, max:400, isi:10},
+    {t:[18],l:[160],min:900,max:1400,isi:1},
+    {t:[18],l:[160],min:600,max:850,isi:1},
+    {t:[18],l:[160],min:300,max:550,isi:10},
 
-    /* 18 x 60 */
-    {t:[18], l:[60], min:900, max:1400, isi:1},
-    {t:[18], l:[60], min:600, max:850, isi:10},
-    {t:[18], l:[60], min:450, max:550, isi:10},
-    {t:[18], l:[60], min:300, max:400, isi:10},
 
-    /* 12/15 x 72/75/80 */
-    {t:[12,15], l:[72,75,80], min:900, max:1400, isi:1},
-    {t:[12,15], l:[72,75,80], min:600, max:850, isi:10},
-    {t:[12,15], l:[72,75,80], min:200, max:550, isi:10},
+    // 18 x 130
 
-    /* 12/15 x 65/60 */
-    {t:[12,15], l:[65,60], min:900, max:1400, isi:1},
-    {t:[12,15], l:[65,60], min:600, max:850, isi:10},
-    {t:[12,15], l:[65,60], min:200, max:550, isi:10},
+    {t:[18],l:[130],min:900,max:1400,isi:1},
+    {t:[18],l:[130],min:600,max:850,isi:1},
+    {t:[18],l:[130],min:450,max:550,isi:10},
+    {t:[18],l:[130],min:300,max:400,isi:10},
 
-    /* 15 x 52 */
-    {t:[15], l:[52], min:400, max:800, isi:20},
-    {t:[15], l:[52], min:305, up:true, isi:40},
-    {t:[15], l:[52], exact:255, isi:40},
-    {t:[15], l:[52], exact:205, isi:40},
 
-    /* 12 x 52 */
-    {t:[12], l:[52], min:400, max:800, isi:20},
-    {t:[12], l:[52], min:305, up:true, isi:40},
-    {t:[12], l:[52], exact:255, isi:40},
-    {t:[12], l:[52], exact:205, isi:40},
+    // 18 x 100
 
-    /* 12/15 x 52 < 200 */
-    {t:[12,15], l:[52], max:199.999999, isi:40},
+    {t:[18],l:[100],min:900,max:1400,isi:1},
+    {t:[18],l:[100],min:600,max:850,isi:1},
+    {t:[18],l:[100],min:450,max:550,isi:10},
+    {t:[18],l:[100],min:300,max:400,isi:10},
 
-    /* 15/20 x 35/40/45 */
-    {t:[15,20], l:[35,40,45], min:250, up:true, isi:25},
 
-    /* 15/20 x 30 */
-    {t:[15,20], l:[30], min:1000, up:true, isi:25},
-    {t:[15,20], l:[30], min:400, max:500, isi:25},
-    {t:[15,20], l:[30], min:200, max:300, isi:50},
-    {t:[15,20], l:[30], min:150, max:200, isi:50},
+    // 15 x 130
 
-    /* 15/20 x 20 */
-    {t:[15,20], l:[20], min:400, up:true, isi:25},
-    {t:[15,20], l:[20], min:200, max:300, isi:50}
+    {t:[15],l:[130],min:900,max:1400,isi:1},
+    {t:[15],l:[130],min:600,max:850,isi:1},
+    {t:[15],l:[130],min:450,max:550,isi:10},
+    {t:[15],l:[130],min:300,max:400,isi:10},
+
+
+    // 15 x 100
+
+    {t:[15],l:[100],min:900,max:1400,isi:1},
+    {t:[15],l:[100],min:600,max:850,isi:1},
+    {t:[15],l:[100],min:450,max:550,isi:10},
+    {t:[15],l:[100],min:300,max:400,isi:10},
+
+
+    // 15 x 81
+
+    {t:[15],l:[81],min:500,max:550,isi:10},
+
+
+    // 18 x 81
+
+    {t:[18],l:[81],min:500,max:550,isi:10},
+
+
+    // 15 x 60
+
+    {t:[15],l:[60],min:900,max:1400,isi:1},
+    {t:[15],l:[60],min:600,max:850,isi:10},
+    {t:[15],l:[60],min:450,max:550,isi:10},
+    {t:[15],l:[60],min:300,max:400,isi:10},
+
+
+    // 18 x 60
+
+    {t:[18],l:[60],min:900,max:1400,isi:1},
+    {t:[18],l:[60],min:600,max:850,isi:10},
+    {t:[18],l:[60],min:450,max:550,isi:10},
+    {t:[18],l:[60],min:300,max:400,isi:10},
+
+
+    // 15/18 x 72/75/80
+
+    {t:[15,18],l:[72,75,80],min:900,max:1400,isi:1},
+    {t:[15,18],l:[72,75,80],min:600,max:850,isi:10},
+    {t:[15,18],l:[72,75,80],min:200,max:550,isi:10},
+
+
+    // 12/15 x 65/60
+
+    {t:[12,15],l:[65,60],min:900,max:1400,isi:1},
+    {t:[12,15],l:[65,60],min:600,max:850,isi:10},
+    {t:[12,15],l:[65,60],min:200,max:550,isi:10},
+
+
+    // 15 x 52
+
+    {t:[15],l:[52],min:900,up:true,isi:1},
+    {t:[15],l:[52],min:400,max:850,isi:20},
+    {t:[15],l:[52],exact:305,isi:40},
+    {t:[15],l:[52],exact:255,isi:40},
+    {t:[15],l:[52],exact:205,isi:40},
+
+
+    // 12 x 52
+
+    {t:[12],l:[52],min:900,up:true,isi:1},
+    {t:[12],l:[52],min:400,max:850,isi:20},
+    {t:[12],l:[52],exact:305,isi:40},
+    {t:[12],l:[52],exact:255,isi:40},
+    {t:[12],l:[52],exact:205,isi:40},
+
+
+    // 12/15 x 52 < 200
+
+    {t:[12,15],l:[52],max:199.999999,isi:40},
+
+
+    // 15/20 x 35/40/45
+
+    {t:[15,20],l:[35,40,45],min:250,up:true,isi:25},
+
+
+    // 15/20 x 30
+
+    {t:[15,20],l:[30],min:1000,up:true,isi:25},
+    {t:[15,20],l:[30],min:400,max:500,isi:25},
+    {t:[15,20],l:[30],min:200,max:300,isi:50},
+    {t:[15,20],l:[30],min:150,max:200,isi:50},
+
+
+    // 15/20 x 20
+
+    {t:[15,20],l:[20],min:400,up:true,isi:25},
+    {t:[15,20],l:[20],min:200,max:300,isi:50}
 
 ];
 
 
 /* =====================================================
-   ROUNDING
+   ROUND 6 DESIMAL
 ===================================================== */
 
 function round6(nilai){
@@ -621,10 +657,10 @@ function round6(nilai){
 
 
 /* =====================================================
-   FORMAT
+   FORMAT ANGKA
 ===================================================== */
 
-function formatAngka(nilai, desimal=6){
+function formatAngka(nilai,desimal=6){
 
     return nilai.toLocaleString(
         "id-ID",
@@ -638,7 +674,7 @@ function formatAngka(nilai, desimal=6){
 
 
 /* =====================================================
-   ANGKA
+   KONVERSI ANGKA
 ===================================================== */
 
 function angka(nilai){
@@ -649,23 +685,19 @@ function angka(nilai){
 
 
 /* =====================================================
-   CEK ATURAN PANJANG
+   CEK PANJANG
 ===================================================== */
 
-function cocokPanjang(rule, panjang){
+function cocokPanjang(rule,panjang){
 
-    if(
-        rule.exact !== undefined
-    ){
+    if(rule.exact !== undefined){
 
         return panjang === rule.exact;
 
     }
 
 
-    if(
-        rule.up === true
-    ){
+    if(rule.up === true){
 
         return panjang >= rule.min;
 
@@ -685,9 +717,7 @@ function cocokPanjang(rule, panjang){
     }
 
 
-    if(
-        rule.max !== undefined
-    ){
+    if(rule.max !== undefined){
 
         return panjang <= rule.max;
 
@@ -709,9 +739,7 @@ function cariIsiBendel(
     panjang
 ){
 
-    for(
-        const rule of aturan
-    ){
+    for(const rule of aturan){
 
         const cocokTebal =
             rule.t.includes(tebal);
@@ -833,7 +861,55 @@ function tambahBaris(){
 
 
 /* =====================================================
-   HITUNG
+   TAMBAH BARIS + SCROLL KE BARIS BARU
+===================================================== */
+
+function tambahBarisDanScroll(){
+
+    tambahBaris();
+
+
+    const rows =
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
+
+
+    if(rows.length > 0){
+
+        const barisBaru =
+            rows[rows.length - 1];
+
+
+        barisBaru.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+
+        const input =
+            barisBaru.querySelector(
+                ".tebal"
+            );
+
+
+        if(input){
+
+            setTimeout(function(){
+
+                input.focus();
+
+            },400);
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   HITUNG SEMUA
 ===================================================== */
 
 function hitung(){
@@ -921,8 +997,6 @@ function hitung(){
             );
 
 
-        /* BELUM LENGKAP */
-
         if(
             tebal <= 0 ||
             lebar <= 0 ||
@@ -944,8 +1018,6 @@ function hitung(){
         }
 
 
-        /* CARI ISI */
-
         const isi =
             cariIsiBendel(
                 tebal,
@@ -954,14 +1026,9 @@ function hitung(){
             );
 
 
-        /* UKURAN TIDAK ADA */
+        if(isi === null){
 
-        if(
-            isi === null
-        ){
-
-            isiElement.textContent =
-                "?";
+            isiElement.textContent = "?";
 
             statusElement.textContent =
                 "Ukuran tidak ditemukan";
@@ -980,8 +1047,6 @@ function hitung(){
         }
 
 
-        /* UKURAN DITEMUKAN */
-
         statusElement.textContent =
             "Otomatis";
 
@@ -993,8 +1058,6 @@ function hitung(){
             isi;
 
 
-        /* TOTAL BATANG */
-
         const totalBatang =
             jumlahBendel * isi;
 
@@ -1004,20 +1067,15 @@ function hitung(){
 
 
         /*
-        =================================================
-        RUMUS EXCEL
+        RUMUS:
 
-        =ROUND(
-            (Tebal × Lebar × Panjang × Jumlah Batang)
+        ROUND(
+            Tebal × Lebar × Panjang × Total Batang
             / 1.000.000.000;
             6
         )
-
-        PENTING:
-        JUMLAH BATANG DIKALIKAN DULU
-        BARU ROUND 6 DESIMAL.
-        =================================================
         */
+
 
         const volume =
             round6(
@@ -1036,29 +1094,19 @@ function hitung(){
             formatAngka(volume);
 
 
-        totalTambahan +=
-            volume;
+        totalTambahan += volume;
 
     });
 
 
-    /* HASIL VOLUME FINAL */
+    /* HASIL FINAL */
 
     const hasilFinal =
         hasilSaatIni +
         totalTambahan;
 
 
-    /*
-    =================================================
-    HITUNG VOLUME LOG DARI RENDEMEN SAAT INI
-
-    Rendemen = Hasil RST / Volume Log × 100
-
-    Volume Log =
-    Hasil RST / (Rendemen / 100)
-    =================================================
-    */
+    /* HITUNG VOLUME LOG */
 
     let volumeLog = 0;
 
@@ -1083,9 +1131,7 @@ function hitung(){
     let rendemenFinal = 0;
 
 
-    if(
-        volumeLog > 0
-    ){
+    if(volumeLog > 0){
 
         rendemenFinal =
             (
@@ -1134,7 +1180,7 @@ function hitung(){
 
 
 /* =====================================================
-   BARIS PERTAMA
+   BARIS PERTAMA OTOMATIS
 ===================================================== */
 
 tambahBaris();
