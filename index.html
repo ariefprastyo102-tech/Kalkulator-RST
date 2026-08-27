@@ -126,15 +126,16 @@ body{
 table{
     width:100%;
     border-collapse:collapse;
-    table-layout:fixed;
+    table-layout:auto;
 }
 
 th{
     background:#f8fafc;
     color:#64748b;
     font-size:10px;
-    padding:8px 3px;
+    padding:8px 4px;
     border-bottom:1px solid #e5e7eb;
+    white-space:nowrap;
 }
 
 td{
@@ -157,15 +158,28 @@ td input:focus{
     border-color:#2563eb;
 }
 
+/* NAMA */
+
+.nama{
+    font-weight:bold;
+    font-size:12px;
+    color:#155eef;
+    min-width:105px;
+    text-align:left;
+    padding-left:5px;
+}
+
+.nama.belum{
+    color:#94a3b8;
+    font-weight:normal;
+}
+
+/* ISI */
+
 .isi-bendel{
     font-weight:bold;
     color:#155eef;
     font-size:13px;
-}
-
-.volume{
-    font-weight:bold;
-    font-size:12px;
 }
 
 .status{
@@ -179,6 +193,14 @@ td input:focus{
 
 .status.error{
     color:#dc2626;
+}
+
+/* VOLUME */
+
+.volume{
+    font-weight:bold;
+    font-size:12px;
+    white-space:nowrap;
 }
 
 /* DELETE */
@@ -257,7 +279,7 @@ td input:focus{
 @media(max-width:700px){
 
     body{
-        padding:6px;
+        padding:5px;
     }
 
     .header{
@@ -274,9 +296,9 @@ td input:focus{
     }
 
     .card{
-        padding:10px;
+        padding:9px;
         border-radius:13px;
-        margin-bottom:9px;
+        margin-bottom:8px;
     }
 
     .card-title{
@@ -308,7 +330,7 @@ td input:focus{
 
     th{
         font-size:7px;
-        padding:6px 1px;
+        padding:6px 2px;
     }
 
     td{
@@ -318,6 +340,11 @@ td input:focus{
     td input{
         padding:7px 2px;
         font-size:10px;
+    }
+
+    .nama{
+        min-width:82px;
+        font-size:9px;
     }
 
     .isi-bendel{
@@ -455,7 +482,7 @@ td input:focus{
 </div>
 
 
-<!-- DATA LOG MODE ENTRY -->
+<!-- DATA LOG -->
 
 <div
     class="card"
@@ -487,11 +514,14 @@ td input:focus{
 </div>
 
 
-<!-- KAYU TAMBAHAN / RST -->
+<!-- DATA RST -->
 
 <div class="card">
 
-    <div class="card-title" id="judulTabel">
+    <div
+        class="card-title"
+        id="judulTabel"
+    >
         Kayu Tambahan
     </div>
 
@@ -503,6 +533,10 @@ td input:focus{
             <thead>
 
                 <tr>
+
+                    <th>
+                        Nama
+                    </th>
 
                     <th>
                         Tebal
@@ -576,7 +610,7 @@ td input:focus{
         <div class="result">
 
             <div class="result-title">
-                TAMBAHAN
+                VOLUME TAMBAHAN
             </div>
 
             <div
@@ -666,7 +700,7 @@ td input:focus{
                 class="result-value"
                 id="volumeLog"
             >
-                0,000000 m³
+                0,000 m³
             </div>
 
         </div>
@@ -699,153 +733,545 @@ td input:focus{
 
 
 /* =====================================================
-   ATURAN UKURAN
+   ATURAN UKURAN + NAMA
 ===================================================== */
 
 const aturan = [
 
-    /* 19 x 160 */
+    /* ================= DECKING ================= */
 
-    {t:[19],l:[160],min:2500,max:2900,isi:1},
-    {t:[19],l:[160],min:2000,max:2400,isi:1},
-    {t:[19],l:[160],min:1500,max:1900,isi:1},
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[160],
+        min:2500,
+        max:2900,
+        isi:1
+    },
 
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[160],
+        min:2000,
+        max:2400,
+        isi:1
+    },
 
-    /* 19 x 130 */
-
-    {t:[19],l:[130],min:2500,max:2900,isi:1},
-    {t:[19],l:[130],min:2000,max:2400,isi:1},
-    {t:[19],l:[130],min:1500,max:1900,isi:1},
-    {t:[19],l:[130],min:1000,max:1400,isi:1},
-
-
-    /* 19 x 100 */
-
-    {t:[19],l:[100],min:2500,max:2900,isi:1},
-    {t:[19],l:[100],min:2000,max:2400,isi:1},
-    {t:[19],l:[100],min:1500,max:1900,isi:1},
-    {t:[19],l:[100],min:900,max:1400,isi:1},
-
-
-    /* 18 x 160 */
-
-    {t:[18],l:[160],min:900,max:1400,isi:1},
-    {t:[18],l:[160],min:600,max:850,isi:1},
-    {t:[18],l:[160],min:300,max:550,isi:10},
-
-
-    /* 18 x 130 */
-
-    {t:[18],l:[130],min:900,max:1400,isi:1},
-    {t:[18],l:[130],min:600,max:850,isi:1},
-    {t:[18],l:[130],min:450,max:550,isi:10},
-    {t:[18],l:[130],min:300,max:400,isi:10},
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[160],
+        min:1500,
+        max:1900,
+        isi:1
+    },
 
 
-    /* 18 x 100 */
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[130],
+        min:2500,
+        max:2900,
+        isi:1
+    },
 
-    {t:[18],l:[100],min:900,max:1400,isi:1},
-    {t:[18],l:[100],min:600,max:850,isi:1},
-    {t:[18],l:[100],min:450,max:550,isi:10},
-    {t:[18],l:[100],min:300,max:400,isi:10},
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[130],
+        min:2000,
+        max:2400,
+        isi:1
+    },
 
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[130],
+        min:1500,
+        max:1900,
+        isi:1
+    },
 
-    /* 15 x 130 */
-
-    {t:[15],l:[130],min:900,max:1400,isi:1},
-    {t:[15],l:[130],min:600,max:850,isi:1},
-    {t:[15],l:[130],min:450,max:550,isi:10},
-    {t:[15],l:[130],min:300,max:400,isi:10},
-
-
-    /* 15 x 100 */
-
-    {t:[15],l:[100],min:900,max:1400,isi:1},
-    {t:[15],l:[100],min:600,max:850,isi:1},
-    {t:[15],l:[100],min:450,max:550,isi:10},
-    {t:[15],l:[100],min:300,max:400,isi:10},
-
-
-    /* 15 x 81 */
-
-    {t:[15],l:[81],min:500,max:550,isi:10},
-
-
-    /* 18 x 81 */
-
-    {t:[18],l:[81],min:500,max:550,isi:10},
-
-
-    /* 15 x 60 */
-
-    {t:[15],l:[60],min:900,max:1400,isi:1},
-    {t:[15],l:[60],min:600,max:850,isi:10},
-    {t:[15],l:[60],min:450,max:550,isi:10},
-    {t:[15],l:[60],min:300,max:400,isi:10},
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[130],
+        min:1000,
+        max:1400,
+        isi:1
+    },
 
 
-    /* 18 x 60 */
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[100],
+        min:2500,
+        max:2900,
+        isi:1
+    },
 
-    {t:[18],l:[60],min:900,max:1400,isi:1},
-    {t:[18],l:[60],min:600,max:850,isi:10},
-    {t:[18],l:[60],min:450,max:550,isi:10},
-    {t:[18],l:[60],min:300,max:400,isi:10},
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[100],
+        min:2000,
+        max:2400,
+        isi:1
+    },
 
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[100],
+        min:1500,
+        max:1900,
+        isi:1
+    },
 
-    /* 15/18 x 72/75/80 */
-
-    {t:[15,18],l:[72,75,80],min:900,max:1400,isi:1},
-    {t:[15,18],l:[72,75,80],min:600,max:850,isi:10},
-    {t:[15,18],l:[72,75,80],min:200,max:550,isi:10},
-
-
-    /* 12/15 x 65/60 */
-
-    {t:[12,15],l:[65,60],min:900,max:1400,isi:1},
-    {t:[12,15],l:[65,60],min:600,max:850,isi:10},
-    {t:[12,15],l:[65,60],min:200,max:550,isi:10},
-
-
-    /* 15 x 52 */
-
-    {t:[15],l:[52],min:900,up:true,isi:1},
-    {t:[15],l:[52],min:400,max:850,isi:20},
-    {t:[15],l:[52],exact:305,isi:40},
-    {t:[15],l:[52],exact:255,isi:40},
-    {t:[15],l:[52],exact:205,isi:40},
-
-
-    /* 12 x 52 */
-
-    {t:[12],l:[52],min:900,up:true,isi:1},
-    {t:[12],l:[52],min:400,max:850,isi:20},
-    {t:[12],l:[52],exact:305,isi:40},
-    {t:[12],l:[52],exact:255,isi:40},
-    {t:[12],l:[52],exact:205,isi:40},
+    {
+        nama:"DECKING",
+        t:[19],
+        l:[100],
+        min:900,
+        max:1400,
+        isi:1
+    },
 
 
-    /* 12/15 x 52 < 200 */
+    /* ================= FLOORING ================= */
 
-    {t:[12,15],l:[52],max:199.999999,isi:40},
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[160],
+        min:900,
+        max:1400,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[160],
+        min:600,
+        max:850,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[160],
+        min:300,
+        max:550,
+        isi:10
+    },
 
 
-    /* 15/20 x 35/40/45 */
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[130],
+        min:900,
+        max:1400,
+        isi:1
+    },
 
-    {t:[15,20],l:[35,40,45],min:250,up:true,isi:25},
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[130],
+        min:600,
+        max:850,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[130],
+        min:450,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[130],
+        min:300,
+        max:400,
+        isi:10
+    },
 
 
-    /* 15/20 x 30 */
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[100],
+        min:900,
+        max:1400,
+        isi:1
+    },
 
-    {t:[15,20],l:[30],min:1000,up:true,isi:25},
-    {t:[15,20],l:[30],min:400,max:500,isi:25},
-    {t:[15,20],l:[30],min:200,max:300,isi:50},
-    {t:[15,20],l:[30],min:150,max:200,isi:50},
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[100],
+        min:600,
+        max:850,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[100],
+        min:450,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[100],
+        min:300,
+        max:400,
+        isi:10
+    },
 
 
-    /* 15/20 x 20 */
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[130],
+        min:900,
+        max:1400,
+        isi:1
+    },
 
-    {t:[15,20],l:[20],min:400,up:true,isi:25},
-    {t:[15,20],l:[20],min:200,max:300,isi:50}
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[130],
+        min:600,
+        max:850,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[130],
+        min:450,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[130],
+        min:300,
+        max:400,
+        isi:10
+    },
+
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[100],
+        min:900,
+        max:1400,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[100],
+        min:600,
+        max:850,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[100],
+        min:450,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[100],
+        min:300,
+        max:400,
+        isi:10
+    },
+
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[81],
+        min:500,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[81],
+        min:500,
+        max:550,
+        isi:10
+    },
+
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[60],
+        min:900,
+        max:1400,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[60],
+        min:600,
+        max:850,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[60],
+        min:450,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[15],
+        l:[60],
+        min:300,
+        max:400,
+        isi:10
+    },
+
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[60],
+        min:900,
+        max:1400,
+        isi:1
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[60],
+        min:600,
+        max:850,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[60],
+        min:450,
+        max:550,
+        isi:10
+    },
+
+    {
+        nama:"FLOORING",
+        t:[18],
+        l:[60],
+        min:300,
+        max:400,
+        isi:10
+    },
+
+
+    /* ================= LONGSTRIP ================= */
+
+    {
+        nama:"LONGSTRIP",
+        t:[15,18],
+        l:[75],
+        min:900,
+        max:1400,
+        isi:1
+    },
+
+    {
+        nama:"LONGSTRIP",
+        t:[15,18],
+        l:[75],
+        min:600,
+        max:850,
+        isi:10
+    },
+
+    {
+        nama:"LONGSTRIP",
+        t:[15,18],
+        l:[75],
+        min:200,
+        max:550,
+        isi:10
+    },
+
+
+    /* ================= PB PANJANG ================= */
+
+    {
+        nama:"PB PANJANG",
+        t:[15],
+        l:[52],
+        min:900,
+        up:true,
+        isi:1
+    },
+
+    {
+        nama:"PB PANJANG",
+        t:[15],
+        l:[52],
+        min:400,
+        max:850,
+        isi:20
+    },
+
+    {
+        nama:"PB PANJANG",
+        t:[15],
+        l:[52],
+        exact:305,
+        isi:40
+    },
+
+
+    /* ================= PB PENDEK ================= */
+
+    {
+        nama:"PB PENDEK",
+        t:[15],
+        l:[52],
+        exact:255,
+        isi:40
+    },
+
+    {
+        nama:"PB PENDEK",
+        t:[15],
+        l:[52],
+        exact:205,
+        isi:40
+    },
+
+
+    /* ================= P STOCK ================= */
+
+    {
+        nama:"P STOCK",
+        t:[12,15],
+        l:[52],
+        max:199.999999,
+        isi:40
+    },
+
+
+    /* ================= FJL ================= */
+
+    {
+        nama:"FJL",
+        t:[15,20],
+        l:[35,40,45],
+        min:250,
+        up:true,
+        isi:25
+    },
+
+
+    /* ================= RENG ================= */
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:1000,
+        up:true,
+        isi:25
+    },
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:400,
+        max:500,
+        isi:25
+    },
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:200,
+        max:300,
+        isi:50
+    },
+
+    {
+        nama:"RENG",
+        t:[15,20],
+        l:[30],
+        min:150,
+        max:200,
+        isi:50
+    },
+
+
+    /* ================= LIST ================= */
+
+    {
+        nama:"LIST",
+        t:[15,20],
+        l:[20],
+        min:400,
+        up:true,
+        isi:25
+    },
+
+    {
+        nama:"LIST",
+        t:[15,20],
+        l:[20],
+        min:200,
+        max:300,
+        isi:50
+    }
 
 ];
 
@@ -937,10 +1363,10 @@ function cocokPanjang(rule,panjang){
 
 
 /* =====================================================
-   CARI ISI BENDEL
+   CARI ATURAN
 ===================================================== */
 
-function cariIsiBendel(
+function cariAturan(
     tebal,
     lebar,
     panjang
@@ -961,7 +1387,7 @@ function cariIsiBendel(
             cocokPanjang(rule,panjang)
         ){
 
-            return rule.isi;
+            return rule;
 
         }
 
@@ -990,6 +1416,15 @@ function tambahBaris(){
 
 
     tr.innerHTML = `
+
+        <td>
+
+            <div class="nama belum">
+                -
+            </div>
+
+        </td>
+
 
         <td>
 
@@ -1089,7 +1524,7 @@ function tambahBaris(){
 
 
 /* =====================================================
-   TAMBAH BARIS DAN SCROLL
+   TAMBAH + SCROLL
 ===================================================== */
 
 function tambahBarisDanScroll(){
@@ -1214,10 +1649,6 @@ function ubahMode(mode){
         judulTabel.textContent =
             "Kayu Tambahan";
 
-
-        document.title =
-            "KALKULATOR RENDEMEN";
-
     }
 
 
@@ -1250,10 +1681,6 @@ function ubahMode(mode){
 
         judulTabel.textContent =
             "Data RST";
-
-
-        document.title =
-            "KALKULATOR RENDEMEN - ENTRY";
 
     }
 
@@ -1312,6 +1739,12 @@ function hitung(){
             );
 
 
+        const namaElement =
+            row.querySelector(
+                ".nama"
+            );
+
+
         const isiElement =
             row.querySelector(
                 ".isi-bendel"
@@ -1330,12 +1763,22 @@ function hitung(){
             );
 
 
+        /* BELUM LENGKAP */
+
         if(
             tebal <= 0 ||
             lebar <= 0 ||
             panjang <= 0 ||
             jumlahBendel <= 0
         ){
+
+            namaElement.textContent =
+                "-";
+
+
+            namaElement.className =
+                "nama belum";
+
 
             isiElement.textContent =
                 "-";
@@ -1354,22 +1797,34 @@ function hitung(){
         }
 
 
-        const isi =
-            cariIsiBendel(
+        /* CARI ATURAN */
+
+        const rule =
+            cariAturan(
                 tebal,
                 lebar,
                 panjang
             );
 
 
-        if(isi === null){
+        /* TIDAK DITEMUKAN */
+
+        if(rule === null){
+
+            namaElement.textContent =
+                "Ukuran tidak ditemukan";
+
+
+            namaElement.className =
+                "nama belum";
+
 
             isiElement.textContent =
                 "?";
 
 
             statusElement.textContent =
-                "Ukuran tidak ditemukan";
+                "Cek ukuran";
 
 
             statusElement.className =
@@ -1385,8 +1840,18 @@ function hitung(){
         }
 
 
+        /* DITEMUKAN */
+
+        namaElement.textContent =
+            rule.nama;
+
+
+        namaElement.className =
+            "nama";
+
+
         isiElement.textContent =
-            isi;
+            rule.isi;
 
 
         statusElement.textContent =
@@ -1397,20 +1862,27 @@ function hitung(){
             "status ok";
 
 
+        /*
+            JUMLAH BATANG:
+
+            BENDEL × ISI/BENDEL
+        */
+
         const totalBatang =
-            jumlahBendel * isi;
+            jumlahBendel *
+            rule.isi;
 
 
         /*
-            RUMUS VOLUME:
+            VOLUME SATU BARIS:
 
             ROUND(
-                Tebal × Lebar × Panjang × Total Batang
+                Tebal × Lebar × Panjang ×
+                Total Batang
                 ÷ 1.000.000.000;
                 6
             )
         */
-
 
         const volume =
             round6(
@@ -1455,11 +1927,13 @@ function hitung(){
 
 
     const hasilFinal =
-        hasilSaatIni +
-        totalVolume;
+        round6(
+            hasilSaatIni +
+            totalVolume
+        );
 
 
-    let volumeLog =
+    let volumeLogDariRendemen =
         0;
 
 
@@ -1468,7 +1942,7 @@ function hitung(){
         rendemenSaatIni > 0
     ){
 
-        volumeLog =
+        volumeLogDariRendemen =
             hasilSaatIni /
             (
                 rendemenSaatIni /
@@ -1482,12 +1956,14 @@ function hitung(){
         0;
 
 
-    if(volumeLog > 0){
+    if(
+        volumeLogDariRendemen > 0
+    ){
 
         rendemenFinal =
             (
                 hasilFinal /
-                volumeLog
+                volumeLogDariRendemen
             )
             *
             100;
@@ -1559,10 +2035,15 @@ function hitung(){
         " m³";
 
 
+    /*
+       VOLUME LOG:
+       KHUSUS TAMPILAN 3 DESIMAL
+    */
+
     document.getElementById(
         "volumeLog"
     ).textContent =
-        formatAngka(jumlahLog, 3)
+        formatAngka(jumlahLog,3)
         +
         " m³";
 
@@ -1581,7 +2062,7 @@ function hitung(){
 
 
 /* =====================================================
-   BARIS PERTAMA
+   BARIS AWAL
 ===================================================== */
 
 tambahBaris();
