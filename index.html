@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -173,8 +174,6 @@ table{
     table-layout:auto;
 }
 
-/* HEADER */
-
 th{
     background:#eef2e8;
     color:#53604c;
@@ -185,7 +184,14 @@ th{
     text-align:center;
 }
 
-/* ENTRY */
+td{
+    padding:6px 5px;
+    border-bottom:1px solid #edf0e9;
+    text-align:center;
+    vertical-align:middle;
+}
+
+/* ================= ENTRY ================= */
 
 th.mutu-col{
     width:65px;
@@ -195,86 +201,13 @@ th.ukuran-col{
     width:250px;
 }
 
-/* TAMBAHAN: KOLOM UKURAN DIPERSEMPIT */
-
-#tambahanTableCard th:nth-child(3),
-#tambahanTableCard th:nth-child(4),
-#tambahanTableCard th:nth-child(5){
-    width:78px;
-}
-
-#tambahanTableCard th:nth-child(6){
-    width:75px;
-}
-
-#tambahanTableCard th:nth-child(7){
-    width:65px;
-}
-
-#tambahanTableCard th:nth-child(8){
-    width:105px;
-}
-
-#tambahanTableCard td:nth-child(3),
-#tambahanTableCard td:nth-child(4),
-#tambahanTableCard td:nth-child(5),
-#tambahanTableCard td:nth-child(6),
-#tambahanTableCard td:nth-child(7),
-#tambahanTableCard td:nth-child(8){
-    text-align:center;
-}
-
-/* BODY */
-
-td{
-    padding:6px 5px;
-    border-bottom:1px solid #edf0e9;
-    text-align:center;
-    vertical-align:middle;
-}
-
-/* UKURAN ENTRY */
-
 .ukuran{
     font-weight:900;
-    font-size:16px;
+    font-size:17px;
     color:#526f32;
     white-space:nowrap;
     text-align:center;
 }
-
-/* INPUT TAMBAHAN LEBIH RAPI */
-
-#tambahanTableCard input,
-#tambahanTableCard select{
-    width:65px;
-    padding:7px 4px;
-    border:1px solid #d9ded1;
-    border-radius:7px;
-    text-align:center;
-    font-size:13px;
-    outline:none;
-}
-
-#tambahanTableCard input:focus,
-#tambahanTableCard select:focus{
-    border-color:#6d8f3a;
-}
-
-/* MUTU TAMBAHAN */
-
-#tambahanTableCard .mutu{
-    width:55px;
-}
-
-/* NAMA */
-
-#tambahanTableCard .nama{
-    text-align:left;
-    min-width:100px;
-}
-
-/* INPUT JUMLAH ENTRY */
 
 .qty-input{
     width:75px;
@@ -291,15 +224,13 @@ td{
     border-color:#6d8f3a;
 }
 
-/* VOLUME */
-
 .volume{
     font-weight:bold;
     font-size:14px;
     white-space:nowrap;
 }
 
-/* PEMISAH */
+/* ================= PEMISAH UKURAN ================= */
 
 .separator-tebal td{
     border-top:3px solid #526f32;
@@ -309,10 +240,10 @@ td{
     border-top:2px solid #b7c6a9;
 }
 
-/* T DISEMBUNYIKAN */
+/* ================= SEMBUNYI ================= */
 
 .t-hidden{
-    display:none;
+    display:none !important;
 }
 
 /* ================= BUTTON ================= */
@@ -386,7 +317,7 @@ td{
     color:#526f32;
 }
 
-/* ================= MODE ================= */
+/* ================= MODE DISPLAY ================= */
 
 #entryLog{
     display:none;
@@ -484,6 +415,55 @@ td{
     cursor:pointer;
 }
 
+/* TAMBAHAN: KOLOM LEBIH RAPI */
+
+#tambahanTableCard th:nth-child(3),
+#tambahanTableCard th:nth-child(4),
+#tambahanTableCard th:nth-child(5){
+    width:78px;
+}
+
+#tambahanTableCard th:nth-child(6){
+    width:75px;
+}
+
+#tambahanTableCard th:nth-child(7){
+    width:65px;
+}
+
+#tambahanTableCard th:nth-child(8){
+    width:105px;
+}
+
+#tambahanTableCard td:nth-child(3),
+#tambahanTableCard td:nth-child(4),
+#tambahanTableCard td:nth-child(5),
+#tambahanTableCard td:nth-child(6),
+#tambahanTableCard td:nth-child(7),
+#tambahanTableCard td:nth-child(8){
+    text-align:center;
+}
+
+#tambahanTableCard input,
+#tambahanTableCard select{
+    width:65px;
+    padding:7px 4px;
+    border:1px solid #d9ded1;
+    border-radius:7px;
+    text-align:center;
+    font-size:13px;
+    outline:none;
+}
+
+#tambahanTableCard input:focus,
+#tambahanTableCard select:focus{
+    border-color:#6d8f3a;
+}
+
+#tambahanTableCard .mutu{
+    width:55px;
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:700px){
@@ -563,7 +543,7 @@ td{
     }
 
     .ukuran{
-        font-size:15px;
+        font-size:16px;
     }
 
     .qty-input{
@@ -609,11 +589,9 @@ td{
 </style>
 </head>
 
-
 <body>
 
 <div class="container">
-
 
 <!-- ================= HEADER ================= -->
 
@@ -637,7 +615,6 @@ td{
 
 </div>
 
-
 <!-- ================= MODE ================= -->
 
 <div class="mode-box">
@@ -659,7 +636,6 @@ td{
     </button>
 
 </div>
-
 
 <!-- ================= DATA SAAT INI ================= -->
 
@@ -691,7 +667,6 @@ td{
 
         </div>
 
-
         <div class="field">
 
             <label>
@@ -713,8 +688,7 @@ td{
 
 </div>
 
-
-<!-- ================= DATA LOG ================= -->
+<!-- ================= DATA LOG / ENTRY ================= -->
 
 <div
     class="card"
@@ -722,28 +696,44 @@ td{
 >
 
     <div class="card-title">
-        Data Log
+        Data Entry
     </div>
 
-    <div class="field">
+    <div class="input-grid">
 
-        <label>
-            JUMLAH LOG (m³)
-        </label>
+        <div class="field">
 
-        <input
-            id="jumlahLog"
-            type="number"
-            step="0.001"
-            min="0"
-            placeholder="Contoh: 7.125"
-            oninput="hitung()"
-        >
+            <label>
+                TANGGAL ENTRY
+            </label>
+
+            <input
+                id="tanggalEntry"
+                type="date"
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                JUMLAH LOG (m³)
+            </label>
+
+            <input
+                id="jumlahLog"
+                type="number"
+                step="0.001"
+                min="0"
+                placeholder="Contoh: 7.125"
+                oninput="hitung()"
+            >
+
+        </div>
 
     </div>
 
 </div>
-
 
 <!-- ================= ENTRY NAMA ================= -->
 
@@ -810,7 +800,6 @@ td{
 
 </div>
 
-
 <!-- ================= TABEL ENTRY ================= -->
 
 <div
@@ -825,7 +814,6 @@ td{
         Data RST
     </div>
 
-
     <div class="table-wrap">
 
         <table>
@@ -838,11 +826,17 @@ td{
                         UKURAN
                     </th>
 
-                    <th class="mutu-col">
+                    <th
+                        class="mutu-col"
+                        id="thP"
+                    >
                         P
                     </th>
 
-                    <th class="mutu-col">
+                    <th
+                        class="mutu-col"
+                        id="thD"
+                    >
                         D
                     </th>
 
@@ -861,13 +855,13 @@ td{
 
             </thead>
 
-
             <tbody id="tabelEntry"></tbody>
 
         </table>
 
     </div>
 
+    <!-- DOWNLOAD HANYA ADA DI ENTRY -->
 
     <button
         id="downloadExcel"
@@ -878,7 +872,6 @@ td{
     </button>
 
 </div>
-
 
 <!-- ================= TABEL TAMBAHAN ================= -->
 
@@ -893,7 +886,6 @@ td{
     >
         Kayu Tambahan
     </div>
-
 
     <div class="table-wrap">
 
@@ -917,13 +909,11 @@ td{
 
             </thead>
 
-
             <tbody id="tabelKayu"></tbody>
 
         </table>
 
     </div>
-
 
     <div style="margin-top:12px;">
 
@@ -938,7 +928,6 @@ td{
 
 </div>
 
-
 <!-- ================= HASIL TAMBAHAN ================= -->
 
 <div
@@ -949,7 +938,6 @@ td{
     <div class="card-title">
         Hasil Final
     </div>
-
 
     <div class="result-grid">
 
@@ -968,7 +956,6 @@ td{
 
         </div>
 
-
         <div class="result final">
 
             <div class="result-title">
@@ -983,7 +970,6 @@ td{
             </div>
 
         </div>
-
 
         <div class="result final">
 
@@ -1004,7 +990,6 @@ td{
 
 </div>
 
-
 <!-- ================= HASIL ENTRY ================= -->
 
 <div
@@ -1015,7 +1000,6 @@ td{
     <div class="card-title">
         Hasil Rendemen
     </div>
-
 
     <div class="result-grid">
 
@@ -1034,7 +1018,6 @@ td{
 
         </div>
 
-
         <div class="result">
 
             <div class="result-title">
@@ -1049,7 +1032,6 @@ td{
             </div>
 
         </div>
-
 
         <div class="result final">
 
@@ -1070,7 +1052,6 @@ td{
 
 </div>
 
-
 <!-- ================= HISTORY ENTRY ================= -->
 
 <div
@@ -1086,14 +1067,12 @@ td{
 
 </div>
 
-
 </div>
-
 
 <script>
 
 /* =====================================================
-   ATURAN TAMBAHAN — TETAP
+   ATURAN TAMBAHAN
 ===================================================== */
 
 const aturan = [
@@ -1181,9 +1160,7 @@ const aturan = [
 
 const ukuranEntry = [
 
-    /* DECKING
-       KHUSUS KELIPATAN 100
-    */
+    /* DECKING - KELIPATAN 100 */
 
     ...buatRangeUkuran(
         "DECKING",
@@ -1211,7 +1188,6 @@ const ukuranEntry = [
         3000,
         100
     ),
-
 
     /* FLOORING */
 
@@ -1266,7 +1242,6 @@ const ukuranEntry = [
         50
     ),
 
-
     /* LONGSTRIP */
 
     ...buatRangeUkuran(
@@ -1287,7 +1262,6 @@ const ukuranEntry = [
         50
     ),
 
-
     /* PB PANJANG */
 
     {nama:"PB PANJANG",tebal:15,lebar:52,panjang:300},
@@ -1302,12 +1276,10 @@ const ukuranEntry = [
         50
     ),
 
-
     /* PB PENDEK */
 
     {nama:"PB PENDEK",tebal:15,lebar:52,panjang:205},
     {nama:"PB PENDEK",tebal:15,lebar:52,panjang:255},
-
 
     /* P STOCK */
 
@@ -1317,7 +1289,6 @@ const ukuranEntry = [
         lebar:52,
         panjang:180
     },
-
 
     /* FJL */
 
@@ -1330,7 +1301,6 @@ const ukuranEntry = [
         50
     ),
 
-
     /* RENG */
 
     ...buatRangeUkuran(
@@ -1341,7 +1311,6 @@ const ukuranEntry = [
         1000,
         50
     ),
-
 
     /* LIST */
 
@@ -1402,30 +1371,19 @@ function sortirUkuranEntry(data){
 
     return data.sort((a,b) => {
 
-        if(
-            a.tebal !==
-            b.tebal
-        ){
+        if(a.tebal !== b.tebal){
 
-            return b.tebal -
-                   a.tebal;
+            return b.tebal - a.tebal;
 
         }
 
-        if(
-            a.lebar !==
-            b.lebar
-        ){
+        if(a.lebar !== b.lebar){
 
-            return b.lebar -
-                   a.lebar;
+            return b.lebar - a.lebar;
 
         }
 
-        return (
-            a.panjang -
-            b.panjang
-        );
+        return a.panjang - b.panjang;
 
     });
 
@@ -1436,8 +1394,7 @@ function sortirUkuranEntry(data){
    MODE
 ===================================================== */
 
-let modeAktif =
-    "tambahan";
+let modeAktif = "tambahan";
 
 
 let historyEntry =
@@ -1473,11 +1430,8 @@ function formatAngka(
     return nilai.toLocaleString(
         "id-ID",
         {
-            minimumFractionDigits:
-                desimal,
-
-            maximumFractionDigits:
-                desimal
+            minimumFractionDigits:desimal,
+            maximumFractionDigits:desimal
         }
     );
 
@@ -1492,24 +1446,52 @@ function angka(nilai){
 
 
 /* =====================================================
+   TANGGAL ENTRY
+===================================================== */
+
+function tanggalHariIni(){
+
+    const sekarang = new Date();
+
+    const tahun =
+        sekarang.getFullYear();
+
+    const bulan =
+        String(
+            sekarang.getMonth() + 1
+        ).padStart(2,"0");
+
+    const hari =
+        String(
+            sekarang.getDate()
+        ).padStart(2,"0");
+
+    return (
+        tahun +
+        "-" +
+        bulan +
+        "-" +
+        hari
+    );
+
+}
+
+
+/* =====================================================
    TAMBAHAN
 ===================================================== */
 
-function buatBarisTambahan(
-    data={}
-){
+function buatBarisTambahan(data={}){
 
     const tbody =
         document.getElementById(
             "tabelKayu"
         );
 
-
     const tr =
         document.createElement(
             "tr"
         );
-
 
     tr.innerHTML = `
 
@@ -1520,7 +1502,6 @@ function buatBarisTambahan(
             </div>
 
         </td>
-
 
         <td>
 
@@ -1549,7 +1530,6 @@ function buatBarisTambahan(
 
         </td>
 
-
         <td>
 
             <input
@@ -1562,7 +1542,6 @@ function buatBarisTambahan(
             >
 
         </td>
-
 
         <td>
 
@@ -1577,7 +1556,6 @@ function buatBarisTambahan(
 
         </td>
 
-
         <td>
 
             <input
@@ -1590,7 +1568,6 @@ function buatBarisTambahan(
             >
 
         </td>
-
 
         <td>
 
@@ -1605,7 +1582,6 @@ function buatBarisTambahan(
 
         </td>
 
-
         <td>
 
             <div class="isi-bendel">
@@ -1616,7 +1592,6 @@ function buatBarisTambahan(
 
         </td>
 
-
         <td>
 
             <div class="volume">
@@ -1624,7 +1599,6 @@ function buatBarisTambahan(
             </div>
 
         </td>
-
 
         <td>
 
@@ -1642,7 +1616,6 @@ function buatBarisTambahan(
 
     `;
 
-
     tbody.appendChild(tr);
 
 }
@@ -1654,12 +1627,10 @@ function tambahBarisDanScroll(){
 
     hitung();
 
-
     const rows =
         document.querySelectorAll(
             "#tabelKayu tr"
         );
-
 
     if(rows.length){
 
@@ -1668,7 +1639,6 @@ function tambahBarisDanScroll(){
         ].scrollIntoView({
 
             behavior:"smooth",
-
             block:"center"
 
         });
@@ -1687,30 +1657,17 @@ function cocokPanjang(
     panjang
 ){
 
-    if(
-        rule.exact !==
-        undefined
-    ){
+    if(rule.exact !== undefined){
 
-        return (
-            panjang ===
-            rule.exact
-        );
+        return panjang === rule.exact;
 
     }
 
+    if(rule.up === true){
 
-    if(
-        rule.up === true
-    ){
-
-        return (
-            panjang >=
-            rule.min
-        );
+        return panjang >= rule.min;
 
     }
-
 
     if(
         rule.min !== undefined &&
@@ -1724,18 +1681,11 @@ function cocokPanjang(
 
     }
 
+    if(rule.max !== undefined){
 
-    if(
-        rule.max !== undefined
-    ){
-
-        return (
-            panjang <=
-            rule.max
-        );
+        return panjang <= rule.max;
 
     }
-
 
     return false;
 
@@ -1754,15 +1704,11 @@ function cariAturan(
 
         if(
 
-            rule.t.includes(
-                tebal
-            )
+            rule.t.includes(tebal)
 
             &&
 
-            rule.l.includes(
-                lebar
-            )
+            rule.l.includes(lebar)
 
             &&
 
@@ -1792,12 +1738,10 @@ function hitungTambahan(){
 
     let totalVolume = 0;
 
-
     const rows =
         document.querySelectorAll(
             "#tabelKayu tr"
         );
-
 
     rows.forEach(row => {
 
@@ -1808,14 +1752,12 @@ function hitungTambahan(){
                 ).value
             );
 
-
         const lebar =
             angka(
                 row.querySelector(
                     ".lebar"
                 ).value
             );
-
 
         const panjang =
             angka(
@@ -1824,7 +1766,6 @@ function hitungTambahan(){
                 ).value
             );
 
-
         const jumlahBendel =
             angka(
                 row.querySelector(
@@ -1832,36 +1773,30 @@ function hitungTambahan(){
                 ).value
             );
 
-
         const mutuSelect =
             row.querySelector(
                 ".mutu"
             );
-
 
         const namaElement =
             row.querySelector(
                 ".nama"
             );
 
-
         const isiElement =
             row.querySelector(
                 ".isi-bendel"
             );
-
 
         const statusElement =
             row.querySelector(
                 ".status"
             );
 
-
         const volumeElement =
             row.querySelector(
                 ".volume"
             );
-
 
         if(
 
@@ -1890,14 +1825,12 @@ function hitungTambahan(){
 
         }
 
-
         const rule =
             cariAturan(
                 tebal,
                 lebar,
                 panjang
             );
-
 
         if(rule === null){
 
@@ -1923,13 +1856,11 @@ function hitungTambahan(){
 
         }
 
-
         namaElement.textContent =
             rule.nama;
 
         namaElement.className =
             "nama";
-
 
         if(
 
@@ -1952,10 +1883,8 @@ function hitungTambahan(){
 
         }
 
-
         isiElement.textContent =
             rule.isi;
-
 
         statusElement.textContent =
             "Otomatis";
@@ -1963,11 +1892,9 @@ function hitungTambahan(){
         statusElement.className =
             "status ok";
 
-
         const totalBatang =
             jumlahBendel *
             rule.isi;
-
 
         const volume =
             round6(
@@ -1983,18 +1910,15 @@ function hitungTambahan(){
 
             );
 
-
         volumeElement.textContent =
             formatAngka(
                 volume
             );
 
-
         totalVolume +=
             volume;
 
     });
-
 
     const hasilSaatIni =
         angka(
@@ -2003,14 +1927,12 @@ function hitungTambahan(){
             ).value
         );
 
-
     const rendemenSaatIni =
         angka(
             document.getElementById(
                 "rendemenSaatIni"
             ).value
         );
-
 
     const hasilFinal =
         round6(
@@ -2020,9 +1942,7 @@ function hitungTambahan(){
 
         );
 
-
     let volumeLog = 0;
-
 
     if(
 
@@ -2040,9 +1960,7 @@ function hitungTambahan(){
 
     }
 
-
     let rendemenFinal = 0;
-
 
     if(volumeLog > 0){
 
@@ -2055,7 +1973,6 @@ function hitungTambahan(){
 
     }
 
-
     document.getElementById(
         "totalTambahan"
     ).textContent =
@@ -2065,7 +1982,6 @@ function hitungTambahan(){
         ) +
         " m³";
 
-
     document.getElementById(
         "hasilFinal"
     ).textContent =
@@ -2074,7 +1990,6 @@ function hitungTambahan(){
             hasilFinal
         ) +
         " m³";
-
 
     document.getElementById(
         "rendemenFinal"
@@ -2100,27 +2015,32 @@ function buatTabelEntry(){
             "pilihNama"
         ).value;
 
-
     const tbody =
         document.getElementById(
             "tabelEntry"
         );
-
 
     const tableCard =
         document.getElementById(
             "entryTableCard"
         );
 
+    const thP =
+        document.getElementById(
+            "thP"
+        );
+
+    const thD =
+        document.getElementById(
+            "thD"
+        );
 
     const thT =
         document.getElementById(
             "thT"
         );
 
-
     tbody.innerHTML = "";
-
 
     if(!nama){
 
@@ -2131,23 +2051,33 @@ function buatTabelEntry(){
 
     }
 
-
     tableCard.style.display =
         "block";
 
+    /*
+       FJL / RENG / LIST
+       MUTUNYA PASTI T
+       JADI HANYA T YANG DITAMPILKAN
+    */
 
-    const pakaiT =
+    const mutuTPasti =
 
         nama === "FJL" ||
         nama === "RENG" ||
         nama === "LIST";
 
+    thP.style.display =
+        mutuTPasti
+            ? "none"
+            : "table-cell";
+
+    thD.style.display =
+        mutuTPasti
+            ? "none"
+            : "table-cell";
 
     thT.style.display =
-        pakaiT
-            ? "table-cell"
-            : "none";
-
+        "table-cell";
 
     let data =
         ukuranEntry.filter(
@@ -2158,18 +2088,15 @@ function buatTabelEntry(){
 
         );
 
-
     data =
         sortirUkuranEntry(
             data
         );
 
-
     data.forEach(
         (item,index) => {
 
             let separator = "";
-
 
             if(index > 0){
 
@@ -2177,7 +2104,6 @@ function buatTabelEntry(){
                     data[
                         index - 1
                     ];
-
 
                 if(
 
@@ -2203,12 +2129,10 @@ function buatTabelEntry(){
 
             }
 
-
             const tr =
                 document.createElement(
                     "tr"
                 );
-
 
             if(separator){
 
@@ -2217,7 +2141,6 @@ function buatTabelEntry(){
                 );
 
             }
-
 
             tr.innerHTML = `
 
@@ -2235,8 +2158,13 @@ function buatTabelEntry(){
 
                 </td>
 
-
-                <td>
+                <td
+                    class="${
+                        mutuTPasti
+                            ? "t-hidden"
+                            : ""
+                    }"
+                >
 
                     <input
                         type="number"
@@ -2249,8 +2177,13 @@ function buatTabelEntry(){
 
                 </td>
 
-
-                <td>
+                <td
+                    class="${
+                        mutuTPasti
+                            ? "t-hidden"
+                            : ""
+                    }"
+                >
 
                     <input
                         type="number"
@@ -2263,14 +2196,7 @@ function buatTabelEntry(){
 
                 </td>
 
-
-                <td
-                    class="${
-                        pakaiT
-                            ? ""
-                            : "t-hidden"
-                    }"
-                >
+                <td>
 
                     <input
                         type="number"
@@ -2282,7 +2208,6 @@ function buatTabelEntry(){
                     >
 
                 </td>
-
 
                 <td>
 
@@ -2301,7 +2226,6 @@ function buatTabelEntry(){
 
             `;
 
-
             tr.dataset.tebal =
                 item.tebal;
 
@@ -2311,6 +2235,10 @@ function buatTabelEntry(){
             tr.dataset.panjang =
                 item.panjang;
 
+            tr.dataset.mutuTPasti =
+                mutuTPasti
+                    ? "true"
+                    : "false";
 
             tbody.appendChild(
                 tr
@@ -2318,7 +2246,6 @@ function buatTabelEntry(){
 
         }
     );
-
 
     hitungEntry();
 
@@ -2333,12 +2260,10 @@ function hitungEntry(){
 
     let totalVolume = 0;
 
-
     const rows =
         document.querySelectorAll(
             "#tabelEntry tr"
         );
-
 
     rows.forEach(row => {
 
@@ -2347,18 +2272,15 @@ function hitungEntry(){
                 row.dataset.tebal
             );
 
-
         const lebar =
             Number(
                 row.dataset.lebar
             );
 
-
         const panjang =
             Number(
                 row.dataset.panjang
             );
-
 
         const p =
             angka(
@@ -2367,14 +2289,12 @@ function hitungEntry(){
                 )?.value
             );
 
-
         const d =
             angka(
                 row.querySelector(
                     ".qty-d"
                 )?.value
             );
-
 
         const t =
             angka(
@@ -2383,16 +2303,13 @@ function hitungEntry(){
                 )?.value
             );
 
-
         const jumlah =
             p + d + t;
-
 
         const volumeElement =
             row.querySelector(
                 ".volume-entry"
             );
-
 
         if(jumlah <= 0){
 
@@ -2402,7 +2319,6 @@ function hitungEntry(){
             return;
 
         }
-
 
         const volume =
             round6(
@@ -2418,18 +2334,15 @@ function hitungEntry(){
 
             );
 
-
         volumeElement.textContent =
             formatAngka(
                 volume
             );
 
-
         totalVolume +=
             volume;
 
     });
-
 
     const jumlahLog =
         angka(
@@ -2438,9 +2351,7 @@ function hitungEntry(){
             ).value
         );
 
-
     let rendemen = 0;
-
 
     if(jumlahLog > 0){
 
@@ -2453,7 +2364,6 @@ function hitungEntry(){
 
     }
 
-
     document.getElementById(
         "volumeRST"
     ).textContent =
@@ -2462,7 +2372,6 @@ function hitungEntry(){
             totalVolume
         ) +
         " m³";
-
 
     document.getElementById(
         "volumeLog"
@@ -2473,7 +2382,6 @@ function hitungEntry(){
             3
         ) +
         " m³";
-
 
     document.getElementById(
         "rendemenEntry"
@@ -2489,7 +2397,7 @@ function hitungEntry(){
 
 
 /* =====================================================
-   EXPORT
+   EXPORT EXCEL ENTRY
 ===================================================== */
 
 function downloadExcelEntry(){
@@ -2507,12 +2415,10 @@ function downloadExcelEntry(){
 
     }
 
-
     const nama =
         document.getElementById(
             "pilihNama"
         ).value;
-
 
     if(!nama){
 
@@ -2524,15 +2430,33 @@ function downloadExcelEntry(){
 
     }
 
+    const tanggalInput =
+        document.getElementById(
+            "tanggalEntry"
+        ).value;
+
+    if(!tanggalInput){
+
+        alert(
+            "Tanggal Entry belum diisi."
+        );
+
+        return;
+
+    }
 
     const hasil = [];
-
 
     const rows =
         document.querySelectorAll(
             "#tabelEntry tr"
         );
 
+    const mutuTPasti =
+
+        nama === "FJL" ||
+        nama === "RENG" ||
+        nama === "LIST";
 
     rows.forEach(row => {
 
@@ -2551,14 +2475,12 @@ function downloadExcelEntry(){
                 row.dataset.panjang
             );
 
-
         const p =
             angka(
                 row.querySelector(
                     ".qty-p"
                 )?.value
             );
-
 
         const d =
             angka(
@@ -2567,7 +2489,6 @@ function downloadExcelEntry(){
                 )?.value
             );
 
-
         const t =
             angka(
                 row.querySelector(
@@ -2575,6 +2496,56 @@ function downloadExcelEntry(){
                 )?.value
             );
 
+        /*
+           Kalau mutu T pasti,
+           hanya T yang diekspor.
+        */
+
+        if(mutuTPasti){
+
+            if(t <= 0){
+
+                return;
+
+            }
+
+            const volume =
+                round6(
+
+                    (
+                        tebal *
+                        lebar *
+                        panjang *
+                        t
+                    )
+                    /
+                    1000000000
+
+                );
+
+            hasil.push({
+
+                Nama:nama,
+
+                B:"",
+
+                Mutu:"T",
+
+                Panjang:panjang,
+
+                Lebar:lebar,
+
+                Tebal:tebal,
+
+                "Batang/Bendel":t,
+
+                Volume:volume
+
+            });
+
+            return;
+
+        }
 
         const dataMutu = [
 
@@ -2595,7 +2566,6 @@ function downloadExcelEntry(){
 
         ];
 
-
         dataMutu.forEach(
             item => {
 
@@ -2606,7 +2576,6 @@ function downloadExcelEntry(){
                     return;
 
                 }
-
 
                 const volume =
                     round6(
@@ -2621,7 +2590,6 @@ function downloadExcelEntry(){
                         1000000000
 
                     );
-
 
                 hasil.push({
 
@@ -2649,7 +2617,6 @@ function downloadExcelEntry(){
 
     });
 
-
     if(hasil.length === 0){
 
         alert(
@@ -2659,7 +2626,6 @@ function downloadExcelEntry(){
         return;
 
     }
-
 
     hasil.sort(
         (a,b) => {
@@ -2682,7 +2648,6 @@ function downloadExcelEntry(){
 
             }
 
-
             if(
                 a.Tebal !==
                 b.Tebal
@@ -2694,7 +2659,6 @@ function downloadExcelEntry(){
                 );
 
             }
-
 
             if(
                 a.Lebar !==
@@ -2708,7 +2672,6 @@ function downloadExcelEntry(){
 
             }
 
-
             return (
                 a.Panjang -
                 b.Panjang
@@ -2717,6 +2680,10 @@ function downloadExcelEntry(){
         }
     );
 
+    /*
+       Format Excel tetap:
+       Nama | B | Mutu | Panjang | Lebar | Tebal | Batang/Bendel | Volume
+    */
 
     const rowsExcel = [
 
@@ -2733,19 +2700,25 @@ function downloadExcelEntry(){
 
     ];
 
-
     hasil.forEach(
         item => {
 
             rowsExcel.push([
 
                 item.Nama,
+
                 "",
+
                 item.Mutu,
+
                 item.Panjang,
+
                 item.Lebar,
+
                 item.Tebal,
+
                 item["Batang/Bendel"],
+
                 item.Volume
 
             ]);
@@ -2753,16 +2726,13 @@ function downloadExcelEntry(){
         }
     );
 
-
     const workbook =
         XLSX.utils.book_new();
-
 
     const worksheet =
         XLSX.utils.aoa_to_sheet(
             rowsExcel
         );
-
 
     worksheet["!cols"] = [
 
@@ -2777,6 +2747,38 @@ function downloadExcelEntry(){
 
     ];
 
+    /*
+       Format tanggal entry
+    */
+
+    const tanggalExcel =
+        tanggalInput.split("-");
+
+    const tanggalTampilan =
+
+        tanggalExcel[2] +
+        "-" +
+        tanggalExcel[1] +
+        "-" +
+        tanggalExcel[0];
+
+    XLSX.utils.sheet_add_aoa(
+
+        worksheet,
+
+        [
+            [
+                "Tanggal Entry",
+                tanggalTampilan
+            ]
+        ],
+
+        {
+            origin:"A" +
+                (rowsExcel.length + 2)
+        }
+
+    );
 
     for(
         let r = 1;
@@ -2790,7 +2792,6 @@ function downloadExcelEntry(){
                 (r + 1)
             ];
 
-
         if(cell){
 
             cell.z =
@@ -2799,7 +2800,6 @@ function downloadExcelEntry(){
         }
 
     }
-
 
     XLSX.utils.book_append_sheet(
 
@@ -2811,26 +2811,21 @@ function downloadExcelEntry(){
 
     );
 
-
     const tanggal =
         new Date();
 
-
     const tahun =
         tanggal.getFullYear();
-
 
     const bulan =
         String(
             tanggal.getMonth() + 1
         ).padStart(2,"0");
 
-
     const hari =
         String(
             tanggal.getDate()
         ).padStart(2,"0");
-
 
     const namaFile =
         "ENTRY_RENDEMEN_" +
@@ -2841,7 +2836,6 @@ function downloadExcelEntry(){
         tahun +
         ".xlsx";
 
-
     XLSX.writeFile(
 
         workbook,
@@ -2850,9 +2844,9 @@ function downloadExcelEntry(){
 
     );
 
-
     simpanHistoryEntry(
-        hasil
+        hasil,
+        tanggalInput
     );
 
 }
@@ -2863,23 +2857,17 @@ function downloadExcelEntry(){
 ===================================================== */
 
 function simpanHistoryEntry(
-    data
+    data,
+    tanggalEntry
 ){
 
     const sekarang =
         new Date();
 
-
     const tanggal =
-        sekarang.toLocaleDateString(
-            "id-ID",
-            {
-                day:"2-digit",
-                month:"2-digit",
-                year:"numeric"
-            }
+        formatTanggalIndonesia(
+            tanggalEntry
         );
-
 
     const jam =
         sekarang.toLocaleTimeString(
@@ -2889,7 +2877,6 @@ function simpanHistoryEntry(
                 minute:"2-digit"
             }
         );
-
 
     const volumeRST =
         data.reduce(
@@ -2904,7 +2891,6 @@ function simpanHistoryEntry(
             0
 
         );
-
 
     const historyBaru = {
 
@@ -2924,18 +2910,15 @@ function simpanHistoryEntry(
 
     };
 
-
     historyEntry.unshift(
         historyBaru
     );
-
 
     historyEntry =
         historyEntry.slice(
             0,
             100
         );
-
 
     localStorage.setItem(
 
@@ -2947,8 +2930,39 @@ function simpanHistoryEntry(
 
     );
 
-
     tampilkanHistory();
+
+}
+
+
+function formatTanggalIndonesia(
+    tanggal
+){
+
+    if(!tanggal){
+
+        return "-";
+
+    }
+
+    const bagian =
+        tanggal.split("-");
+
+    if(
+        bagian.length !== 3
+    ){
+
+        return tanggal;
+
+    }
+
+    return (
+        bagian[2] +
+        "-" +
+        bagian[1] +
+        "-" +
+        bagian[0]
+    );
 
 }
 
@@ -2959,7 +2973,6 @@ function tampilkanHistory(){
         document.getElementById(
             "historyList"
         );
-
 
     if(
 
@@ -2982,7 +2995,6 @@ function tampilkanHistory(){
 
     }
 
-
     list.innerHTML =
 
         historyEntry
@@ -2997,7 +3009,6 @@ function tampilkanHistory(){
                         ${item.jam}
 
                     </div>
-
 
                     <div class="history-info">
 
@@ -3032,66 +3043,55 @@ function ubahMode(
     modeAktif =
         mode;
 
-
     const btnTambahan =
         document.getElementById(
             "btnTambahan"
         );
-
 
     const btnEntry =
         document.getElementById(
             "btnEntry"
         );
 
-
     const dataSaatIni =
         document.getElementById(
             "dataSaatIni"
         );
-
 
     const entryLog =
         document.getElementById(
             "entryLog"
         );
 
-
     const entryNamaCard =
         document.getElementById(
             "entryNamaCard"
         );
-
 
     const tambahanTableCard =
         document.getElementById(
             "tambahanTableCard"
         );
 
-
     const entryTableCard =
         document.getElementById(
             "entryTableCard"
         );
-
 
     const hasilTambahan =
         document.getElementById(
             "hasilTambahan"
         );
 
-
     const hasilEntry =
         document.getElementById(
             "hasilEntry"
         );
 
-
     const history =
         document.getElementById(
             "historyEntry"
         );
-
 
     if(
         mode ===
@@ -3106,7 +3106,6 @@ function ubahMode(
             "active"
         );
 
-
         dataSaatIni.style.display =
             "block";
 
@@ -3130,7 +3129,6 @@ function ubahMode(
 
         history.style.display =
             "none";
-
 
         hitungTambahan();
 
@@ -3144,7 +3142,6 @@ function ubahMode(
             "active"
         );
 
-
         dataSaatIni.style.display =
             "none";
 
@@ -3166,6 +3163,22 @@ function ubahMode(
         history.style.display =
             "block";
 
+        /*
+           Tanggal otomatis hari ini
+           kalau belum pernah diisi.
+        */
+
+        const tanggalInput =
+            document.getElementById(
+                "tanggalEntry"
+            );
+
+        if(!tanggalInput.value){
+
+            tanggalInput.value =
+                tanggalHariIni();
+
+        }
 
         entryTableCard.style.display =
 
@@ -3176,7 +3189,6 @@ function ubahMode(
                 ? "block"
 
                 : "none";
-
 
         hitungEntry();
 
@@ -3215,6 +3227,14 @@ buatBarisTambahan();
 
 tampilkanHistory();
 
+const tanggalEntry =
+    document.getElementById(
+        "tanggalEntry"
+    );
+
+tanggalEntry.value =
+    tanggalHariIni();
+
 ubahMode(
     "tambahan"
 );
@@ -3223,3 +3243,4 @@ ubahMode(
 
 </body>
 </html>
+
