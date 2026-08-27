@@ -12,7 +12,7 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -46,6 +46,7 @@ body{
     opacity:.9;
 }
 
+
 /* CARD */
 
 .card{
@@ -62,7 +63,8 @@ body{
     margin-bottom:18px;
 }
 
-/* INPUT AWAL */
+
+/* DATA AWAL */
 
 .input-grid{
     display:grid;
@@ -92,7 +94,8 @@ body{
     box-shadow:0 0 0 3px rgba(37,99,235,.1);
 }
 
-/* TABLE */
+
+/* TABEL */
 
 .table-container{
     overflow-x:auto;
@@ -101,7 +104,7 @@ body{
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:850px;
+    min-width:900px;
 }
 
 th{
@@ -138,20 +141,8 @@ td select:focus{
     white-space:nowrap;
 }
 
-.delete{
-    background:#fee2e2;
-    color:#dc2626;
-    border:none;
-    border-radius:8px;
-    padding:9px 11px;
-    cursor:pointer;
-}
 
-.delete:hover{
-    background:#fecaca;
-}
-
-/* BUTTON */
+/* TOMBOL */
 
 .add-button{
     background:#2563eb;
@@ -166,6 +157,20 @@ td select:focus{
 .add-button:hover{
     background:#1d4ed8;
 }
+
+.delete{
+    background:#fee2e2;
+    color:#dc2626;
+    border:none;
+    border-radius:8px;
+    padding:9px 11px;
+    cursor:pointer;
+}
+
+.delete:hover{
+    background:#fecaca;
+}
+
 
 /* HASIL */
 
@@ -190,7 +195,7 @@ td select:focus{
 }
 
 .result-value{
-    font-size:24px;
+    font-size:23px;
     font-weight:900;
 }
 
@@ -204,6 +209,7 @@ td select:focus{
     font-size:30px;
 }
 
+
 /* CATATAN */
 
 .note{
@@ -213,7 +219,8 @@ td select:focus{
     line-height:1.5;
 }
 
-/* RESPONSIVE */
+
+/* MOBILE */
 
 @media(max-width:750px){
 
@@ -238,9 +245,11 @@ td select:focus{
 </style>
 </head>
 
+
 <body>
 
 <div class="container">
+
 
 <!-- HEADER -->
 
@@ -249,7 +258,7 @@ td select:focus{
 <h1>⚡ KALKULATOR TAMBAHAN RST</h1>
 
 <p>
-Hitung volume tambahan dan rendemen final secara otomatis.
+Perhitungan tambahan kayu dan rendemen secara realtime
 </p>
 
 </div>
@@ -263,7 +272,9 @@ Hitung volume tambahan dan rendemen final secara otomatis.
 Data Awal
 </div>
 
+
 <div class="input-grid">
+
 
 <div class="field">
 
@@ -298,15 +309,17 @@ placeholder="Contoh: 25"
 
 </div>
 
-</div>
 
 </div>
 
+</div>
 
 
-<!-- TAMBAHAN KAYU -->
+
+<!-- TAMBAHAN -->
 
 <div class="card">
+
 
 <div style="
 display:flex;
@@ -316,9 +329,11 @@ margin-bottom:18px;
 gap:10px;
 ">
 
+
 <div class="card-title" style="margin:0;">
 Kayu Tambahan
 </div>
+
 
 <button
 class="add-button"
@@ -327,7 +342,9 @@ onclick="tambahBaris()"
 ＋ Tambah Ukuran
 </button>
 
+
 </div>
+
 
 
 <div class="table-container">
@@ -374,9 +391,8 @@ Aksi
 
 </thead>
 
-<tbody id="tabelKayu">
 
-</tbody>
+<tbody id="tabelKayu"></tbody>
 
 </table>
 
@@ -385,12 +401,15 @@ Aksi
 
 <div class="note">
 
-Rumus volume:
-<strong>
-Tebal × Lebar × Panjang × jumlah batang ÷ 1.000.000.000
-</strong>.
-Jika satuan Bendel, jumlah batang otomatis dihitung dari
-<strong>jumlah bendel × isi per bendel</strong>.
+<strong>Perhitungan mengikuti logika data Excel.</strong><br>
+
+Volume 1 batang =
+ROUND((Tebal × Lebar × Panjang) ÷ 1.000.000.000; 6).
+
+Jika Batang: jumlah = jumlah batang.<br>
+
+Jika Bendel:
+jumlah satuan = jumlah bendel × isi batang per bendel.
 
 </div>
 
@@ -405,6 +424,7 @@ Jika satuan Bendel, jumlah batang otomatis dihitung dari
 <div class="card-title">
 Hasil Perhitungan
 </div>
+
 
 <div class="result-grid">
 
@@ -480,6 +500,7 @@ id="rendemenFinal"
 
 </div>
 
+
 </div>
 
 
@@ -487,14 +508,15 @@ id="rendemenFinal"
 <script>
 
 
-/* =========================
+/* ============================
    TAMBAH BARIS
-========================= */
+============================ */
 
 function tambahBaris(){
 
 const tabel =
 document.getElementById("tabelKayu");
+
 
 const baris =
 document.createElement("tr");
@@ -611,6 +633,7 @@ hitung();
 
 `;
 
+
 tabel.appendChild(baris);
 
 hitung();
@@ -619,9 +642,9 @@ hitung();
 
 
 
-/* =========================
-   BACA ANGKA
-========================= */
+/* ============================
+   ANGKA
+============================ */
 
 function angka(nilai){
 
@@ -631,9 +654,24 @@ return parseFloat(nilai) || 0;
 
 
 
-/* =========================
-   FORMAT ANGKA
-========================= */
+/* ============================
+   ROUND 6 DESIMAL
+   MENYAMAI EXCEL
+============================ */
+
+function round6(nilai){
+
+return Math.round(
+(nilai + Number.EPSILON) * 1000000
+) / 1000000;
+
+}
+
+
+
+/* ============================
+   FORMAT
+============================ */
 
 function formatAngka(nilai,desimal=6){
 
@@ -649,14 +687,15 @@ maximumFractionDigits:desimal
 
 
 
-/* =========================
-   UBAH BATANG / BENDEL
-========================= */
+/* ============================
+   SATUAN
+============================ */
 
 function ubahSatuan(select){
 
 const baris =
 select.closest("tr");
+
 
 const inputIsi =
 baris.querySelector(".isi");
@@ -669,7 +708,6 @@ inputIsi.disabled = false;
 inputIsi.placeholder = "Batang";
 
 }
-
 else{
 
 inputIsi.disabled = true;
@@ -684,9 +722,9 @@ inputIsi.placeholder = "-";
 
 
 
-/* =========================
+/* ============================
    HITUNG
-========================= */
+============================ */
 
 function hitung(){
 
@@ -705,18 +743,15 @@ document.getElementById("rendemen").value
 );
 
 
-
 /* HASIL OLAH AWAL */
 
 const hasilAwal =
 volumeLog * rendemen / 100;
 
 
-
 /* TOTAL TAMBAHAN */
 
 let totalTambahan = 0;
-
 
 
 const baris =
@@ -753,8 +788,7 @@ tr.querySelector(".jumlah").value
 
 
 const satuan =
-tr.querySelector(".satuan").value
-;
+tr.querySelector(".satuan").value;
 
 
 const isi =
@@ -764,38 +798,72 @@ tr.querySelector(".isi").value
 
 
 
-let jumlahBatang =
-jumlah;
+/*
+Jika Batang:
+10 = 10 batang
+
+Jika Bendel:
+3 bendel × 25 batang
+= 75 batang
+*/
+
+let jumlahSatuan = jumlah;
 
 
 if(satuan === "Bendel"){
 
-jumlahBatang =
+jumlahSatuan =
 jumlah * isi;
 
 }
 
 
 
-/* VOLUME */
+/*
+RUMUS 1 BATANG
 
-const volume =
+ROUND(
+(T × L × P)
+/
+1.000.000.000
+;
+6
+)
+*/
+
+const volumeSatuBatang =
+round6(
 (
 tebal *
 lebar *
-panjang *
-jumlahBatang
-) / 1000000000;
+panjang
+) /
+1000000000
+);
 
 
+/*
+VOLUME BARIS
+
+Volume satu batang
+× jumlah satuan
+*/
+
+const volumeBaris =
+volumeSatuBatang *
+jumlahSatuan;
+
+
+/* TAMPILKAN */
 
 tr.querySelector(".volume")
 .textContent =
-formatAngka(volume);
+formatAngka(volumeBaris);
 
 
+/* TOTAL */
 
-totalTambahan += volume;
+totalTambahan += volumeBaris;
 
 });
 
@@ -804,7 +872,8 @@ totalTambahan += volume;
 /* HASIL FINAL */
 
 const hasilFinal =
-hasilAwal + totalTambahan;
+hasilAwal +
+totalTambahan;
 
 
 
@@ -816,8 +885,10 @@ let rendemenFinal = 0;
 if(volumeLog > 0){
 
 rendemenFinal =
+(
 hasilFinal /
-volumeLog *
+volumeLog
+) *
 100;
 
 }
@@ -860,9 +931,9 @@ rendemenFinal,
 
 
 
-/* =========================
+/* ============================
    INPUT DATA AWAL
-========================= */
+============================ */
 
 document
 .getElementById("volumeLog")
@@ -880,10 +951,7 @@ hitung
 );
 
 
-
-/* =========================
-   BARIS PERTAMA
-========================= */
+/* BARIS PERTAMA */
 
 tambahBaris();
 
