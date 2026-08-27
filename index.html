@@ -235,21 +235,21 @@ th.mutu-col{
     margin-top:10px;
 }
 
-.new-entry-button{
-    background:#d97706;
+.delete-all-button{
+    background:#c62828;
     margin-top:10px;
 }
 
-.delete-all-button{
-    background:#c62828;
+.new-entry-button{
+    background:#1565c0;
     margin-top:10px;
 }
 
 .add-button:hover{background:#425b29}
 .download-button:hover{background:#185c37}
 .save-button:hover{background:#244721}
-.new-entry-button:hover{background:#b45309}
 .delete-all-button:hover{background:#a91f1f}
+.new-entry-button:hover{background:#0d47a1}
 
 .result-grid{
     display:grid;
@@ -396,6 +396,7 @@ th.mutu-col{
 .history-buttons{
     display:flex;
     gap:6px;
+    flex-wrap:wrap;
 }
 
 .history-buttons button{
@@ -495,10 +496,6 @@ th.mutu-col{
     .final .result-value{
         font-size:15px;
     }
-
-    .history-buttons{
-        flex-wrap:wrap;
-    }
 }
 </style>
 </head>
@@ -520,62 +517,89 @@ th.mutu-col{
 </div>
 
 <div class="mode-box">
-    <button id="btnTambahan" class="mode-btn active"
+
+    <button id="btnTambahan"
+        class="mode-btn active"
         onclick="ubahMode('tambahan')">
         🔵 TAMBAHAN
     </button>
 
-    <button id="btnEntry" class="mode-btn"
+    <button id="btnEntry"
+        class="mode-btn"
         onclick="ubahMode('entry')">
         🟢 ENTRY
     </button>
+
 </div>
 
 <!-- DATA SAAT INI -->
 
 <div class="card" id="dataSaatIni">
 
-    <div class="card-title">Data Saat Ini</div>
+    <div class="card-title">
+        Data Saat Ini
+    </div>
 
     <div class="input-grid">
 
         <div class="field">
-            <label>HASIL SAAT INI (m³)</label>
-            <input id="hasilSaatIni"
+
+            <label>
+                HASIL SAAT INI (m³)
+            </label>
+
+            <input
+                id="hasilSaatIni"
                 type="number"
                 step="0.000001"
                 min="0"
                 placeholder="Contoh: 1.673063"
                 oninput="hitung()">
+
         </div>
 
         <div class="field">
-            <label>RENDEMEN SAAT INI (%)</label>
-            <input id="rendemenSaatIni"
+
+            <label>
+                RENDEMEN SAAT INI (%)
+            </label>
+
+            <input
+                id="rendemenSaatIni"
                 type="number"
                 step="0.01"
                 min="0"
                 placeholder="Contoh: 25"
                 oninput="hitung()">
+
         </div>
 
     </div>
+
 </div>
 
 <!-- LOG -->
 
 <div class="card" id="entryLog">
 
-    <div class="card-title">Data Log</div>
+    <div class="card-title">
+        Data Log
+    </div>
 
     <div class="field">
-        <label>JUMLAH LOG (m³)</label>
-        <input id="jumlahLog"
+
+        <label>
+            JUMLAH LOG (m³)
+        </label>
+
+        <input
+            id="jumlahLog"
             type="number"
             step="0.001"
             min="0"
             placeholder="Contoh: 7.125"
             oninput="hitungEntry()">
+
     </div>
 
 </div>
@@ -584,24 +608,59 @@ th.mutu-col{
 
 <div class="card" id="entryNamaCard">
 
-    <div class="card-title">Produk Entry</div>
+    <div class="card-title">
+        Produk Entry
+    </div>
 
     <div class="entry-nama-box">
 
-        <label>PILIH NAMA</label>
+        <label>
+            PILIH NAMA
+        </label>
 
-        <select id="pilihNama" onchange="buatTabelEntry()">
+        <select
+            id="pilihNama"
+            onchange="buatTabelEntry()">
 
-            <option value="">-- Pilih Nama --</option>
-            <option value="DECKING">DECKING</option>
-            <option value="FLOORING">FLOORING</option>
-            <option value="LONGSTRIP">LONGSTRIP</option>
-            <option value="PB PANJANG">PB PANJANG</option>
-            <option value="PB PENDEK">PB PENDEK</option>
-            <option value="P STOCK">P STOCK</option>
-            <option value="FJL">FJL</option>
-            <option value="RENG">RENG</option>
-            <option value="LIST">LIST</option>
+            <option value="">
+                -- Pilih Nama --
+            </option>
+
+            <option value="DECKING">
+                DECKING
+            </option>
+
+            <option value="FLOORING">
+                FLOORING
+            </option>
+
+            <option value="LONGSTRIP">
+                LONGSTRIP
+            </option>
+
+            <option value="PB PANJANG">
+                PB PANJANG
+            </option>
+
+            <option value="PB PENDEK">
+                PB PENDEK
+            </option>
+
+            <option value="P STOCK">
+                P STOCK
+            </option>
+
+            <option value="FJL">
+                FJL
+            </option>
+
+            <option value="RENG">
+                RENG
+            </option>
+
+            <option value="LIST">
+                LIST
+            </option>
 
         </select>
 
@@ -622,13 +681,31 @@ th.mutu-col{
         <table>
 
             <thead>
+
                 <tr>
-                    <th class="ukuran-col">UKURAN</th>
-                    <th class="mutu-col" id="thP">P</th>
-                    <th class="mutu-col" id="thD">D</th>
-                    <th class="mutu-col" id="thT">T</th>
-                    <th>VOLUME</th>
+
+                    <th class="ukuran-col">
+                        UKURAN
+                    </th>
+
+                    <th class="mutu-col" id="thP">
+                        P
+                    </th>
+
+                    <th class="mutu-col" id="thD">
+                        D
+                    </th>
+
+                    <th class="mutu-col" id="thT">
+                        T
+                    </th>
+
+                    <th>
+                        VOLUME
+                    </th>
+
                 </tr>
+
             </thead>
 
             <tbody id="tabelEntry"></tbody>
@@ -637,19 +714,28 @@ th.mutu-col{
 
     </div>
 
-    <button class="new-entry-button"
-        onclick="inputBaru()">
-        🔄 INPUT BARU
-    </button>
-
-    <button class="save-button"
+    <button
+        class="save-button"
         onclick="simpanEntryTanggal()">
+
         💾 SIMPAN ENTRY
+
     </button>
 
-    <button class="download-button"
+    <button
+        class="new-entry-button"
+        onclick="inputDataBaru()">
+
+        🆕 INPUT DATA BARU
+
+    </button>
+
+    <button
+        class="download-button"
         onclick="downloadExcelEntry()">
+
         📥 DOWNLOAD EXCEL ENTRY
+
     </button>
 
 </div>
@@ -659,7 +745,7 @@ th.mutu-col{
 <div class="card" id="ringkasanEntry">
 
     <div class="card-title">
-        Ringkasan Ukuran yang Diisi
+        Rangkuman Ukuran yang Diisi
     </div>
 
     <div class="table-wrap">
@@ -667,13 +753,31 @@ th.mutu-col{
         <table class="summary-table">
 
             <thead>
+
                 <tr>
-                    <th>Nama</th>
-                    <th>Mutu</th>
-                    <th>Ukuran</th>
-                    <th>Jumlah</th>
-                    <th>Volume</th>
+
+                    <th>
+                        Nama
+                    </th>
+
+                    <th>
+                        Mutu
+                    </th>
+
+                    <th>
+                        Ukuran
+                    </th>
+
+                    <th>
+                        Jumlah
+                    </th>
+
+                    <th>
+                        Volume
+                    </th>
+
                 </tr>
+
             </thead>
 
             <tbody id="tabelRingkasan"></tbody>
@@ -697,7 +801,9 @@ th.mutu-col{
         <table>
 
             <thead>
+
                 <tr>
+
                     <th>Nama</th>
                     <th>Mutu</th>
                     <th>Tebal</th>
@@ -707,7 +813,9 @@ th.mutu-col{
                     <th>Isi/<br>Bendel</th>
                     <th>Volume</th>
                     <th></th>
+
                 </tr>
+
             </thead>
 
             <tbody id="tabelKayu"></tbody>
@@ -717,10 +825,15 @@ th.mutu-col{
     </div>
 
     <div style="margin-top:12px;">
-        <button class="add-button"
+
+        <button
+            class="add-button"
             onclick="tambahBarisDanScroll()">
+
             ＋ Tambah Ukuran
+
         </button>
+
     </div>
 
 </div>
@@ -729,29 +842,58 @@ th.mutu-col{
 
 <div class="card" id="hasilTambahan">
 
-    <div class="card-title">Hasil Final</div>
+    <div class="card-title">
+        Hasil Final
+    </div>
 
     <div class="result-grid">
 
         <div class="result">
-            <div class="result-title">VOLUME TAMBAHAN</div>
-            <div class="result-value" id="totalTambahan">
-                0,000000 m³
+
+            <div class="result-title">
+                VOLUME TAMBAHAN
             </div>
+
+            <div
+                class="result-value"
+                id="totalTambahan">
+
+                0,000000 m³
+
+            </div>
+
         </div>
 
         <div class="result final">
-            <div class="result-title">HASIL VOLUME FINAL</div>
-            <div class="result-value" id="hasilFinal">
-                0,000000 m³
+
+            <div class="result-title">
+                HASIL VOLUME FINAL
             </div>
+
+            <div
+                class="result-value"
+                id="hasilFinal">
+
+                0,000000 m³
+
+            </div>
+
         </div>
 
         <div class="result final">
-            <div class="result-title">RENDEMEN FINAL</div>
-            <div class="result-value" id="rendemenFinal">
+
+            <div class="result-title">
+                RENDEMEN FINAL
+            </div>
+
+            <div
+                class="result-value"
+                id="rendemenFinal">
+
                 0,00 %
+
             </div>
+
         </div>
 
     </div>
@@ -762,29 +904,58 @@ th.mutu-col{
 
 <div class="card" id="hasilEntry">
 
-    <div class="card-title">Hasil Rendemen</div>
+    <div class="card-title">
+        Hasil Rendemen
+    </div>
 
     <div class="result-grid">
 
         <div class="result">
-            <div class="result-title">VOLUME RST</div>
-            <div class="result-value" id="volumeRST">
-                0,000000 m³
+
+            <div class="result-title">
+                VOLUME RST
             </div>
+
+            <div
+                class="result-value"
+                id="volumeRST">
+
+                0,000000 m³
+
+            </div>
+
         </div>
 
         <div class="result">
-            <div class="result-title">VOLUME LOG</div>
-            <div class="result-value" id="volumeLog">
-                0,000 m³
+
+            <div class="result-title">
+                VOLUME LOG
             </div>
+
+            <div
+                class="result-value"
+                id="volumeLog">
+
+                0,000 m³
+
+            </div>
+
         </div>
 
         <div class="result final">
-            <div class="result-title">RENDEMEN</div>
-            <div class="result-value" id="rendemenEntry">
-                0,00 %
+
+            <div class="result-title">
+                RENDEMEN
             </div>
+
+            <div
+                class="result-value"
+                id="rendemenEntry">
+
+                0,00 %
+
+            </div>
+
         </div>
 
     </div>
@@ -801,9 +972,12 @@ th.mutu-col{
 
     <div id="historyList"></div>
 
-    <button class="delete-all-button"
+    <button
+        class="delete-all-button"
         onclick="hapusSeluruhHistory()">
+
         🗑️ HAPUS SELURUH DATA
+
     </button>
 
 </div>
@@ -814,7 +988,7 @@ th.mutu-col{
 
 /* =====================================================
    ATURAN TAMBAHAN
-   TETAP SAMA
+   TIDAK DIUBAH
 ===================================================== */
 
 const aturan = [
@@ -854,8 +1028,7 @@ const aturan = [
 
     {nama:"FLOORING",t:[15],l:[100],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[15],l:[100],min:600,max:850,isi:1},
-    {nama:"FLOORING",t:[15],l:[450],min:450,max:550,isi:10},
-
+    {nama:"FLOORING",t:[15],l:[100],min:450,max:550,isi:10},
     {nama:"FLOORING",t:[15],l:[100],min:300,max:400,isi:10},
 
     {nama:"FLOORING",t:[15],l:[81],min:500,max:550,isi:10},
@@ -942,10 +1115,6 @@ const ukuranEntry = [
 ];
 
 
-/* =====================================================
-   RANGE
-===================================================== */
-
 function buatRangeUkuran(
     nama,
     tebal,
@@ -954,6 +1123,7 @@ function buatRangeUkuran(
     akhir,
     step=50
 ){
+
     const hasil=[];
 
     for(
@@ -961,12 +1131,14 @@ function buatRangeUkuran(
         panjang<=akhir;
         panjang+=step
     ){
+
         hasil.push({
             nama,
             tebal,
             lebar,
             panjang
         });
+
     }
 
     return hasil;
@@ -981,12 +1153,16 @@ let modeAktif="tambahan";
 
 let dataEntry =
     JSON.parse(
-        localStorage.getItem("dataEntryRendemen") || "{}"
+        localStorage.getItem(
+            "dataEntryRendemen"
+        ) || "{}"
     );
 
 let historyEntry =
     JSON.parse(
-        localStorage.getItem("historyEntryRendemen") || "[]"
+        localStorage.getItem(
+            "historyEntryRendemen"
+        ) || "[]"
     );
 
 
@@ -995,35 +1171,52 @@ let historyEntry =
 ===================================================== */
 
 function round6(nilai){
+
     return Math.round(
-        (nilai + Number.EPSILON) * 1000000
+        (nilai + Number.EPSILON) *
+        1000000
     ) / 1000000;
+
 }
 
-function formatAngka(nilai,desimal=6){
-    return Number(nilai || 0).toLocaleString(
+
+function formatAngka(
+    nilai,
+    desimal=6
+){
+
+    return Number(
+        nilai || 0
+    ).toLocaleString(
         "id-ID",
         {
             minimumFractionDigits:desimal,
             maximumFractionDigits:desimal
         }
     );
+
 }
+
 
 function angka(nilai){
+
     return parseFloat(nilai) || 0;
+
 }
 
+
 function simpanDataEntry(){
+
     localStorage.setItem(
         "dataEntryRendemen",
         JSON.stringify(dataEntry)
     );
+
 }
 
 
 /* =====================================================
-   DATA ENTRY
+   DATA ENTRY PER NAMA
 ===================================================== */
 
 function ambilDataNama(nama){
@@ -1033,18 +1226,20 @@ function ambilDataNama(nama){
     }
 
     return dataEntry[nama];
+
 }
 
 
-/*
-   Simpan SELURUH tabel yang sedang tampil.
-   Nilai disimpan persis sesuai input.
-*/
+/* =====================================================
+   SIMPAN INPUT AKTIF
+===================================================== */
 
 function simpanInputSaatIni(){
 
-    const nama =
-        document.getElementById("pilihNama").value;
+    const nama=
+        document.getElementById(
+            "pilihNama"
+        ).value;
 
     if(!nama) return;
 
@@ -1052,37 +1247,57 @@ function simpanInputSaatIni(){
         dataEntry[nama]={};
     }
 
-    document.querySelectorAll("#tabelEntry tr")
+    document
+    .querySelectorAll(
+        "#tabelEntry tr"
+    )
     .forEach(row=>{
 
-        const key =
-            row.dataset.tebal+"x"+
-            row.dataset.lebar+"x"+
+        const key=
+            row.dataset.tebal+
+            "x"+
+            row.dataset.lebar+
+            "x"+
             row.dataset.panjang;
-
-        const pEl=row.querySelector(".qty-p");
-        const dEl=row.querySelector(".qty-d");
-        const tEl=row.querySelector(".qty-t");
-
-        const p=pEl ? angka(pEl.value) : 0;
-        const d=dEl ? angka(dEl.value) : 0;
-        const t=tEl ? angka(tEl.value) : 0;
 
         dataEntry[nama][key]={
 
-            tebal:Number(row.dataset.tebal),
-            lebar:Number(row.dataset.lebar),
-            panjang:Number(row.dataset.panjang),
+            tebal:Number(
+                row.dataset.tebal
+            ),
 
-            p:p,
-            d:d,
-            t:t
+            lebar:Number(
+                row.dataset.lebar
+            ),
+
+            panjang:Number(
+                row.dataset.panjang
+            ),
+
+            p:angka(
+                row.querySelector(
+                    ".qty-p"
+                )?.value
+            ),
+
+            d:angka(
+                row.querySelector(
+                    ".qty-d"
+                )?.value
+            ),
+
+            t:angka(
+                row.querySelector(
+                    ".qty-t"
+                )?.value
+            )
 
         };
 
     });
 
     simpanDataEntry();
+
 }
 
 
@@ -1094,15 +1309,20 @@ function sortirUkuranEntry(data){
 
     return data.sort((a,b)=>{
 
-        if(a.tebal!==b.tebal)
+        if(
+            a.tebal!==b.tebal
+        )
             return b.tebal-a.tebal;
 
-        if(a.lebar!==b.lebar)
+        if(
+            a.lebar!==b.lebar
+        )
             return b.lebar-a.lebar;
 
         return a.panjang-b.panjang;
 
     });
+
 }
 
 
@@ -1113,21 +1333,30 @@ function sortirUkuranEntry(data){
 function buatTabelEntry(){
 
     /*
-       Simpan nama sebelumnya sebelum mengganti tabel.
+       Simpan dulu input dari nama sebelumnya.
     */
+
     simpanInputSaatIni();
 
-    const nama =
-        document.getElementById("pilihNama").value;
+    const nama=
+        document.getElementById(
+            "pilihNama"
+        ).value;
 
-    const tbody =
-        document.getElementById("tabelEntry");
+    const tbody=
+        document.getElementById(
+            "tabelEntry"
+        );
 
-    const tableCard =
-        document.getElementById("entryTableCard");
+    const tableCard=
+        document.getElementById(
+            "entryTableCard"
+        );
 
-    const ringkasan =
-        document.getElementById("ringkasanEntry");
+    const ringkasan=
+        document.getElementById(
+            "ringkasanEntry"
+        );
 
     tbody.innerHTML="";
 
@@ -1137,158 +1366,197 @@ function buatTabelEntry(){
         ringkasan.style.display="none";
 
         return;
+
     }
 
     tableCard.style.display="block";
     ringkasan.style.display="block";
 
-    const pakaiT =
+    document.getElementById(
+        "judulTabel"
+    ).textContent=
+        "Data RST - "+nama;
+
+    const pakaiT=
         nama==="FJL" ||
         nama==="RENG" ||
         nama==="LIST";
 
-    document.getElementById("thP").style.display =
-        pakaiT ? "none":"table-cell";
+    document.getElementById(
+        "thP"
+    ).style.display=
+        pakaiT
+        ? "none"
+        : "table-cell";
 
-    document.getElementById("thD").style.display =
-        pakaiT ? "none":"table-cell";
+    document.getElementById(
+        "thD"
+    ).style.display=
+        pakaiT
+        ? "none"
+        : "table-cell";
 
-    document.getElementById("thT").style.display =
+    document.getElementById(
+        "thT"
+    ).style.display=
         "table-cell";
 
-    let data =
+    let data=
         ukuranEntry.filter(
             item=>item.nama===nama
         );
 
-    data=sortirUkuranEntry(data);
+    data=
+        sortirUkuranEntry(data);
 
-    const saved =
+    const saved=
         ambilDataNama(nama);
 
-    data.forEach((item,index)=>{
+    data.forEach(
+        (item,index)=>{
 
-        let separator="";
+            let separator="";
 
-        if(index>0){
+            if(index>0){
 
-            const sebelumnya=data[index-1];
+                const sebelumnya=
+                    data[index-1];
 
-            if(
-                sebelumnya.tebal!==item.tebal
-            ){
-                separator="separator-tebal";
+                if(
+                    sebelumnya.tebal!==
+                    item.tebal
+                ){
+
+                    separator=
+                        "separator-tebal";
+
+                }
+                else if(
+                    sebelumnya.lebar!==
+                    item.lebar
+                ){
+
+                    separator=
+                        "separator-lebar";
+
+                }
+
             }
-            else if(
-                sebelumnya.lebar!==item.lebar
-            ){
-                separator="separator-lebar";
-            }
+
+            const key=
+                item.tebal+
+                "x"+
+                item.lebar+
+                "x"+
+                item.panjang;
+
+            const old=
+                saved[key] || {};
+
+            const tr=
+                document.createElement(
+                    "tr"
+                );
+
+            tr.innerHTML=`
+
+                <td>
+                    <div class="ukuran">
+                        ${item.tebal}
+                        ×
+                        ${item.lebar}
+                        ×
+                        ${item.panjang}
+                    </div>
+                </td>
+
+                <td class="${
+                    pakaiT
+                    ? "t-hidden"
+                    : ""
+                }">
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="qty-input qty-p"
+                        value="${
+                            old.p
+                            ? old.p
+                            : ""
+                        }"
+                        oninput="hitungEntry()">
+
+                </td>
+
+                <td class="${
+                    pakaiT
+                    ? "t-hidden"
+                    : ""
+                }">
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="qty-input qty-d"
+                        value="${
+                            old.d
+                            ? old.d
+                            : ""
+                        }"
+                        oninput="hitungEntry()">
+
+                </td>
+
+                <td>
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="qty-input qty-t"
+                        value="${
+                            old.t
+                            ? old.t
+                            : ""
+                        }"
+                        oninput="hitungEntry()">
+
+                </td>
+
+                <td>
+
+                    <div class="volume-entry">
+                        0,000000
+                    </div>
+
+                </td>
+
+            `;
+
+            tr.dataset.tebal=
+                item.tebal;
+
+            tr.dataset.lebar=
+                item.lebar;
+
+            tr.dataset.panjang=
+                item.panjang;
+
+            if(separator)
+                tr.classList.add(
+                    separator
+                );
+
+            tbody.appendChild(tr);
+
         }
-
-        const key =
-            item.tebal+"x"+
-            item.lebar+"x"+
-            item.panjang;
-
-        const old =
-            saved[key] || {};
-
-        /*
-           Jangan pakai || "" untuk angka,
-           supaya angka 0 tidak bikin data aneh.
-        */
-
-        const nilaiP =
-            old.p !== undefined && old.p !== 0
-            ? old.p
-            : "";
-
-        const nilaiD =
-            old.d !== undefined && old.d !== 0
-            ? old.d
-            : "";
-
-        const nilaiT =
-            old.t !== undefined && old.t !== 0
-            ? old.t
-            : "";
-
-        const tr =
-            document.createElement("tr");
-
-        if(separator)
-            tr.classList.add(separator);
-
-        tr.innerHTML=`
-
-            <td>
-                <div class="ukuran">
-                    ${item.tebal} × ${item.lebar} × ${item.panjang}
-                </div>
-            </td>
-
-            <td class="${pakaiT?"t-hidden":""}">
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    class="qty-input qty-p"
-                    value="${nilaiP}"
-                    oninput="hitungEntry()">
-            </td>
-
-            <td class="${pakaiT?"t-hidden":""}">
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    class="qty-input qty-d"
-                    value="${nilaiD}"
-                    oninput="hitungEntry()">
-            </td>
-
-            <td>
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    class="qty-input qty-t"
-                    value="${nilaiT}"
-                    oninput="hitungEntry()">
-            </td>
-
-            <td>
-                <div class="volume-entry">
-                    0,000000
-                </div>
-            </td>
-
-        `;
-
-        tr.dataset.tebal=item.tebal;
-        tr.dataset.lebar=item.lebar;
-        tr.dataset.panjang=item.panjang;
-
-        /*
-           Autosave langsung setiap kali user mengetik.
-        */
-
-        tr.querySelectorAll("input")
-        .forEach(input=>{
-
-            input.addEventListener(
-                "change",
-                simpanInputSaatIni
-            );
-
-        });
-
-        tbody.appendChild(tr);
-
-    });
+    );
 
     hitungEntry();
+
 }
 
 
@@ -1300,39 +1568,72 @@ function hitungEntry(){
 
     let totalVolume=0;
 
-    const rows =
-        document.querySelectorAll("#tabelEntry tr");
+    const rows=
+        document.querySelectorAll(
+            "#tabelEntry tr"
+        );
 
-    const nama =
-        document.getElementById("pilihNama").value;
+    const nama=
+        document.getElementById(
+            "pilihNama"
+        ).value;
 
     rows.forEach(row=>{
 
-        const tebal=Number(row.dataset.tebal);
-        const lebar=Number(row.dataset.lebar);
-        const panjang=Number(row.dataset.panjang);
+        const tebal=
+            Number(
+                row.dataset.tebal
+            );
 
-        const pEl=row.querySelector(".qty-p");
-        const dEl=row.querySelector(".qty-d");
-        const tEl=row.querySelector(".qty-t");
+        const lebar=
+            Number(
+                row.dataset.lebar
+            );
 
-        const p=pEl ? angka(pEl.value) : 0;
-        const d=dEl ? angka(dEl.value) : 0;
-        const t=tEl ? angka(tEl.value) : 0;
+        const panjang=
+            Number(
+                row.dataset.panjang
+            );
 
-        const jumlah=p+d+t;
+        const p=
+            angka(
+                row.querySelector(
+                    ".qty-p"
+                )?.value
+            );
 
-        const volumeElement =
-            row.querySelector(".volume-entry");
+        const d=
+            angka(
+                row.querySelector(
+                    ".qty-d"
+                )?.value
+            );
+
+        const t=
+            angka(
+                row.querySelector(
+                    ".qty-t"
+                )?.value
+            );
+
+        const jumlah=
+            p+d+t;
+
+        const volumeElement=
+            row.querySelector(
+                ".volume-entry"
+            );
 
         if(jumlah<=0){
 
-            volumeElement.textContent="0,000000";
+            volumeElement.textContent=
+                "0,000000";
 
             return;
+
         }
 
-        const volume =
+        const volume=
             round6(
                 tebal*
                 lebar*
@@ -1341,34 +1642,23 @@ function hitungEntry(){
                 1000000000
             );
 
-        volumeElement.textContent =
+        volumeElement.textContent=
             formatAngka(volume);
 
         totalVolume+=volume;
 
     });
 
-    /*
-       Autosave setelah perhitungan.
-    */
-
     if(nama){
         simpanInputSaatIni();
     }
 
-    const jumlahLog =
+    const jumlahLog=
         angka(
-            document.getElementById("jumlahLog").value
+            document.getElementById(
+                "jumlahLog"
+            ).value
         );
-
-    /*
-       Simpan jumlah log juga agar refresh aman.
-    */
-
-    localStorage.setItem(
-        "jumlahLogRendemen",
-        document.getElementById("jumlahLog").value
-    );
 
     let rendemen=0;
 
@@ -1378,18 +1668,35 @@ function hitungEntry(){
             totalVolume/
             jumlahLog*
             100;
+
     }
 
-    document.getElementById("volumeRST").textContent =
-        formatAngka(totalVolume)+" m³";
+    document.getElementById(
+        "volumeRST"
+    ).textContent=
+        formatAngka(totalVolume)+
+        " m³";
 
-    document.getElementById("volumeLog").textContent =
-        formatAngka(jumlahLog,3)+" m³";
+    document.getElementById(
+        "volumeLog"
+    ).textContent=
+        formatAngka(
+            jumlahLog,
+            3
+        )+
+        " m³";
 
-    document.getElementById("rendemenEntry").textContent =
-        formatAngka(rendemen,2)+" %";
+    document.getElementById(
+        "rendemenEntry"
+    ).textContent=
+        formatAngka(
+            rendemen,
+            2
+        )+
+        " %";
 
     buatRingkasan();
+
 }
 
 
@@ -1399,14 +1706,17 @@ function hitungEntry(){
 
 function buatRingkasan(){
 
-    const tbody =
-        document.getElementById("tabelRingkasan");
+    const tbody=
+        document.getElementById(
+            "tabelRingkasan"
+        );
 
     tbody.innerHTML="";
 
     let totalSemua=0;
 
     const namaOrder=[
+
         "DECKING",
         "FLOORING",
         "LONGSTRIP",
@@ -1416,95 +1726,108 @@ function buatRingkasan(){
         "FJL",
         "RENG",
         "LIST"
+
     ];
 
-    namaOrder.forEach(nama=>{
+    namaOrder.forEach(
+        nama=>{
 
-        const saved=dataEntry[nama];
+            const saved=
+                dataEntry[nama];
 
-        if(!saved) return;
+            if(!saved) return;
 
-        const ukuranData=
             Object.values(saved)
-            .sort((a,b)=>{
+            .forEach(item=>{
 
-                if(a.tebal!==b.tebal)
-                    return b.tebal-a.tebal;
+                const p=
+                    angka(item.p);
 
-                if(a.lebar!==b.lebar)
-                    return b.lebar-a.lebar;
+                const d=
+                    angka(item.d);
 
-                return a.panjang-b.panjang;
+                const t=
+                    angka(item.t);
+
+                const jumlah=
+                    p+d+t;
+
+                if(jumlah<=0)
+                    return;
+
+                const volume=
+                    round6(
+                        item.tebal*
+                        item.lebar*
+                        item.panjang*
+                        jumlah/
+                        1000000000
+                    );
+
+                totalSemua+=volume;
+
+                /*
+                   MUTU HANYA MENUNJUKKAN
+                   APA YANG BENAR-BENAR DIISI.
+
+                   Contoh:
+                   P saja -> P
+                   D saja -> D
+                   T saja -> T
+                   P dan D -> P, D
+                */
+
+                const mutu=[];
+
+                if(p>0)
+                    mutu.push("P");
+
+                if(d>0)
+                    mutu.push("D");
+
+                if(t>0)
+                    mutu.push("T");
+
+                const tr=
+                    document.createElement(
+                        "tr"
+                    );
+
+                tr.innerHTML=`
+
+                    <td>
+                        ${nama}
+                    </td>
+
+                    <td>
+                        ${mutu.join(" / ")}
+                    </td>
+
+                    <td>
+                        ${item.tebal}
+                        ×
+                        ${item.lebar}
+                        ×
+                        ${item.panjang}
+                    </td>
+
+                    <td>
+                        ${jumlah}
+                    </td>
+
+                    <td>
+                        ${formatAngka(volume)}
+                        m³
+                    </td>
+
+                `;
+
+                tbody.appendChild(tr);
 
             });
 
-        ukuranData.forEach(item=>{
-
-            const p=angka(item.p);
-            const d=angka(item.d);
-            const t=angka(item.t);
-
-            const jumlah=p+d+t;
-
-            if(jumlah<=0) return;
-
-            const volume=
-                round6(
-                    item.tebal*
-                    item.lebar*
-                    item.panjang*
-                    jumlah/
-                    1000000000
-                );
-
-            totalSemua+=volume;
-
-            /*
-               MUTU mengikuti persis apa yang diinput.
-               Tidak dibuat menjadi "P: 12".
-            */
-
-            const mutu=[];
-
-            if(p>0){
-                mutu.push("P");
-            }
-
-            if(d>0){
-                mutu.push("D");
-            }
-
-            if(t>0){
-                mutu.push("T");
-            }
-
-            const tr=document.createElement("tr");
-
-            tr.innerHTML=`
-
-                <td>${nama}</td>
-
-                <td>${mutu.join(" / ")}</td>
-
-                <td>
-                    ${item.tebal} ×
-                    ${item.lebar} ×
-                    ${item.panjang}
-                </td>
-
-                <td>${jumlah}</td>
-
-                <td>
-                    ${formatAngka(volume)} m³
-                </td>
-
-            `;
-
-            tbody.appendChild(tr);
-
-        });
-
-    });
+        }
+    );
 
     if(!tbody.children.length){
 
@@ -1519,11 +1842,16 @@ function buatRingkasan(){
         `;
 
         return;
+
     }
 
-    const total=document.createElement("tr");
+    const total=
+        document.createElement(
+            "tr"
+        );
 
-    total.className="summary-total";
+    total.className=
+        "summary-total";
 
     total.innerHTML=`
 
@@ -1532,70 +1860,14 @@ function buatRingkasan(){
         </td>
 
         <td>
-            ${formatAngka(totalSemua)} m³
+            ${formatAngka(totalSemua)}
+            m³
         </td>
 
     `;
 
     tbody.appendChild(total);
-}
 
-
-/* =====================================================
-   INPUT BARU
-===================================================== */
-
-function inputBaru(){
-
-    const yakin=
-        confirm(
-            "Mulai INPUT BARU?\n\n"+
-            "Data Entry yang sedang aktif akan dikosongkan.\n"+
-            "History yang sudah disimpan TIDAK akan dihapus."
-        );
-
-    if(!yakin) return;
-
-    /*
-       Hapus data ENTRY aktif.
-       History tetap aman.
-    */
-
-    localStorage.removeItem(
-        "dataEntryRendemen"
-    );
-
-    localStorage.removeItem(
-        "jumlahLogRendemen"
-    );
-
-    dataEntry={};
-
-    document.getElementById("jumlahLog").value="";
-
-    document.getElementById("pilihNama").value="";
-
-    document.getElementById("tabelEntry").innerHTML="";
-
-    document.getElementById("tabelRingkasan").innerHTML="";
-
-    document.getElementById("entryTableCard").style.display="none";
-
-    document.getElementById("ringkasanEntry").style.display="none";
-
-    document.getElementById("volumeRST").textContent=
-        "0,000000 m³";
-
-    document.getElementById("volumeLog").textContent=
-        "0,000 m³";
-
-    document.getElementById("rendemenEntry").textContent=
-        "0,00 %";
-
-    alert(
-        "Input baru siap digunakan.\n"+
-        "History lama tetap tersimpan."
-    );
 }
 
 
@@ -1606,83 +1878,132 @@ function inputBaru(){
 
 function buatBarisTambahan(data={}){
 
-    const tbody =
-        document.getElementById("tabelKayu");
+    const tbody=
+        document.getElementById(
+            "tabelKayu"
+        );
 
-    const tr=document.createElement("tr");
+    const tr=
+        document.createElement(
+            "tr"
+        );
 
     tr.innerHTML=`
 
         <td>
-            <div class="nama belum">-</div>
+            <div class="nama belum">
+                -
+            </div>
         </td>
 
         <td>
-            <select class="mutu" onchange="hitungTambahan()">
+
+            <select
+                class="mutu"
+                onchange="hitungTambahan()">
+
                 <option value="">-</option>
                 <option value="P">P</option>
                 <option value="D">D</option>
                 <option value="T">T</option>
+
             </select>
+
         </td>
 
         <td>
-            <input type="number"
+
+            <input
+                type="number"
                 class="tebal"
                 min="0"
                 step="1"
-                value="${data.tebal||""}"
+                value="${
+                    data.tebal||""
+                }"
                 oninput="hitungTambahan()">
+
         </td>
 
         <td>
-            <input type="number"
+
+            <input
+                type="number"
                 class="lebar"
                 min="0"
                 step="1"
-                value="${data.lebar||""}"
+                value="${
+                    data.lebar||""
+                }"
                 oninput="hitungTambahan()">
+
         </td>
 
         <td>
-            <input type="number"
+
+            <input
+                type="number"
                 class="panjang"
                 min="0"
                 step="1"
-                value="${data.panjang||""}"
+                value="${
+                    data.panjang||""
+                }"
                 oninput="hitungTambahan()">
+
         </td>
 
         <td>
-            <input type="number"
+
+            <input
+                type="number"
                 class="jumlahBendel"
                 min="0"
                 step="1"
-                value="${data.jumlahBendel||""}"
+                value="${
+                    data.jumlahBendel||""
+                }"
                 oninput="hitungTambahan()">
+
         </td>
 
         <td>
-            <div class="isi-bendel">-</div>
+
+            <div class="isi-bendel">
+                -
+            </div>
+
             <div class="status"></div>
+
         </td>
 
         <td>
-            <div class="volume">0,000000</div>
+
+            <div class="volume">
+                0,000000
+            </div>
+
         </td>
 
         <td>
-            <button class="delete"
+
+            <button
+                class="delete"
                 onclick="
                     this.closest('tr').remove();
                     hitungTambahan();
                 ">
+
                 ✕
+
             </button>
+
         </td>
+
     `;
 
     tbody.appendChild(tr);
+
 }
 
 
@@ -1693,23 +2014,38 @@ function tambahBarisDanScroll(){
     hitungTambahan();
 
     const rows=
-        document.querySelectorAll("#tabelKayu tr");
+        document.querySelectorAll(
+            "#tabelKayu tr"
+        );
 
     if(rows.length){
 
-        rows[rows.length-1].scrollIntoView({
+        rows[
+            rows.length-1
+        ].scrollIntoView({
             behavior:"smooth",
             block:"center"
         });
 
     }
+
 }
 
 
-function cocokPanjang(rule,panjang){
+/* =====================================================
+   CARI ATURAN TAMBAHAN
+===================================================== */
 
-    if(rule.exact!==undefined)
-        return panjang===rule.exact;
+function cocokPanjang(
+    rule,
+    panjang
+){
+
+    if(
+        rule.exact!==undefined
+    )
+        return panjang===
+            rule.exact;
 
     if(rule.up===true)
         return panjang>=rule.min;
@@ -1718,72 +2054,118 @@ function cocokPanjang(rule,panjang){
         rule.min!==undefined &&
         rule.max!==undefined
     ){
+
         return panjang>=rule.min &&
                panjang<=rule.max;
+
     }
 
-    if(rule.max!==undefined)
+    if(
+        rule.max!==undefined
+    )
         return panjang<=rule.max;
 
     return false;
+
 }
 
 
-function cariAturan(tebal,lebar,panjang){
+function cariAturan(
+    tebal,
+    lebar,
+    panjang
+){
 
-    for(const rule of aturan){
+    for(
+        const rule of aturan
+    ){
 
         if(
             rule.t.includes(tebal) &&
             rule.l.includes(lebar) &&
-            cocokPanjang(rule,panjang)
+            cocokPanjang(
+                rule,
+                panjang
+            )
         ){
+
             return rule;
+
         }
 
     }
 
     return null;
+
 }
 
+
+/* =====================================================
+   HITUNG TAMBAHAN
+===================================================== */
 
 function hitungTambahan(){
 
     let totalVolume=0;
 
-    document.querySelectorAll("#tabelKayu tr")
+    document
+    .querySelectorAll(
+        "#tabelKayu tr"
+    )
     .forEach(row=>{
 
-        const tebal=angka(
-            row.querySelector(".tebal").value
-        );
+        const tebal=
+            angka(
+                row.querySelector(
+                    ".tebal"
+                ).value
+            );
 
-        const lebar=angka(
-            row.querySelector(".lebar").value
-        );
+        const lebar=
+            angka(
+                row.querySelector(
+                    ".lebar"
+                ).value
+            );
 
-        const panjang=angka(
-            row.querySelector(".panjang").value
-        );
+        const panjang=
+            angka(
+                row.querySelector(
+                    ".panjang"
+                ).value
+            );
 
-        const jumlahBendel=angka(
-            row.querySelector(".jumlahBendel").value
-        );
+        const jumlahBendel=
+            angka(
+                row.querySelector(
+                    ".jumlahBendel"
+                ).value
+            );
 
-        const mutuSelect =
-            row.querySelector(".mutu");
+        const mutuSelect=
+            row.querySelector(
+                ".mutu"
+            );
 
-        const namaElement =
-            row.querySelector(".nama");
+        const namaElement=
+            row.querySelector(
+                ".nama"
+            );
 
-        const isiElement =
-            row.querySelector(".isi-bendel");
+        const isiElement=
+            row.querySelector(
+                ".isi-bendel"
+            );
 
-        const statusElement =
-            row.querySelector(".status");
+        const statusElement=
+            row.querySelector(
+                ".status"
+            );
 
-        const volumeElement =
-            row.querySelector(".volume");
+        const volumeElement=
+            row.querySelector(
+                ".volume"
+            );
 
         if(
             tebal<=0 ||
@@ -1792,16 +2174,19 @@ function hitungTambahan(){
         ){
 
             namaElement.textContent="-";
-            namaElement.className="nama belum";
+            namaElement.className=
+                "nama belum";
 
             isiElement.textContent="-";
             statusElement.textContent="";
-            volumeElement.textContent="0,000000";
+            volumeElement.textContent=
+                "0,000000";
 
             return;
+
         }
 
-        const rule =
+        const rule=
             cariAturan(
                 tebal,
                 lebar,
@@ -1828,10 +2213,14 @@ function hitungTambahan(){
                 "0,000000";
 
             return;
+
         }
 
-        namaElement.textContent=rule.nama;
-        namaElement.className="nama";
+        namaElement.textContent=
+            rule.nama;
+
+        namaElement.className=
+            "nama";
 
         if(
             rule.nama==="FJL" ||
@@ -1848,15 +2237,20 @@ function hitungTambahan(){
 
         }
 
-        isiElement.textContent=rule.isi;
+        isiElement.textContent=
+            rule.isi;
 
-        statusElement.textContent="Otomatis";
-        statusElement.className="status ok";
+        statusElement.textContent=
+            "Otomatis";
 
-        const totalBatang =
-            jumlahBendel*rule.isi;
+        statusElement.className=
+            "status ok";
 
-        const volume =
+        const totalBatang=
+            jumlahBendel*
+            rule.isi;
+
+        const volume=
             round6(
                 tebal*
                 lebar*
@@ -1872,19 +2266,24 @@ function hitungTambahan(){
 
     });
 
-    const hasilSaatIni =
+    const hasilSaatIni=
         angka(
-            document.getElementById("hasilSaatIni").value
+            document.getElementById(
+                "hasilSaatIni"
+            ).value
         );
 
-    const rendemenSaatIni =
+    const rendemenSaatIni=
         angka(
-            document.getElementById("rendemenSaatIni").value
+            document.getElementById(
+                "rendemenSaatIni"
+            ).value
         );
 
-    const hasilFinal =
+    const hasilFinal=
         round6(
-            hasilSaatIni+totalVolume
+            hasilSaatIni+
+            totalVolume
         );
 
     let volumeLog=0;
@@ -1893,28 +2292,49 @@ function hitungTambahan(){
         hasilSaatIni>0 &&
         rendemenSaatIni>0
     ){
+
         volumeLog=
             hasilSaatIni/
             (rendemenSaatIni/100);
+
     }
 
     let rendemenFinal=0;
 
     if(volumeLog>0){
+
         rendemenFinal=
             hasilFinal/
             volumeLog*
             100;
+
     }
 
-    document.getElementById("totalTambahan").textContent=
-        formatAngka(totalVolume)+" m³";
+    document.getElementById(
+        "totalTambahan"
+    ).textContent=
+        formatAngka(
+            totalVolume
+        )+
+        " m³";
 
-    document.getElementById("hasilFinal").textContent=
-        formatAngka(hasilFinal)+" m³";
+    document.getElementById(
+        "hasilFinal"
+    ).textContent=
+        formatAngka(
+            hasilFinal
+        )+
+        " m³";
 
-    document.getElementById("rendemenFinal").textContent=
-        formatAngka(rendemenFinal,2)+" %";
+    document.getElementById(
+        "rendemenFinal"
+    ).textContent=
+        formatAngka(
+            rendemenFinal,
+            2
+        )+
+        " %";
+
 }
 
 
@@ -1924,66 +2344,97 @@ function hitungTambahan(){
 
 function kumpulkanSemuaDataEntry(){
 
-    /*
-       Pastikan data tabel aktif masuk terlebih dahulu.
-    */
-
     simpanInputSaatIni();
 
     const snapshot={
+
         produk:{},
+
         jumlahLog:
             angka(
-                document.getElementById("jumlahLog").value
+                document.getElementById(
+                    "jumlahLog"
+                ).value
             ),
+
         tanggal:"",
         jam:""
+
     };
 
-    Object.keys(dataEntry).forEach(nama=>{
+    Object.keys(
+        dataEntry
+    )
+    .forEach(
+        nama=>{
 
-        const isi=dataEntry[nama];
+            const isi=
+                dataEntry[nama];
 
-        if(!isi) return;
+            if(!isi) return;
 
-        const dataNama=[];
+            const dataNama=[];
 
-        Object.values(isi).forEach(item=>{
+            Object.values(
+                isi
+            )
+            .forEach(
+                item=>{
 
-            const p=angka(item.p);
-            const d=angka(item.d);
-            const t=angka(item.t);
+                    const p=
+                        angka(item.p);
 
-            if(p+d+t<=0) return;
+                    const d=
+                        angka(item.d);
 
-            dataNama.push({
+                    const t=
+                        angka(item.t);
 
-                tebal:item.tebal,
-                lebar:item.lebar,
-                panjang:item.panjang,
+                    if(
+                        p+d+t<=0
+                    )
+                        return;
 
-                p:p,
-                d:d,
-                t:t
+                    dataNama.push({
 
-            });
+                        tebal:item.tebal,
+                        lebar:item.lebar,
+                        panjang:item.panjang,
 
-        });
+                        p,
+                        d,
+                        t
 
-        if(dataNama.length){
-            snapshot.produk[nama]=dataNama;
+                    });
+
+                }
+            );
+
+            if(
+                dataNama.length
+            ){
+
+                snapshot.produk[nama]=
+                    dataNama;
+
+            }
+
         }
+    );
 
-    });
+    const volumeRST=
+        hitungVolumeSnapshot(
+            snapshot
+        );
 
-    const volumeRST =
-        hitungVolumeSnapshot(snapshot);
+    snapshot.volumeRST=
+        volumeRST;
 
-    snapshot.volumeRST=volumeRST;
+    if(
+        snapshot.jumlahLog>0
+    ){
 
-    if(snapshot.jumlahLog>0){
-
-        snapshot.rendemen =
+        snapshot.rendemen=
             round6(
                 volumeRST/
                 snapshot.jumlahLog*
@@ -1996,7 +2447,8 @@ function kumpulkanSemuaDataEntry(){
 
     }
 
-    const now=new Date();
+    const now=
+        new Date();
 
     snapshot.tanggal=
         now.toLocaleDateString(
@@ -2019,42 +2471,52 @@ function kumpulkanSemuaDataEntry(){
         );
 
     return snapshot;
+
 }
 
 
-function hitungVolumeSnapshot(snapshot){
+function hitungVolumeSnapshot(
+    snapshot
+){
 
     let total=0;
 
-    Object.values(snapshot.produk)
-    .forEach(dataNama=>{
+    Object.values(
+        snapshot.produk
+    )
+    .forEach(
+        dataNama=>{
 
-        dataNama.forEach(item=>{
+            dataNama.forEach(
+                item=>{
 
-            const jumlah =
-                angka(item.p)+
-                angka(item.d)+
-                angka(item.t);
+                    const jumlah=
+                        angka(item.p)+
+                        angka(item.d)+
+                        angka(item.t);
 
-            total+=
-                round6(
-                    item.tebal*
-                    item.lebar*
-                    item.panjang*
-                    jumlah/
-                    1000000000
-                );
+                    total+=
+                        round6(
+                            item.tebal*
+                            item.lebar*
+                            item.panjang*
+                            jumlah/
+                            1000000000
+                        );
 
-        });
+                }
+            );
 
-    });
+        }
+    );
 
     return round6(total);
+
 }
 
 
 /* =====================================================
-   SIMPAN HISTORY PER TANGGAL
+   SIMPAN ENTRY TANGGAL
 ===================================================== */
 
 function simpanEntryTanggal(){
@@ -2065,7 +2527,9 @@ function simpanEntryTanggal(){
         kumpulkanSemuaDataEntry();
 
     if(
-        !Object.keys(snapshot.produk).length
+        !Object.keys(
+            snapshot.produk
+        ).length
     ){
 
         alert(
@@ -2073,36 +2537,46 @@ function simpanEntryTanggal(){
         );
 
         return;
+
     }
 
     const index=
         historyEntry.findIndex(
-            item=>item.tanggal===snapshot.tanggal
+            item=>
+                item.tanggal===
+                snapshot.tanggal
         );
 
     if(index>=0){
 
         const yakin=
             confirm(
-                "Tanggal "+snapshot.tanggal+
+                "Tanggal "+
+                snapshot.tanggal+
                 " sudah ada.\n\n"+
-                "Simpan ulang akan memperbarui data tanggal tersebut.\n\n"+
+                "Simpan ulang akan memperbarui "+
+                "data tanggal tersebut.\n\n"+
                 "Lanjutkan?"
             );
 
         if(!yakin) return;
 
-        historyEntry[index]=snapshot;
+        historyEntry[index]=
+            snapshot;
 
     }else{
 
-        historyEntry.unshift(snapshot);
+        historyEntry.unshift(
+            snapshot
+        );
 
     }
 
     localStorage.setItem(
         "historyEntryRendemen",
-        JSON.stringify(historyEntry)
+        JSON.stringify(
+            historyEntry
+        )
     );
 
     tampilkanHistory();
@@ -2112,6 +2586,102 @@ function simpanEntryTanggal(){
         snapshot.tanggal+
         " berhasil disimpan."
     );
+
+}
+
+
+/* =====================================================
+   INPUT DATA BARU
+===================================================== */
+
+function inputDataBaru(){
+
+    const adaData=
+        Object.keys(
+            dataEntry
+        ).some(
+            nama=>
+                Object.values(
+                    dataEntry[nama] || {}
+                ).some(
+                    item=>
+                        angka(item.p)+
+                        angka(item.d)+
+                        angka(item.t)>0
+                )
+        );
+
+    if(adaData){
+
+        const yakin=
+            confirm(
+                "Mulai INPUT DATA BARU?\n\n"+
+                "Data yang sedang aktif akan "+
+                "dikosongkan dari input.\n\n"+
+                "History yang sudah disimpan "+
+                "TIDAK akan terhapus.\n\n"+
+                "Lanjutkan?"
+            );
+
+        if(!yakin) return;
+
+    }
+
+    /*
+       Kosongkan data ENTRY aktif saja.
+       History tetap aman.
+    */
+
+    dataEntry={};
+
+    localStorage.removeItem(
+        "dataEntryRendemen"
+    );
+
+    document.getElementById(
+        "pilihNama"
+    ).value="";
+
+    document.getElementById(
+        "jumlahLog"
+    ).value="";
+
+    document.getElementById(
+        "tabelEntry"
+    ).innerHTML="";
+
+    document.getElementById(
+        "tabelRingkasan"
+    ).innerHTML="";
+
+    document.getElementById(
+        "entryTableCard"
+    ).style.display="none";
+
+    document.getElementById(
+        "ringkasanEntry"
+    ).style.display="none";
+
+    document.getElementById(
+        "volumeRST"
+    ).textContent=
+        "0,000000 m³";
+
+    document.getElementById(
+        "volumeLog"
+    ).textContent=
+        "0,000 m³";
+
+    document.getElementById(
+        "rendemenEntry"
+    ).textContent=
+        "0,00 %";
+
+    alert(
+        "Input data baru siap.\n\n"+
+        "History lama tetap tersimpan."
+    );
+
 }
 
 
@@ -2122,7 +2692,9 @@ function simpanEntryTanggal(){
 function tampilkanHistory(){
 
     const list=
-        document.getElementById("historyList");
+        document.getElementById(
+            "historyList"
+        );
 
     if(
         !historyEntry ||
@@ -2130,13 +2702,27 @@ function tampilkanHistory(){
     ){
 
         list.innerHTML=`
+
             <div class="history-info">
                 Belum ada History Entry.
             </div>
+
         `;
 
         return;
+
     }
+
+    /*
+       Urutkan terbaru di atas.
+    */
+
+    historyEntry.sort(
+        (a,b)=>
+            b.tanggal.localeCompare(
+                a.tanggal
+            )
+    );
 
     list.innerHTML=
         historyEntry.map(
@@ -2152,21 +2738,37 @@ function tampilkanHistory(){
                     <div class="history-item">
 
                         <div class="history-date">
+
                             📅 ${item.tanggal}
-                            &nbsp; 🕐 ${item.jam}
+                            &nbsp;
+                            🕐 ${item.jam}
+
                         </div>
 
                         <div class="history-info">
 
-                            ${jumlahProduk} jenis produk
+                            ${jumlahProduk}
+                            jenis produk
+
                             • Volume RST:
-                            ${formatAngka(item.volumeRST)}
+                            ${formatAngka(
+                                item.volumeRST
+                            )}
                             m³
+
                             • Log:
-                            ${formatAngka(item.jumlahLog,3)}
+                            ${formatAngka(
+                                item.jumlahLog,
+                                3
+                            )}
                             m³
+
                             • Rendemen:
-                            ${formatAngka(item.rendemen,2)} %
+                            ${formatAngka(
+                                item.rendemen,
+                                2
+                            )}
+                            %
 
                         </div>
 
@@ -2174,14 +2776,22 @@ function tampilkanHistory(){
 
                             <button
                                 class="open-history"
-                                onclick="bukaHistory(${index})">
+                                onclick="
+                                    bukaHistory(${index})
+                                ">
+
                                 📂 BUKA DATA
+
                             </button>
 
                             <button
                                 class="delete-history"
-                                onclick="hapusHistory(${index})">
+                                onclick="
+                                    hapusHistory(${index})
+                                ">
+
                                 🗑️ HAPUS
+
                             </button>
 
                         </div>
@@ -2192,6 +2802,7 @@ function tampilkanHistory(){
 
             }
         ).join("");
+
 }
 
 
@@ -2201,54 +2812,65 @@ function tampilkanHistory(){
 
 function bukaHistory(index){
 
-    const item=historyEntry[index];
+    const item=
+        historyEntry[index];
 
     if(!item) return;
 
     dataEntry={};
 
-    Object.keys(item.produk || {})
-    .forEach(nama=>{
+    Object.keys(
+        item.produk || {}
+    )
+    .forEach(
+        nama=>{
 
-        dataEntry[nama]={};
+            dataEntry[nama]={};
 
-        item.produk[nama].forEach(row=>{
+            item.produk[nama]
+            .forEach(
+                row=>{
 
-            const key=
-                row.tebal+"x"+
-                row.lebar+"x"+
-                row.panjang;
+                    const key=
+                        row.tebal+
+                        "x"+
+                        row.lebar+
+                        "x"+
+                        row.panjang;
 
-            dataEntry[nama][key]={
+                    dataEntry[nama][key]={
 
-                tebal:row.tebal,
-                lebar:row.lebar,
-                panjang:row.panjang,
+                        tebal:row.tebal,
+                        lebar:row.lebar,
+                        panjang:row.panjang,
 
-                p:row.p || 0,
-                d:row.d || 0,
-                t:row.t || 0
+                        p:row.p,
+                        d:row.d,
+                        t:row.t
 
-            };
+                    };
 
-        });
+                }
+            );
 
-    });
+        }
+    );
 
     simpanDataEntry();
 
-    document.getElementById("jumlahLog").value =
+    document.getElementById(
+        "jumlahLog"
+    ).value=
         item.jumlahLog || "";
 
-    localStorage.setItem(
-        "jumlahLogRendemen",
-        document.getElementById("jumlahLog").value
-    );
-
     const namaPertama=
-        Object.keys(item.produk || {})[0] || "";
+        Object.keys(
+            item.produk || {}
+        )[0] || "";
 
-    document.getElementById("pilihNama").value=
+    document.getElementById(
+        "pilihNama"
+    ).value=
         namaPertama;
 
     ubahMode("entry");
@@ -2260,16 +2882,18 @@ function bukaHistory(index){
         item.tanggal+
         " berhasil dibuka kembali."
     );
+
 }
 
 
 /* =====================================================
-   HAPUS SATU HISTORY
+   HAPUS HISTORY
 ===================================================== */
 
 function hapusHistory(index){
 
-    const item=historyEntry[index];
+    const item=
+        historyEntry[index];
 
     if(!item) return;
 
@@ -2277,19 +2901,26 @@ function hapusHistory(index){
         confirm(
             "Hapus seluruh data History tanggal "+
             item.tanggal+
-            "?\n\nData tanggal tersebut akan hilang."
+            "?\n\n"+
+            "Data tanggal tersebut akan hilang."
         );
 
     if(!yakin) return;
 
-    historyEntry.splice(index,1);
+    historyEntry.splice(
+        index,
+        1
+    );
 
     localStorage.setItem(
         "historyEntryRendemen",
-        JSON.stringify(historyEntry)
+        JSON.stringify(
+            historyEntry
+        )
     );
 
     tampilkanHistory();
+
 }
 
 
@@ -2304,7 +2935,8 @@ function hapusSeluruhHistory(){
             "⚠️ PERINGATAN!\n\n"+
             "Ini akan menghapus SELURUH data Entry "+
             "dan SELURUH History dari browser.\n\n"+
-            "Data yang sudah dihapus tidak dapat dikembalikan.\n\n"+
+            "Data yang sudah dihapus tidak dapat "+
+            "dikembalikan.\n\n"+
             "Yakin ingin melanjutkan?"
         );
 
@@ -2326,21 +2958,32 @@ function hapusSeluruhHistory(){
         "historyEntryRendemen"
     );
 
-    localStorage.removeItem(
-        "jumlahLogRendemen"
-    );
-
     dataEntry={};
     historyEntry=[];
 
-    document.getElementById("jumlahLog").value="";
-    document.getElementById("pilihNama").value="";
+    document.getElementById(
+        "jumlahLog"
+    ).value="";
 
-    document.getElementById("tabelEntry").innerHTML="";
-    document.getElementById("tabelRingkasan").innerHTML="";
+    document.getElementById(
+        "pilihNama"
+    ).value="";
 
-    document.getElementById("entryTableCard").style.display="none";
-    document.getElementById("ringkasanEntry").style.display="none";
+    document.getElementById(
+        "tabelEntry"
+    ).innerHTML="";
+
+    document.getElementById(
+        "tabelRingkasan"
+    ).innerHTML="";
+
+    document.getElementById(
+        "entryTableCard"
+    ).style.display="none";
+
+    document.getElementById(
+        "ringkasanEntry"
+    ).style.display="none";
 
     tampilkanHistory();
 
@@ -2349,6 +2992,7 @@ function hapusSeluruhHistory(){
     alert(
         "Seluruh data berhasil dihapus."
     );
+
 }
 
 
@@ -2358,13 +3002,18 @@ function hapusSeluruhHistory(){
 
 function downloadExcelEntry(){
 
-    if(typeof XLSX==="undefined"){
+    if(
+        typeof XLSX==="undefined"
+    ){
 
         alert(
-            "Library Excel belum termuat. Coba refresh halaman."
+            "Library Excel belum termuat.\n\n"+
+            "Pastikan komputer terhubung internet "+
+            "saat membuka halaman."
         );
 
         return;
+
     }
 
     simpanInputSaatIni();
@@ -2372,6 +3021,7 @@ function downloadExcelEntry(){
     const semua=[];
 
     const namaOrder=[
+
         "DECKING",
         "FLOORING",
         "LONGSTRIP",
@@ -2381,62 +3031,141 @@ function downloadExcelEntry(){
         "FJL",
         "RENG",
         "LIST"
+
     ];
 
-    namaOrder.forEach(nama=>{
+    namaOrder.forEach(
+        nama=>{
 
-        const saved=dataEntry[nama];
+            const saved=
+                dataEntry[nama];
 
-        if(!saved) return;
+            if(!saved) return;
 
-        Object.values(saved).forEach(item=>{
+            Object.values(
+                saved
+            )
+            .forEach(
+                item=>{
 
-            const p=angka(item.p);
-            const d=angka(item.d);
-            const t=angka(item.t);
+                    const p=
+                        angka(item.p);
 
-            /*
-               Hanya yang benar-benar diisi.
-            */
+                    const d=
+                        angka(item.d);
 
-            const dataMutu=[
-                {mutu:"P",jumlah:p},
-                {mutu:"D",jumlah:d},
-                {mutu:"T",jumlah:t}
-            ];
+                    const t=
+                        angka(item.t);
 
-            dataMutu.forEach(m=>{
+                    /*
+                       Hanya yang benar-benar
+                       diisi yang dimasukkan.
+                    */
 
-                if(m.jumlah<=0) return;
+                    if(p>0){
 
-                const volume=
-                    round6(
-                        item.tebal*
-                        item.lebar*
-                        item.panjang*
-                        m.jumlah/
-                        1000000000
-                    );
+                        const volume=
+                            round6(
+                                item.tebal*
+                                item.lebar*
+                                item.panjang*
+                                p/
+                                1000000000
+                            );
 
-                semua.push({
+                        semua.push({
 
-                    Nama:nama,
-                    Mutu:m.mutu,
-                    Panjang:item.panjang,
-                    Lebar:item.lebar,
-                    Tebal:item.tebal,
+                            Nama:nama,
+                            Mutu:"P",
 
-                    "Batang/Bendel":m.jumlah,
+                            Panjang:
+                                item.panjang,
 
-                    Volume:volume
+                            Lebar:
+                                item.lebar,
 
-                });
+                            Tebal:
+                                item.tebal,
 
-            });
+                            Jumlah:p,
 
-        });
+                            Volume:volume
 
-    });
+                        });
+
+                    }
+
+                    if(d>0){
+
+                        const volume=
+                            round6(
+                                item.tebal*
+                                item.lebar*
+                                item.panjang*
+                                d/
+                                1000000000
+                            );
+
+                        semua.push({
+
+                            Nama:nama,
+                            Mutu:"D",
+
+                            Panjang:
+                                item.panjang,
+
+                            Lebar:
+                                item.lebar,
+
+                            Tebal:
+                                item.tebal,
+
+                            Jumlah:d,
+
+                            Volume:volume
+
+                        });
+
+                    }
+
+                    if(t>0){
+
+                        const volume=
+                            round6(
+                                item.tebal*
+                                item.lebar*
+                                item.panjang*
+                                t/
+                                1000000000
+                            );
+
+                        semua.push({
+
+                            Nama:nama,
+                            Mutu:"T",
+
+                            Panjang:
+                                item.panjang,
+
+                            Lebar:
+                                item.lebar,
+
+                            Tebal:
+                                item.tebal,
+
+                            Jumlah:t,
+
+                            Volume:volume
+
+                        });
+
+                    }
+
+                }
+            );
+
+        }
+    );
 
     if(!semua.length){
 
@@ -2445,31 +3174,48 @@ function downloadExcelEntry(){
         );
 
         return;
+
     }
 
-    semua.sort((a,b)=>{
+    semua.sort(
+        (a,b)=>{
 
-        const order={
-            P:1,
-            D:2,
-            T:3
-        };
+            const order={
+                P:1,
+                D:2,
+                T:3
+            };
 
-        if(a.Nama!==b.Nama)
-            return a.Nama.localeCompare(b.Nama);
+            if(
+                a.Nama!==b.Nama
+            )
+                return a.Nama.localeCompare(
+                    b.Nama
+                );
 
-        if(a.Mutu!==b.Mutu)
-            return order[a.Mutu]-order[b.Mutu];
+            if(
+                a.Mutu!==b.Mutu
+            )
+                return order[a.Mutu]-
+                       order[b.Mutu];
 
-        if(a.Tebal!==b.Tebal)
-            return b.Tebal-a.Tebal;
+            if(
+                a.Tebal!==b.Tebal
+            )
+                return b.Tebal-
+                       a.Tebal;
 
-        if(a.Lebar!==b.Lebar)
-            return b.Lebar-a.Lebar;
+            if(
+                a.Lebar!==b.Lebar
+            )
+                return b.Lebar-
+                       a.Lebar;
 
-        return a.Panjang-b.Panjang;
+            return a.Panjang-
+                   b.Panjang;
 
-    });
+        }
+    );
 
     const rows=[
 
@@ -2479,32 +3225,37 @@ function downloadExcelEntry(){
             "Panjang",
             "Lebar",
             "Tebal",
-            "Batang/Bendel",
+            "Jumlah",
             "Volume"
         ]
 
     ];
 
-    semua.forEach(item=>{
+    semua.forEach(
+        item=>{
 
-        rows.push([
+            rows.push([
 
-            item.Nama,
-            item.Mutu,
-            item.Panjang,
-            item.Lebar,
-            item.Tebal,
-            item["Batang/Bendel"],
-            item.Volume
+                item.Nama,
+                item.Mutu,
+                item.Panjang,
+                item.Lebar,
+                item.Tebal,
+                item.Jumlah,
+                item.Volume
 
-        ]);
+            ]);
 
-    });
+        }
+    );
 
-    const workbook=XLSX.utils.book_new();
+    const workbook=
+        XLSX.utils.book_new();
 
     const worksheet=
-        XLSX.utils.aoa_to_sheet(rows);
+        XLSX.utils.aoa_to_sheet(
+            rows
+        );
 
     worksheet["!cols"]=[
 
@@ -2513,7 +3264,7 @@ function downloadExcelEntry(){
         {wch:12},
         {wch:10},
         {wch:10},
-        {wch:17},
+        {wch:12},
         {wch:16}
 
     ];
@@ -2525,10 +3276,15 @@ function downloadExcelEntry(){
     ){
 
         const cell=
-            worksheet["G"+(r+1)];
+            worksheet[
+                "G"+(r+1)
+            ];
 
         if(cell){
-            cell.z="0.000000";
+
+            cell.z=
+                "0.000000";
+
         }
 
     }
@@ -2539,9 +3295,11 @@ function downloadExcelEntry(){
         "ENTRY"
     );
 
-    const tanggal=new Date();
+    const tanggal=
+        new Date();
 
-    const tahun=tanggal.getFullYear();
+    const tahun=
+        tanggal.getFullYear();
 
     const bulan=
         String(
@@ -2555,8 +3313,10 @@ function downloadExcelEntry(){
 
     const namaFile=
         "ENTRY_RENDEMEN_"+
-        hari+"-"+
-        bulan+"-"+
+        hari+
+        "-"+
+        bulan+
+        "-"+
         tahun+
         ".xlsx";
 
@@ -2564,6 +3324,7 @@ function downloadExcelEntry(){
         workbook,
         namaFile
     );
+
 }
 
 
@@ -2573,117 +3334,154 @@ function downloadExcelEntry(){
 
 function ubahMode(mode){
 
-    /*
-       Simpan dulu data sebelum pindah mode.
-    */
-
-    if(modeAktif==="entry"){
-        simpanInputSaatIni();
-    }
-
     modeAktif=mode;
 
     const btnTambahan=
-        document.getElementById("btnTambahan");
+        document.getElementById(
+            "btnTambahan"
+        );
 
     const btnEntry=
-        document.getElementById("btnEntry");
+        document.getElementById(
+            "btnEntry"
+        );
 
     const dataSaatIni=
-        document.getElementById("dataSaatIni");
+        document.getElementById(
+            "dataSaatIni"
+        );
 
     const entryLog=
-        document.getElementById("entryLog");
+        document.getElementById(
+            "entryLog"
+        );
 
     const entryNamaCard=
-        document.getElementById("entryNamaCard");
+        document.getElementById(
+            "entryNamaCard"
+        );
 
     const tambahanTableCard=
-        document.getElementById("tambahanTableCard");
+        document.getElementById(
+            "tambahanTableCard"
+        );
 
     const entryTableCard=
-        document.getElementById("entryTableCard");
+        document.getElementById(
+            "entryTableCard"
+        );
 
     const hasilTambahan=
-        document.getElementById("hasilTambahan");
+        document.getElementById(
+            "hasilTambahan"
+        );
 
     const hasilEntry=
-        document.getElementById("hasilEntry");
+        document.getElementById(
+            "hasilEntry"
+        );
 
     const ringkasan=
-        document.getElementById("ringkasanEntry");
+        document.getElementById(
+            "ringkasanEntry"
+        );
 
     const history=
-        document.getElementById("historyEntry");
+        document.getElementById(
+            "historyEntry"
+        );
 
     if(mode==="tambahan"){
 
-        btnTambahan.classList.add("active");
-        btnEntry.classList.remove("active");
+        btnTambahan.classList.add(
+            "active"
+        );
 
-        dataSaatIni.style.display="block";
-        entryLog.style.display="none";
-        entryNamaCard.style.display="none";
+        btnEntry.classList.remove(
+            "active"
+        );
 
-        tambahanTableCard.style.display="block";
+        dataSaatIni.style.display=
+            "block";
 
-        entryTableCard.style.display="none";
-        hasilTambahan.style.display="block";
-        hasilEntry.style.display="none";
-        ringkasan.style.display="none";
-        history.style.display="none";
+        entryLog.style.display=
+            "none";
+
+        entryNamaCard.style.display=
+            "none";
+
+        tambahanTableCard.style.display=
+            "block";
+
+        entryTableCard.style.display=
+            "none";
+
+        hasilTambahan.style.display=
+            "block";
+
+        hasilEntry.style.display=
+            "none";
+
+        ringkasan.style.display=
+            "none";
+
+        history.style.display=
+            "none";
 
         hitungTambahan();
 
     }else{
 
-        btnTambahan.classList.remove("active");
-        btnEntry.classList.add("active");
+        btnTambahan.classList.remove(
+            "active"
+        );
 
-        dataSaatIni.style.display="none";
-        entryLog.style.display="block";
-        entryNamaCard.style.display="block";
+        btnEntry.classList.add(
+            "active"
+        );
 
-        tambahanTableCard.style.display="none";
+        dataSaatIni.style.display=
+            "none";
 
-        hasilTambahan.style.display="none";
-        hasilEntry.style.display="block";
-        history.style.display="block";
+        entryLog.style.display=
+            "block";
 
-        /*
-           Ambil jumlah log terakhir setelah refresh.
-        */
+        entryNamaCard.style.display=
+            "block";
 
-        const savedLog=
-            localStorage.getItem(
-                "jumlahLogRendemen"
-            );
+        tambahanTableCard.style.display=
+            "none";
 
-        if(
-            savedLog!==null &&
-            document.getElementById("jumlahLog").value===""
-        ){
+        hasilTambahan.style.display=
+            "none";
 
-            document.getElementById("jumlahLog").value=
-                savedLog;
+        hasilEntry.style.display=
+            "block";
 
-        }
+        history.style.display=
+            "block";
 
         const nama=
-            document.getElementById("pilihNama").value;
+            document.getElementById(
+                "pilihNama"
+            ).value;
 
         entryTableCard.style.display=
-            nama ? "block":"none";
+            nama
+            ? "block"
+            : "none";
 
         ringkasan.style.display=
-            nama || Object.keys(dataEntry).length
-            ? "block":"none";
+            nama
+            ? "block"
+            : "none";
 
         hitungEntry();
 
         tampilkanHistory();
 
     }
+
 }
 
 
@@ -2693,84 +3491,19 @@ function ubahMode(mode){
 
 function hitung(){
 
-    if(modeAktif==="tambahan"){
-        hitungTambahan();
-    }else{
-        hitungEntry();
-    }
-}
-
-
-/* =====================================================
-   RESTORE SAAT REFRESH
-===================================================== */
-
-function restoreEntry(){
-
-    /*
-       Data sudah otomatis ada di localStorage.
-       Kita hanya perlu menampilkan kembali
-       nama terakhir yang aktif.
-    */
-
-    const namaTersimpan =
-        localStorage.getItem(
-            "namaAktifRendemen"
-        );
-
-    const logTersimpan =
-        localStorage.getItem(
-            "jumlahLogRendemen"
-        );
-
-    if(logTersimpan!==null){
-
-        document.getElementById("jumlahLog").value=
-            logTersimpan;
-
-    }
-
     if(
-        namaTersimpan &&
-        dataEntry[namaTersimpan]
+        modeAktif==="tambahan"
     ){
 
-        document.getElementById("pilihNama").value=
-            namaTersimpan;
+        hitungTambahan();
 
-        buatTabelEntry();
+    }else{
+
+        hitungEntry();
 
     }
+
 }
-
-
-/* =====================================================
-   SIMPAN NAMA AKTIF
-===================================================== */
-
-document
-.getElementById("pilihNama")
-.addEventListener(
-    "change",
-    function(){
-
-        if(this.value){
-
-            localStorage.setItem(
-                "namaAktifRendemen",
-                this.value
-            );
-
-        }else{
-
-            localStorage.removeItem(
-                "namaAktifRendemen"
-            );
-
-        }
-
-    }
-);
 
 
 /* =====================================================
@@ -2782,12 +3515,6 @@ buatBarisTambahan();
 tampilkanHistory();
 
 ubahMode("tambahan");
-
-/*
-   Restore ENTRY setelah halaman selesai dimuat.
-*/
-
-restoreEntry();
 
 </script>
 
