@@ -29,6 +29,8 @@ body{
     margin:auto;
 }
 
+/* ================= HEADER ================= */
+
 .header{
     background:linear-gradient(135deg,#315d2b,#6d8f3a);
     color:white;
@@ -61,6 +63,8 @@ body{
     opacity:.92;
 }
 
+/* ================= MODE ================= */
+
 .mode-box{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -84,6 +88,8 @@ body{
     border-color:#526f32;
 }
 
+/* ================= CARD ================= */
+
 .card{
     background:white;
     border-radius:16px;
@@ -98,6 +104,8 @@ body{
     margin-bottom:12px;
     color:#33452b;
 }
+
+/* ================= INPUT ================= */
 
 .input-grid{
     display:grid;
@@ -129,6 +137,39 @@ body{
     border-color:#6d8f3a;
 }
 
+/* ================= FILTER NAMA ================= */
+
+.filter-box{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+    margin-bottom:14px;
+}
+
+.filter-box label{
+    font-size:11px;
+    font-weight:bold;
+    color:#687261;
+}
+
+.filter-box select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d9ded1;
+    border-radius:9px;
+    font-size:15px;
+    font-weight:bold;
+    color:#33452b;
+    background:white;
+    outline:none;
+}
+
+.filter-box select:focus{
+    border-color:#6d8f3a;
+}
+
+/* ================= TABLE INPUT ================= */
+
 .table-wrap{
     overflow-x:auto;
 }
@@ -143,20 +184,33 @@ th{
     background:#eef2e8;
     color:#53604c;
     font-size:10px;
-    padding:8px 4px;
+    padding:9px 5px;
     border-bottom:1px solid #dce2d5;
     white-space:nowrap;
 }
 
 td{
-    padding:4px 2px;
+    padding:5px 3px;
     border-bottom:1px solid #edf0e9;
     text-align:center;
 }
 
-td input,
-td select{
+.ukuran{
+    font-weight:900;
+    color:#526f32;
+    white-space:nowrap;
+    font-size:12px;
+}
+
+.isi-bendel{
+    font-weight:bold;
+    color:#526f32;
+    font-size:12px;
+}
+
+td input{
     width:100%;
+    min-width:65px;
     padding:8px 3px;
     border:1px solid #d9ded1;
     border-radius:7px;
@@ -166,89 +220,37 @@ td select{
     background:white;
 }
 
-td input:focus,
-td select:focus{
+td input:focus{
     border-color:#6d8f3a;
 }
 
-.ukuran-select{
-    min-width:180px;
-}
-
-.nama{
+.mutu-head{
     font-weight:900;
-    font-size:13px;
-    min-width:110px;
-    text-align:left;
-    padding-left:5px;
-    color:#526f32;
 }
 
-.nama.belum{
-    color:#9aa395;
-    font-weight:normal;
+.input-disabled{
+    background:#f0f1ed !important;
+    color:#aaa;
+    cursor:not-allowed;
 }
 
-.mutu{
-    font-weight:900;
-    font-size:13px;
-    color:#526f32;
-}
+/* ================= STATUS ================= */
 
-.mutu-fixed{
-    font-weight:900;
-    color:#7b3f00;
-}
-
-.isi-bendel{
-    font-weight:bold;
-    color:#526f32;
-    font-size:13px;
-}
-
-.status{
-    font-size:8px;
-    margin-top:2px;
-}
-
-.status.ok{
-    color:#4b7f32;
-}
-
-.status.error{
-    color:#c62828;
-}
-
-.volume{
-    font-weight:bold;
-    font-size:12px;
-    white-space:nowrap;
-}
-
-.delete{
-    background:#fce8e6;
-    color:#c62828;
-    border:none;
-    border-radius:7px;
-    padding:7px 8px;
-    cursor:pointer;
-}
-
-.add-button{
-    background:#526f32;
-    color:white;
-    border:none;
-    padding:12px;
+.status-info{
+    background:#f5f7f2;
+    border:1px solid #dfe5d9;
     border-radius:9px;
-    font-weight:bold;
-    cursor:pointer;
-    width:100%;
-    font-size:14px;
+    padding:10px;
+    color:#687261;
+    font-size:11px;
+    margin-top:10px;
 }
 
-.add-button:hover{
-    background:#425b29;
+.status-info strong{
+    color:#526f32;
 }
+
+/* ================= BUTTON ================= */
 
 .download-button{
     background:#217346;
@@ -266,6 +268,8 @@ td select:focus{
 .download-button:hover{
     background:#185c37;
 }
+
+/* ================= HASIL ================= */
 
 .result-grid{
     display:grid;
@@ -301,6 +305,8 @@ td select:focus{
     color:#526f32;
 }
 
+/* ================= ENTRY ================= */
+
 #entryLog{
     display:none;
 }
@@ -332,10 +338,7 @@ td select:focus{
     color:#687261;
 }
 
-.tidak-lengkap{
-    border-color:#c62828 !important;
-    background:#fff7f7 !important;
-}
+/* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
@@ -381,10 +384,6 @@ td select:focus{
         font-size:11px;
     }
 
-    .input-grid{
-        gap:6px;
-    }
-
     .field label{
         font-size:8px;
     }
@@ -396,44 +395,26 @@ td select:focus{
     }
 
     th{
-        font-size:7px;
-        padding:6px 2px;
+        font-size:8px;
+        padding:7px 3px;
     }
 
     td{
-        padding:3px 1px;
+        padding:3px 2px;
     }
 
-    td input,
-    td select{
+    td input{
         padding:7px 2px;
         font-size:10px;
+        min-width:55px;
     }
 
-    .ukuran-select{
-        min-width:145px;
-    }
-
-    .nama{
-        min-width:90px;
-        font-size:11px;
-    }
-
-    .mutu{
+    .ukuran{
         font-size:10px;
     }
 
     .isi-bendel{
         font-size:10px;
-    }
-
-    .volume{
-        font-size:9px;
-    }
-
-    .delete{
-        padding:6px;
-        font-size:9px;
     }
 
     .result-grid{
@@ -465,6 +446,8 @@ td select:focus{
 
 <div class="container">
 
+<!-- ================= HEADER ================= -->
+
 <div class="header">
 
     <img
@@ -484,6 +467,9 @@ td select:focus{
     </div>
 
 </div>
+
+
+<!-- ================= MODE ================= -->
 
 <div class="mode-box">
 
@@ -505,7 +491,13 @@ td select:focus{
 
 </div>
 
-<div class="card" id="dataSaatIni">
+
+<!-- ================= DATA SAAT INI ================= -->
+
+<div
+    class="card"
+    id="dataSaatIni"
+>
 
     <div class="card-title">
         Data Saat Ini
@@ -530,6 +522,7 @@ td select:focus{
 
         </div>
 
+
         <div class="field">
 
             <label>
@@ -551,7 +544,13 @@ td select:focus{
 
 </div>
 
-<div class="card" id="entryLog">
+
+<!-- ================= DATA LOG ================= -->
+
+<div
+    class="card"
+    id="entryLog"
+>
 
     <div class="card-title">
         Data Log
@@ -576,51 +575,51 @@ td select:focus{
 
 </div>
 
+
+<!-- ================= INPUT UKURAN ================= -->
+
 <div class="card">
 
-    <div
-        class="card-title"
-        id="judulTabel"
-    >
-        Kayu Tambahan
+    <div class="card-title">
+        Input Data RST
     </div>
 
-    <div class="table-wrap">
 
-        <table>
+    <div class="filter-box">
 
-            <thead>
+        <label>
+            PILIH NAMA
+        </label>
 
-                <tr>
-
-                    <th>Nama</th>
-                    <th>Mutu</th>
-                    <th>Ukuran</th>
-                    <th>Bendel</th>
-                    <th>Isi/<br>Bendel</th>
-                    <th>Volume</th>
-                    <th></th>
-
-                </tr>
-
-            </thead>
-
-            <tbody id="tabelKayu"></tbody>
-
-        </table>
-
-    </div>
-
-    <div style="margin-top:12px;">
-
-        <button
-            class="add-button"
-            onclick="tambahBarisDanScroll()"
+        <select
+            id="filterNama"
+            onchange="pilihNama()"
         >
-            ＋ Tambah Ukuran
-        </button>
+
+            <option value="">
+                -- Pilih Nama --
+            </option>
+
+        </select>
 
     </div>
+
+
+    <div
+        id="tabelUkuran"
+        class="table-wrap"
+    ></div>
+
+
+    <div
+        id="infoUkuran"
+        class="status-info"
+    >
+        Pilih nama terlebih dahulu.
+    </div>
+
+
+    <!-- DOWNLOAD KHUSUS ENTRY -->
 
     <button
         id="downloadExcel"
@@ -633,11 +632,18 @@ td select:focus{
 
 </div>
 
-<div class="card" id="hasilTambahan">
+
+<!-- ================= HASIL TAMBAHAN ================= -->
+
+<div
+    class="card"
+    id="hasilTambahan"
+>
 
     <div class="card-title">
         Hasil Final
     </div>
+
 
     <div class="result-grid">
 
@@ -656,6 +662,7 @@ td select:focus{
 
         </div>
 
+
         <div class="result final">
 
             <div class="result-title">
@@ -670,6 +677,7 @@ td select:focus{
             </div>
 
         </div>
+
 
         <div class="result final">
 
@@ -690,11 +698,18 @@ td select:focus{
 
 </div>
 
-<div class="card" id="hasilEntry">
+
+<!-- ================= HASIL ENTRY ================= -->
+
+<div
+    class="card"
+    id="hasilEntry"
+>
 
     <div class="card-title">
         Hasil Rendemen
     </div>
+
 
     <div class="result-grid">
 
@@ -713,6 +728,7 @@ td select:focus{
 
         </div>
 
+
         <div class="result">
 
             <div class="result-title">
@@ -727,6 +743,7 @@ td select:focus{
             </div>
 
         </div>
+
 
         <div class="result final">
 
@@ -747,7 +764,13 @@ td select:focus{
 
 </div>
 
-<div class="card" id="historyEntry">
+
+<!-- ================= HISTORY ENTRY ================= -->
+
+<div
+    class="card"
+    id="historyEntry"
+>
 
     <div class="card-title">
         History Entry
@@ -757,35 +780,25 @@ td select:focus{
 
 </div>
 
+
 </div>
+
 
 <script>
 
 /* =====================================================
    ATURAN UKURAN
+   ===============================
+   ATURAN ASLI DIPERTAHANKAN
 ===================================================== */
 
 const aturan = [
 
     /* ================= DECKING ================= */
 
-    {nama:"DECKING",t:[19],l:[160],exact:2500,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2600,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2700,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2800,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2900,isi:1},
-
-    {nama:"DECKING",t:[19],l:[160],exact:2000,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2100,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2200,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2300,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:2400,isi:1},
-
-    {nama:"DECKING",t:[19],l:[160],exact:1500,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:1600,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:1700,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:1800,isi:1},
-    {nama:"DECKING",t:[19],l:[160],exact:1900,isi:1},
+    {nama:"DECKING",t:[19],l:[160],min:2500,max:2900,isi:1},
+    {nama:"DECKING",t:[19],l:[160],min:2000,max:2400,isi:1},
+    {nama:"DECKING",t:[19],l:[160],min:1500,max:1900,isi:1},
 
     {nama:"DECKING",t:[19],l:[130],min:2500,max:2900,isi:1},
     {nama:"DECKING",t:[19],l:[130],min:2000,max:2400,isi:1},
@@ -800,10 +813,14 @@ const aturan = [
 
     /* ================= FLOORING ================= */
 
-    /* 18 x 160 SEMENTARA HANYA 500 DAN 550, MASING-MASING 1 BATANG */
+    {nama:"FLOORING",t:[18],l:[160],min:900,max:1400,isi:1},
 
-    {nama:"FLOORING",t:[18],l:[160],exact:500,isi:1},
-    {nama:"FLOORING",t:[18],l:[160],exact:550,isi:1},
+    {nama:"FLOORING",t:[18],l:[160],min:600,max:850,isi:1},
+
+    /* PERUBAHAN TERBARU:
+       18 x 160 x 500 DAN 550 = 1 BATANG */
+
+    {nama:"FLOORING",t:[18],l:[160],min:500,max:550,isi:1},
 
     {nama:"FLOORING",t:[18],l:[130],min:900,max:1400,isi:1},
     {nama:"FLOORING",t:[18],l:[130],min:600,max:850,isi:1},
@@ -890,8 +907,12 @@ const aturan = [
 ===================================================== */
 
 let dataTambahan = [];
+
 let dataEntry = [];
+
 let modeAktif = "tambahan";
+
+let namaAktif = "";
 
 
 /* =====================================================
@@ -979,170 +1000,136 @@ function cocokPanjang(rule,panjang){
 
 
 /* =====================================================
-   CARI ATURAN
+   BUAT DAFTAR NAMA
 ===================================================== */
 
-function cariAturan(tebal,lebar,panjang){
+function buatDaftarNama(){
 
-    for(const rule of aturan){
+    const select =
+        document.getElementById("filterNama");
 
-        if(
-            rule.t.includes(tebal) &&
-            rule.l.includes(lebar) &&
-            cocokPanjang(rule,panjang)
-        ){
+    const namaUnik =
+        [...new Set(
+            aturan.map(rule => rule.nama)
+        )];
 
-            return rule;
+    namaUnik.forEach(nama => {
 
-        }
+        const option =
+            document.createElement("option");
 
-    }
+        option.value = nama;
+        option.textContent = nama;
 
-    return null;
+        select.appendChild(option);
+
+    });
 
 }
 
 
 /* =====================================================
-   BUAT DAFTAR UKURAN
+   CARI RULE TEPAT
 ===================================================== */
 
-function buatDaftarUkuran(){
+function cariAturanTepat(
+    nama,
+    tebal,
+    lebar,
+    panjang
+){
 
-    const daftar = [];
+    const kandidat =
+        aturan.filter(rule =>
 
-    aturan.forEach(rule => {
+            rule.nama === nama &&
+            rule.t.includes(tebal) &&
+            rule.l.includes(lebar) &&
+            cocokPanjang(rule,panjang)
 
-        rule.t.forEach(tebal => {
+        );
 
-            rule.l.forEach(lebar => {
+    /*
+       Kalau ada beberapa rule yang cocok,
+       pilih rule dengan batas paling spesifik.
+    */
 
-                let panjangList = [];
+    if(kandidat.length === 0){
 
-                if(rule.exact !== undefined){
+        return null;
 
-                    panjangList = [rule.exact];
+    }
 
-                }else if(
-                    rule.min !== undefined &&
-                    rule.max !== undefined
-                ){
+    return kandidat[0];
 
-                    /*
-                       Untuk input sekarang kita tampilkan
-                       pilihan panjang yang umum dari aturan.
-                    */
+}
 
-                    for(
-                        let p = rule.min;
-                        p <= rule.max;
-                        p += 50
-                    ){
 
-                        panjangList.push(p);
+/* =====================================================
+   DAPATKAN UKURAN DARI RULE
+===================================================== */
 
-                    }
+function buatDaftarUkuranNama(nama){
 
-                    if(
-                        panjangList[panjangList.length - 1] !==
-                        rule.max
-                    ){
+    const hasil = [];
 
-                        panjangList.push(rule.max);
+    aturan
+        .filter(rule => rule.nama === nama)
+        .forEach(rule => {
 
-                    }
+            let panjangList = [];
 
-                }else if(rule.up === true){
+            if(rule.exact !== undefined){
 
-                    /*
-                       Aturan OPEN seperti >= 900.
-                       Pilihan awal dibuat berdasarkan ukuran
-                       yang lazim digunakan.
-                    */
+                panjangList = [rule.exact];
 
-                    panjangList = [
-                        900,
-                        1000,
-                        1100,
-                        1200,
-                        1300,
-                        1400,
-                        1500,
-                        1600,
-                        1700,
-                        1800,
-                        1900,
-                        2000,
-                        2100,
-                        2200,
-                        2300,
-                        2400,
-                        2500,
-                        2600,
-                        2700,
-                        2800,
-                        2900,
-                        3000
-                    ];
+            }else if(
+                rule.min !== undefined &&
+                rule.max !== undefined
+            ){
 
-                }else if(rule.max !== undefined){
+                /*
+                   Karena aturan asli berupa rentang,
+                   input tetap ditampilkan sebagai rentang.
+                */
 
-                    panjangList = [
-                        50,
-                        100,
-                        150,
-                        200,
-                        250,
-                        300,
-                        350,
-                        400,
-                        450,
-                        500
-                    ].filter(
-                        p => p <= rule.max
-                    );
+                panjangList = [
+                    rule.min,
+                    rule.max
+                ];
 
-                }
+            }else if(rule.min !== undefined){
 
-                panjangList.forEach(panjang => {
+                panjangList = [
+                    rule.min
+                ];
 
-                    if(
-                        panjang <= 0 ||
-                        !cocokPanjang(rule,panjang)
-                    ){
+            }else if(rule.max !== undefined){
 
-                        return;
+                panjangList = [
+                    rule.max
+                ];
 
-                    }
+            }
 
-                    const key =
-                        tebal +
-                        "x" +
-                        lebar +
-                        "x" +
-                        panjang;
+            rule.t.forEach(tebal => {
 
-                    if(
-                        !daftar.some(
-                            x => x.key === key
-                        )
-                    ){
+                rule.l.forEach(lebar => {
 
-                        daftar.push({
+                    panjangList.forEach(panjang => {
 
-                            key:key,
+                        hasil.push({
 
+                            nama:nama,
                             tebal:tebal,
-
                             lebar:lebar,
-
                             panjang:panjang,
-
+                            isi:rule.isi,
                             rule:rule
 
                         });
 
-                    }
+                    });
 
                 });
 
@@ -1150,443 +1137,367 @@ function buatDaftarUkuran(){
 
         });
 
-    });
-
-    return daftar;
-
-}
-
-
-const daftarUkuran =
-    buatDaftarUkuran();
-
-
-/* =====================================================
-   DATA TABEL
-===================================================== */
-
-function ambilDataTabel(){
-
-    const data = [];
-
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
-
-
-    rows.forEach(row => {
-
-        const ukuran =
-            row.querySelector(".ukuran-select");
-
-        const pilihan =
-            ukuran?.selectedOptions[0];
-
-        data.push({
-
-            mutu:
-                row.querySelector(".mutu")?.value || "",
-
-            ukuran:
-                ukuran?.value || "",
-
-            tebal:
-                pilihan?.dataset.tebal || "",
-
-            lebar:
-                pilihan?.dataset.lebar || "",
-
-            panjang:
-                pilihan?.dataset.panjang || "",
-
-            jumlahBendel:
-                row.querySelector(".jumlahBendel")?.value || ""
-
-        });
-
-    });
-
-
-    return data;
-
-}
-
-
-/* =====================================================
-   SIMPAN MODE
-===================================================== */
-
-function simpanDataMode(){
-
-    if(modeAktif === "tambahan"){
-
-        dataTambahan =
-            ambilDataTabel();
-
-    }else{
-
-        dataEntry =
-            ambilDataTabel();
-
-    }
-
-}
-
-
-/* =====================================================
-   BUAT BARIS
-===================================================== */
-
-function buatBaris(data={}){
-
-    const tbody =
-        document.getElementById(
-            "tabelKayu"
-        );
-
-
-    const tr =
-        document.createElement("tr");
-
-
-    let optionHTML =
-        `<option value="">-- Pilih Ukuran --</option>`;
-
-
-    daftarUkuran.forEach(item => {
-
-        optionHTML += `
-
-            <option
-                value="${item.key}"
-                data-tebal="${item.tebal}"
-                data-lebar="${item.lebar}"
-                data-panjang="${item.panjang}"
-            >
-                ${item.tebal} × ${item.lebar} × ${item.panjang}
-            </option>
-
-        `;
-
-    });
-
-
-    tr.innerHTML = `
-
-        <td>
-
-            <div class="nama belum">
-                -
-            </div>
-
-        </td>
-
-
-        <td>
-
-            <select
-                class="mutu"
-                onchange="hitung()"
-            >
-
-                <option value="">
-                    -
-                </option>
-
-                <option value="P">
-                    P
-                </option>
-
-                <option value="D">
-                    D
-                </option>
-
-                <option value="T">
-                    T
-                </option>
-
-            </select>
-
-        </td>
-
-
-        <td>
-
-            <select
-                class="ukuran-select"
-                onchange="hitung()"
-            >
-
-                ${optionHTML}
-
-            </select>
-
-        </td>
-
-
-        <td>
-
-            <input
-                type="number"
-                class="jumlahBendel"
-                min="1"
-                step="1"
-                value="${data.jumlahBendel || ""}"
-                placeholder="Jumlah"
-                oninput="hitung()"
-            >
-
-        </td>
-
-
-        <td>
-
-            <div class="isi-bendel">
-                -
-            </div>
-
-            <div class="status"></div>
-
-        </td>
-
-
-        <td>
-
-            <div class="volume">
-                0,000000
-            </div>
-
-        </td>
-
-
-        <td>
-
-            <button
-                class="delete"
-                onclick="
-                    this.closest('tr').remove();
-                    hitung();
-                "
-            >
-                ✕
-            </button>
-
-        </td>
-
-    `;
-
-
-    tbody.appendChild(tr);
-
-
-    const ukuranSelect =
-        tr.querySelector(
-            ".ukuran-select"
-        );
-
-
-    if(data.ukuran){
-
-        ukuranSelect.value =
-            data.ukuran;
-
-    }
-
-
-    const mutuSelect =
-        tr.querySelector(".mutu");
-
-
-    if(data.mutu){
-
-        mutuSelect.value =
-            data.mutu;
-
-    }
-
-}
-
-
-/* =====================================================
-   CEK BARIS LENGKAP
-===================================================== */
-
-function cekBarisLengkap(row){
-
-    const ukuran =
-        row.querySelector(
-            ".ukuran-select"
-        ).value;
-
-
-    const jumlah =
-        angka(
-            row.querySelector(
-                ".jumlahBendel"
-            ).value
-        );
-
-
-    const mutu =
-        row.querySelector(
-            ".mutu"
-        );
-
 
     /*
-       Ukuran dan jumlah wajib.
+       Hapus duplikat ukuran.
     */
 
-    if(
-        !ukuran ||
-        jumlah <= 0
-    ){
+    const unik = new Map();
 
-        return false;
+    hasil.forEach(item => {
 
-    }
+        const key =
+            item.tebal +
+            "-" +
+            item.lebar +
+            "-" +
+            item.panjang +
+            "-" +
+            item.isi;
 
+        if(!unik.has(key)){
 
-    /*
-       Mutu wajib untuk produk yang bukan
-       FJL / RENG / LIST.
-    */
-
-    const pilihan =
-        row.querySelector(
-            ".ukuran-select"
-        ).selectedOptions[0];
-
-
-    if(!pilihan){
-
-        return false;
-
-    }
-
-
-    const tebal =
-        angka(
-            pilihan.dataset.tebal
-        );
-
-
-    const lebar =
-        angka(
-            pilihan.dataset.lebar
-        );
-
-
-    const panjang =
-        angka(
-            pilihan.dataset.panjang
-        );
-
-
-    const rule =
-        cariAturan(
-            tebal,
-            lebar,
-            panjang
-        );
-
-
-    if(!rule){
-
-        return false;
-
-    }
-
-
-    if(
-        rule.nama !== "FJL" &&
-        rule.nama !== "RENG" &&
-        rule.nama !== "LIST" &&
-        !mutu.value
-    ){
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-/* =====================================================
-   CEK SEMUA BARIS
-===================================================== */
-
-function semuaBarisLengkap(){
-
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
-
-
-    let semua = true;
-
-
-    rows.forEach(row => {
-
-        if(!cekBarisLengkap(row)){
-
-            semua = false;
-
-            row.querySelector(
-                ".ukuran-select"
-            ).classList.add(
-                "tidak-lengkap"
-            );
-
-            row.querySelector(
-                ".jumlahBendel"
-            ).classList.add(
-                "tidak-lengkap"
-            );
-
-        }else{
-
-            row.querySelector(
-                ".ukuran-select"
-            ).classList.remove(
-                "tidak-lengkap"
-            );
-
-            row.querySelector(
-                ".jumlahBendel"
-            ).classList.remove(
-                "tidak-lengkap"
-            );
+            unik.set(key,item);
 
         }
 
     });
 
 
-    return semua;
+    return [...unik.values()]
+        .sort((a,b) => {
+
+            if(a.panjang !== b.panjang){
+
+                return a.panjang - b.panjang;
+
+            }
+
+            if(a.tebal !== b.tebal){
+
+                return a.tebal - b.tebal;
+
+            }
+
+            return a.lebar - b.lebar;
+
+        });
 
 }
 
 
 /* =====================================================
-   RENDER MODE
+   MUTU UNTUK NAMA
 ===================================================== */
 
-function renderMode(){
+function mutuNama(nama){
 
-    const tbody =
+    if(
+        nama === "FJL" ||
+        nama === "RENG" ||
+        nama === "LIST"
+    ){
+
+        return ["T"];
+
+    }
+
+    return ["P","D"];
+
+}
+
+
+/* =====================================================
+   PILIH NAMA
+===================================================== */
+
+function pilihNama(){
+
+    namaAktif =
         document.getElementById(
-            "tabelKayu"
+            "filterNama"
+        ).value;
+
+    renderUkuran();
+
+}
+
+
+/* =====================================================
+   RENDER TABEL UKURAN
+===================================================== */
+
+function renderUkuran(){
+
+    const container =
+        document.getElementById(
+            "tabelUkuran"
+        );
+
+    const info =
+        document.getElementById(
+            "infoUkuran"
         );
 
 
-    tbody.innerHTML = "";
+    container.innerHTML = "";
 
+
+    if(!namaAktif){
+
+        info.innerHTML =
+            "Pilih nama terlebih dahulu.";
+
+        return;
+
+    }
+
+
+    const ukuran =
+        buatDaftarUkuranNama(
+            namaAktif
+        );
+
+
+    const mutu =
+        mutuNama(
+            namaAktif
+        );
+
+
+    if(ukuran.length === 0){
+
+        info.innerHTML =
+            "Tidak ada ukuran.";
+
+        return;
+
+    }
+
+
+    let html = `
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Ukuran</th>
+
+                    <th>Isi/Bendel</th>
+
+    `;
+
+
+    mutu.forEach(m => {
+
+        html += `
+
+            <th class="mutu-head">
+                ${m}
+            </th>
+
+        `;
+
+    });
+
+
+    html += `
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+    `;
+
+
+    ukuran.forEach((item,index) => {
+
+        html += `
+
+            <tr>
+
+                <td class="ukuran">
+
+                    ${item.tebal}
+                    ×
+                    ${item.lebar}
+                    ×
+                    ${item.panjang}
+
+                </td>
+
+                <td class="isi-bendel">
+
+                    ${item.isi}
+
+                </td>
+
+        `;
+
+
+        mutu.forEach(m => {
+
+            html += `
+
+                <td>
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="jumlah-input"
+                        data-nama="${item.nama}"
+                        data-tebal="${item.tebal}"
+                        data-lebar="${item.lebar}"
+                        data-panjang="${item.panjang}"
+                        data-isi="${item.isi}"
+                        data-mutu="${m}"
+                        data-index="${index}"
+                        placeholder="0"
+                        oninput="hitung()"
+                    >
+
+                </td>
+
+            `;
+
+        });
+
+
+        html += `
+
+            </tr>
+
+        `;
+
+    });
+
+
+    html += `
+
+            </tbody>
+
+        </table>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+
+    info.innerHTML = `
+
+        <strong>${namaAktif}</strong>
+        • ${ukuran.length} ukuran tersedia
+        • Isi/Bendel otomatis
+        • Panjang terkecil → terbesar
+
+    `;
+
+
+    restoreDataTabel();
+
+    hitung();
+
+}
+
+
+/* =====================================================
+   AMBIL DATA INPUT BARU
+===================================================== */
+
+function ambilDataInput(){
+
+    const hasil = [];
+
+
+    document
+        .querySelectorAll(
+            ".jumlah-input"
+        )
+        .forEach(input => {
+
+            const jumlah =
+                angka(input.value);
+
+            if(jumlah <= 0){
+
+                return;
+
+            }
+
+
+            hasil.push({
+
+                nama:
+                    input.dataset.nama,
+
+                mutu:
+                    input.dataset.mutu,
+
+                tebal:
+                    angka(
+                        input.dataset.tebal
+                    ),
+
+                lebar:
+                    angka(
+                        input.dataset.lebar
+                    ),
+
+                panjang:
+                    angka(
+                        input.dataset.panjang
+                    ),
+
+                jumlahBendel:
+                    jumlah
+
+            });
+
+        });
+
+
+    return hasil;
+
+}
+
+
+/* =====================================================
+   SIMPAN DATA MODE
+===================================================== */
+
+function simpanDataMode(){
+
+    const data =
+        ambilDataInput();
+
+
+    if(modeAktif === "tambahan"){
+
+        dataTambahan =
+            data;
+
+    }else{
+
+        dataEntry =
+            data;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESTORE DATA
+===================================================== */
+
+function restoreDataTabel(){
 
     const data =
         modeAktif === "tambahan"
@@ -1594,288 +1505,41 @@ function renderMode(){
             : dataEntry;
 
 
-    if(data.length === 0){
+    document
+        .querySelectorAll(
+            ".jumlah-input"
+        )
+        .forEach(input => {
 
-        buatBaris();
+            const ditemukan =
+                data.find(item =>
 
-    }else{
+                    item.nama ===
+                    input.dataset.nama &&
 
-        data.forEach(item => {
+                    item.mutu ===
+                    input.dataset.mutu &&
 
-            buatBaris(item);
+                    item.tebal ===
+                    angka(input.dataset.tebal) &&
 
-        });
+                    item.lebar ===
+                    angka(input.dataset.lebar) &&
 
-    }
+                    item.panjang ===
+                    angka(input.dataset.panjang)
 
-
-    hitung();
-
-}
-
-
-/* =====================================================
-   TAMBAH BARIS
-===================================================== */
-
-function tambahBaris(){
-
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
+                );
 
 
-    /*
-       JANGAN BOLEH TAMBAH BARIS
-       KALAU BARIS SEBELUMNYA BELUM LENGKAP.
-    */
+            if(ditemukan){
 
-    if(!semuaBarisLengkap()){
+                input.value =
+                    ditemukan.jumlahBendel;
 
-        alert(
-            "Baris sebelumnya belum lengkap.\n\n" +
-            "Silakan pilih UKURAN, isi JUMLAH BENDEL, " +
-            "dan pilih MUTU terlebih dahulu."
-        );
-
-        return false;
-
-    }
-
-
-    simpanDataMode();
-
-    buatBaris();
-
-    hitung();
-
-    return true;
-
-}
-
-
-/* =====================================================
-   TAMBAH + SCROLL
-===================================================== */
-
-function tambahBarisDanScroll(){
-
-    const berhasil =
-        tambahBaris();
-
-
-    if(!berhasil){
-
-        return;
-
-    }
-
-
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
-
-
-    if(rows.length > 0){
-
-        const barisBaru =
-            rows[rows.length - 1];
-
-
-        barisBaru.scrollIntoView({
-
-            behavior:"smooth",
-
-            block:"center"
+            }
 
         });
-
-
-        const ukuran =
-            barisBaru.querySelector(
-                ".ukuran-select"
-            );
-
-
-        if(ukuran){
-
-            setTimeout(() => {
-
-                ukuran.focus();
-
-            },400);
-
-        }
-
-    }
-
-}
-
-
-/* =====================================================
-   UBAH MODE
-===================================================== */
-
-function ubahMode(mode){
-
-    /*
-       Jangan pindah mode kalau data belum lengkap.
-    */
-
-    if(
-        mode !== modeAktif &&
-        !semuaBarisLengkap()
-    ){
-
-        alert(
-            "Data belum lengkap.\n\n" +
-            "Lengkapi baris yang sedang diisi terlebih dahulu."
-        );
-
-        return;
-
-    }
-
-
-    simpanDataMode();
-
-
-    modeAktif =
-        mode;
-
-
-    const btnTambahan =
-        document.getElementById(
-            "btnTambahan"
-        );
-
-
-    const btnEntry =
-        document.getElementById(
-            "btnEntry"
-        );
-
-
-    const dataSaatIni =
-        document.getElementById(
-            "dataSaatIni"
-        );
-
-
-    const entryLog =
-        document.getElementById(
-            "entryLog"
-        );
-
-
-    const hasilTambahan =
-        document.getElementById(
-            "hasilTambahan"
-        );
-
-
-    const hasilEntry =
-        document.getElementById(
-            "hasilEntry"
-        );
-
-
-    const history =
-        document.getElementById(
-            "historyEntry"
-        );
-
-
-    const download =
-        document.getElementById(
-            "downloadExcel"
-        );
-
-
-    const judulTabel =
-        document.getElementById(
-            "judulTabel"
-        );
-
-
-    if(mode === "tambahan"){
-
-        btnTambahan.classList.add(
-            "active"
-        );
-
-        btnEntry.classList.remove(
-            "active"
-        );
-
-
-        dataSaatIni.style.display =
-            "block";
-
-        entryLog.style.display =
-            "none";
-
-
-        hasilTambahan.style.display =
-            "block";
-
-        hasilEntry.style.display =
-            "none";
-
-
-        history.style.display =
-            "none";
-
-
-        download.style.display =
-            "none";
-
-
-        judulTabel.textContent =
-            "Kayu Tambahan";
-
-    }else{
-
-        btnTambahan.classList.remove(
-            "active"
-        );
-
-        btnEntry.classList.add(
-            "active"
-        );
-
-
-        dataSaatIni.style.display =
-            "none";
-
-        entryLog.style.display =
-            "block";
-
-
-        hasilTambahan.style.display =
-            "none";
-
-        hasilEntry.style.display =
-            "block";
-
-
-        history.style.display =
-            "block";
-
-
-        download.style.display =
-            "block";
-
-
-        judulTabel.textContent =
-            "Data RST";
-
-    }
-
-
-    renderMode();
 
 }
 
@@ -1886,207 +1550,63 @@ function ubahMode(mode){
 
 function hitung(){
 
+    /*
+       Jangan simpan ketika tabel belum dibuat.
+    */
+
+    if(
+        !document.querySelector(
+            ".jumlah-input"
+        )
+    ){
+
+        hitungHasil(0);
+
+        return;
+
+    }
+
+
+    const data =
+        ambilDataInput();
+
+
+    if(modeAktif === "tambahan"){
+
+        dataTambahan =
+            data;
+
+    }else{
+
+        dataEntry =
+            data;
+
+    }
+
+
     let totalVolume = 0;
 
 
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
-
-
-    rows.forEach(row => {
-
-        const ukuranSelect =
-            row.querySelector(
-                ".ukuran-select"
-            );
-
-
-        const pilihan =
-            ukuranSelect.selectedOptions[0];
-
-
-        const namaElement =
-            row.querySelector(
-                ".nama"
-            );
-
-
-        const isiElement =
-            row.querySelector(
-                ".isi-bendel"
-            );
-
-
-        const statusElement =
-            row.querySelector(
-                ".status"
-            );
-
-
-        const volumeElement =
-            row.querySelector(
-                ".volume"
-            );
-
-
-        const mutuSelect =
-            row.querySelector(
-                ".mutu"
-            );
-
-
-        const jumlahBendel =
-            angka(
-                row.querySelector(
-                    ".jumlahBendel"
-                ).value
-            );
-
-
-        if(
-            !ukuranSelect.value ||
-            !pilihan
-        ){
-
-            namaElement.textContent =
-                "-";
-
-            namaElement.className =
-                "nama belum";
-
-            isiElement.textContent =
-                "-";
-
-            statusElement.textContent =
-                "";
-
-            volumeElement.textContent =
-                "0,000000";
-
-            return;
-
-        }
-
-
-        const tebal =
-            angka(
-                pilihan.dataset.tebal
-            );
-
-
-        const lebar =
-            angka(
-                pilihan.dataset.lebar
-            );
-
-
-        const panjang =
-            angka(
-                pilihan.dataset.panjang
-            );
-
+    data.forEach(item => {
 
         const rule =
-            cariAturan(
-                tebal,
-                lebar,
-                panjang
+            cariAturanTepat(
+                item.nama,
+                item.tebal,
+                item.lebar,
+                item.panjang
             );
 
 
         if(!rule){
 
-            namaElement.textContent =
-                "Ukuran tidak ditemukan";
-
-            namaElement.className =
-                "nama belum";
-
-            isiElement.textContent =
-                "?";
-
-            statusElement.textContent =
-                "Cek ukuran";
-
-            statusElement.className =
-                "status error";
-
-            volumeElement.textContent =
-                "0,000000";
-
             return;
 
         }
-
-
-        namaElement.textContent =
-            rule.nama;
-
-        namaElement.className =
-            "nama";
-
-
-        if(
-            rule.nama === "FJL" ||
-            rule.nama === "RENG" ||
-            rule.nama === "LIST"
-        ){
-
-            mutuSelect.value =
-                "T";
-
-            mutuSelect.disabled =
-                true;
-
-            mutuSelect.classList.add(
-                "mutu-fixed"
-            );
-
-        }else{
-
-            mutuSelect.disabled =
-                false;
-
-            mutuSelect.classList.remove(
-                "mutu-fixed"
-            );
-
-        }
-
-
-        isiElement.textContent =
-            rule.isi;
-
-
-        if(
-            jumlahBendel <= 0
-        ){
-
-            statusElement.textContent =
-                "Isi jumlah";
-
-            statusElement.className =
-                "status error";
-
-            volumeElement.textContent =
-                "0,000000";
-
-            return;
-
-        }
-
-
-        statusElement.textContent =
-            "Otomatis";
-
-        statusElement.className =
-            "status ok";
 
 
         const totalBatang =
-            jumlahBendel *
+            item.jumlahBendel *
             rule.isi;
 
 
@@ -2094,9 +1614,9 @@ function hitung(){
             round6(
 
                 (
-                    tebal *
-                    lebar *
-                    panjang *
+                    item.tebal *
+                    item.lebar *
+                    item.panjang *
                     totalBatang
                 )
                 /
@@ -2105,19 +1625,24 @@ function hitung(){
             );
 
 
-        volumeElement.textContent =
-            formatAngka(volume);
-
-
         totalVolume +=
             volume;
 
     });
 
 
-    /* =================================================
-       MODE TAMBAHAN
-    ================================================= */
+    hitungHasil(
+        totalVolume
+    );
+
+}
+
+
+/* =====================================================
+   HASIL
+===================================================== */
+
+function hitungHasil(totalVolume){
 
     const hasilSaatIni =
         angka(
@@ -2211,9 +1736,7 @@ function hitung(){
         " %";
 
 
-    /* =================================================
-       MODE ENTRY
-    ================================================= */
+    /* ================= ENTRY ================= */
 
     const jumlahLog =
         angka(
@@ -2275,6 +1798,101 @@ function hitung(){
 
 
 /* =====================================================
+   UBAH MODE
+===================================================== */
+
+function ubahMode(mode){
+
+    simpanDataMode();
+
+
+    modeAktif =
+        mode;
+
+
+    document.getElementById(
+        "btnTambahan"
+    ).classList.toggle(
+        "active",
+        mode === "tambahan"
+    );
+
+
+    document.getElementById(
+        "btnEntry"
+    ).classList.toggle(
+        "active",
+        mode === "entry"
+    );
+
+
+    document.getElementById(
+        "dataSaatIni"
+    ).style.display =
+        mode === "tambahan"
+            ? "block"
+            : "none";
+
+
+    document.getElementById(
+        "entryLog"
+    ).style.display =
+        mode === "entry"
+            ? "block"
+            : "none";
+
+
+    document.getElementById(
+        "hasilTambahan"
+    ).style.display =
+        mode === "tambahan"
+            ? "block"
+            : "none";
+
+
+    document.getElementById(
+        "hasilEntry"
+    ).style.display =
+        mode === "entry"
+            ? "block"
+            : "none";
+
+
+    document.getElementById(
+        "historyEntry"
+    ).style.display =
+        mode === "entry"
+            ? "block"
+            : "none";
+
+
+    document.getElementById(
+        "downloadExcel"
+    ).style.display =
+        mode === "entry"
+            ? "block"
+            : "none";
+
+
+    /*
+       Kalau nama sudah dipilih,
+       render ulang untuk mode yang baru.
+    */
+
+    if(namaAktif){
+
+        renderUkuran();
+
+    }else{
+
+        hitung();
+
+    }
+
+}
+
+
+/* =====================================================
    DATA EXPORT
 ===================================================== */
 
@@ -2283,103 +1901,27 @@ function ambilDataExport(){
     const hasil = [];
 
 
-    const rows =
-        document.querySelectorAll(
-            "#tabelKayu tr"
-        );
+    const data =
+        ambilDataInput();
 
 
-    rows.forEach(row => {
-
-        const ukuran =
-            row.querySelector(
-                ".ukuran-select"
-            );
-
-
-        const pilihan =
-            ukuran.selectedOptions[0];
-
-
-        if(
-            !ukuran.value ||
-            !pilihan
-        ){
-
-            return;
-
-        }
-
-
-        const tebal =
-            angka(
-                pilihan.dataset.tebal
-            );
-
-
-        const lebar =
-            angka(
-                pilihan.dataset.lebar
-            );
-
-
-        const panjang =
-            angka(
-                pilihan.dataset.panjang
-            );
-
-
-        const jumlahBendel =
-            angka(
-                row.querySelector(
-                    ".jumlahBendel"
-                ).value
-            );
-
-
-        const mutu =
-            row.querySelector(
-                ".mutu"
-            ).value;
-
-
-        const nama =
-            row.querySelector(
-                ".nama"
-            ).textContent
-            .trim();
-
+    data.forEach(item => {
 
         const rule =
-            cariAturan(
-                tebal,
-                lebar,
-                panjang
+            cariAturanTepat(
+                item.nama,
+                item.tebal,
+                item.lebar,
+                item.panjang
             );
 
 
         if(
             rule === null ||
-            jumlahBendel <= 0
+            item.jumlahBendel <= 0
         ){
 
             return;
-
-        }
-
-
-        let mutuFinal =
-            mutu;
-
-
-        if(
-            rule.nama === "FJL" ||
-            rule.nama === "RENG" ||
-            rule.nama === "LIST"
-        ){
-
-            mutuFinal =
-                "T";
 
         }
 
@@ -2390,14 +1932,16 @@ function ambilDataExport(){
 
         const volume =
             round6(
+
                 (
-                    tebal *
-                    lebar *
-                    panjang *
+                    item.tebal *
+                    item.lebar *
+                    item.panjang *
                     isi
                 )
                 /
                 1000000000
+
             );
 
 
@@ -2407,29 +1951,29 @@ function ambilDataExport(){
 
         for(
             let i = 0;
-            i < jumlahBendel;
+            i < item.jumlahBendel;
             i++
         ){
 
             hasil.push({
 
                 Nama:
-                    nama,
+                    item.nama,
 
                 B:
                     "",
 
                 Mutu:
-                    mutuFinal,
+                    item.mutu,
 
                 Panjang:
-                    panjang,
+                    item.panjang,
 
                 Lebar:
-                    lebar,
+                    item.lebar,
 
                 Tebal:
-                    tebal,
+                    item.tebal,
 
                 "Batang/Bendel":
                     isi,
@@ -2478,7 +2022,7 @@ const urutanMutu = {
 
 
 /* =====================================================
-   SORTIR
+   SORTIR EXPORT
 ===================================================== */
 
 function sortirDataExport(data){
@@ -2545,22 +2089,6 @@ function sortirDataExport(data){
 ===================================================== */
 
 function downloadExcelEntry(){
-
-    /*
-       WAJIB LENGKAP SEBELUM DOWNLOAD.
-    */
-
-    if(!semuaBarisLengkap()){
-
-        alert(
-            "Data belum lengkap.\n\n" +
-            "Lengkapi semua baris terlebih dahulu."
-        );
-
-        return;
-
-    }
-
 
     if(
         typeof XLSX ===
@@ -2891,11 +2419,14 @@ function tampilkanHistory(){
    MULAI
 ===================================================== */
 
+buatDaftarNama();
+
 tampilkanHistory();
 
-renderMode();
+renderUkuran();
 
 </script>
 
 </body>
 </html>
+
