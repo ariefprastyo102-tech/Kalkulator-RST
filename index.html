@@ -4899,10 +4899,139 @@ function tampilkanRangkuman(){
     }
 
 
+    /* =================================================
+       HITUNG TOTAL
+    ================================================= */
+
     let totalBatang = 0;
 
     let totalVolume = 0;
 
+    const totalPerNama = {};
+
+
+    hasil.forEach(item => {
+
+        totalBatang +=
+            item.batang;
+
+        totalVolume +=
+            item.volume;
+
+
+        if(!totalPerNama[item.nama]){
+
+            totalPerNama[item.nama] = 0;
+
+        }
+
+
+        totalPerNama[item.nama] +=
+            item.volume;
+
+    });
+
+
+    /* =================================================
+       URUTAN TOTAL PER NAMA
+    ================================================= */
+
+    const namaTotal =
+        Object.keys(
+            totalPerNama
+        ).sort((a,b) => {
+
+            const na =
+                urutanNama.indexOf(a);
+
+            const nb =
+                urutanNama.indexOf(b);
+
+            return na - nb;
+
+        });
+
+
+    /* =================================================
+       TOTAL PER KELOMPOK NAMA
+    ================================================= */
+
+    let htmlPerNama = `
+
+        <div class="table-wrap">
+
+        <table class="summary-table">
+
+        <thead>
+
+        <tr>
+
+            <th>Nama</th>
+
+            <th>Total Volume</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+    `;
+
+
+    namaTotal.forEach(nama => {
+
+        htmlPerNama += `
+
+            <tr>
+
+                <td>
+                    ${nama}
+                </td>
+
+                <td>
+                    ${formatAngka(
+                        totalPerNama[nama]
+                    )}
+                    m³
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    htmlPerNama += `
+
+        <tr class="summary-total">
+
+            <td>
+                TOTAL VOLUME RST
+            </td>
+
+            <td>
+                ${formatAngka(
+                    totalVolume
+                )}
+                m³
+            </td>
+
+        </tr>
+
+        </tbody>
+
+        </table>
+
+        </div>
+
+    `;
+
+
+    /* =================================================
+       TABEL DETAIL
+    ================================================= */
 
     let html = `
 
@@ -4915,11 +5044,17 @@ function tampilkanRangkuman(){
         <tr>
 
             <th>Nama</th>
+
             <th>Ukuran</th>
+
             <th>P</th>
+
             <th>D</th>
+
             <th>T</th>
+
             <th>Batang</th>
+
             <th>Volume</th>
 
         </tr>
@@ -4932,13 +5067,6 @@ function tampilkanRangkuman(){
 
 
     hasil.forEach(item => {
-
-        totalBatang +=
-            item.batang;
-
-        totalVolume +=
-            item.volume;
-
 
         html += `
 
@@ -4973,7 +5101,9 @@ function tampilkanRangkuman(){
                 </td>
 
                 <td>
-                    ${formatAngka(item.volume)}
+                    ${formatAngka(
+                        item.volume
+                    )}
                 </td>
 
             </tr>
@@ -4996,7 +5126,9 @@ function tampilkanRangkuman(){
             </td>
 
             <td>
-                ${formatAngka(totalVolume)}
+                ${formatAngka(
+                    totalVolume
+                )}
             </td>
 
         </tr>
@@ -5010,7 +5142,12 @@ function tampilkanRangkuman(){
     `;
 
 
+    /* =================================================
+       TAMPILKAN
+    ================================================= */
+
     container.innerHTML =
+        htmlPerNama +
         html;
 
 }
