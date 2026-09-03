@@ -2798,6 +2798,62 @@ function hitungEntryOtomatis(){
     }
 
 
+    /* =================================================
+       HITUNG TOTAL VOLUME SEMUA NAMA
+    ================================================= */
+
+    let totalVolumeSemuaNama = 0;
+
+
+    dataEntry.forEach(item => {
+
+        const rule =
+            cariAturan(
+                angka(item.tebal),
+                angka(item.lebar),
+                angka(item.panjang),
+                item.nama
+            );
+
+
+        if(!rule){
+            return;
+        }
+
+
+        const jumlah =
+            angka(item.P) +
+            angka(item.D) +
+            angka(item.T);
+
+
+        if(jumlah <= 0){
+            return;
+        }
+
+
+        const volume =
+            round6(
+
+                (
+                    angka(item.tebal) *
+                    angka(item.lebar) *
+                    angka(item.panjang) *
+                    jumlah *
+                    rule.isi
+                )
+                /
+                1000000000
+
+            );
+
+
+        totalVolumeSemuaNama +=
+            volume;
+
+    });
+
+
     const jumlahLog =
         angka(
             document.getElementById(
@@ -2813,7 +2869,7 @@ function hitungEntryOtomatis(){
 
         rendemenEntry =
             (
-                totalVolume /
+                totalVolumeSemuaNama /
                 jumlahLog
             )
             *
@@ -2826,7 +2882,7 @@ function hitungEntryOtomatis(){
         "volumeRST"
     ).textContent =
         formatAngka(
-            totalVolume
+            totalVolumeSemuaNama
         )
         +
         " m³";
