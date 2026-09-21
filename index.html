@@ -1818,7 +1818,7 @@ function isiMasterHousing(data){
 
 }
 
-function renderHousingComponent(){
+async function renderHousingComponent(){
 
     const tabelHousing =
         document.getElementById(
@@ -1834,39 +1834,47 @@ function renderHousingComponent(){
     tabelOtomatis.style.display = "none";
 
 
-    if(dataHousing.length === 0){
+    try {
 
-        isiMasterHousing([
+        const response =
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbwAZXAjoHZC0hdOm1RdE_CjF3fsejyHv64l1FYqhu9Hf4VVyR-B0-0gsgz7ZuN0Wj8/exec?action=housing"
+            );
 
-            {
-                tebal: 19,
-                lebar: 19,
-                panjang: 820,
-                jml: 16,
-                totalRealisasi: 0
-            },
+        const data =
+            await response.json();
 
-            {
-                tebal: 19,
-                lebar: 19,
-                panjang: 2970,
-                jml: 16,
-                totalRealisasi: 0
-            },
+        console.log(
+            "DATA HOUSING DARI GSHEET:",
+            data
+        );
 
-            {
-                tebal: 19,
-                lebar: 24,
-                panjang: 860,
-                jml: 32,
-                totalRealisasi: 0
-            }
+        /*
+          Untuk sementara kita tampilkan
+          data mentah dulu di console.
+        */
 
-        ]);
+        if(!Array.isArray(data)){
+            throw new Error(
+                "Data Housing bukan array"
+            );
+        }
 
-    }else{
+        console.log(
+            "JUMLAH BARIS:",
+            data.length
+        );
 
-        renderHousingMaster();
+    } catch(error){
+
+        console.error(
+            "GAGAL AMBIL DATA HOUSING:",
+            error
+        );
+
+        alert(
+            "Data Housing gagal diambil dari Google Sheet."
+        );
 
     }
 
