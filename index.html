@@ -2051,7 +2051,6 @@ function ubahBatangHousing(index, nilai){
     dataHousing[index].batangHariIni =
         batang;
 
-    // Hitung volume baris ini tanpa render ulang
     const volume =
         round6(
             dataHousing[index].tebal *
@@ -2060,6 +2059,16 @@ function ubahBatangHousing(index, nilai){
             batang /
             1000000000
         );
+
+    const volumeCell =
+        document.querySelector(
+            `#tabelHousingComponentBody tr:nth-child(${index + 1}) td:nth-child(9)`
+        );
+
+    if(volumeCell){
+        volumeCell.textContent =
+            formatAngka(volume);
+    }
 
     console.log(
         "HOUSING INPUT:",
