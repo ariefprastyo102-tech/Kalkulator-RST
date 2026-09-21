@@ -671,7 +671,204 @@ td{
     }
 
 }    
+ /* =====================================================
+    HOUSING COMPONENT
+ ===================================================== */
 
+#tabelHousingComponent .table-wrap{
+    overflow-x:auto;
+    width:100%;
+    -webkit-overflow-scrolling:touch;
+}
+
+#tabelHousingComponent .entry-table{
+    min-width:980px;
+    table-layout:fixed;
+}
+
+/* HEADER */
+
+#tabelHousingComponent .entry-table th{
+    font-size:11px;
+    padding:9px 5px;
+    white-space:normal;
+    line-height:1.2;
+    text-align:center;
+}
+
+/* ISI */
+
+#tabelHousingComponent .entry-table td{
+    height:44px;
+    padding:6px 4px;
+    font-size:12px;
+    text-align:center;
+    white-space:nowrap;
+}
+
+/* TEBAL */
+
+#tabelHousingComponent .entry-table th:nth-child(1),
+#tabelHousingComponent .entry-table td:nth-child(1){
+    width:65px;
+}
+
+/* LEBAR */
+
+#tabelHousingComponent .entry-table th:nth-child(2),
+#tabelHousingComponent .entry-table td:nth-child(2){
+    width:65px;
+}
+
+/* PANJANG */
+
+#tabelHousingComponent .entry-table th:nth-child(3),
+#tabelHousingComponent .entry-table td:nth-child(3){
+    width:75px;
+}
+
+/* JML */
+
+#tabelHousingComponent .entry-table th:nth-child(4),
+#tabelHousingComponent .entry-table td:nth-child(4){
+    width:65px;
+}
+
+/* TOTAL REALISASI */
+
+#tabelHousingComponent .entry-table th:nth-child(5),
+#tabelHousingComponent .entry-table td:nth-child(5){
+    width:100px;
+}
+
+/* KEKURANGAN */
+
+#tabelHousingComponent .entry-table th:nth-child(6),
+#tabelHousingComponent .entry-table td:nth-child(6){
+    width:85px;
+}
+
+/* KET */
+
+#tabelHousingComponent .entry-table th:nth-child(7),
+#tabelHousingComponent .entry-table td:nth-child(7){
+    width:90px;
+}
+
+/* ================================
+   BATANG HARI INI
+   ================================ */
+
+#tabelHousingComponent .entry-table th:nth-child(8),
+#tabelHousingComponent .entry-table td:nth-child(8){
+    width:95px;
+}
+
+#tabelHousingComponent .housing-input{
+    width:65px !important;
+    min-width:65px;
+    max-width:65px;
+
+    height:36px;
+
+    padding:5px 4px !important;
+
+    font-size:16px !important;
+    font-weight:900;
+
+    text-align:center;
+
+    border:2px solid #8fa37f;
+    border-radius:7px;
+
+    box-sizing:border-box;
+}
+
+/* FOCUS INPUT */
+
+#tabelHousingComponent .housing-input:focus{
+    border-color:#526f32;
+    outline:2px solid rgba(82,111,50,.15);
+    background:#f4f9ef;
+}
+
+/* VOLUME HARI INI */
+
+#tabelHousingComponent .entry-table th:nth-child(9),
+#tabelHousingComponent .entry-table td:nth-child(9){
+    width:110px;
+}
+
+/* VOLUME REALISASI */
+
+#tabelHousingComponent .entry-table th:nth-child(10),
+#tabelHousingComponent .entry-table td:nth-child(10){
+    width:115px;
+}
+
+/* BARIS HOUSING */
+
+#tabelHousingComponent .entry-table tbody tr:hover{
+    background:#f7faf4;
+}
+
+
+/* =====================================================
+   HOUSING MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    #tabelHousingComponent .entry-table{
+        min-width:900px;
+    }
+
+    #tabelHousingComponent .entry-table th{
+        font-size:10px;
+        padding:8px 4px;
+    }
+
+    #tabelHousingComponent .entry-table td{
+        font-size:12px;
+        padding:5px 3px;
+    }
+
+    #tabelHousingComponent .housing-input{
+        width:65px !important;
+        min-width:65px;
+        max-width:65px;
+
+        height:36px;
+
+        font-size:16px !important;
+    }
+
+}
+    /* =====================================================
+   STATUS LUNAS / BELUM LUNAS
+===================================================== */
+
+#tabelHousingComponent .status-lunas{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:900;
+    color:#1f5e2c;
+    background:#dff3e3;
+    border:1px solid #8bc795;
+}
+
+#tabelHousingComponent .status-belum-lunas{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:900;
+    color:#9a4d00;
+    background:#fff0d6;
+    border:1px solid #e5b56b;
+}
 /* =====================================================
    ACTION
 ===================================================== */
@@ -2177,9 +2374,15 @@ function renderHousingMaster(){
                 ${kekurangan}
             </td>
 
-            <td>
-                ${ket}
-            </td>
+           <td>
+    <span class="${
+        ket === "Lunas"
+            ? "status-lunas"
+            : "status-belum-lunas"
+    }">
+        ${ket}
+    </span>
+</td>
 
             <td>
 
