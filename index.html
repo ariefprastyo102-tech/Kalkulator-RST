@@ -3713,33 +3713,34 @@ function ambilDataTabelTambahan(){
 }
 
 
-/* =====================================================
-   SIMPAN DATA MODE
-===================================================== */
-
-function simpanDataMode(){
+async function simpanDataMode(){
 
     if(modeAktif === "tambahan"){
 
         dataTambahan =
             ambilDataTabelTambahan();
 
-   }else{
+        return;
+
+    }
+
 
     if(namaEntryAktif === "HOUSING COMPONENT"){
 
-        simpanDataHousingDariTabel();
+        await simpanDataHousingDariTabel();
 
-    }else if(namaEntryAktif){
+        return;
+
+    }
+
+
+    if(namaEntryAktif){
 
         simpanDataEntryDariTabel();
 
     }
 
 }
-
-}
-
 
 /* =====================================================
    BUAT BARIS TAMBAHAN
