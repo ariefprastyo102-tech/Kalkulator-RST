@@ -2150,6 +2150,22 @@ function ubahBatangHousing(index, nilai){
 
 async function simpanDataHousingDariTabel(){
 
+    const tanggal =
+        document.getElementById(
+            "tanggalEntryManual"
+        ).value;
+
+    if(!tanggal){
+
+        alert(
+            "Tanggal entry belum dipilih."
+        );
+
+        return;
+
+    }
+
+
     const dataSimpan = [];
 
     dataHousing.forEach(item => {
@@ -2161,9 +2177,6 @@ async function simpanDataHousingDariTabel(){
             return;
         }
 
-        const totalBaru =
-            angka(item.totalRealisasi) +
-            batangHariIni;
 
         dataSimpan.push({
 
@@ -2179,8 +2192,8 @@ async function simpanDataHousingDariTabel(){
             batang:
                 batangHariIni,
 
-            totalRealisasi:
-                totalBaru
+            tanggal:
+                tanggal
 
         });
 
@@ -2245,11 +2258,6 @@ async function simpanDataHousingDariTabel(){
 
         }
 
-
-        /*
-         * Setelah berhasil dikirim,
-         * jadikan total baru sebagai total resmi.
-         */
 
         dataHousing.forEach(item => {
 
