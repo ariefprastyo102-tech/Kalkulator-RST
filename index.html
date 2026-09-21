@@ -2148,30 +2148,147 @@ function ubahBatangHousing(index, nilai){
 
 }
 
-function simpanDataHousingDariTabel(){
+async function simpanDataHousingDariTabel(){
+
+    const dataSimpan = [];
 
     dataHousing.forEach(item => {
 
         const batangHariIni =
             angka(item.batangHariIni);
 
-
         if(batangHariIni <= 0){
             return;
         }
 
-
-        item.totalRealisasi =
+        const totalBaru =
             angka(item.totalRealisasi) +
             batangHariIni;
 
+        dataSimpan.push({
 
-        item.batangHariIni = 0;
+            tebal:
+                angka(item.tebal),
+
+            lebar:
+                angka(item.lebar),
+
+            panjang:
+                angka(item.panjang),
+
+            batang:
+                batangHariIni,
+
+            totalRealisasi:
+                totalBaru
+
+        });
 
     });
 
 
-    renderHousingMaster();
+    if(dataSimpan.length === 0){
+
+        alert(
+            "Belum ada BATANG HARI INI yang diisi."
+        );
+
+        return;
+
+    }
+
+
+    console.log(
+        "DATA HOUSING YANG AKAN DIKIRIM:",
+        dataSimpan
+    );
+
+
+    try {
+
+        const response =
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbwAZXAjoHZC0hdOm1RdE_CjF3fsejyHv64l1FYqhu9Hf4VVyR-B0-0gsgz7ZuN0Wj8/exec",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            dataSimpan
+                        )
+                }
+            );
+
+
+        const hasil =
+            await response.json();
+
+
+        console.log(
+            "HASIL SIMPAN HOUSING:",
+            hasil
+        );
+
+
+        if(hasil.status !== "OK"){
+
+            alert(
+                "Gagal menyimpan Housing."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Setelah berhasil dikirim,
+         * jadikan total baru sebagai total resmi.
+         */
+
+        dataHousing.forEach(item => {
+
+            const batangHariIni =
+                angka(item.batangHariIni);
+
+            if(batangHariIni <= 0){
+                return;
+            }
+
+            item.totalRealisasi =
+                angka(item.totalRealisasi) +
+                batangHariIni;
+
+            item.batangHariIni = 0;
+
+        });
+
+
+        renderHousingMaster();
+
+
+        alert(
+            "Data Housing berhasil disimpan."
+        );
+
+
+    } catch(error){
+
+        console.error(
+            "ERROR SIMPAN HOUSING:",
+            error
+        );
+
+        alert(
+            "Gagal mengirim data Housing."
+        );
+
+    }
 
 }
     
