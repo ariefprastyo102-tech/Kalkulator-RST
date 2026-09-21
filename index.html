@@ -1845,41 +1845,83 @@ async function renderHousingComponent(){
             await response.json();
 
         console.log(
-            "DATA HOUSING DARI GSHEET:",
+            "DATA HOUSING:",
             data
         );
 
-        /*
-          Untuk sementara kita tampilkan
-          data mentah dulu di console.
-        */
 
-        if(!Array.isArray(data)){
-            throw new Error(
-                "Data Housing bukan array"
-            );
-        }
+        /*
+         * DATA DIMULAI DARI BARIS KE-5
+         *
+         * B = TEBAL
+         * C = LEBAR
+         * D = PANJANG
+         * E = JML
+         * G = TOTAL REALISASI BATANG
+         * I = KEKURANGAN BATANG
+         * K = KET
+         */
+
+        dataHousing =
+            data
+                .slice(4)
+                .filter(row =>
+                    row[1] !== "" &&
+                    row[2] !== "" &&
+                    row[3] !== ""
+                )
+                .map(row => ({
+
+                    tebal:
+                        angka(row[1]),
+
+                    lebar:
+                        angka(row[2]),
+
+                    panjang:
+                        angka(row[3]),
+
+                    jml:
+                        angka(row[4]),
+
+                    totalRealisasi:
+                        angka(row[6]),
+
+                    kekurangan:
+                        angka(row[8]),
+
+                    ket:
+                        row[10] || "Belum Lunas",
+
+                    batangHariIni:
+                        0
+
+                }));
+
 
         console.log(
-            "JUMLAH BARIS:",
-            data.length
+            "MASTER HOUSING TERBACA:",
+            dataHousing
         );
+
+
+        renderHousingMaster();
+
 
     } catch(error){
 
         console.error(
-            "GAGAL AMBIL DATA HOUSING:",
+            "GAGAL AMBIL MASTER HOUSING:",
             error
         );
 
         alert(
-            "Data Housing gagal diambil dari Google Sheet."
+            "Master Housing gagal diambil dari Google Sheet."
         );
 
     }
 
 }
-
 function renderHousingMaster(){
 
     const body =
