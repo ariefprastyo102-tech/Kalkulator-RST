@@ -2051,7 +2051,19 @@ function ubahBatangHousing(index, nilai){
     dataHousing[index].batangHariIni =
         batang;
 
-    const volume =
+
+    // TOTAL REALISASI SEBELUM INPUT HARI INI
+    const totalSebelumnya =
+        angka(dataHousing[index].totalRealisasi);
+
+
+    // TOTAL REALISASI SETELAH INPUT HARI INI
+    const totalBaru =
+        totalSebelumnya + batang;
+
+
+    // VOLUME HARI INI
+    const volumeHariIni =
         round6(
             dataHousing[index].tebal *
             dataHousing[index].lebar *
@@ -2060,23 +2072,78 @@ function ubahBatangHousing(index, nilai){
             1000000000
         );
 
-    const volumeCell =
-        document.querySelector(
-            `#tabelHousingComponentBody tr:nth-child(${index + 1}) td:nth-child(9)`
+
+    // VOLUME REALISASI
+    const volumeRealisasi =
+        round6(
+            dataHousing[index].tebal *
+            dataHousing[index].lebar *
+            dataHousing[index].panjang *
+            totalBaru /
+            1000000000
         );
 
-    if(volumeCell){
-        volumeCell.textContent =
-            formatAngka(volume);
+
+    // KEKURANGAN
+    const kekurangan =
+        dataHousing[index].jml -
+        totalBaru;
+
+
+    // STATUS
+    const ket =
+        totalBaru >= dataHousing[index].jml
+            ? "Lunas"
+            : "Belum Lunas";
+
+
+    const row =
+        document.querySelector(
+            `#tabelHousingComponentBody tr:nth-child(${index + 1})`
+        );
+
+
+    if(!row){
+        return;
     }
 
+
+    // TOTAL REALISASI Btg
+    row.children[4].textContent =
+        totalBaru;
+
+
+    // KEKURANGAN
+    row.children[5].textContent =
+        kekurangan;
+
+
+    // KET
+    row.children[6].textContent =
+        ket;
+
+
+    // VOLUME HARI INI
+    row.children[8].textContent =
+        formatAngka(volumeHariIni);
+
+
+    // VOLUME REALISASI
+    row.children[9].textContent =
+        formatAngka(volumeRealisasi);
+
+
     console.log(
-        "HOUSING INPUT:",
+        "HOUSING:",
         index,
         "BATANG:",
         batang,
-        "VOLUME:",
-        volume
+        "TOTAL:",
+        totalBaru,
+        "VOLUME HARI INI:",
+        volumeHariIni,
+        "VOLUME REALISASI:",
+        volumeRealisasi
     );
 
 }
