@@ -5057,13 +5057,32 @@ function downloadExcelEntry(){
 /* =====================================================
    SIMPAN ENTRY HISTORY
 ===================================================== */
-
-function simpanEntry(){
+async function simpanEntry(){
 
     if(modeAktif !== "entry"){
         return;
     }
 
+
+    /*
+     * KHUSUS HOUSING COMPONENT
+     */
+
+    if(
+        namaEntryAktif ===
+        "HOUSING COMPONENT"
+    ){
+
+        await simpanDataHousingDariTabel();
+
+        return;
+
+    }
+
+
+    /*
+     * ENTRY BIASA
+     */
 
     if(namaEntryAktif){
 
@@ -5271,7 +5290,6 @@ function simpanEntry(){
     );
 
 }
-
 
 /* =====================================================
    RANGKUMAN
