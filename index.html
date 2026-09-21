@@ -1272,10 +1272,8 @@ td{
 
         <table class="entry-table">
 
-          <thead>
-
+<thead>
     <tr>
-
         <th>TEBAL</th>
         <th>LEBAR</th>
         <th>PANJANG</th>
@@ -1283,10 +1281,10 @@ td{
         <th>TOTAL REALISASI</th>
         <th>KEKURANGAN</th>
         <th>KET</th>
-        <th>VOLUME</th>
-
+        <th>BATANG HARI INI</th>
+        <th>VOLUME HARI INI</th>
+        <th>VOLUME REALISASI</th>
     </tr>
-
 </thead>
 
             <tbody id="tabelHousingComponentBody">
@@ -1782,19 +1780,33 @@ function isiMasterHousing(data){
 
     dataHousing = data.map(item => ({
 
-        tebal: angka(item.tebal),
-        lebar: angka(item.lebar),
-        panjang: angka(item.panjang),
+        tebal:
+            angka(item.tebal),
 
-        jml: angka(item.jml),
+        lebar:
+            angka(item.lebar),
 
-        totalRealisasi: 0,
+        panjang:
+            angka(item.panjang),
 
-        kekurangan: angka(item.jml),
+        jml:
+            angka(item.jml),
 
-        ket: angka(item.jml) > 0
-            ? "Belum Lunas"
-            : "Lunas"
+        totalRealisasi:
+            angka(item.totalRealisasi),
+
+        kekurangan:
+            angka(item.jml) -
+            angka(item.totalRealisasi),
+
+        ket:
+            angka(item.totalRealisasi) >=
+            angka(item.jml)
+                ? "Lunas"
+                : "Belum Lunas",
+
+        batangHariIni:
+            0
 
     }));
 
@@ -1839,12 +1851,21 @@ function renderHousingMaster(){
 
     dataHousing.forEach((item, index) => {
 
-        const volume =
+        const totalRealisasi =
+            angka(item.totalRealisasi);
+
+
+        const kekurangan =
+            angka(item.jml) -
+            totalRealisasi;
+
+
+        const volumeHariIni =
             round6(
                 item.tebal *
                 item.lebar *
                 item.panjang *
-                item.jml /
+                angka(item.batangHariIni) /
                 1000000000
             );
 
@@ -1854,9 +1875,16 @@ function renderHousingMaster(){
                 item.tebal *
                 item.lebar *
                 item.panjang *
-                item.totalRealisasi /
+                totalRealisasi /
                 1000000000
             );
+
+
+        let ket = "Belum Lunas";
+
+        if(totalRealisasi >= item.jml){
+            ket = "Lunas";
+        }
 
 
         const tr =
@@ -1882,15 +1910,33 @@ function renderHousingMaster(){
             </td>
 
             <td>
-                ${item.totalRealisasi}
+                ${totalRealisasi}
             </td>
 
             <td>
-                ${item.kekurangan}
+                ${kekurangan}
             </td>
 
             <td>
-                ${item.ket}
+                ${ket}
+            </td>
+
+            <td>
+
+                <input
+                    type="number"
+                    min="0"
+                    class="housing-input"
+                    data-index="${index}"
+                    value="${item.batangHariIni || ""}"
+                    placeholder="Batang"
+                    oninput="ubahBatangHousing(${index}, this.value)"
+                >
+
+            </td>
+
+            <td>
+                ${formatAngka(volumeHariIni)}
             </td>
 
             <td>
@@ -1905,17 +1951,48 @@ function renderHousingMaster(){
     });
 
 }
-let modeAktif = "tambahan";
-let namaEntryAktif = "";
-let entryTanggalAktif = null;
+
+function ubahBatangHousing(index, nilai){
+
+    if(!dataHousing[index]){
+        return;
+    }
+
+    dataHousing[index].batangHariIni =
+        angka(nilai);
+
+
+    renderHousingMaster();
+
+}
+
+function simpanDataHousingDariTabel(){
+
+    dataHousing.forEach(item => {
+
+        const batangHariIni =
+            angka(item.batangHariIni);
+
+
+        if(batangHariIni <= 0){
+            return;
+        }
+
+
+        item.totalRealisasi =
+            angka(item.totalRealisasi) +
+            batangHariIni;
+
+
+        item.batangHariIni = 0;
+
+    });
+
+
+    renderHousingMaster();
+
+}
     
-let modeAktif = "tambahan";
-
-let namaEntryAktif = "";
-
-let entryTanggalAktif = null;
-
-
 /* =====================================================
    HISTORY
 ===================================================== */
@@ -3340,15 +3417,19 @@ function simpanDataMode(){
         dataTambahan =
             ambilDataTabelTambahan();
 
-    }else{
+   }else{
 
-        if(namaEntryAktif){
+    if(namaEntryAktif === "HOUSING COMPONENT"){
 
-            simpanDataEntryDariTabel();
+        simpanDataHousingDariTabel();
 
-        }
+    }else if(namaEntryAktif){
+
+        simpanDataEntryDariTabel();
 
     }
+
+}
 
 }
 
@@ -3525,7 +3606,15 @@ function renderMode(){
 
     if(modeAktif === "entry"){
 
-        renderEntryOtomatis();
+        if(namaEntryAktif === "HOUSING COMPONENT"){
+
+            renderHousingComponent();
+
+        }else{
+
+            renderEntryOtomatis();
+
+        }
 
         return;
 
@@ -3533,10 +3622,7 @@ function renderMode(){
 
 
     const tbody =
-        document.getElementById(
-            "tabelKayu"
-        );
-
+        document.getElementById("tabelKayu");
 
     tbody.innerHTML = "";
 
@@ -3547,11 +3633,9 @@ function renderMode(){
 
     }else{
 
-        dataTambahan.forEach(item => {
-
-            buatBaris(item);
-
-        });
+        dataTambahan.forEach(item =>
+            buatBaris(item)
+        );
 
     }
 
@@ -3559,7 +3643,6 @@ function renderMode(){
     hitung();
 
 }
-
 
 /* =====================================================
    TAMBAH BARIS
