@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KALKULATOR RENDEMEN</title>
+<title>DATA ENTRY & RENDEMEN</title>
 
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 
@@ -968,10 +968,10 @@ td{
 
     <div>
 
-        <h1>⚡ KALKULATOR RENDEMEN</h1>
+        <h1>DATA ENTRY & RENDEMEN</h1>
 
         <p>
-            Perhitungan tambahan RST dan rendemen
+             Entry data produksi dan perhitungan rendemen
         </p>
 
     </div>
@@ -986,23 +986,22 @@ td{
 <div class="mode-box">
 
     <button
-        id="btnTambahan"
+        id="btnEntry"
         class="mode-btn active"
+        onclick="ubahMode('entry')"
+    >
+        🟢 DATA ENTRY
+    </button>
+
+    <button
+        id="btnTambahan"
+        class="mode-btn"
         onclick="ubahMode('tambahan')"
     >
         🔵 TAMBAHAN
     </button>
 
-    <button
-        id="btnEntry"
-        class="mode-btn"
-        onclick="ubahMode('entry')"
-    >
-        🟢 ENTRY
-    </button>
-
 </div>
-
 
 <!-- =====================================================
      DATA SAAT INI
@@ -1176,6 +1175,10 @@ td{
             <option value="LIST">
                 LIST
             </option>
+           
+            <option value="HOUSING COMPONENT">
+    HOUSING COMPONENT
+</option>
 
         </select>
 
@@ -1258,6 +1261,43 @@ td{
 
     </div>
 
+    <!-- TABEL HOUSING COMPONENT -->
+
+<div
+    id="tabelHousingComponent"
+    style="display:none;"
+>
+
+    <div class="table-wrap">
+
+        <table class="entry-table">
+
+          <thead>
+
+    <tr>
+
+        <th>TEBAL</th>
+        <th>LEBAR</th>
+        <th>PANJANG</th>
+        <th>JML</th>
+        <th>TOTAL REALISASI</th>
+        <th>KEKURANGAN</th>
+        <th>KET</th>
+        <th>VOLUME</th>
+
+    </tr>
+
+</thead>
+
+            <tbody id="tabelHousingComponentBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 
     <!-- TABEL TAMBAHAN -->
 
@@ -1735,9 +1775,140 @@ const aturan = [
 ===================================================== */
 
 let dataTambahan = [];
-
 let dataEntry = [];
+let dataHousing = [];
 
+function isiMasterHousing(data){
+
+    dataHousing = data.map(item => ({
+
+        tebal: angka(item.tebal),
+        lebar: angka(item.lebar),
+        panjang: angka(item.panjang),
+
+        jml: angka(item.jml),
+
+        totalRealisasi: 0,
+
+        kekurangan: angka(item.jml),
+
+        ket: angka(item.jml) > 0
+            ? "Belum Lunas"
+            : "Lunas"
+
+    }));
+
+}
+
+function renderHousingComponent(){
+
+    const tabelHousing =
+        document.getElementById(
+            "tabelHousingComponent"
+        );
+
+    const tabelOtomatis =
+        document.getElementById(
+            "tabelEntryOtomatis"
+        );
+
+
+    tabelHousing.style.display = "block";
+
+
+    tabelOtomatis.style.display = "none";
+
+
+    renderHousingMaster();
+
+}
+
+function renderHousingMaster(){
+
+    const body =
+        document.getElementById(
+            "tabelHousingComponentBody"
+        );
+
+    if(!body){
+        return;
+    }
+
+    body.innerHTML = "";
+
+
+    dataHousing.forEach((item, index) => {
+
+        const volume =
+            round6(
+                item.tebal *
+                item.lebar *
+                item.panjang *
+                item.jml /
+                1000000000
+            );
+
+
+        const volumeRealisasi =
+            round6(
+                item.tebal *
+                item.lebar *
+                item.panjang *
+                item.totalRealisasi /
+                1000000000
+            );
+
+
+        const tr =
+            document.createElement("tr");
+
+
+        tr.innerHTML = `
+
+            <td>
+                ${item.tebal}
+            </td>
+
+            <td>
+                ${item.lebar}
+            </td>
+
+            <td>
+                ${item.panjang}
+            </td>
+
+            <td>
+                ${item.jml}
+            </td>
+
+            <td>
+                ${item.totalRealisasi}
+            </td>
+
+            <td>
+                ${item.kekurangan}
+            </td>
+
+            <td>
+                ${item.ket}
+            </td>
+
+            <td>
+                ${formatAngka(volumeRealisasi)}
+            </td>
+
+        `;
+
+
+        body.appendChild(tr);
+
+    });
+
+}
+let modeAktif = "tambahan";
+let namaEntryAktif = "";
+let entryTanggalAktif = null;
+    
 let modeAktif = "tambahan";
 
 let namaEntryAktif = "";
@@ -2992,12 +3163,28 @@ function namaEntryBerubah(){
         namaEntryAktif;
 
 
-    renderEntryOtomatis();
+    /*
+       HOUSING COMPONENT
+       ukuran random / manual
+    */
+
+    if(
+        namaEntryAktif ===
+        "HOUSING COMPONENT"
+    ){
+
+        renderHousingComponent();
+
+    }else{
+
+        renderEntryOtomatis();
+
+    }
+
 
     tampilkanRangkuman();
 
 }
-
 
 /* =====================================================
    TAMPILKAN PILIHAN NAMA
