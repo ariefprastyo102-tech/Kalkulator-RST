@@ -1776,6 +1776,10 @@ let dataTambahan = [];
 let dataEntry = [];
 let dataHousing = [];
 
+let modeAktif = "tambahan";
+let namaEntryAktif = "";
+let entryTanggalAktif = null;
+
 function isiMasterHousing(data){
 
     dataHousing = data.map(item => ({
@@ -1810,6 +1814,8 @@ function isiMasterHousing(data){
 
     }));
 
+    renderHousingMaster();
+
 }
 
 function renderHousingComponent(){
@@ -1824,14 +1830,45 @@ function renderHousingComponent(){
             "tabelEntryOtomatis"
         );
 
-
     tabelHousing.style.display = "block";
-
-
     tabelOtomatis.style.display = "none";
 
 
-    renderHousingMaster();
+    if(dataHousing.length === 0){
+
+        isiMasterHousing([
+
+            {
+                tebal: 19,
+                lebar: 19,
+                panjang: 820,
+                jml: 16,
+                totalRealisasi: 0
+            },
+
+            {
+                tebal: 19,
+                lebar: 19,
+                panjang: 2970,
+                jml: 16,
+                totalRealisasi: 0
+            },
+
+            {
+                tebal: 19,
+                lebar: 24,
+                panjang: 860,
+                jml: 32,
+                totalRealisasi: 0
+            }
+
+        ]);
+
+    }else{
+
+        renderHousingMaster();
+
+    }
 
 }
 
@@ -1960,9 +1997,6 @@ function ubahBatangHousing(index, nilai){
 
     dataHousing[index].batangHariIni =
         angka(nilai);
-
-
-    renderHousingMaster();
 
 }
 
