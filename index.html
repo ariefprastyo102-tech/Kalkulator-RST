@@ -528,7 +528,8 @@ td{
 #tabelHousingComponent .entry-table td{
     height:44px;
     padding:6px 4px;
-    font-size:12px;
+    font-size:14px;
+    font-weight:700;
     text-align:center;
     white-space:nowrap;
 }
@@ -1316,7 +1317,81 @@ td{
     }
 
 }
+/* =====================================================
+   HOUSING - LEBIH RAPAT UNTUK HP
+===================================================== */
 
+#tabelHousingComponent .entry-table{
+    min-width:820px;
+}
+
+#tabelHousingComponent .entry-table th{
+    padding:6px 3px;
+}
+
+#tabelHousingComponent .entry-table td{
+    padding:4px 2px;
+    height:40px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(1),
+#tabelHousingComponent .entry-table td:nth-child(1){
+    width:55px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(2),
+#tabelHousingComponent .entry-table td:nth-child(2){
+    width:55px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(3),
+#tabelHousingComponent .entry-table td:nth-child(3){
+    width:65px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(4),
+#tabelHousingComponent .entry-table td:nth-child(4){
+    width:55px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(5),
+#tabelHousingComponent .entry-table td:nth-child(5){
+    width:85px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(6),
+#tabelHousingComponent .entry-table td:nth-child(6){
+    width:70px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(7),
+#tabelHousingComponent .entry-table td:nth-child(7){
+    width:80px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(8),
+#tabelHousingComponent .entry-table td:nth-child(8){
+    width:70px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(9),
+#tabelHousingComponent .entry-table td:nth-child(9){
+    width:90px;
+}
+
+#tabelHousingComponent .entry-table th:nth-child(10),
+#tabelHousingComponent .entry-table td:nth-child(10){
+    width:95px;
+}
+
+#tabelHousingComponent .housing-input{
+    width:55px !important;
+    min-width:55px;
+    max-width:55px;
+    height:34px;
+    padding:3px 2px !important;
+    font-size:15px !important;
+}
 </style>
 </head>
 
@@ -2391,8 +2466,7 @@ function renderHousingMaster(){
                     min="0"
                     class="housing-input"
                     data-index="${index}"
-                    value="${item.batangHariIni || ""}"
-                    placeholder="Batang"
+                    value="${item.batangHariIni || ""}
                     oninput="ubahBatangHousing(${index}, this.value)"
                 >
 
