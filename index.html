@@ -4422,15 +4422,16 @@ function renderMode(){
         }
 
         return;
-
     }
 
+    /* =========================
+       TAMBAHAN
+    ========================= */
 
     const tbody =
         document.getElementById("tabelKayu");
 
     tbody.innerHTML = "";
-
 
     if(dataTambahan.length === 0){
 
@@ -4444,11 +4445,8 @@ function renderMode(){
 
     }
 
-
     hitung();
-
 }
-
 /* =====================================================
    TAMBAH BARIS
 ===================================================== */
@@ -6694,62 +6692,81 @@ function loadDraft(){
             "draftEntryRendemen"
         );
 
-
     if(!raw){
 
         entryTanggalAktif =
             tanggalHariIniInput();
 
+        namaEntryAktif = "";
+        dataEntry = [];
+
         return;
-
     }
-
 
     try{
 
         const draft =
             JSON.parse(raw);
 
-
         if(
             draft &&
             Array.isArray(draft.data)
         ){
 
+            /*
+             * JANGAN MUAT HOUSING
+             * KE DATA ENTRY
+             */
+
+            const namaDraft =
+                draft.nama || "";
+
+            if(
+                namaDraft ===
+                "HOUSING COMPONENT"
+            ){
+
+                dataEntry = [];
+                namaEntryAktif = "";
+
+                entryTanggalAktif =
+                    tanggalHariIniInput();
+
+                document.getElementById(
+                    "pilihNamaEntry"
+                ).value = "";
+
+                return;
+            }
+
             dataEntry =
                 draft.data;
 
-
             namaEntryAktif =
-                draft.nama ||
+                namaDraft ||
                 (
                     dataEntry[0]?.nama ||
                     ""
                 );
 
-
             entryTanggalAktif =
                 draft.tanggal ||
                 tanggalHariIniInput();
-
 
             document.getElementById(
                 "jumlahLog"
             ).value =
                 draft.jumlahLog || "";
 
-
             document.getElementById(
                 "tanggalEntryManual"
             ).value =
                 entryTanggalAktif;
 
-
             document.getElementById(
                 "pilihNamaEntry"
             ).value =
                 namaEntryAktif;
-
         }
 
     }catch(error){
@@ -6763,13 +6780,13 @@ function loadDraft(){
             "draftEntryRendemen"
         );
 
+        dataEntry = [];
+        namaEntryAktif = "";
+
         entryTanggalAktif =
             tanggalHariIniInput();
-
     }
-
 }
-
 
 /* =====================================================
    MULAI
@@ -6777,11 +6794,11 @@ function loadDraft(){
 
 loadDraft();
 
-/* SETIAP REFRESH MULAI DI DATA ENTRY KOSONG */
+/* RESET PILIHAN PRODUK SAAT REFRESH */
 
 modeAktif = "entry";
 namaEntryAktif = "";
 
 tampilkanHistory();
 
-ubahMode("entry");
+renderMode();
