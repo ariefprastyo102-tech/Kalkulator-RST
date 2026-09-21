@@ -2045,8 +2045,30 @@ function ubahBatangHousing(index, nilai){
         return;
     }
 
+    const batang =
+        Number(nilai) || 0;
+
     dataHousing[index].batangHariIni =
-        angka(nilai);
+        batang;
+
+    // Hitung volume baris ini tanpa render ulang
+    const volume =
+        round6(
+            dataHousing[index].tebal *
+            dataHousing[index].lebar *
+            dataHousing[index].panjang *
+            batang /
+            1000000000
+        );
+
+    console.log(
+        "HOUSING INPUT:",
+        index,
+        "BATANG:",
+        batang,
+        "VOLUME:",
+        volume
+    );
 
 }
 
