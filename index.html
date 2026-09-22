@@ -1438,6 +1438,113 @@ td{
     font-size:16px !important;
     font-weight:900 !important;
 }
+
+#tabelHousingComponent th,
+#tabelHousingComponent td {
+    padding: 5px 7px;
+}
+
+#tabelHousingComponent th:nth-child(2),
+#tabelHousingComponent td:nth-child(2) {
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* =====================================================
+   HOUSING COMPONENT - RAPAPI TABEL
+===================================================== */
+
+#tabelHousingComponent {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+#tabelHousingComponent th,
+#tabelHousingComponent td {
+    padding: 5px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/* NO */
+#tabelHousingComponent th:nth-child(1),
+#tabelHousingComponent td:nth-child(1) {
+    width: 42px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* UKURAN */
+#tabelHousingComponent th:nth-child(2),
+#tabelHousingComponent td:nth-child(2) {
+    min-width: 145px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+/* JML */
+#tabelHousingComponent th:nth-child(3),
+#tabelHousingComponent td:nth-child(3) {
+    width: 55px;
+}
+
+/* TOTAL REALISASI */
+#tabelHousingComponent th:nth-child(4),
+#tabelHousingComponent td:nth-child(4) {
+    width: 90px;
+}
+
+/* KEKURANGAN */
+#tabelHousingComponent th:nth-child(5),
+#tabelHousingComponent td:nth-child(5) {
+    width: 75px;
+}
+
+/* KET */
+#tabelHousingComponent th:nth-child(6),
+#tabelHousingComponent td:nth-child(6) {
+    width: 105px;
+}
+
+/* BATANG HARI INI */
+#tabelHousingComponent th:nth-child(7),
+#tabelHousingComponent td:nth-child(7) {
+    width: 100px;
+}
+
+/* VOLUME HARI INI */
+#tabelHousingComponent th:nth-child(8),
+#tabelHousingComponent td:nth-child(8) {
+    width: 115px;
+}
+
+/* VOLUME REALISASI */
+#tabelHousingComponent th:nth-child(9),
+#tabelHousingComponent td:nth-child(9) {
+    width: 125px;
+}
+
+/* INPUT BATANG */
+#tabelHousingComponent .housing-input {
+    width: 80px;
+    min-width: 80px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 5px 6px;
+}
+
+#tabelHousingComponent .housing-ukuran {
+    min-width: 150px;
+    padding: 6px 12px;
+    text-align: center;
+    font-weight: 700;
+    white-space: nowrap;
+}
     
 </style>
 </head>
@@ -1767,9 +1874,7 @@ td{
 <thead>
     <tr>
         <th>NO</th>
-        <th>TEBAL</th>
-        <th>LEBAR</th>
-        <th>PANJANG</th>
+        <th>UKURAN</th>
         <th>JML</th>
         <th>TOTAL REALISASI</th>
         <th>KEKURANGAN</th>
@@ -2474,23 +2579,15 @@ function renderHousingMaster(){
             document.createElement("tr");
 
 
-        tr.innerHTML = `
+       tr.innerHTML = `
 
     <td>
-    ${item.no}
-</td>
-
-    <td>
-        ${item.tebal}
+        ${item.no}
     </td>
-            <td>
-                ${item.lebar}
-            </td>
 
-            <td>
-                ${item.panjang}
-            </td>
-
+    <td class="housing-ukuran">
+        ${item.tebal} × ${item.lebar} × ${item.panjang}
+    </td>
             <td>
                 ${item.jml}
             </td>
@@ -2612,14 +2709,16 @@ function ubahBatangHousing(index, nilai){
     }
 
 
-    // TOTAL REALISASI Btg
-   row.children[5].textContent =
+   // TOTAL REALISASI
+row.children[3].textContent =
     totalBaru;
 
-row.children[6].textContent =
+// KEKURANGAN
+row.children[4].textContent =
     kekurangan;
 
-row.children[7].innerHTML = `
+// KET
+row.children[5].innerHTML = `
     <span class="${
         ket === "Lunas"
             ? "status-lunas"
@@ -2629,12 +2728,13 @@ row.children[7].innerHTML = `
     </span>
 `;
 
-row.children[9].textContent =
+// VOLUME HARI INI
+row.children[7].textContent =
     formatAngka(volumeHariIni);
 
-row.children[10].textContent =
+// VOLUME REALISASI
+row.children[8].textContent =
     formatAngka(volumeRealisasi);
-
 
     console.log(
         "HOUSING:",
