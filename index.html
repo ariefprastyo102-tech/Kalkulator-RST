@@ -2365,8 +2365,11 @@ async function renderHousingComponent(){
                 )
                 .map(row => ({
 
-                    tebal:
-                        angka(row[1]),
+    no:
+        row[0],
+
+    tebal:
+        angka(row[1]),
 
                     lebar:
                         angka(row[2]),
@@ -2474,8 +2477,8 @@ function renderHousingMaster(){
         tr.innerHTML = `
 
     <td>
-        ${index + 1}
-    </td>
+    ${item.no}
+</td>
 
     <td>
         ${item.tebal}
@@ -2610,28 +2613,27 @@ function ubahBatangHousing(index, nilai){
 
 
     // TOTAL REALISASI Btg
-    row.children[4].textContent =
-        totalBaru;
+   row.children[5].textContent =
+    totalBaru;
 
+row.children[6].textContent =
+    kekurangan;
 
-    // KEKURANGAN
-    row.children[5].textContent =
-        kekurangan;
+row.children[7].innerHTML = `
+    <span class="${
+        ket === "Lunas"
+            ? "status-lunas"
+            : "status-belum-lunas"
+    }">
+        ${ket}
+    </span>
+`;
 
+row.children[9].textContent =
+    formatAngka(volumeHariIni);
 
-    // KET
-    row.children[6].textContent =
-        ket;
-
-
-    // VOLUME HARI INI
-    row.children[8].textContent =
-        formatAngka(volumeHariIni);
-
-
-    // VOLUME REALISASI
-    row.children[9].textContent =
-        formatAngka(volumeRealisasi);
+row.children[10].textContent =
+    formatAngka(volumeRealisasi);
 
 
     console.log(
