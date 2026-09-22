@@ -3239,6 +3239,9 @@ function simpanDraftEntry(){
 
     const draft = {
 
+        modeAktif:
+            modeAktif,
+
         tanggal:
             entryTanggalAktif,
 
@@ -4598,6 +4601,19 @@ function ubahMode(mode){
 
     simpanDataMode();
 
+    terapkanTampilanMode(mode);
+
+    simpanDraftEntry();
+
+}
+
+
+/* =====================================================
+   TERAPKAN TAMPILAN SESUAI MODE
+   (dipakai saat ganti mode & saat halaman dibuka/refresh)
+===================================================== */
+
+function terapkanTampilanMode(mode){
 
     modeAktif =
         mode;
@@ -6694,6 +6710,8 @@ function loadDraft(){
 
     if(!raw){
 
+        modeAktif = "entry";
+
         entryTanggalAktif =
             tanggalHariIniInput();
 
@@ -6707,6 +6725,10 @@ function loadDraft(){
 
         const draft =
             JSON.parse(raw);
+
+        modeAktif =
+            draft.modeAktif ||
+            "entry";
 
         if(
             draft &&
@@ -6780,6 +6802,7 @@ function loadDraft(){
             "draftEntryRendemen"
         );
 
+        modeAktif = "entry";
         dataEntry = [];
         namaEntryAktif = "";
 
@@ -6794,11 +6817,9 @@ function loadDraft(){
 
 loadDraft();
 
-/* RESET PILIHAN PRODUK SAAT REFRESH */
+/* TAMPILKAN ULANG SESUAI MODE TERAKHIR SAAT REFRESH */
 
-tampilkanHistory();
-
-renderMode();
+terapkanTampilanMode(modeAktif);
 </script>
 
 </body>
