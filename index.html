@@ -1766,6 +1766,7 @@ td{
 
 <thead>
     <tr>
+        <th>NO</th>
         <th>TEBAL</th>
         <th>LEBAR</th>
         <th>PANJANG</th>
@@ -2472,10 +2473,13 @@ function renderHousingMaster(){
 
         tr.innerHTML = `
 
-            <td>
-                ${item.tebal}
-            </td>
+    <td>
+        ${index + 1}
+    </td>
 
+    <td>
+        ${item.tebal}
+    </td>
             <td>
                 ${item.lebar}
             </td>
