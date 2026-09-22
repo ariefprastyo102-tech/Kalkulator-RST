@@ -498,9 +498,9 @@ td{
     outline:2px solid rgba(82,111,50,.15);
 }
 
- /* =====================================================
-    HOUSING COMPONENT
- ===================================================== */
+/* =====================================================
+   HOUSING COMPONENT - FINAL
+===================================================== */
 
 #tabelHousingComponent .table-wrap{
     overflow-x:auto;
@@ -509,106 +509,123 @@ td{
 }
 
 #tabelHousingComponent .entry-table{
-    min-width:980px;
-    table-layout:fixed;
+    width:100%;
+    min-width:900px;
+    table-layout:auto;
+}
+
+#tabelHousingComponent .entry-table th,
+#tabelHousingComponent .entry-table td{
+    text-align:center;
+    vertical-align:middle;
+    white-space:nowrap;
 }
 
 /* HEADER */
 
 #tabelHousingComponent .entry-table th{
+    padding:7px 5px;
     font-size:11px;
-    padding:9px 5px;
-    white-space:normal;
     line-height:1.2;
-    text-align:center;
 }
 
 /* ISI */
 
 #tabelHousingComponent .entry-table td{
-    height:44px;
-    padding:6px 4px;
+    height:42px;
+    padding:5px 4px;
     font-size:14px;
     font-weight:700;
-    text-align:center;
-    white-space:nowrap;
 }
 
-/* TEBAL */
+/* =====================================================
+   NO
+===================================================== */
 
 #tabelHousingComponent .entry-table th:nth-child(1),
 #tabelHousingComponent .entry-table td:nth-child(1){
-    width:65px;
+    width:40px;
+    padding-left:3px;
+    padding-right:3px;
 }
 
-/* LEBAR */
+/* =====================================================
+   UKURAN
+   TEBAL × LEBAR × PANJANG
+===================================================== */
 
 #tabelHousingComponent .entry-table th:nth-child(2),
 #tabelHousingComponent .entry-table td:nth-child(2){
-    width:65px;
+    min-width:150px;
+    padding:6px 12px;
 }
 
-/* PANJANG */
+/* HANYA UKURAN YANG DIBERI WARNA */
+
+#tabelHousingComponent .housing-ukuran{
+    background:#eef4e9;
+    border-left:3px solid #8fa37f;
+    border-right:3px solid #8fa37f;
+    font-size:16px;
+    font-weight:900;
+}
+
+/* =====================================================
+   JML
+===================================================== */
 
 #tabelHousingComponent .entry-table th:nth-child(3),
 #tabelHousingComponent .entry-table td:nth-child(3){
-    width:75px;
+    width:55px;
 }
 
-/* JML */
+/* =====================================================
+   TOTAL REALISASI
+===================================================== */
 
 #tabelHousingComponent .entry-table th:nth-child(4),
 #tabelHousingComponent .entry-table td:nth-child(4){
-    width:65px;
-}
-
-/* TOTAL REALISASI */
-
-#tabelHousingComponent .entry-table th:nth-child(5),
-#tabelHousingComponent .entry-table td:nth-child(5){
-    width:100px;
-}
-
-/* KEKURANGAN */
-
-#tabelHousingComponent .entry-table th:nth-child(6),
-#tabelHousingComponent .entry-table td:nth-child(6){
-    width:85px;
-}
-
-/* KET */
-
-#tabelHousingComponent .entry-table th:nth-child(7),
-#tabelHousingComponent .entry-table td:nth-child(7){
     width:90px;
 }
 
-/* ================================
-   BATANG HARI INI
-   ================================ */
+/* =====================================================
+   KEKURANGAN
+===================================================== */
 
-#tabelHousingComponent .entry-table th:nth-child(8),
-#tabelHousingComponent .entry-table td:nth-child(8){
+#tabelHousingComponent .entry-table th:nth-child(5),
+#tabelHousingComponent .entry-table td:nth-child(5){
+    width:75px;
+}
+
+/* =====================================================
+   KET
+===================================================== */
+
+#tabelHousingComponent .entry-table th:nth-child(6),
+#tabelHousingComponent .entry-table td:nth-child(6){
+    width:100px;
+}
+
+/* =====================================================
+   BATANG HARI INI
+===================================================== */
+
+#tabelHousingComponent .entry-table th:nth-child(7),
+#tabelHousingComponent .entry-table td:nth-child(7){
     width:95px;
 }
 
+/* INPUT BATANG */
+
 #tabelHousingComponent .housing-input{
-    width:65px !important;
-    min-width:65px;
-    max-width:65px;
-
-    height:36px;
-
-    padding:5px 4px !important;
-
+    width:70px !important;
+    min-width:70px;
+    max-width:70px;
+    height:34px;
+    padding:4px !important;
     font-size:16px !important;
     font-weight:900;
-
     text-align:center;
-
-    border:2px solid #8fa37f;
-    border-radius:7px;
-
     box-sizing:border-box;
 }
 
@@ -620,230 +637,60 @@ td{
     background:#f4f9ef;
 }
 
-/* VOLUME HARI INI */
-
-#tabelHousingComponent .entry-table th:nth-child(9),
-#tabelHousingComponent .entry-table td:nth-child(9){
-    width:110px;
-}
-
-/* VOLUME REALISASI */
-
-#tabelHousingComponent .entry-table th:nth-child(10),
-#tabelHousingComponent .entry-table td:nth-child(10){
-    width:115px;
-}
-
-/* BARIS HOUSING */
-
-#tabelHousingComponent .entry-table tbody tr:hover{
-    background:#f7faf4;
-}
-
-
 /* =====================================================
-   HOUSING MOBILE
+   VOLUME HARI INI
 ===================================================== */
-
-@media(max-width:700px){
-
-    #tabelHousingComponent .entry-table{
-        min-width:900px;
-    }
-
-    #tabelHousingComponent .entry-table th{
-        font-size:10px;
-        padding:8px 4px;
-    }
-
-    #tabelHousingComponent .entry-table td{
-        font-size:12px;
-        padding:5px 3px;
-    }
-
-    #tabelHousingComponent .housing-input{
-        width:65px !important;
-        min-width:65px;
-        max-width:65px;
-
-        height:36px;
-
-        font-size:16px !important;
-    }
-
-}    
- /* =====================================================
-    HOUSING COMPONENT
- ===================================================== */
-
-#tabelHousingComponent .table-wrap{
-    overflow-x:auto;
-    width:100%;
-    -webkit-overflow-scrolling:touch;
-}
-
-#tabelHousingComponent .entry-table{
-    min-width:980px;
-    table-layout:fixed;
-}
-
-/* HEADER */
-
-#tabelHousingComponent .entry-table th{
-    font-size:11px;
-    padding:9px 5px;
-    white-space:normal;
-    line-height:1.2;
-    text-align:center;
-}
-
-/* ISI */
-
-#tabelHousingComponent .entry-table td{
-    height:44px;
-    padding:6px 4px;
-    font-size:12px;
-    text-align:center;
-    white-space:nowrap;
-}
-
-/* TEBAL */
-
-#tabelHousingComponent .entry-table th:nth-child(1),
-#tabelHousingComponent .entry-table td:nth-child(1){
-    width:65px;
-}
-
-/* LEBAR */
-
-#tabelHousingComponent .entry-table th:nth-child(2),
-#tabelHousingComponent .entry-table td:nth-child(2){
-    width:65px;
-}
-
-/* PANJANG */
-
-#tabelHousingComponent .entry-table th:nth-child(3),
-#tabelHousingComponent .entry-table td:nth-child(3){
-    width:75px;
-}
-
-/* JML */
-
-#tabelHousingComponent .entry-table th:nth-child(4),
-#tabelHousingComponent .entry-table td:nth-child(4){
-    width:65px;
-}
-
-/* TOTAL REALISASI */
-
-#tabelHousingComponent .entry-table th:nth-child(5),
-#tabelHousingComponent .entry-table td:nth-child(5){
-    width:100px;
-}
-
-/* KEKURANGAN */
-
-#tabelHousingComponent .entry-table th:nth-child(6),
-#tabelHousingComponent .entry-table td:nth-child(6){
-    width:85px;
-}
-
-/* KET */
-
-#tabelHousingComponent .entry-table th:nth-child(7),
-#tabelHousingComponent .entry-table td:nth-child(7){
-    width:90px;
-}
-
-/* ================================
-   BATANG HARI INI
-   ================================ */
 
 #tabelHousingComponent .entry-table th:nth-child(8),
 #tabelHousingComponent .entry-table td:nth-child(8){
-    width:95px;
-}
-
-#tabelHousingComponent .housing-input{
-    width:65px !important;
-    min-width:65px;
-    max-width:65px;
-
-    height:36px;
-
-    padding:5px 4px !important;
-
-    font-size:16px !important;
-    font-weight:900;
-
-    text-align:center;
-
-    border:2px solid #8fa37f;
-    border-radius:7px;
-
-    box-sizing:border-box;
-}
-
-/* FOCUS INPUT */
-
-#tabelHousingComponent .housing-input:focus{
-    border-color:#526f32;
-    outline:2px solid rgba(82,111,50,.15);
-    background:#f4f9ef;
-}
-
-/* VOLUME HARI INI */
-
-#tabelHousingComponent .entry-table th:nth-child(9),
-#tabelHousingComponent .entry-table td:nth-child(9){
     width:110px;
 }
 
-/* VOLUME REALISASI */
+/* =====================================================
+   VOLUME REALISASI
+===================================================== */
 
-#tabelHousingComponent .entry-table th:nth-child(10),
-#tabelHousingComponent .entry-table td:nth-child(10){
-    width:115px;
+#tabelHousingComponent .entry-table th:nth-child(9),
+#tabelHousingComponent .entry-table td:nth-child(9){
+    width:120px;
 }
 
-/* BARIS HOUSING */
+/* BARIS */
 
 #tabelHousingComponent .entry-table tbody tr:hover{
     background:#f7faf4;
 }
 
-
 /* =====================================================
-   HOUSING MOBILE
+   MOBILE
 ===================================================== */
 
 @media(max-width:700px){
 
     #tabelHousingComponent .entry-table{
-        min-width:900px;
+        min-width:850px;
     }
 
     #tabelHousingComponent .entry-table th{
         font-size:10px;
-        padding:8px 4px;
+        padding:6px 4px;
     }
 
     #tabelHousingComponent .entry-table td{
-        font-size:12px;
-        padding:5px 3px;
+        font-size:13px;
+        padding:4px 3px;
+    }
+
+    #tabelHousingComponent .housing-ukuran{
+        font-size:15px;
+        min-width:145px;
     }
 
     #tabelHousingComponent .housing-input{
         width:65px !important;
         min-width:65px;
         max-width:65px;
-
-        height:36px;
-
-        font-size:16px !important;
     }
-
 }
     /* =====================================================
    STATUS LUNAS / BELUM LUNAS
