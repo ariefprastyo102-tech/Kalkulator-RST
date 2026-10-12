@@ -1401,7 +1401,42 @@ td{
     white-space: nowrap;
 }
     
-</style>
+
+/* HOUSING COMPONENT: tampilan input yang lebih nyaman */
+#tabelHousingComponent{
+    background:linear-gradient(180deg,#fbfdf8 0%,#ffffff 160px);
+    border:1px solid #e1e9da;
+    border-radius:16px;
+    padding:14px;
+    box-shadow:0 8px 24px rgba(44,74,35,.08);
+}
+.housing-heading{display:flex;align-items:center;gap:12px;margin:2px 2px 14px;}
+.housing-heading-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#315d2b,#789a48);color:#fff;font-size:24px;box-shadow:0 5px 12px rgba(49,93,43,.2);}
+.housing-heading-title{font-size:19px;font-weight:900;color:#294623;letter-spacing:-.3px;}
+.housing-heading-subtitle{font-size:12px;color:#73806b;margin-top:3px;}
+#tabelHousingComponent .housing-select{margin:0 0 10px!important;}
+#tabelHousingComponent .housing-select label{font-size:10px;letter-spacing:.08em;color:#687a5f;}
+#tabelHousingComponent .housing-select select{border:1px solid #cbd9c1;border-radius:11px;background:#f8fbf5;color:#315d2b;box-shadow:0 2px 7px rgba(40,70,30,.05);}
+.housing-tip{margin:0 0 12px;padding:10px 12px;border:1px solid #dce9d3;border-radius:10px;background:#f2f8ed;color:#526b48;font-size:11px;line-height:1.45;}
+#tabelHousingComponent .table-wrap{border:1px solid #e3e9de;border-radius:12px;background:white;}
+#tabelHousingComponent .entry-table{border-collapse:separate;border-spacing:0;}
+#tabelHousingComponent .entry-table thead th{position:sticky;top:0;z-index:1;background:#315d2b;color:#fff;font-size:10px;letter-spacing:.03em;padding:11px 7px;border-bottom:0;}
+#tabelHousingComponent .entry-table thead th:first-child{border-top-left-radius:10px;}
+#tabelHousingComponent .entry-table thead th:last-child{border-top-right-radius:10px;}
+#tabelHousingComponent .entry-table tbody tr:nth-child(even){background:#fafcf8;}
+#tabelHousingComponent .entry-table tbody tr:hover{background:#f0f7eb;}
+#tabelHousingComponent .entry-table tbody td{border-bottom:1px solid #edf1e9;}
+#tabelHousingComponent .housing-ukuran{border-radius:7px;color:#315d2b;}
+#tabelHousingComponent .housing-input{height:40px!important;border:2px solid #cbd9c1!important;border-radius:10px!important;background:#fbfdf9!important;box-shadow:inset 0 1px 2px rgba(0,0,0,.03);}
+#tabelHousingComponent .housing-input:focus{border-color:#5e853d!important;box-shadow:0 0 0 3px rgba(94,133,61,.15);}
+@media(max-width:700px){
+  #tabelHousingComponent{padding:10px;border-radius:13px;}
+  .housing-heading-title{font-size:17px;}
+  .housing-heading-subtitle{font-size:11px;}
+  .housing-tip{font-size:10px;}
+  #tabelHousingComponent .entry-table thead th{padding:10px 6px;}
+  #tabelHousingComponent .housing-input{height:42px!important;}
+}</style>
 </head>
 
 <body>
@@ -1722,13 +1757,21 @@ td{
     style="display:none;"
 >
 
-        <div class="nama-filter" style="margin-bottom:10px;">
+    <div class="housing-heading">
+        <div class="housing-heading-icon">▦</div>
+        <div>
+            <div class="housing-heading-title">Housing Component</div>
+            <div class="housing-heading-subtitle">Pilih kelompok, isi batang hari ini, lalu simpan entry.</div>
+        </div>
+    </div>
+        <div class="nama-filter housing-select" style="margin-bottom:10px;">
         <label for="pilihKelompokHousing">KELOMPOK HOUSING</label>
         <select id="pilihKelompokHousing" onchange="pilihKelompokHousing(this.value)">
             <option value="pavilliun">PAVILLIUN</option>
             <option value="hall">HALL</option>
         </select>
     </div>
+    <div class="housing-tip">Draft input tersimpan otomatis di browser ini. Pindah kelompok aman; klik <b>SIMPAN ENTRY</b> untuk mengirim ke sheet.</div>
 <div class="table-wrap">
 
         <table class="entry-table">
@@ -6825,9 +6868,3 @@ terapkanTampilanMode(modeAktif);
 
 </body>
 </html>
-
-
-
-
-
-
