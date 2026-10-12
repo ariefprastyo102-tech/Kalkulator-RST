@@ -1722,7 +1722,14 @@ td{
     style="display:none;"
 >
 
-    <div class="table-wrap">
+        <div class="nama-filter" style="margin-bottom:10px;">
+        <label for="pilihKelompokHousing">KELOMPOK HOUSING</label>
+        <select id="pilihKelompokHousing" onchange="pilihKelompokHousing(this.value)">
+            <option value="pavilliun">PAVILLIUN</option>
+            <option value="hall">HALL</option>
+        </select>
+    </div>
+<div class="table-wrap">
 
         <table class="entry-table">
 
@@ -2228,6 +2235,7 @@ const aturan = [
 let dataTambahan = [];
 let dataEntry = [];
 let dataHousing = [];
+let housingKelompokAktif = 'pavilliun';
 
 let modeAktif = "entry";
 let namaEntryAktif = "";
@@ -2271,6 +2279,17 @@ function isiMasterHousing(data){
 
 }
 
+async function pilihKelompokHousing(kelompok){
+    if (dataHousing.some(item => angka(item.batangHariIni) > 0) &&
+        !confirm('Input batang yang belum disimpan akan dihapus. Lanjut ganti kelompok?')) {
+        document.getElementById('pilihKelompokHousing').value = housingKelompokAktif;
+        return;
+    }
+    housingKelompokAktif = kelompok === 'hall' ? 'hall' : 'pavilliun';
+    dataHousing = [];
+    await renderHousingComponent();
+}
+
 async function renderHousingComponent(){
 
     const tabelHousing =
@@ -2291,7 +2310,7 @@ async function renderHousingComponent(){
 
         const response =
             await fetch(
-                "https://script.google.com/macros/s/AKfycbwAZXAjoHZC0hdOm1RdE_CjF3fsejyHv64l1FYqhu9Hf4VVyR-B0-0gsgz7ZuN0Wj8/exec?action=housing"
+                "https://script.google.com/macros/s/AKfycbwAZXAjoHZC0hdOm1RdE_CjF3fsejyHv64l1FYqhu9Hf4VVyR-B0-0gsgz7ZuN0Wj8/exec?action=housing&kelompok=" + encodeURIComponent(housingKelompokAktif) + ""
             );
 
         const data =
@@ -2689,9 +2708,7 @@ async function simpanDataHousingDariTabel(){
                     },
 
                     body:
-                        JSON.stringify(
-                            dataSimpan
-                        )
+                        JSON.stringify({ kelompok: housingKelompokAktif, data: dataSimpan })
                 }
             );
 
@@ -2739,7 +2756,7 @@ async function simpanDataHousingDariTabel(){
 
 
         alert(
-            "Data Housing berhasil disimpan."
+            "Data " + housingKelompokAktif + " berhasil disimpan."
         );
 
 
@@ -6785,3 +6802,5 @@ terapkanTampilanMode(modeAktif);
 
 </body>
 </html>
+
+
