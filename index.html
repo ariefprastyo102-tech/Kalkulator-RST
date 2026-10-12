@@ -2279,17 +2279,39 @@ function isiMasterHousing(data){
 
 }
 
-async function pilihKelompokHousing(kelompok){
-    if (dataHousing.some(item => angka(item.batangHariIni) > 0) &&
-        !confirm('Input batang yang belum disimpan akan dihapus. Lanjut ganti kelompok?')) {
-        document.getElementById('pilihKelompokHousing').value = housingKelompokAktif;
-        return;
+function simpanDraftHousing(){
+    const draft = dataHousing.map(item => ({
+        tebal: angka(item.tebal),
+        lebar: angka(item.lebar),
+        panjang: angka(item.panjang),
+        batang: angka(item.batangHariIni)
+    }));
+    localStorage.setItem('draftHousing_' + housingKelompokAktif, JSON.stringify(draft));
+}
+
+function pulihkanDraftHousing(){
+    let draft = [];
+    try {
+        draft = JSON.parse(localStorage.getItem('draftHousing_' + housingKelompokAktif) || '[]');
+    } catch(error) {
+        localStorage.removeItem('draftHousing_' + housingKelompokAktif);
     }
+    dataHousing.forEach(item => {
+        const tersimpan = draft.find(d =>
+            Number(d.tebal) === Number(item.tebal) &&
+            Number(d.lebar) === Number(item.lebar) &&
+            Number(d.panjang) === Number(item.panjang)
+        );
+        if (tersimpan) item.batangHariIni = Number(tersimpan.batang) || 0;
+    });
+}
+
+async function pilihKelompokHousing(kelompok){
+    simpanDraftHousing();
     housingKelompokAktif = kelompok === 'hall' ? 'hall' : 'pavilliun';
     dataHousing = [];
     await renderHousingComponent();
 }
-
 async function renderHousingComponent(){
 
     const tabelHousing =
@@ -2373,6 +2395,8 @@ async function renderHousingComponent(){
 
                 }));
 
+
+        pulihkanDraftHousing();
 
         console.log(
             "MASTER HOUSING TERBACA:",
@@ -2525,6 +2549,8 @@ function ubahBatangHousing(index, nilai){
 
     dataHousing[index].batangHariIni =
         batang;
+
+    simpanDraftHousing();
 
 
     // TOTAL REALISASI SEBELUM INPUT HARI INI
@@ -2751,6 +2777,8 @@ async function simpanDataHousingDariTabel(){
 
         });
 
+
+        localStorage.removeItem("draftHousing_" + housingKelompokAktif);
 
         renderHousingMaster();
 
@@ -5548,11 +5576,6 @@ function downloadExcelEntry(){
 ===================================================== */
 async function simpanEntry(){
 
-    if(modeAktif !== "entry"){
-        return;
-    }
-
-
     /*
      * KHUSUS HOUSING COMPONENT
      */
@@ -5568,6 +5591,12 @@ async function simpanEntry(){
 
     }
 
+
+    if(modeAktif !== "entry"){
+
+        return;
+
+    }
 
     /*
      * ENTRY BIASA
@@ -5791,12 +5820,6 @@ function tampilkanRangkuman(){
             "rangkumanList"
         );
 
-
-    if(modeAktif !== "entry"){
-
-        return;
-
-    }
 
 
     if(
@@ -6802,5 +6825,9 @@ terapkanTampilanMode(modeAktif);
 
 </body>
 </html>
+
+
+
+
 
 
