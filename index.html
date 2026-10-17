@@ -1417,7 +1417,7 @@ td{
 #tabelHousingComponent .housing-select{margin:0 0 10px!important;}
 #tabelHousingComponent .housing-select label{font-size:10px;letter-spacing:.08em;color:#687a5f;}
 #tabelHousingComponent .housing-select select{border:1px solid #cbd9c1;border-radius:11px;background:#f8fbf5;color:#315d2b;box-shadow:0 2px 7px rgba(40,70,30,.05);}
-.housing-tip{margin:0 0 12px;padding:10px 12px;border:1px solid #dce9d3;border-radius:10px;background:#f2f8ed;color:#526b48;font-size:11px;line-height:1.45;}
+    .housing-tip{margin:0 0 12px;padding:10px 12px;border:1px solid #dce9d3;border-radius:10px;background:#f2f8ed;color:#526b48;font-size:11px;line-height:1.45;}
 #tabelHousingComponent .table-wrap{border:1px solid #e3e9de;border-radius:12px;background:white;}
 #tabelHousingComponent .entry-table{border-collapse:separate;border-spacing:0;}
 #tabelHousingComponent .entry-table thead th{position:sticky;top:0;z-index:1;background:#315d2b;color:#fff;font-size:10px;letter-spacing:.03em;padding:11px 7px;border-bottom:0;}
@@ -1538,6 +1538,54 @@ td{
 #tabelHousingComponent .housing-input{width:62px!important;min-width:62px;max-width:62px;height:34px!important;padding:4px!important;border:1px solid #bdcbb3!important;border-radius:7px!important;background:#fff!important;color:#26351f;font-size:15px!important;font-weight:700!important;box-shadow:none;}
 #tabelHousingComponent .status-lunas,#tabelHousingComponent .status-belum-lunas{padding:4px 7px;font-size:9px;}
 @media(max-width:700px){#tabelHousingComponent .entry-table tbody{grid-template-columns:1fr;gap:9px;}#tabelHousingComponent .entry-table tbody tr{padding:10px 11px;}}
+
+/* Housing: ringkas, fokus ke ukuran, warna navy dan emas */
+#tabelHousingComponent .housing-heading-icon{background:#18324b;color:#e7bd63;box-shadow:none;}
+#tabelHousingComponent .housing-heading-title{color:#18324b;}
+#tabelHousingComponent .housing-heading-subtitle{color:#647486;}
+#tabelHousingComponent .housing-select label,#tabelHousingComponent .housing-search label{color:#526579;font-size:10px;font-weight:800;letter-spacing:.07em;display:block;margin:0 0 5px;}
+#tabelHousingComponent .housing-select select{border:1px solid #c8d1da;border-radius:8px;background:#fff;color:#18324b;box-shadow:none;}
+#tabelHousingComponent .housing-search{margin:0 0 10px;}
+#tabelHousingComponent .housing-search input{width:100%;height:38px;padding:0 11px;border:1px solid #c8d1da;border-radius:8px;background:#fff;color:#18324b;font-size:14px;}
+#tabelHousingComponent .entry-table thead th{background:#18324b;color:#fff;}
+#tabelHousingComponent .entry-table tbody td{border-color:#e4e8ec;color:#344454;}
+#tabelHousingComponent .table-wrap{max-height:none;overflow-x:auto;overflow-y:visible;border:1px solid #dce2e8;border-radius:8px;background:#fff;}
+#tabelHousingComponent .entry-table{display:table;width:100%;min-width:620px;border-collapse:collapse;border-spacing:0;table-layout:auto;}
+#tabelHousingComponent .entry-table thead{display:table-header-group;}
+#tabelHousingComponent .entry-table tbody{display:table-row-group;}
+#tabelHousingComponent .entry-table tbody tr{display:table-row;padding:0;border:0;border-radius:0;background:#fff;box-shadow:none;}
+#tabelHousingComponent .entry-table tbody td{display:table-cell;height:auto;min-height:0;padding:8px 6px;text-align:center;white-space:nowrap;}
+#tabelHousingComponent .entry-table tbody td::before{display:none;content:none;}
+#tabelHousingComponent .entry-table tbody td.housing-ukuran{background:#fff4d8!important;color:#18324b!important;border-radius:6px;font-weight:900!important;font-size:16px!important;white-space:nowrap;}
+#tabelHousingComponent .entry-table tbody td.housing-no{font-weight:800;color:#687889;}
+#tabelHousingComponent .housing-input{border:1px solid #b8c4cf!important;border-radius:7px!important;color:#18324b!important;background:#fff!important;box-shadow:none!important;}
+#tabelHousingComponent .housing-input:focus{border-color:#c3942f!important;outline:2px solid #f3e2b8;}
+@media(max-width:700px){
+  #tabelHousingComponent .entry-table thead{display:none;}
+  #tabelHousingComponent .entry-table tbody{display:block;}
+  #tabelHousingComponent .entry-table tbody tr{display:grid;grid-template-columns:26px minmax(0,1fr) 64px;grid-template-rows:auto auto;gap:0 7px;padding:7px 0;margin:0;border:0;border-bottom:1px solid #dce2e8;border-radius:0;background:#fff;box-shadow:none;}
+  #tabelHousingComponent .entry-table tbody td{display:flex;min-width:0;align-items:center;justify-content:center;padding:5px 3px;border:0;font-size:12px;}
+  #tabelHousingComponent .entry-table tbody td::before{display:block;font-size:8px;font-weight:800;letter-spacing:.02em;color:#778493;line-height:1.2;margin-bottom:3px;}
+  #tabelHousingComponent .entry-table tbody td.housing-no{grid-column:1;grid-row:1;align-self:center;font-size:12px;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(1){display:flex;grid-column:1;grid-row:1;}
+  #tabelHousingComponent .entry-table tbody td.housing-no::before{content:"NO";display:none;}
+  #tabelHousingComponent .entry-table tbody td.housing-ukuran{grid-column:2;grid-row:1;justify-content:flex-start;padding:6px 8px;font-size:17px!important;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(2){display:flex;grid-column:2;grid-row:1;align-items:center;}
+  #tabelHousingComponent .entry-table tbody td.housing-ukuran::before{content:none;}
+  #tabelHousingComponent .entry-table tbody td.housing-input-cell{grid-column:3;grid-row:1;flex-direction:column;padding:2px;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(6){display:flex;grid-column:3;grid-row:1;flex-direction:column;justify-content:center;padding:2px;}
+  #tabelHousingComponent .entry-table tbody td.housing-input-cell::before{content:"INPUT";}
+  #tabelHousingComponent .entry-table tbody td.housing-input-cell .housing-input{width:58px!important;min-width:58px;max-width:58px;height:29px!important;padding:2px!important;text-align:center;font-size:14px!important;}
+  #tabelHousingComponent .entry-table tbody td.housing-target{grid-column:1;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td.housing-realisasi{grid-column:2;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td.housing-kekurangan{grid-column:3;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(3){display:flex;grid-column:1;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(4){display:flex;grid-column:2;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(5){display:flex;grid-column:3;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td.housing-target::before{content:"TARGET";}
+  #tabelHousingComponent .entry-table tbody td.housing-realisasi::before{content:"REALISASI";}
+  #tabelHousingComponent .entry-table tbody td.housing-kekurangan::before{content:"KURANG";}
+}
 </style>
 </head>
 
@@ -1873,7 +1921,7 @@ td{
             <option value="hall">HALL</option>
         </select>
     </div>
-    <div class="housing-tip">Draft input tersimpan otomatis di browser ini. Pindah kelompok aman; klik <b>SIMPAN ENTRY</b> untuk mengirim ke sheet.</div>
+    <div class="housing-search"><label for="filterUkuranHousing">CARI UKURAN</label><input id="filterUkuranHousing" type="search" placeholder="Contoh: 5 × 10 × 300" oninput="filterHousingByUkuran(this.value)"></div>
 <div class="table-wrap">
 
         <table class="entry-table">
@@ -1882,13 +1930,10 @@ td{
     <tr>
         <th>NO</th>
         <th>UKURAN</th>
-        <th>JML</th>
-        <th>TOTAL REALISASI</th>
+        <th>TARGET</th>
+        <th>REALISASI</th>
         <th>KEKURANGAN</th>
-        <th>KET</th>
-        <th>BATANG HARI INI</th>
-        <th>VOLUME HARI INI</th>
-        <th>VOLUME REALISASI</th>
+        <th>INPUT HARIAN</th>
     </tr>
 </thead>
 
@@ -2581,106 +2626,32 @@ function renderHousingMaster(){
 
 
     dataHousing.forEach((item, index) => {
-
-        const totalRealisasi =
-            angka(item.totalRealisasi);
-
-
-        const kekurangan =
-            angka(item.jml) -
-            totalRealisasi;
-
-
-        const volumeHariIni =
-            round6(
-                item.tebal *
-                item.lebar *
-                item.panjang *
-                angka(item.batangHariIni) /
-                1000000000
-            );
-
-
-        const volumeRealisasi =
-            round6(
-                item.tebal *
-                item.lebar *
-                item.panjang *
-                totalRealisasi /
-                1000000000
-            );
-
-
-        let ket = "Belum Lunas";
-
-        if(totalRealisasi >= item.jml){
-            ket = "Lunas";
-        }
-
-
-        const tr =
-            document.createElement("tr");
-
-
-       tr.innerHTML = `
-
-    <td>
-        ${item.no}
-    </td>
-
-    <td class="housing-ukuran">
-        ${item.tebal} × ${item.lebar} × ${item.panjang}
-    </td>
-            <td>
-                ${item.jml}
-            </td>
-
-            <td>
-                ${totalRealisasi}
-            </td>
-
-            <td>
-                ${kekurangan}
-            </td>
-
-           <td>
-    <span class="${
-        ket === "Lunas"
-            ? "status-lunas"
-            : "status-belum-lunas"
-    }">
-        ${ket}
-    </span>
-</td>
-
-            <td>
-
-                <input
-                    type="number"
-                    min="0"
-                    class="housing-input"
-                    data-index="${index}"
-                    value="${item.batangHariIni || ''}"
-                    oninput="ubahBatangHousing(${index}, this.value)"
-                >
-
-            </td>
-
-            <td>
-                ${formatAngka(volumeHariIni)}
-            </td>
-
-            <td>
-                ${formatAngka(volumeRealisasi)}
-            </td>
-
-        `;
-
-
+        const totalRealisasi = angka(item.totalRealisasi);
+        const kekurangan = angka(item.jml) - totalRealisasi;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td class="housing-no" data-label="NO">${item.no}</td>
+            <td class="housing-ukuran" data-label="UKURAN">${item.tebal} × ${item.lebar} × ${item.panjang}</td>
+            <td class="housing-target" data-label="TARGET">${item.jml}</td>
+            <td class="housing-realisasi" data-label="REALISASI">${totalRealisasi}</td>
+            <td class="housing-kekurangan" data-label="KEKURANGAN">${kekurangan}</td>
+            <td class="housing-input-cell" data-label="INPUT HARIAN">
+                <input type="number" min="0" class="housing-input" data-index="${index}"
+                    value="${item.batangHariIni || ''}" oninput="ubahBatangHousing(${index}, this.value)">
+            </td>`;
         body.appendChild(tr);
-
     });
 
+    filterHousingByUkuran(document.getElementById("filterUkuranHousing")?.value || "");
+
+}
+
+function filterHousingByUkuran(nilai){
+    const cari = String(nilai || "").replace(/[^0-9]/g, "");
+    document.querySelectorAll("#tabelHousingComponentBody tr").forEach(row => {
+        const ukuran = row.querySelector(".housing-ukuran")?.textContent || "";
+        row.style.display = ukuran.replace(/[^0-9]/g, "").includes(cari) ? "" : "none";
+    });
 }
 
 function ubahBatangHousing(index, nilai){
@@ -2754,32 +2725,9 @@ function ubahBatangHousing(index, nilai){
     }
 
 
-   // TOTAL REALISASI
-row.children[3].textContent =
-    totalBaru;
-
-// KEKURANGAN
-row.children[4].textContent =
-    kekurangan;
-
-// KET
-row.children[5].innerHTML = `
-    <span class="${
-        ket === "Lunas"
-            ? "status-lunas"
-            : "status-belum-lunas"
-    }">
-        ${ket}
-    </span>
-`;
-
-// VOLUME HARI INI
-row.children[7].textContent =
-    formatAngka(volumeHariIni);
-
-// VOLUME REALISASI
-row.children[8].textContent =
-    formatAngka(volumeRealisasi);
+// REALISASI DAN KEKURANGAN
+row.children[3].textContent = totalBaru;
+row.children[4].textContent = kekurangan;
 
     console.log(
         "HOUSING:",
