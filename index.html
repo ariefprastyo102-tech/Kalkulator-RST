@@ -1417,7 +1417,7 @@ td{
 #tabelHousingComponent .housing-select{margin:0 0 10px!important;}
 #tabelHousingComponent .housing-select label{font-size:10px;letter-spacing:.08em;color:#687a5f;}
 #tabelHousingComponent .housing-select select{border:1px solid #cbd9c1;border-radius:11px;background:#f8fbf5;color:#315d2b;box-shadow:0 2px 7px rgba(40,70,30,.05);}
-.housing-tip{margin:0 0 12px;padding:10px 12px;border:1px solid #dce9d3;border-radius:10px;background:#f2f8ed;color:#526b48;font-size:11px;line-height:1.45;}
+    .housing-tip{margin:0 0 12px;padding:10px 12px;border:1px solid #dce9d3;border-radius:10px;background:#f2f8ed;color:#526b48;font-size:11px;line-height:1.45;}
 #tabelHousingComponent .table-wrap{border:1px solid #e3e9de;border-radius:12px;background:white;}
 #tabelHousingComponent .entry-table{border-collapse:separate;border-spacing:0;}
 #tabelHousingComponent .entry-table thead th{position:sticky;top:0;z-index:1;background:#315d2b;color:#fff;font-size:10px;letter-spacing:.03em;padding:11px 7px;border-bottom:0;}
@@ -1436,7 +1436,230 @@ td{
   .housing-tip{font-size:10px;}
   #tabelHousingComponent .entry-table thead th{padding:10px 6px;}
   #tabelHousingComponent .housing-input{height:42px!important;}
-}</style>
+}
+/* Fokus tabel ukuran dan input batang Housing */
+#tabelHousingComponent .table-wrap{max-height:70vh;overflow:auto;overscroll-behavior:contain;}
+#tabelHousingComponent .entry-table{min-width:980px;}
+#tabelHousingComponent .entry-table thead th{height:48px;vertical-align:middle;}
+#tabelHousingComponent .entry-table tbody td{height:58px;padding:7px 6px;font-size:14px;}
+#tabelHousingComponent .entry-table th:nth-child(1),
+#tabelHousingComponent .entry-table td:nth-child(1){position:sticky;left:0;z-index:2;width:48px;min-width:48px;background:#f4f7f1;color:#75806d;font-weight:800;}
+#tabelHousingComponent .entry-table thead th:nth-child(1){z-index:4;background:#315d2b;color:#fff;}
+#tabelHousingComponent .entry-table th:nth-child(2),
+#tabelHousingComponent .entry-table td:nth-child(2){position:sticky;left:48px;z-index:2;min-width:172px;background:#f0f6eb;box-shadow:5px 0 8px rgba(38,65,30,.07);}
+#tabelHousingComponent .entry-table thead th:nth-child(2){z-index:4;background:#315d2b;color:#fff;}
+#tabelHousingComponent .entry-table tbody tr:nth-child(even) td:nth-child(1){background:#edf2e8;}
+#tabelHousingComponent .entry-table tbody tr:nth-child(even) td:nth-child(2){background:#eaf2e3;}
+#tabelHousingComponent .housing-ukuran{font-size:17px!important;letter-spacing:.15px;color:#294623;background:#eaf2e3;border-left:0;border-right:0;}
+#tabelHousingComponent .entry-table th:nth-child(7){background:#477333;color:#fff;font-size:11px;font-weight:900;}
+#tabelHousingComponent .entry-table td:nth-child(7){background:#f3f8ee;}
+#tabelHousingComponent .housing-input{width:88px!important;min-width:88px;max-width:88px;height:48px!important;padding:6px!important;border:2px solid #a9c496!important;border-radius:12px!important;background:#fff!important;color:#25451f;font-size:20px!important;font-weight:900!important;box-shadow:0 2px 5px rgba(37,69,31,.08);}
+#tabelHousingComponent .housing-input:focus{border-color:#477333!important;background:#f5faef!important;outline:0;box-shadow:0 0 0 4px rgba(71,115,51,.17);}
+#tabelHousingComponent .entry-table tbody tr:hover td:nth-child(1){background:#edf5e8;}
+#tabelHousingComponent .entry-table tbody tr:hover td:nth-child(2){background:#e3efd9;}
+@media(max-width:700px){
+  #tabelHousingComponent .table-wrap{max-height:68vh;}
+  #tabelHousingComponent .entry-table{min-width:980px;}
+  #tabelHousingComponent .entry-table tbody td{height:62px;}
+  #tabelHousingComponent .entry-table th:nth-child(2),#tabelHousingComponent .entry-table td:nth-child(2){min-width:160px;}
+  #tabelHousingComponent .housing-ukuran{font-size:16px!important;}
+  #tabelHousingComponent .housing-input{width:84px!important;min-width:84px;max-width:84px;height:50px!important;font-size:20px!important;}
+}
+/* Desain ulang daftar Housing: baris ringkas di desktop, kartu informasi di HP */
+#tabelHousingComponent .table-wrap{max-height:none;overflow-x:auto;overflow-y:visible;border:0;border-radius:0;background:transparent;}
+#tabelHousingComponent .entry-table{width:100%;min-width:900px;border-collapse:separate;border-spacing:0 7px;}
+#tabelHousingComponent .entry-table thead th{position:static;height:auto;padding:10px 7px;background:#315d2b;color:#fff;font-size:10px;line-height:1.25;border:0;}
+#tabelHousingComponent .entry-table thead th:first-child{border-radius:9px 0 0 9px;}
+#tabelHousingComponent .entry-table thead th:last-child{border-radius:0 9px 9px 0;}
+#tabelHousingComponent .entry-table tbody tr{background:#fff;filter:drop-shadow(0 2px 4px rgba(40,60,32,.07));}
+#tabelHousingComponent .entry-table tbody td{height:52px;padding:7px 6px;background:#fff;border-top:1px solid #e8ede4;border-bottom:1px solid #e8ede4;font-size:13px;}
+#tabelHousingComponent .entry-table tbody td:first-child{border-left:1px solid #e8ede4;border-radius:9px 0 0 9px;color:#818b79;font-size:11px;}
+#tabelHousingComponent .entry-table tbody td:last-child{border-right:1px solid #e8ede4;border-radius:0 9px 9px 0;}
+#tabelHousingComponent .entry-table tbody tr:hover td{background:#f8fbf5;}
+#tabelHousingComponent .entry-table tbody td.housing-ukuran{background:#f1f6ec;border-top-color:#e1ead9;border-bottom-color:#e1ead9;border-left:0;border-right:0;border-radius:7px;font-size:15px!important;font-weight:900;color:#315d2b;}
+#tabelHousingComponent .entry-table tbody tr:hover td.housing-ukuran{background:#eaf3e3;}
+#tabelHousingComponent .entry-table th:nth-child(7){background:#527b3c;}
+#tabelHousingComponent .entry-table td:nth-child(7){background:#f6f9f2;}
+#tabelHousingComponent .housing-input{width:68px!important;min-width:68px;max-width:68px;height:36px!important;padding:4px 5px!important;border:1px solid #bdcdb2!important;border-radius:8px!important;background:#fff!important;color:#2d4726;font-size:16px!important;font-weight:800!important;box-shadow:none;}
+#tabelHousingComponent .housing-input:focus{border-color:#527b3c!important;background:#fff!important;outline:3px solid rgba(82,123,60,.13);}
+@media(max-width:700px){
+  #tabelHousingComponent{padding:10px;}
+  #tabelHousingComponent .table-wrap{overflow:visible;}
+  #tabelHousingComponent .entry-table{width:100%;min-width:0;border-spacing:0 9px;table-layout:fixed;}
+  #tabelHousingComponent .entry-table thead{display:none;}
+  #tabelHousingComponent .entry-table tbody{display:block;width:100%;}
+  #tabelHousingComponent .entry-table tbody tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 6px;padding:8px;border:1px solid #e1e9da;border-radius:12px;background:#fff;filter:drop-shadow(0 3px 6px rgba(40,60,32,.08));}
+  #tabelHousingComponent .entry-table tbody td{display:flex;min-width:0;height:auto;min-height:47px;align-items:center;justify-content:center;gap:3px;padding:6px 3px;border:0;border-radius:0!important;background:transparent!important;text-align:center;white-space:normal;font-size:12px;}
+  #tabelHousingComponent .entry-table tbody td::before{display:block;color:#819078;font-size:9px;font-weight:700;line-height:1.1;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(1){display:none;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(2){grid-column:1/-1;justify-content:flex-start;min-height:39px;margin:0 0 5px;padding:4px 8px;border-radius:8px!important;background:#f0f6eb!important;text-align:left;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(2)::before{content:none;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(3)::before{content:"TARGET";}
+  #tabelHousingComponent .entry-table tbody td:nth-child(4)::before{content:"REALISASI";}
+  #tabelHousingComponent .entry-table tbody td:nth-child(5)::before{content:"SISA";}
+  #tabelHousingComponent .entry-table tbody td:nth-child(6){grid-column:1/3;justify-content:flex-start;padding-left:7px;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(6)::before{content:"STATUS";margin-right:4px;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(7){grid-column:3;grid-row:3/5;flex-direction:column;gap:5px;border-left:1px solid #edf1e9;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(7)::before{content:"BATANG HARI INI";text-align:center;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(8){grid-column:1;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(8)::before{content:"VOL. HARI INI";}
+  #tabelHousingComponent .entry-table tbody td:nth-child(9){grid-column:2;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(9)::before{content:"VOL. REALISASI";}
+  #tabelHousingComponent .housing-input{width:62px!important;min-width:62px;max-width:62px;height:34px!important;font-size:15px!important;}
+  #tabelHousingComponent .status-lunas,#tabelHousingComponent .status-belum-lunas{padding:4px 7px;font-size:9px;}
+}
+
+/* Pilihan desain: kartu per ukuran */
+#tabelHousingComponent .table-wrap{max-height:none;overflow:visible;border:0;border-radius:0;background:transparent;}
+#tabelHousingComponent .entry-table{display:block;width:100%;min-width:0;border:0;border-spacing:0;table-layout:auto;}
+#tabelHousingComponent .entry-table thead{display:none;}
+#tabelHousingComponent .entry-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;}
+#tabelHousingComponent .entry-table tbody tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-content:start;gap:2px 7px;padding:11px 12px;border:1px solid #e2e9dc;border-radius:11px;background:#fff;box-shadow:0 2px 7px rgba(40,60,32,.06);filter:none;}
+#tabelHousingComponent .entry-table tbody td{display:flex;min-width:0;height:auto;min-height:42px;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:5px 3px;border:0;border-radius:0!important;background:transparent!important;text-align:center;white-space:normal;font-size:12px;}
+#tabelHousingComponent .entry-table tbody td::before{display:block;color:#7a8672;font-size:9px;font-weight:700;line-height:1.15;}
+#tabelHousingComponent .entry-table tbody td:nth-child(1){display:none;}
+#tabelHousingComponent .entry-table tbody td:nth-child(2){grid-column:1/4;grid-row:1;align-items:flex-start;justify-content:center;min-height:38px;padding:3px 5px;border-radius:7px!important;background:#f1f6ec!important;text-align:left;}
+#tabelHousingComponent .entry-table tbody td:nth-child(2)::before{content:none;}
+#tabelHousingComponent .entry-table tbody td:nth-child(3){grid-column:1;grid-row:2;}
+#tabelHousingComponent .entry-table tbody td:nth-child(3)::before{content:"TARGET";}
+#tabelHousingComponent .entry-table tbody td:nth-child(4){grid-column:2;grid-row:2;}
+#tabelHousingComponent .entry-table tbody td:nth-child(4)::before{content:"REALISASI";}
+#tabelHousingComponent .entry-table tbody td:nth-child(5){grid-column:3;grid-row:2;}
+#tabelHousingComponent .entry-table tbody td:nth-child(5)::before{content:"SISA";}
+#tabelHousingComponent .entry-table tbody td:nth-child(6){grid-column:4;grid-row:1;}
+#tabelHousingComponent .entry-table tbody td:nth-child(6)::before{content:"STATUS";}
+#tabelHousingComponent .entry-table tbody td:nth-child(7){grid-column:1/3;grid-row:3;flex-direction:row;justify-content:space-between;gap:5px;padding:5px 7px;border-top:1px solid #edf1e9;}
+#tabelHousingComponent .entry-table tbody td:nth-child(7)::before{content:"BATANG HARI INI";}
+#tabelHousingComponent .entry-table tbody td:nth-child(8){grid-column:3;grid-row:3;}
+#tabelHousingComponent .entry-table tbody td:nth-child(8)::before{content:"VOL. HARI INI";}
+#tabelHousingComponent .entry-table tbody td:nth-child(9){grid-column:4;grid-row:2;}
+#tabelHousingComponent .entry-table tbody td:nth-child(9)::before{content:"VOL. TOTAL";}
+#tabelHousingComponent .housing-ukuran{font-size:15px!important;color:#315d2b;}
+#tabelHousingComponent .housing-input{width:62px!important;min-width:62px;max-width:62px;height:34px!important;padding:4px!important;border:1px solid #bdcbb3!important;border-radius:7px!important;background:#fff!important;color:#26351f;font-size:15px!important;font-weight:700!important;box-shadow:none;}
+#tabelHousingComponent .status-lunas,#tabelHousingComponent .status-belum-lunas{padding:4px 7px;font-size:9px;}
+@media(max-width:700px){#tabelHousingComponent .entry-table tbody{grid-template-columns:1fr;gap:9px;}#tabelHousingComponent .entry-table tbody tr{padding:10px 11px;}}
+
+/* Housing: ringkas, fokus ke ukuran, warna navy dan emas */
+#tabelHousingComponent .housing-heading-icon{background:#18324b;color:#e7bd63;box-shadow:none;}
+#tabelHousingComponent .housing-heading-title{color:#18324b;}
+#tabelHousingComponent .housing-heading-subtitle{color:#647486;}
+#tabelHousingComponent .housing-select label,#tabelHousingComponent .housing-search label{color:#526579;font-size:10px;font-weight:800;letter-spacing:.07em;display:block;margin:0 0 5px;}
+#tabelHousingComponent .housing-select select{border:1px solid #c8d1da;border-radius:8px;background:#fff;color:#18324b;box-shadow:none;}
+#tabelHousingComponent .housing-search{margin:0 0 10px;}
+#tabelHousingComponent .housing-search input{width:100%;height:38px;padding:0 11px;border:1px solid #c8d1da;border-radius:8px;background:#fff;color:#18324b;font-size:14px;}
+#tabelHousingComponent .entry-table thead th{background:#18324b;color:#fff;}
+#tabelHousingComponent .entry-table tbody td{border-color:#e4e8ec;color:#344454;}
+#tabelHousingComponent .table-wrap{max-height:none;overflow-x:auto;overflow-y:visible;border:1px solid #dce2e8;border-radius:8px;background:#fff;}
+#tabelHousingComponent .entry-table{display:table;width:100%;min-width:620px;border-collapse:collapse;border-spacing:0;table-layout:auto;}
+#tabelHousingComponent .entry-table thead{display:table-header-group;}
+#tabelHousingComponent .entry-table tbody{display:table-row-group;}
+#tabelHousingComponent .entry-table tbody tr{display:table-row;padding:0;border:0;border-radius:0;background:#fff;box-shadow:none;}
+#tabelHousingComponent .entry-table tbody td{display:table-cell;height:auto;min-height:0;padding:8px 6px;text-align:center;white-space:nowrap;}
+#tabelHousingComponent .entry-table tbody td::before{display:none;content:none;}
+#tabelHousingComponent .entry-table tbody td.housing-ukuran{background:#fff4d8!important;color:#18324b!important;border-radius:6px;font-weight:900!important;font-size:16px!important;white-space:nowrap;}
+#tabelHousingComponent .entry-table tbody td.housing-no{font-weight:800;color:#687889;}
+#tabelHousingComponent .housing-input{border:1px solid #b8c4cf!important;border-radius:7px!important;color:#18324b!important;background:#fff!important;box-shadow:none!important;}
+#tabelHousingComponent .housing-input:focus{border-color:#c3942f!important;outline:2px solid #f3e2b8;}
+@media(max-width:700px){
+  #tabelHousingComponent .entry-table thead{display:none;}
+  #tabelHousingComponent .entry-table tbody{display:block;}
+  #tabelHousingComponent .entry-table tbody tr{display:grid;grid-template-columns:26px minmax(0,1fr) 64px;grid-template-rows:auto auto;gap:0 7px;padding:7px 0;margin:0;border:0;border-bottom:1px solid #dce2e8;border-radius:0;background:#fff;box-shadow:none;}
+  #tabelHousingComponent .entry-table tbody td{display:flex;min-width:0;align-items:center;justify-content:center;padding:5px 3px;border:0;font-size:12px;}
+  #tabelHousingComponent .entry-table tbody td::before{display:block;font-size:8px;font-weight:800;letter-spacing:.02em;color:#778493;line-height:1.2;margin-bottom:3px;}
+  #tabelHousingComponent .entry-table tbody td.housing-no{grid-column:1;grid-row:1;align-self:center;font-size:12px;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(1){display:flex;grid-column:1;grid-row:1;}
+  #tabelHousingComponent .entry-table tbody td.housing-no::before{content:"NO";display:none;}
+  #tabelHousingComponent .entry-table tbody td.housing-ukuran{grid-column:2;grid-row:1;justify-content:flex-start;padding:6px 8px;font-size:17px!important;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(2){display:flex;grid-column:2;grid-row:1;align-items:center;}
+  #tabelHousingComponent .entry-table tbody td.housing-ukuran::before{content:none;}
+  #tabelHousingComponent .entry-table tbody td.housing-input-cell{grid-column:3;grid-row:1;flex-direction:column;padding:2px;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(6){display:flex;grid-column:3;grid-row:1;flex-direction:column;justify-content:center;padding:2px;}
+  #tabelHousingComponent .entry-table tbody td.housing-input-cell::before{content:"INPUT";}
+  #tabelHousingComponent .entry-table tbody td.housing-input-cell .housing-input{width:58px!important;min-width:58px;max-width:58px;height:29px!important;padding:2px!important;text-align:center;font-size:14px!important;}
+  #tabelHousingComponent .entry-table tbody td.housing-target{grid-column:1;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td.housing-realisasi{grid-column:2;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td.housing-kekurangan{grid-column:3;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(3){display:flex;grid-column:1;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(4){display:flex;grid-column:2;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td:nth-child(5){display:flex;grid-column:3;grid-row:2;flex-direction:column;}
+  #tabelHousingComponent .entry-table tbody td.housing-target::before{content:"TARGET";}
+  #tabelHousingComponent .entry-table tbody td.housing-realisasi::before{content:"REALISASI";}
+  #tabelHousingComponent .entry-table tbody td.housing-kekurangan::before{content:"KURANG";}
+}
+/* Cocokkan tampilan dengan mockup terpilih: Tabel bersih */
+#tabelHousingComponent{max-width:760px;margin:0 auto 18px;overflow:hidden;border-radius:14px;background:#fff;color:#26351f;box-shadow:0 7px 24px rgba(28,50,27,.13);}
+#tabelHousingComponent .housing-heading{display:block;margin:0;padding:15px 18px;background:#315d2b;color:#fff;}
+#tabelHousingComponent .housing-heading-title{color:#fff;font-size:18px;font-weight:700;letter-spacing:0;}
+#tabelHousingComponent .housing-heading-subtitle{margin-top:3px;color:#e0ead8;font-size:12px;}
+#tabelHousingComponent .housing-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px;}
+#tabelHousingComponent .housing-tabs{display:flex;gap:4px;padding:3px;border-radius:8px;background:#edf1e9;}
+#tabelHousingComponent .housing-tab{padding:6px 12px;border:0;border-radius:6px;background:transparent;color:#66705d;font-size:12px;font-weight:700;cursor:pointer;}
+#tabelHousingComponent .housing-tab.active{background:#fff;color:#315d2b;box-shadow:0 1px 4px rgba(0,0,0,.13);}
+#tabelHousingComponent .housing-date{font-size:12px;color:#687261;}
+#tabelHousingComponent .table-wrap{margin:0 15px 0;padding:0;max-height:none;overflow:auto;border:1px solid #e2e8dd;border-radius:9px;background:#fff;}
+#tabelHousingComponent .entry-table{display:table;width:100%;min-width:650px;border-collapse:collapse;border-spacing:0;table-layout:auto;text-align:center;}
+#tabelHousingComponent .entry-table thead{display:table-header-group;}
+#tabelHousingComponent .entry-table thead th{padding:10px 7px;background:#edf2e8;color:#56634f;font-size:10px;text-transform:uppercase;white-space:nowrap;}
+#tabelHousingComponent .entry-table tbody{display:table-row-group;}
+#tabelHousingComponent .entry-table tbody tr{display:table-row;padding:0;border:0;border-radius:0;background:#fff;box-shadow:none;}
+#tabelHousingComponent .entry-table tbody td{display:table-cell;height:48px;min-height:0;padding:7px;border:0;border-top:1px solid #edf0ea;border-radius:0;text-align:center;white-space:nowrap;font-size:12px;color:#26351f;}
+#tabelHousingComponent .entry-table tbody td::before{display:none;content:none;}
+#tabelHousingComponent .entry-table tbody td.housing-no{width:42px;color:#71806a;font-weight:700;}
+#tabelHousingComponent .entry-table tbody td.housing-ukuran{background:transparent!important;color:#315d2b!important;font-size:14px!important;font-weight:700!important;}
+#tabelHousingComponent .housing-status-badge{display:inline-block;padding:4px 8px;border-radius:20px;background:#fff2d9;color:#8a5b13;font-size:10px;font-weight:700;}
+#tabelHousingComponent .housing-status-badge.done{background:#e7f3e1;color:#35642b;}
+#tabelHousingComponent .entry-table tbody td.housing-input-cell{background:transparent;}
+#tabelHousingComponent .housing-input{display:inline-flex;width:50px!important;min-width:50px;max-width:50px;height:31px!important;align-items:center;justify-content:center;padding:2px!important;border:1px solid #bdcbb3!important;border-radius:6px!important;background:#fff!important;color:#26351f!important;font-size:14px!important;font-weight:700!important;box-shadow:none!important;text-align:center;}
+#tabelHousingComponent .housing-input:focus{border-color:#6d8f3a!important;outline:2px solid #dfe9d4;}
+#tabelHousingComponent .housing-foot{padding:10px 17px 15px;color:#687261;font-size:11px;}
+#tabelHousingComponent .housing-save{margin-left:8px;padding:7px 11px;border:0;border-radius:7px;background:#315d2b;color:#fff;font-size:11px;font-weight:700;cursor:pointer;}
+@media(max-width:700px){
+  #tabelHousingComponent .housing-heading{padding:13px;}
+  #tabelHousingComponent .housing-toolbar{padding:9px 11px;}
+  #tabelHousingComponent .table-wrap{margin:0 9px;overflow-x:auto;}
+  #tabelHousingComponent .entry-table{display:table!important;width:100%;min-width:650px;}
+  #tabelHousingComponent .entry-table thead{display:table-header-group!important;}
+  #tabelHousingComponent .entry-table tbody{display:table-row-group!important;}
+  #tabelHousingComponent .entry-table tbody tr{display:table-row!important;}
+  #tabelHousingComponent .entry-table tbody td{display:table-cell!important;grid-column:auto!important;grid-row:auto!important;flex-direction:initial!important;height:48px;min-height:0;white-space:nowrap;}
+  #tabelHousingComponent .entry-table tbody td::before{display:none!important;content:none!important;}
+  #tabelHousingComponent .housing-foot{padding:10px 11px 12px;}
+}
+/* Final Housing layout: six aligned columns, including on phone widths */
+#tabelHousingComponent{max-width:760px;margin:0 auto 18px;padding:0!important;border:0!important;overflow:hidden;border-radius:14px;background:light-dark(#fff,#252c34);color:light-dark(#243141,#e7edf2);box-shadow:0 6px 22px rgba(21,36,56,.13);font:14px/1.4 Arial,Helvetica,sans-serif;}
+#tabelHousingComponent .housing-heading{display:block;margin:0;padding:15px 18px;background:light-dark(#263f5b,#203447);color:#fff;}
+#tabelHousingComponent .housing-heading-title{color:#fff;font-size:18px;font-weight:700;letter-spacing:0;}
+#tabelHousingComponent .housing-heading-subtitle{margin-top:3px;color:light-dark(#d8e1ea,#c6d5e2);font-size:12px;}
+#tabelHousingComponent .housing-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px;}
+#tabelHousingComponent .housing-tabs{display:flex;gap:4px;padding:3px;border-radius:8px;background:light-dark(#edf0f3,#343c44);}
+#tabelHousingComponent .housing-tab{padding:6px 12px;border:0;border-radius:6px;background:transparent;color:light-dark(#667482,#b8c3ce);font-size:12px;font-weight:700;cursor:pointer;}
+#tabelHousingComponent .housing-tab.active{background:light-dark(#fff,#4a5661);color:light-dark(#263f5b,#f0f4f7);box-shadow:0 1px 4px rgba(0,0,0,.13);}
+#tabelHousingComponent .housing-date{font-size:12px;color:light-dark(#687786,#bec8d0);}
+#tabelHousingComponent .table-wrap{margin:0 15px;padding:0;max-height:none;overflow:auto;border:1px solid light-dark(#e1e6eb,#414b55);border-radius:9px;background:light-dark(#fff,#292f36);}
+#tabelHousingComponent .entry-table{display:table!important;width:100%;min-width:610px;border:0;border-collapse:collapse;border-spacing:0;table-layout:auto;text-align:center;font:inherit;}
+#tabelHousingComponent .entry-table thead{display:table-header-group!important;}
+#tabelHousingComponent .entry-table thead th{position:static!important;left:auto!important;z-index:auto!important;width:auto!important;min-width:0!important;max-width:none!important;height:34px;padding:8px 7px;border:0;border-right:1px solid light-dark(#dfe5ea,#4a5661)!important;background:light-dark(#edf1f4,#353f48)!important;color:light-dark(#596978,#c2cdd5)!important;font-size:10px;font-weight:700;line-height:1.2;letter-spacing:.02em;text-align:center;text-transform:uppercase;white-space:nowrap;}
+#tabelHousingComponent .entry-table thead th:nth-child(-n+2){background:light-dark(#263f5b,#203447)!important;color:#fff!important;border-right-color:light-dark(#52687d,#4a5661)!important;}
+#tabelHousingComponent .entry-table tbody{display:table-row-group!important;}
+#tabelHousingComponent .entry-table tbody tr{display:table-row!important;padding:0;border:0;border-radius:0;background:light-dark(#fff,#292f36);box-shadow:none;filter:none;}
+#tabelHousingComponent .entry-table th,#tabelHousingComponent .entry-table td{position:static!important;left:auto!important;z-index:auto!important;width:auto;min-width:0;max-width:none;box-shadow:none;}
+#tabelHousingComponent .entry-table tbody td{display:table-cell!important;grid-column:auto!important;grid-row:auto!important;height:48px;min-height:0;padding:7px;border:0;border-top:1px solid light-dark(#edf0f2,#3a434b);border-right:1px solid light-dark(#e1e6eb,#414b55)!important;border-radius:0;background:light-dark(#fff,#292f36)!important;text-align:center;vertical-align:middle;white-space:nowrap;font-size:12px;font-weight:400;line-height:1.3;color:light-dark(#243141,#e7edf2);}
+#tabelHousingComponent .entry-table tbody td::before{display:none!important;content:none!important;}
+#tabelHousingComponent .entry-table tbody td.housing-no{width:42px;padding-left:12px;text-align:left;color:light-dark(#71808d,#b7c2cb);font-size:12px;font-weight:700;}
+#tabelHousingComponent .entry-table tbody td.housing-ukuran{background:transparent!important;color:light-dark(#263f5b,#e2eaf0)!important;font-size:14px!important;font-weight:700!important;letter-spacing:.01em;}
+#tabelHousingComponent .entry-table tbody td:nth-child(1){width:42px;min-width:42px;}
+#tabelHousingComponent .entry-table tbody td:nth-child(2){min-width:145px;padding-left:12px;padding-right:12px;}
+#tabelHousingComponent .entry-table tbody td:nth-child(3){width:70px;}
+#tabelHousingComponent .entry-table tbody td:nth-child(4){width:90px;}
+#tabelHousingComponent .entry-table tbody td:nth-child(5){width:105px;}
+#tabelHousingComponent .entry-table tbody td:nth-child(6){width:120px;}
+#tabelHousingComponent .entry-table tbody td.housing-input-cell{background:transparent;}
+#tabelHousingComponent .housing-input{width:50px!important;min-width:50px;max-width:50px;height:31px!important;padding:0!important;border:1px solid light-dark(#bdc7d0,#5a6874)!important;border-radius:6px!important;background:light-dark(#fff,#252c34)!important;color:light-dark(#263141,#f0f4f7)!important;font-family:Arial,Helvetica,sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:1!important;box-shadow:none!important;text-align:center;}
+#tabelHousingComponent .housing-input:focus{border-color:#667f96!important;outline:2px solid light-dark(#dce4eb,#475969);}
+#tabelHousingComponent .housing-foot{padding:10px 17px 15px;color:light-dark(#687786,#b8c2ca);font-size:11px;}
+#tabelHousingComponent .housing-save{margin-left:8px;padding:7px 11px;border:0;border-radius:7px;background:light-dark(#263f5b,#3d5a72);color:#fff;font-size:11px;font-weight:700;cursor:pointer;}
+@media(max-width:700px){#tabelHousingComponent .housing-heading{padding:13px;}#tabelHousingComponent .housing-toolbar{padding:9px 11px;}#tabelHousingComponent .table-wrap{margin:0 9px;overflow-x:auto;}#tabelHousingComponent .housing-foot{padding:10px 11px 12px;}}
+</style>
 </head>
 
 <body>
@@ -1758,20 +1981,16 @@ td{
 >
 
     <div class="housing-heading">
-        <div class="housing-heading-icon">▦</div>
-        <div>
-            <div class="housing-heading-title">Housing Component</div>
-            <div class="housing-heading-subtitle">Pilih kelompok, isi batang hari ini, lalu simpan entry.</div>
+        <div class="housing-heading-title">Housing Component</div>
+        <div class="housing-heading-subtitle">Input produksi harian</div>
+    </div>
+    <div class="housing-toolbar">
+        <div class="housing-tabs">
+            <button type="button" class="housing-tab active" data-kelompok="pavilliun" onclick="pilihKelompokHousing('pavilliun')">Pavilliun</button>
+            <button type="button" class="housing-tab" data-kelompok="hall" onclick="pilihKelompokHousing('hall')">Hall</button>
         </div>
+        <span class="housing-date" id="housingDateView"></span>
     </div>
-        <div class="nama-filter housing-select" style="margin-bottom:10px;">
-        <label for="pilihKelompokHousing">KELOMPOK HOUSING</label>
-        <select id="pilihKelompokHousing" onchange="pilihKelompokHousing(this.value)">
-            <option value="pavilliun">PAVILLIUN</option>
-            <option value="hall">HALL</option>
-        </select>
-    </div>
-    <div class="housing-tip">Draft input tersimpan otomatis di browser ini. Pindah kelompok aman; klik <b>SIMPAN ENTRY</b> untuk mengirim ke sheet.</div>
 <div class="table-wrap">
 
         <table class="entry-table">
@@ -1780,13 +1999,10 @@ td{
     <tr>
         <th>NO</th>
         <th>UKURAN</th>
-        <th>JML</th>
-        <th>TOTAL REALISASI</th>
+        <th>TARGET</th>
+        <th>REALISASI</th>
         <th>KEKURANGAN</th>
-        <th>KET</th>
-        <th>BATANG HARI INI</th>
-        <th>VOLUME HARI INI</th>
-        <th>VOLUME REALISASI</th>
+        <th>INPUT HARIAN</th>
     </tr>
 </thead>
 
@@ -1797,6 +2013,7 @@ td{
         </table>
 
     </div>
+    <div class="housing-foot">Input produksi harian <button type="button" class="housing-save" onclick="simpanDataHousingDariTabel()">Simpan entry</button></div>
 
 </div>
 
@@ -2352,6 +2569,9 @@ function pulihkanDraftHousing(){
 async function pilihKelompokHousing(kelompok){
     simpanDraftHousing();
     housingKelompokAktif = kelompok === 'hall' ? 'hall' : 'pavilliun';
+    document.querySelectorAll('#tabelHousingComponent .housing-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.kelompok === housingKelompokAktif);
+    });
     dataHousing = [];
     await renderHousingComponent();
 }
@@ -2479,106 +2699,27 @@ function renderHousingMaster(){
 
 
     dataHousing.forEach((item, index) => {
-
-        const totalRealisasi =
-            angka(item.totalRealisasi);
-
-
-        const kekurangan =
-            angka(item.jml) -
-            totalRealisasi;
-
-
-        const volumeHariIni =
-            round6(
-                item.tebal *
-                item.lebar *
-                item.panjang *
-                angka(item.batangHariIni) /
-                1000000000
-            );
-
-
-        const volumeRealisasi =
-            round6(
-                item.tebal *
-                item.lebar *
-                item.panjang *
-                totalRealisasi /
-                1000000000
-            );
-
-
-        let ket = "Belum Lunas";
-
-        if(totalRealisasi >= item.jml){
-            ket = "Lunas";
-        }
-
-
-        const tr =
-            document.createElement("tr");
-
-
-       tr.innerHTML = `
-
-    <td>
-        ${item.no}
-    </td>
-
-    <td class="housing-ukuran">
-        ${item.tebal} × ${item.lebar} × ${item.panjang}
-    </td>
-            <td>
-                ${item.jml}
-            </td>
-
-            <td>
-                ${totalRealisasi}
-            </td>
-
-            <td>
-                ${kekurangan}
-            </td>
-
-           <td>
-    <span class="${
-        ket === "Lunas"
-            ? "status-lunas"
-            : "status-belum-lunas"
-    }">
-        ${ket}
-    </span>
-</td>
-
-            <td>
-
-                <input
-                    type="number"
-                    min="0"
-                    class="housing-input"
-                    data-index="${index}"
-                    value="${item.batangHariIni || ''}"
-                    oninput="ubahBatangHousing(${index}, this.value)"
-                >
-
-            </td>
-
-            <td>
-                ${formatAngka(volumeHariIni)}
-            </td>
-
-            <td>
-                ${formatAngka(volumeRealisasi)}
-            </td>
-
-        `;
-
-
+        const totalRealisasi = angka(item.totalRealisasi);
+        const kekurangan = angka(item.jml) - totalRealisasi;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td class="housing-no" data-label="NO">${String(item.no).padStart(2, "0")}</td>
+            <td class="housing-ukuran" data-label="UKURAN">${item.tebal} × ${item.lebar} × ${item.panjang}</td>
+            <td class="housing-target" data-label="TARGET">${item.jml}</td>
+            <td class="housing-realisasi" data-label="REALISASI">${totalRealisasi}</td>
+            <td class="housing-kekurangan" data-label="KEKURANGAN">${kekurangan}</td>
+            <td class="housing-input-cell" data-label="INPUT HARIAN">
+                <input type="number" min="0" class="housing-input" data-index="${index}"
+                    value="${item.batangHariIni || ''}" oninput="ubahBatangHousing(${index}, this.value)">
+            </td>`;
         body.appendChild(tr);
-
     });
-
+    const pilihTanggal = document.getElementById("tanggalEntryManual")?.value;
+    const dateView = document.getElementById("housingDateView");
+    if(dateView && pilihTanggal){
+        const [tahun, bulan, hari] = pilihTanggal.split("-");
+        dateView.textContent = `${hari} ${["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"][Number(bulan)-1]} ${tahun}`;
+    }
 }
 
 function ubahBatangHousing(index, nilai){
@@ -2652,32 +2793,9 @@ function ubahBatangHousing(index, nilai){
     }
 
 
-   // TOTAL REALISASI
-row.children[3].textContent =
-    totalBaru;
-
-// KEKURANGAN
-row.children[4].textContent =
-    kekurangan;
-
-// KET
-row.children[5].innerHTML = `
-    <span class="${
-        ket === "Lunas"
-            ? "status-lunas"
-            : "status-belum-lunas"
-    }">
-        ${ket}
-    </span>
-`;
-
-// VOLUME HARI INI
-row.children[7].textContent =
-    formatAngka(volumeHariIni);
-
-// VOLUME REALISASI
-row.children[8].textContent =
-    formatAngka(volumeRealisasi);
+// Update nilai tabel yang berubah setelah input hari ini.
+row.children[3].textContent = totalBaru;
+row.children[4].textContent = kekurangan;
 
     console.log(
         "HOUSING:",
