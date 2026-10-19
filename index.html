@@ -259,11 +259,14 @@ td{
 
 .entry-date-box input{
     width:100%;
+    min-width:0;
+    max-width:100%;
+    display:block;
     border:1px solid #cbdcbb;
     border-radius:8px;
     padding:10px;
     font-size:16px;
-    font-weight:bold;
+    font-weight:400;
 }
 
 .empty-entry{
@@ -1643,12 +1646,16 @@ td{
 #tabelHousingComponent .entry-table tbody tr{display:table-row!important;padding:0;border:0;border-radius:0;background:#fff;box-shadow:none;filter:none;}
 #tabelHousingComponent .entry-table th,#tabelHousingComponent .entry-table td{position:static!important;left:auto!important;z-index:auto!important;width:auto;min-width:0;max-width:none;box-shadow:none;}
 #tabelHousingComponent .entry-table tbody td{display:table-cell!important;grid-column:auto!important;grid-row:auto!important;height:48px;min-height:0;padding:7px;border:0;border-top:1px solid #edf1e9;border-right:1px solid #e1e9da!important;border-radius:0;background:#fff!important;text-align:center;vertical-align:middle;white-space:nowrap;font-size:12px;font-weight:400;line-height:1.3;color:#26351f;}
+#tabelHousingComponent .entry-table tbody td:not(.housing-ukuran),
+#tabelHousingComponent .entry-table tbody td:not(.housing-ukuran) *:not(.housing-lunas-badge){font-weight:400!important;}
 #tabelHousingComponent .entry-table tbody tr.housing-selected > td{background:#dcebd3!important;border-top:1px solid #a9c399!important;border-right:1px solid #a9c399!important;border-bottom:1px solid #a9c399!important;}
 #tabelHousingComponent .entry-table tbody tr.housing-selected td:first-child{box-shadow:inset 4px 0 #5e853d!important;}
 #tabelHousingComponent .entry-table tbody tr.housing-selected td.housing-ukuran{color:#294623!important;}
 #tabelHousingComponent .entry-table tbody tr.housing-selected .housing-input{background:#f5faef!important;border-color:#8eae78!important;}
+#tabelHousingComponent .housing-kekurangan.housing-complete{color:#2f6b2b;font-weight:400;}
+#tabelHousingComponent .housing-lunas-badge{display:inline-block;margin-left:5px;padding:2px 5px;border:1px solid #c9dfbd;border-radius:10px;background:#edf6e8;color:#356b2b;font-size:10px;font-weight:700;line-height:1.2;vertical-align:middle;}
 #tabelHousingComponent .entry-table tbody td::before{display:none!important;content:none!important;}
-#tabelHousingComponent .entry-table tbody td.housing-no{width:42px;padding-left:12px;text-align:left;color:#71806a;font-size:12px;font-weight:700;}
+#tabelHousingComponent .entry-table tbody td.housing-no{width:42px;padding-left:12px;text-align:left;color:#71806a;font-size:12px;font-weight:400!important;}
 #tabelHousingComponent .entry-table tbody td.housing-ukuran{background:transparent!important;color:#315d2b!important;font-size:16px!important;font-weight:800!important;line-height:1.25!important;letter-spacing:.01em;}
 #tabelHousingComponent .entry-table tbody td:nth-child(1){width:42px;min-width:42px;}
 #tabelHousingComponent .entry-table tbody td:nth-child(2){min-width:145px;padding-left:12px;padding-right:12px;}
@@ -1657,11 +1664,12 @@ td{
 #tabelHousingComponent .entry-table tbody td:nth-child(5){width:105px;}
 #tabelHousingComponent .entry-table tbody td:nth-child(6){width:120px;}
 #tabelHousingComponent .entry-table tbody td.housing-input-cell{background:transparent;}
-#tabelHousingComponent .housing-input{width:50px!important;min-width:50px;max-width:50px;height:31px!important;padding:0!important;border:1px solid #bdcbb3!important;border-radius:6px!important;background:#fff!important;color:#26351f!important;font-family:Arial,Helvetica,sans-serif!important;font-size:12px!important;font-weight:700!important;line-height:1!important;box-shadow:none!important;text-align:center;}
+#tabelHousingComponent .housing-input{width:50px!important;min-width:50px;max-width:50px;height:31px!important;padding:0!important;border:1px solid #bdcbb3!important;border-radius:6px!important;background:#fff!important;color:#26351f!important;font-family:Arial,Helvetica,sans-serif!important;font-size:12px!important;font-weight:400!important;line-height:1!important;box-shadow:none!important;text-align:center;}
 #tabelHousingComponent .housing-input:focus{border-color:#6d8f3a!important;outline:2px solid #dfe9d4;}
 #tabelHousingComponent .housing-foot{padding:10px 17px 15px;color:#687a5f;font-size:12px;}
 #tabelHousingComponent .housing-save{margin-left:0;padding:7px 11px;border:0;border-radius:7px;background:#315d2b;color:#fff;font-size:12px;font-weight:700;cursor:pointer;}
 @media(max-width:700px){#tabelHousingComponent .housing-heading{padding:13px;}#tabelHousingComponent .housing-toolbar{padding:9px 11px;}#tabelHousingComponent .table-wrap{margin:0 9px;overflow-x:auto;}#tabelHousingComponent .housing-foot{padding:10px 11px 12px;}}
+@media(max-width:700px){.input-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.entry-date-box{grid-column:1 / -1;width:100%;min-width:0;}.entry-date-box input{width:100%;min-width:0;max-width:100%;padding:8px 10px;font-size:16px;}}
 </style>
 </head>
 
@@ -2719,13 +2727,17 @@ function renderHousingMaster(){
     dataHousing.forEach((item, index) => {
         const totalRealisasi = angka(item.totalRealisasi);
         const kekurangan = angka(item.jml) - totalRealisasi;
+        const housingLunas = kekurangan <= 0;
+        const kekuranganContent = housingLunas
+            ? `<span class="housing-lunas-badge">LUNAS</span>`
+            : kekurangan;
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td class="housing-no" data-label="NO">${item.no}</td>
             <td class="housing-ukuran" data-label="UKURAN">${item.tebal} × ${item.lebar} × ${item.panjang}</td>
             <td class="housing-target" data-label="TARGET">${item.jml}</td>
             <td class="housing-realisasi" data-label="REALISASI">${totalRealisasi}</td>
-            <td class="housing-kekurangan" data-label="KEKURANGAN">${kekurangan}</td>
+            <td class="housing-kekurangan${housingLunas ? " housing-complete" : ""}" data-label="KEKURANGAN">${kekuranganContent}</td>
             <td class="housing-input-cell" data-label="INPUT HARIAN">
                 <input type="number" min="0" class="housing-input" data-index="${index}"
                     value="${item.batangHariIni || ''}" oninput="ubahBatangHousing(${index}, this.value)">
@@ -2813,7 +2825,12 @@ function ubahBatangHousing(index, nilai){
 
 // Update nilai tabel yang berubah setelah input hari ini.
 row.children[3].textContent = totalBaru;
-row.children[4].textContent = kekurangan;
+const kekuranganCell = row.children[4];
+const housingLunas = kekurangan <= 0;
+kekuranganCell.classList.toggle("housing-complete", housingLunas);
+kekuranganCell.innerHTML = housingLunas
+    ? `<span class="housing-lunas-badge">LUNAS</span>`
+    : kekurangan;
 
     console.log(
         "HOUSING:",
