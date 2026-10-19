@@ -241,53 +241,6 @@ td{
     padding-left:10px;
 }
 
-.entry-date-box{
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    gap:8px;
-    background:linear-gradient(135deg,#f4f8f0,#ffffff 72%);
-    border:1px solid #d7e3ce;
-    border-left:4px solid #477333;
-    border-radius:14px;
-    padding:13px 15px;
-    margin:12px 0 0;
-    width:100%;
-    min-width:0;
-    max-width:100%;
-    overflow:hidden;
-    box-shadow:0 3px 12px rgba(49,93,43,.08);
-}
-
-.entry-date-box label{
-    display:block;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:.07em;
-    color:#477333;
-    margin:0;
-}
-
-.entry-date-box input{
-    width:100%!important;
-    min-width:0!important;
-    max-width:100%!important;
-    height:44px;
-    display:block;
-    box-sizing:border-box!important;
-    border:1px solid #d4dfcc;
-    border-radius:9px;
-    padding:8px 11px;
-    font-size:16px;
-    font-weight:400;
-    color:#26351f;
-    background:#fff;
-}
-
-#entryLog{width:100%;max-width:100%;min-width:0;box-sizing:border-box;}
-#entryLog .entry-date-box{width:100%;max-width:100%;min-width:0;margin-left:0;margin-right:0;box-sizing:border-box;}
-#entryLog #tanggalEntryManual{width:100%;max-width:100%;min-width:0;box-sizing:border-box;}
-
 .empty-entry{
     padding:15px;
     text-align:center;
@@ -1688,13 +1641,11 @@ td{
 #tabelHousingComponent .housing-foot{padding:10px 17px 15px;color:#687a5f;font-size:12px;}
 #tabelHousingComponent .housing-save{margin-left:0;padding:7px 11px;border:0;border-radius:7px;background:#315d2b;color:#fff;font-size:12px;font-weight:700;cursor:pointer;}
 @media(max-width:700px){#tabelHousingComponent .housing-heading{padding:13px;}#tabelHousingComponent .housing-toolbar{padding:9px 11px;}#tabelHousingComponent .table-wrap{margin:0 9px;overflow-x:auto;}#tabelHousingComponent .housing-foot{padding:10px 11px 12px;}}
-@media(max-width:700px){#entryLog{width:auto!important;max-width:100%;min-width:0;overflow:hidden;}.entry-date-box{display:flex!important;flex-direction:column!important;gap:7px;width:auto!important;min-width:0!important;max-width:100%!important;margin:10px 0 0!important;padding:11px 12px;box-sizing:border-box!important;}.entry-date-box label{margin:0;}#entryLog .entry-date-box input,#entryLog #tanggalEntryManual{display:block!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;height:44px;padding:8px 10px;font-size:16px;}}
-#entryLog .entry-date-box{height:auto!important;min-height:0!important;align-items:stretch!important;}
-#entryLog .entry-date-box input[type="date"]{height:48px!important;min-height:48px!important;max-height:48px!important;padding:0 12px!important;line-height:normal!important;}
-#entryLog .entry-date-box{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:6px!important;width:auto!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:0!important;margin:12px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;}
-#entryLog .entry-date-box label{display:block!important;margin:0!important;color:#526f32!important;font-size:11px!important;font-weight:700!important;letter-spacing:.04em!important;}
-#entryLog .entry-date-box input[type="date"]{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;height:44px!important;min-height:44px!important;max-height:44px!important;box-sizing:border-box!important;padding:0 12px!important;border:1px solid #cbd8c1!important;border-radius:9px!important;background:#fff!important;color:#26351f!important;font-size:16px!important;font-weight:400!important;line-height:normal!important;box-shadow:0 1px 3px rgba(35,65,25,.06)!important;}
-@media(max-width:700px){#entryLog .entry-date-box{width:auto!important;max-width:100%!important;min-width:0!important;margin-top:10px!important;padding:0!important;gap:6px!important;}#entryLog .entry-date-box input[type="date"]{width:100%!important;max-width:100%!important;min-width:0!important;height:44px!important;max-height:44px!important;}}
+#entryLog{width:auto;max-width:100%;min-width:0;box-sizing:border-box;}
+#entryLog .entry-date-box{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:252px;max-width:100%;min-width:0;margin:12px 0 0;padding:10px;background:#edf4e6;border:1px solid #cbdcbb;border-radius:10px;box-shadow:none;box-sizing:border-box;}
+#entryLog .entry-date-box label{display:block;margin:0;color:#526f32;font-size:11px;font-weight:700;letter-spacing:normal;}
+#entryLog #tanggalEntryManual{display:block;width:100%;max-width:100%;min-width:0;height:44px;min-height:44px;max-height:44px;box-sizing:border-box;padding:0 10px;border:1px solid #cbdcbb;border-radius:8px;background:#fff;color:#26351f;font-size:16px;font-weight:400;line-height:normal;vertical-align:middle;box-shadow:none;}
+@media(max-width:700px){#entryLog .entry-date-box{width:252px;max-width:100%;margin-top:10px;padding:9px;gap:5px;}#entryLog #tanggalEntryManual{width:100%;max-width:100%;height:44px;min-height:44px;max-height:44px;padding:0 9px;font-size:16px;}}
 </style>
 </head>
 
