@@ -1669,7 +1669,7 @@ td{
 #tabelHousingComponent .housing-foot{padding:10px 17px 15px;color:#687a5f;font-size:12px;}
 #tabelHousingComponent .housing-save{margin-left:0;padding:7px 11px;border:0;border-radius:7px;background:#315d2b;color:#fff;font-size:12px;font-weight:700;cursor:pointer;}
 @media(max-width:700px){#tabelHousingComponent .housing-heading{padding:13px;}#tabelHousingComponent .housing-toolbar{padding:9px 11px;}#tabelHousingComponent .table-wrap{margin:0 9px;overflow-x:auto;}#tabelHousingComponent .housing-foot{padding:10px 11px 12px;}}
-@media(max-width:700px){.input-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.entry-date-box{grid-column:1 / -1;width:100%;min-width:0;}.entry-date-box input{width:100%;min-width:0;max-width:100%;padding:8px 10px;font-size:16px;}}
+@media(max-width:700px){.entry-date-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%;min-width:0;}.entry-date-grid>*{grid-column:1!important;width:100%;min-width:0;max-width:100%;}.entry-date-box{grid-column:1!important;width:100%;min-width:0;max-width:100%;}.entry-date-box input,#tanggalEntryManual{display:block!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;padding:8px 10px;font-size:16px;}}
 </style>
 </head>
 
@@ -1793,7 +1793,7 @@ td{
         Data Log
     </div>
 
-    <div class="input-grid">
+    <div class="input-grid entry-date-grid">
 
         <div class="field">
 
