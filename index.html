@@ -2595,9 +2595,9 @@ async function renderHousingComponent(){
          * C = LEBAR
          * D = PANJANG
          * E = JML
-         * G = TOTAL REALISASI BATANG
-         * I = KEKURANGAN BATANG
-         * K = KET
+         * G + I = TOTAL REALISASI BATANG
+         * K = KEKURANGAN BATANG
+         * M = KET
          */
 
         dataHousing =
@@ -2625,14 +2625,11 @@ async function renderHousingComponent(){
                     jml:
                         angka(row[4]),
 
-                    totalRealisasi:
-                        angka(row[6]),
+                    totalRealisasi: angka(row[6]) + angka(row[8]),
 
-                    kekurangan:
-                        angka(row[8]),
+                    kekurangan: angka(row[10]),
 
-                    ket:
-                        row[10] || "Belum Lunas",
+                    ket: row[12] || "Belum Lunas",
 
                     batangHariIni:
                         0
@@ -2698,7 +2695,7 @@ function renderHousingMaster(){
 
     dataHousing.forEach((item, index) => {
         const totalRealisasi = angka(item.totalRealisasi);
-        const kekurangan = angka(item.jml) - totalRealisasi;
+        const kekurangan = angka(item.kekurangan);
         const housingLunas = kekurangan <= 0;
         const kekuranganContent = housingLunas
             ? `<span class="housing-lunas-badge">LUNAS</span>`
@@ -2772,9 +2769,7 @@ function ubahBatangHousing(index, nilai){
 
 
     // KEKURANGAN
-    const kekurangan =
-        dataHousing[index].jml -
-        totalBaru;
+    const kekurangan = angka(dataHousing[index].kekurangan) - batang;
 
 
     // STATUS
@@ -2937,9 +2932,9 @@ async function simpanDataHousingDariTabel(){
                 return;
             }
 
-            item.totalRealisasi =
-                angka(item.totalRealisasi) +
-                batangHariIni;
+            item.totalRealisasi = angka(item.totalRealisasi) + batangHariIni;
+
+            item.kekurangan = angka(item.kekurangan) - batangHariIni;
 
             item.batangHariIni = 0;
 
